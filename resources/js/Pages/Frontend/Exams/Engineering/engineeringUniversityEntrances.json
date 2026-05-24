@@ -1,0 +1,323 @@
+[
+  {
+    "id": "viteee",
+    "university": "VIT (Vellore Institute of Technology)",
+    "state": "Tamil Nadu",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "VITEEE",
+    "officialPortal": "https://viteee.vit.ac.in/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "srmjeee",
+    "university": "SRM Institute of Science & Technology",
+    "state": "Tamil Nadu",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "SRMJEEE",
+    "officialPortal": "https://applications.srmist.edu.in/btech",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "kiitee",
+    "university": "KIIT (Kalinga Institute of Industrial Technology)",
+    "state": "Odisha",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "KIITEE",
+    "officialPortal": "https://kiitee.kiit.ac.in/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "met",
+    "university": "Manipal Academy of Higher Education",
+    "state": "Karnataka",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "MET",
+    "officialPortal": "https://www.manipal.edu/entrancetest",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "aeee",
+    "university": "Amrita Vishwa Vidyapeetham",
+    "state": "Tamil Nadu",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "AEEE",
+    "officialPortal": "https://aeee.amrita.edu/",
+    "alsoAccepts": ["JEE Main (as notified)"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "aeee-portal",
+    "university": "Amrita Vishwa Vidyapeetham",
+    "state": "Tamil Nadu",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "AEEE Application Portal",
+    "officialPortal": "https://aeee.amrita.edu/portal",
+    "alsoAccepts": ["JEE Main (as notified)"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "lpunest",
+    "university": "Lovely Professional University",
+    "state": "Punjab",
+    "ugcType": "Private",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "LPUNEST",
+    "officialPortal": "https://www.lpu.in/nest/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "thapar",
+    "university": "Thapar Institute of Engineering & Technology (TIET)",
+    "state": "Punjab",
+    "ugcType": "Deemed",
+    "admissionMode": "Institute Admissions (Entrance / scores as notified)",
+    "examName": "TIET Admissions",
+    "officialPortal": "https://admission.thapar.edu/",
+    "alsoAccepts": ["JEE Main (as notified)"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "iiith-ug",
+    "university": "IIIT Hyderabad",
+    "state": "Telangana",
+    "ugcType": "Private",
+    "admissionMode": "Institute Test / Selection Process",
+    "examName": "UGEE (as notified)",
+    "officialPortal": "https://ugadmissions.iiit.ac.in/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "bitsat",
+    "university": "BITS Pilani",
+    "state": "Rajasthan",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "BITSAT",
+    "officialPortal": "https://www.bitsadmission.com/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "nata",
+    "university": "Council of Architecture (for Architecture admissions)",
+    "state": "National",
+    "ugcType": "NA",
+    "admissionMode": "National Aptitude Test (Architecture)",
+    "examName": "NATA",
+    "officialPortal": "https://www.nata.in/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  
+  {
+    "id": "bitsat",
+    "university": "Birla Institute of Technology and Science (BITS Pilani)",
+    "state": "Rajasthan",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "BITSAT",
+    "officialPortal": "https://www.bitsadmission.com/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "viteee",
+    "university": "Vellore Institute of Technology (VIT)",
+    "state": "Tamil Nadu",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "VITEEE",
+    "officialPortal": "https://viteee.vit.ac.in/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "aeee",
+    "university": "Amrita Vishwa Vidyapeetham",
+    "state": "Tamil Nadu",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "AEEE",
+    "officialPortal": "https://aeee.amrita.edu/",
+    "alsoAccepts": ["JEE Main (as notified)"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "srmjeee",
+    "university": "SRM Institute of Science and Technology",
+    "state": "Tamil Nadu",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "SRMJEEE",
+    "officialPortal": "https://applications.srmist.edu.in/btech",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "kiitee",
+    "university": "Kalinga Institute of Industrial Technology (KIIT)",
+    "state": "Odisha",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "KIITEE",
+    "officialPortal": "https://kiitee.kiit.ac.in/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "met",
+    "university": "Manipal Academy of Higher Education",
+    "state": "Karnataka",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "MET",
+    "officialPortal": "https://www.manipal.edu/entrancetest",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "lpunest",
+    "university": "Lovely Professional University",
+    "state": "Punjab",
+    "ugcType": "Private",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "LPUNEST",
+    "officialPortal": "https://www.lpu.in/nest/",
+    "alsoAccepts": ["JEE Main (as notified)"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "upesat",
+    "university": "University of Petroleum and Energy Studies (UPES)",
+    "state": "Uttarakhand",
+    "ugcType": "Private",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "UPESEAT",
+    "officialPortal": "https://admissions.upes.ac.in/",
+    "alsoAccepts": ["JEE Main"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "cuet-chitkara",
+    "university": "Chitkara University",
+    "state": "Punjab / Himachal Pradesh",
+    "ugcType": "Private",
+    "admissionMode": "Institute Test / Selection Process",
+    "examName": "Chitkara University Admission Test",
+    "officialPortal": "https://www.chitkara.edu.in/admissions/",
+    "alsoAccepts": ["JEE Main"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "snu",
+    "university": "Shiv Nadar University",
+    "state": "Uttar Pradesh",
+    "ugcType": "Private",
+    "admissionMode": "Institute Test / Selection Process",
+    "examName": "SNUCEE / Institute Process",
+    "officialPortal": "https://snu.edu.in/admissions/",
+    "alsoAccepts": ["SAT", "JEE Main (as notified)"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "iiith",
+    "university": "International Institute of Information Technology Hyderabad",
+    "state": "Telangana",
+    "ugcType": "Private",
+    "admissionMode": "Institute Test / Selection Process",
+    "examName": "UGEE / Olympiad / Interview",
+    "officialPortal": "https://ugadmissions.iiit.ac.in/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "amu",
+    "university": "Aligarh Muslim University",
+    "state": "Uttar Pradesh",
+    "ugcType": "Central",
+    "admissionMode": "University Entrance Test",
+    "examName": "AMU Admission Test (Engineering)",
+    "officialPortal": "https://www.amucontrollerexams.com/",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "jmi",
+    "university": "Jamia Millia Islamia",
+    "state": "Delhi",
+    "ugcType": "Central",
+    "admissionMode": "University Entrance Test",
+    "examName": "JMI Engineering Entrance",
+    "officialPortal": "https://www.jmi.ac.in/admissions",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "cuj",
+    "university": "Central University of Jharkhand",
+    "state": "Jharkhand",
+    "ugcType": "Central",
+    "admissionMode": "University Admission Process",
+    "examName": "CUJ Engineering Admissions",
+    "officialPortal": "https://cuj.ac.in/",
+    "alsoAccepts": ["CUET (as notified)"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "thapar",
+    "university": "Thapar Institute of Engineering & Technology",
+    "state": "Punjab",
+    "ugcType": "Deemed",
+    "admissionMode": "Institute Admission Process",
+    "examName": "TIET Admissions",
+    "officialPortal": "https://admission.thapar.edu/",
+    "alsoAccepts": ["JEE Main"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "nmims",
+    "university": "NMIMS University",
+    "state": "Maharashtra",
+    "ugcType": "Deemed",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "NMIMS CET",
+    "officialPortal": "https://nmims.edu/admission",
+    "alsoAccepts": [],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "pes",
+    "university": "PES University",
+    "state": "Karnataka",
+    "ugcType": "Private",
+    "admissionMode": "Own Entrance Exam",
+    "examName": "PESSAT",
+    "officialPortal": "https://admissions.pes.edu/",
+    "alsoAccepts": ["KCET"],
+    "lastVerified": "2025-12"
+  },
+  {
+    "id": "soait",
+    "university": "SOA University (Siksha 'O' Anusandhan)",
+    "state": "Odisha",
+    "ugcType": "Deemed",
+    "admissionMode": "Institute Entrance / Selection",
+    "examName": "SOA Admission Test",
+    "officialPortal": "https://www.soa.ac.in/admission",
+    "alsoAccepts": ["JEE Main"],
+    "lastVerified": "2025-12"
+  }
+]
+

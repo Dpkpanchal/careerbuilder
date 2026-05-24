@@ -1,0 +1,639 @@
+{
+  "section_id": "C",
+  "section_title": "PROFESSIONAL COURSES",
+  "pages": "65-83",
+  "description": "Specialized professional courses after higher secondary education",
+  "paramedical_nursing_pharmacy": {
+    "description": "Complete list of paramedical, nursing and pharmacy courses",
+    "courses": [
+      {
+        "name": "Diploma in Medical Laboratory Technology (DMLT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Radiography (DRD)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Physiotherapy (DPT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Radioorthoptic Technology",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Optometry & Ophthalmic Technology (DCPT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Neuroelectro physiology (DNEP)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Perfusion Technology (DPFT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Cath Lab Technician (DCLT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Dialysis Technique",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Critical care Technology (DCCT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Electro cardio Graphic Technique (ECG)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Clinical Child Development",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in X-Ray Technician & Radiography",
+        "duration": "2 years"
+      },
+      {
+        "name": "Dental Technician (DT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Medical Social Work",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Yoga & Naturopathy",
+        "duration": "2 years"
+      },
+      {
+        "name": "Occupational Therapy (BOT)",
+        "duration": "4 years"
+      },
+      {
+        "name": "Occupational Therapy (MOT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Prosthetic or Orthotic Engineering",
+        "duration": "4.5 years"
+      },
+      {
+        "name": "Audiology & Speech Therapy",
+        "duration": "4 years"
+      },
+      {
+        "name": "Bachelor of Medical Lab Tech. (BMLT)",
+        "duration": "3.5 years"
+      },
+      {
+        "name": "Bachelor of Optometry Sc. (B. OPTM)",
+        "duration": "4 years"
+      },
+      {
+        "name": "Bachelor of Radio Imaging Tech (BRIT)",
+        "duration": "3 years"
+      },
+      {
+        "name": "Bachelor of Hospital Management (BHM)",
+        "duration": "3 years"
+      }
+    ]
+  },
+  "bba_mba_bca_mca": {
+    "mba": {
+      "full_form": "Master of Business Administration",
+      "description": "Comprehensive training in business disciplines",
+      "duration": "2 years",
+      "common_topics": [
+        "Business Studies",
+        "Managerial Decision-Making",
+        "Accounting",
+        "Financial Management",
+        "Funds Management",
+        "Global Business",
+        "Leadership Prospective",
+        "Marketing Strategies",
+        "Operations Management",
+        "Organizational Change"
+      ],
+      "specializations": [
+        "Marketing",
+        "Human Resources",
+        "Finance",
+        "International Business",
+        "Retail Management",
+        "Pharmaceutical Management",
+        "Operational Management",
+        "Information Technology",
+        "Event Management",
+        "Actuarial Sciences",
+        "Entrepreneurship",
+        "Construction Management",
+        "Hotel Management",
+        "Logistics Supply Chain Management",
+        "Organization Behaviour",
+        "Health Care & Hospitality Management"
+      ],
+      "career_options": [
+        "Investment Banker",
+        "Financial Planner",
+        "Analyst",
+        "Consultant",
+        "Entrepreneur"
+      ],
+      "top_colleges_india": [
+        "IIM-Ahmedabad",
+        "IIM-Bangalore",
+        "IIM-Calcutta",
+        "XLRI – Xavier School of Management, Jamshedpur",
+        "IIM-Indore",
+        "IIM-Lucknow",
+        "IIM-Kozhikode",
+        "Management Development Institute, Gurgaon",
+        "Faculty of Management Studies, University of Delhi",
+        "Department of Management Studies, IIT Delhi"
+      ]
+    },
+    "bba": {
+      "full_form": "Bachelor of Business Administration",
+      "duration": "3 years",
+      "next_steps": [
+        "MBA",
+        "Ph.D"
+      ]
+    },
+    "bca": {
+      "full_form": "Bachelor of Computer Applications",
+      "duration": "3 years",
+      "description": "Undergraduate IT course for computer applications development",
+      "career_options": [
+        "Software Company Jobs",
+        "Web Designing",
+        "Government Sector Jobs",
+        "Own Software Companies"
+      ],
+      "next_steps": [
+        "MCA",
+        "M.Sc. I.T.",
+        "M.Sc. I.S.",
+        "M.Sc. C.S.",
+        "MBA",
+        "PGDCA"
+      ]
+    },
+    "mca": {
+      "full_form": "Master of Computer Applications",
+      "duration": "3 years (6 semesters)",
+      "description": "Postgraduate IT course focused on application software development",
+      "best_colleges_india": [
+        "NIT Warrangal / Allahabad",
+        "NIT Trichy / Surathkal",
+        "BIT Mesra",
+        "NIT Durgapur",
+        "Hyderabad Central University/JNU Delhi",
+        "NIT Calicut / Kurukshetra",
+        "NIT Bhopal / IT BHU",
+        "Pune University",
+        "VIT, Vellore"
+      ],
+      "career_progression": [
+        "Software Developer",
+        "System Manager",
+        "System Analyst",
+        "Network System Administrator",
+        "Web Design Specialist",
+        "Techno Marketing",
+        "Database Administrator"
+      ]
+    }
+  },
+  "journalism_mass_communication": {
+    "description": "Courses in JMC offered at graduation and post-graduation level",
+    "course_types": [
+      "BA in Journalism",
+      "MA in Journalism",
+      "MA in Mass Communication",
+      "MA in Development Communication",
+      "MA in Film Studies",
+      "MA in Advertising",
+      "MA in Public Relations and Corporate Communications",
+      "Diploma and PG Diploma courses"
+    ],
+    "job_opportunities": [
+      {
+        "sector": "Print",
+        "jobs": [
+          "Editing",
+          "Reporting",
+          "Photography",
+          "Designing"
+        ]
+      },
+      {
+        "sector": "Online",
+        "jobs": [
+          "Multimedia skills",
+          "Illustrator",
+          "Reporting/Editing",
+          "Digital Photography"
+        ]
+      },
+      {
+        "sector": "Photo journalism",
+        "jobs": [
+          "Wedding Photography",
+          "Fashion Photography"
+        ]
+      },
+      {
+        "sector": "Radio",
+        "jobs": [
+          "Journalism",
+          "Entertainment",
+          "RJ",
+          "Production",
+          "Voice over artist"
+        ]
+      },
+      {
+        "sector": "Television",
+        "jobs": [
+          "Journalism – Editing, Reporting, Videography, Broadcast maintenance",
+          "Entertainment – Direction, Cinematography, Screenplay, Video Production"
+        ]
+      },
+      {
+        "sector": "Film-making",
+        "jobs": [
+          "Storyboarding",
+          "Script writing",
+          "Sound recording, editing, mixing",
+          "Art direction",
+          "Cinematography"
+        ]
+      },
+      {
+        "sector": "Publishing",
+        "jobs": [
+          "Copyediting",
+          "Designing"
+        ]
+      },
+      {
+        "sector": "PR & Corporate Communications",
+        "jobs": [
+          "Public Relations",
+          "Corporate Communications",
+          "Event management",
+          "Social media management"
+        ]
+      }
+    ],
+    "top_institutions": [
+      "Jamia Millia Islamia's AJK Mass Communication Research Centre",
+      "Indian Institute of Mass Communication",
+      "Film and Television Institute (Pune)",
+      "Satyajit Ray Film and Television Institute",
+      "St. Xavier's University",
+      "Asian College of Journalism (Chennai)"
+    ],
+    "wb_universities": [
+      "Calcutta University",
+      "Jadavpur University",
+      "Rabindra Bharati University",
+      "Aliah University (only PG)",
+      "West Bengal State University",
+      "St. Xavier's University"
+    ]
+  },
+  "aviation_tourism": {
+    "aviation_courses": {
+      "description": "Careers in aviation systems worldwide",
+      "eligibility": "12th from any stream (Science, Commerce, Humanities or Arts)",
+      "career_avenues": [
+        "Aerospace Engineering",
+        "Air Traffic Controller",
+        "Airport Management and Administration",
+        "Airport Operations",
+        "Airport Security",
+        "Commercial Aviation",
+        "General Aviation",
+        "Flight Dispatcher",
+        "Flight Support",
+        "Flight Planning",
+        "Flight Training"
+      ],
+      "websites": [
+        "https://collegedunia.com/courses/aviation",
+        "https://www.shiksha.com/aviation/colleges/colleges-india"
+      ]
+    },
+    "tourism_jobs": [
+      "Resort Rep",
+      "Hotel & Catering",
+      "Tour Guide",
+      "Ski/Snowboard Rep",
+      "Travel Agent",
+      "Sports Facility Management"
+    ]
+  },
+  "gis_remote_sensing": {
+    "description": "Geographic Information System and Remote Sensing courses",
+    "institutes": [
+      {
+        "name": "Indian Institute Of Remote Sensing",
+        "courses": [
+          {
+            "name": "M.Tech. (RS & GIS)",
+            "duration": "2 years",
+            "eligibility": "M.Sc. in Natural Sciences, geography with science subject, B.E. or B.Tech., B.Arch./ B. Planning/ MCA (with B.Sc. Degree) / B.Sc. (Forestry/ Agriculture)",
+            "website": "www.iirs.gov.in"
+          },
+          {
+            "name": "M.Sc. in Geoinformatics",
+            "duration": "2 years",
+            "eligibility": "M.Sc. in Natural Sciences, geography with science subject, B.E. or B.Tech., B.Arch./ B. Planning/ MCA (with B.Sc. Degree) / B.Sc. (Forestry/ Agriculture)",
+            "website": "www.iirs.gov.in"
+          },
+          {
+            "name": "PG Diploma programme",
+            "duration": "1 year",
+            "website": "www.iirs.gov.in"
+          }
+        ]
+      },
+      {
+        "name": "Jamia Millia Islamia",
+        "courses": [
+          {
+            "name": "PG Diploma programme in GIS and RS",
+            "duration": "1 year",
+            "eligibility": "Natural science subject, Geography, etc..",
+            "website": "https://www.jmi.ac.in/geography/courses-name"
+          },
+          {
+            "name": "PG Diploma programme in Digital Cartography",
+            "duration": "1 year",
+            "eligibility": "Natural science subject, Geography, etc..",
+            "website": "https://www.jmi.ac.in/geography/courses-name"
+          }
+        ]
+      },
+      {
+        "name": "Jammu University",
+        "courses": [
+          {
+            "name": "M.Sc. in Remote Sensing and GIS",
+            "duration": "2 years",
+            "eligibility": "B.Sc in Sciences, Forestry/Agriculture B.E. or B.Tech., B.Arch./ B. Planning",
+            "website": "http://jammuuniversity.in/mscgis/index.html"
+          }
+        ]
+      },
+      {
+        "name": "Vidyasagar University",
+        "courses": [
+          {
+            "name": "M.Sc. Remote Sensing and GIS",
+            "duration": "2 years",
+            "eligibility": "Hons degree in Geography / Geology /Agricultural Science /Bio-Science/ Chemistry/Physics/ Mathematics / Computer Science / Electronics",
+            "website": "http://www.vidyasagar.ac.in/departments/RemoteSensing/"
+          }
+        ]
+      },
+      {
+        "name": "Jadavpur University",
+        "courses": [
+          {
+            "name": "PG Diploma programme in GIS and RS",
+            "duration": "1 year",
+            "eligibility": "M.A / M.Sc / B.E / B.Tech / B.A/ B.Sc. (with Honours/Major)",
+            "website": "http://admissionas.jdvu.ac.in/jadavpurrs/"
+          }
+        ]
+      },
+      {
+        "name": "Geoinformatics and RS Cell, Govt of West Bengal",
+        "courses": [
+          {
+            "name": "Post Graduate Diploma in Geoinformatics",
+            "duration": "1 year",
+            "eligibility": "Master's degree in Physics, Mathematics, Geology, Geophysics, Geography, Agriculture, Atmospheric Science, RS&GIS, Environmental Science, Botany, Forestry, Marine Science, Computer Application, Graduate in Civil Engineering, Computer Science, Information Technology, Mining Engineering, Surveying, Architecture, Regional Planning, Electronics and Communication or equivalent",
+            "website": "http://wbhed.gov.in/page/notice_board_st.php"
+          }
+        ]
+      },
+      {
+        "name": "Patna University",
+        "courses": [
+          {
+            "name": "PG Diploma programme in GIS and RS",
+            "duration": "1 year",
+            "eligibility": "Geography and other science background"
+          }
+        ]
+      },
+      {
+        "name": "Dayanand Saraswati University, Ajmer",
+        "courses": [
+          {
+            "name": "M. Sc. Remote Sensing & Geo-informatics",
+            "duration": "2 years",
+            "eligibility": "Bachelor of Natural, Physical & Earth Sciences / Geography, Engineering or Master's Degree in Natural, Physical and Earth Science including geography",
+            "website": "http://www.esri.in/esri-news/publication/vol7-issue3/articles/mds-university-ajmer"
+          }
+        ]
+      },
+      {
+        "name": "Birla Institute Of Technology (BIT) Ranchi",
+        "courses": [
+          {
+            "name": "M. Tech. in Remote Sensing"
+          },
+          {
+            "name": "M.Sc. in Geoinformatics"
+          },
+          {
+            "name": "Ph.D. in all branches of Remote Sensing, GIS, Earth Sciences"
+          }
+        ],
+        "eligibility": "B.Sc in Sciences, Forestry/Agriculture B.E. or B.Tech., B.Arch./ B. Planning",
+        "website": "https://www.bitmesra.ac.in/Show_Department?cid=1&deptid=78"
+      },
+      {
+        "name": "Aligarh Muslim University",
+        "courses": [
+          {
+            "name": "M.Sc. (Remote Sensing and GIS Applications)",
+            "duration": "2 years",
+            "eligibility": "B.Sc in Sciences , Forestry/Agriculture B.E. or B.Tech., B.Arch./ B. Planning",
+            "website": "https://www.amu.ac.in/departmentpage.jsp?did=100"
+          }
+        ]
+      },
+      {
+        "name": "Benaras Hindu University",
+        "courses": [
+          {
+            "name": "PG Diploma programme in GIS and RS",
+            "duration": "1 year",
+            "eligibility": "B.Sc in Sciences, Forestry/Agriculture B.E. or B.Tech., B.Arch./ B. Planning",
+            "website": "http://www.bhu.ac.in/science/geography/"
+          }
+        ]
+      },
+      {
+        "name": "Mahatma Gandhi Chitrakoot University",
+        "courses": [
+          {
+            "name": "M.Sc in Remote Sensing and GIS",
+            "duration": "2 years",
+            "eligibility": "B.Sc./B.Sc.Ag/ B.Tech.",
+            "website": "https://www.mgcgvchitrakoot.com/"
+          }
+        ]
+      },
+      {
+        "name": "Iwaji University, Gwalior",
+        "courses": [
+          {
+            "name": "M.Sc. Remote Sensing and GIS",
+            "eligibility": "B.Sc./ BE / B.Tech. with 50% marks"
+          }
+        ]
+      }
+    ]
+  },
+  "teachers_training_courses": {
+    "description": "Complete list of teacher training courses with eligibility",
+    "courses": [
+      {
+        "course": "D.El.Ed (Diploma in Elementary Education)",
+        "duration": "2 Years (To be completed within 3 years)",
+        "eligibility": "H.S.(+2) with 50% or its equivalent",
+        "next_steps": [
+          "Job in primary, upper primary school as TGT after qualifying State/Central TET",
+          "Can study M.Ed if has Undergraduate degree (with 50% marks in each)"
+        ]
+      },
+      {
+        "course": "D.El.Ed (ODL - Open Distance Learning)",
+        "duration": "2 Years (To be completed within 5 years)",
+        "eligibility": "H.S.(+2) with 50% + 2 years teaching experience in Govt/Govt recognized Primary/Elementary School + Should be working as teacher at application time",
+        "next_steps": [
+          "Job in primary, upper primary school as TGT after TET",
+          "Can study M.Ed if has Undergraduate degree"
+        ]
+      },
+      {
+        "course": "B.Ed (Bachelor of Education)",
+        "duration": "2 Years (To be completed within 3 years)",
+        "eligibility": "50% marks in Bachelor Degree/Master Degree in Science/Social Science/Humanities or Bachelor's in Engineering or Technology with specialization in Science and Mathematics with 55% marks",
+        "next_steps": [
+          "Job in primary, secondary school as TGT and in higher secondary as PGT after TET",
+          "Can study M.Ed"
+        ]
+      },
+      {
+        "course": "B.Ed (ODL)",
+        "duration": "2 Years (To be completed within 5 years)",
+        "eligibility": "Trained in-service teacher in elementary education OR Candidate who have completed a NCTE recognized teacher education programme through face to face mode",
+        "next_steps": [
+          "Job as TGT/PGT after TET",
+          "Can study M.Ed"
+        ]
+      },
+      {
+        "course": "B.P.Ed (Bachelor of Physical Education)",
+        "duration": "2 Years (To be completed within 3 years)",
+        "eligibility": "H.S.(+2) with 50% [5% relaxation for those participated in international/National/SGFI sports competition]",
+        "next_steps": [
+          "Job in primary school as TGT"
+        ]
+      },
+      {
+        "course": "M.Ed (Master of Education)",
+        "duration": "2 Years (To be completed within 3 years)",
+        "eligibility": "50% Marks in (i) B.Ed, (ii) B.A B.Ed/B.Sc B.Ed, (iii) D.El.Ed, (iv) D.El.Ed with Undergraduate degree (with 50% marks in each)",
+        "next_steps": [
+          "Job in higher secondary as PGT after TET",
+          "Asst. Prof. in Teachers Training College after NET/SET"
+        ]
+      },
+      {
+        "course": "M.P.Ed (Master of Physical Education)",
+        "duration": "2 Years (To be completed within 3 years)",
+        "eligibility": "B.P.Ed with 50% Marks OR B.Sc in Health and Physical Education with 50%",
+        "next_steps": [
+          "Job in secondary as TGT and higher secondary as PGT in Physical Education",
+          "Asst. Prof. after NET/SET"
+        ]
+      },
+      {
+        "course": "Integrated BA.B.Ed/BSc.B.Ed",
+        "duration": "4 Years (To be completed within 6 years)",
+        "eligibility": "H.S. with 50% or its equivalent",
+        "next_steps": [
+          "Job as TGT/PGT after TET",
+          "Can study M.Ed"
+        ]
+      },
+      {
+        "course": "Integrated B.Ed-M.Ed",
+        "duration": "3 Years (To be completed within 4 years)",
+        "eligibility": "Post Graduate in Science/Social Science/Humanities with 55% marks",
+        "next_steps": [
+          "Job as TGT/PGT after TET",
+          "Asst. Prof. in Teachers Training College after NET/SET"
+        ]
+      }
+    ],
+    "bed_method_subjects": [
+      "All Indian Languages (Bengali, English, Arabic, Urdu, Sanskrit, Hindi, Nepali, Santhali, Assamese, Manipuri, etc.)",
+      "History",
+      "Geography",
+      "Political Science",
+      "Philosophy",
+      "Sociology",
+      "Psychology",
+      "Education",
+      "Commerce",
+      "Physical Science",
+      "Life Science",
+      "Food & Nutrition",
+      "Mathematics",
+      "Computer Science",
+      "Economics",
+      "Home Management",
+      "Fine Arts",
+      "Music",
+      "Painting"
+    ]
+  },
+  "language_learning_centers": [
+    {
+      "name": "Ramkrishna Mission Institute of Culture",
+      "location": "Golpark, Kolkata",
+      "website": "http://sriramakrishna.org/school-of-languages"
+    },
+    {
+      "name": "CDA Global Language Centre",
+      "location": "Kolkata",
+      "website": "http://www.cdacentre.com/"
+    },
+    {
+      "name": "Anchor Academy",
+      "location": "Kolkata",
+      "website": "http://www.anchoracademy.in/index.php"
+    },
+    {
+      "name": "Foreign Language Courses in Kolkata",
+      "website": "https://www.studyfrenchspanish.com/blog/foreign-language-courses-kolkata/"
+    }
+  ]
+}

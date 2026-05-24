@@ -1,0 +1,281 @@
+/* Page Container */
+.pageContainer {
+  min-height: 100vh;
+  background: var(--bg-light);
+}
+
+/* Tabs Container */
+.tabsContainer {
+  background: var(--color-surface);
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tabsWrapper {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.scrollButton {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.5rem;
+  color: #475569;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.scrollButton:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.tabsScroll {
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabsScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.tabsInner {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+  min-width: min-content;
+}
+
+.tabButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  background: white;
+  color: #64748b;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.tabButton:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.tabActive {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: white;
+}
+.tabActive:hover {
+    color: white;
+}
+
+.tabIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Content Section */
+.contentSection {
+  padding: 2rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  height: fit-content;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cardIcon {
+  width: 24px;
+  height: 24px;
+  color: #3b82f6;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.cardType {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.cardDescription {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Details */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.detailIcon {
+  width: 16px;
+  height: 16px;
+  color: #64748b;
+}
+
+/* Features & Lists */
+.features, .eligibility, .specialization, .scope, .courses, .contactInfo {
+  margin-bottom: 1rem;
+}
+
+.features h6, .eligibility h6, .specialization h6, .scope h6, .courses h6, .contactInfo h6 {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.features ul, .courses ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.features li, .courses li {
+  color: #475569;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* Course Tags */
+.courseTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.courseTag {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Contact Section */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.contactButton {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.contactButton:hover {
+  background: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .tabsWrapper {
+    padding: 0.5rem 0;
+  }
+  
+  .tabButton {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .card {
+    padding: 1.25rem;
+  }
+  
+  .scrollButton {
+    display: none;
+  }
+  
+  .contentSection {
+    padding: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardHeader {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tabButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .tabIcon {
+    width: 16px;
+    height: 16px;
+  }
+}

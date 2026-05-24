@@ -1,0 +1,311 @@
+/* resources/css/app.css */
+/* @import 'admin-lte/dist/css/adminlte.min.css'; */
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.content-wrapper {
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar-collapse .content-wrapper {
+    margin-left: 0;
+}
+
+@media (max-width: 767.98px) {
+    .content-wrapper {
+        margin-left: 0;
+    }
+}
+
+.main-sidebar {
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.brand-link {
+    text-decoration: none;
+}
+
+.nav-link.active {
+    background-color: #007bff;
+}
+
+.alert {
+    margin-bottom: 0;
+}
+
+/* Login Page Styles */
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-box, .register-box {
+    width: 360px;
+    margin: 7% auto;
+}
+
+@media (max-width: 576px) {
+    .login-box, .register-box {
+        width: 90%;
+        margin-top: 20px;
+    }
+}
+
+.login-logo, .register-logo {
+    font-size: 2.1rem;
+    font-weight: 300;
+    margin-bottom: 0.9rem;
+    text-align: center;
+}
+
+.login-logo a, .register-logo a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.login-card-body, .register-card-body {
+    background: #ffffff;
+    border-top: 0;
+    color: #666;
+    padding: 20px;
+}
+
+.login-box-msg, .register-box-msg {
+    margin: 0;
+    text-align: center;
+    padding: 0 20px 20px 20px;
+}
+
+.social-auth-links {
+    margin: 10px 0;
+}
+
+/* User Management Styles */
+.user-info p {
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.user-info p:last-child {
+    border-bottom: none;
+}
+
+/* Button group improvements */
+.btn-group .btn {
+    margin-right: 0.25rem;
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0;
+}
+
+/* Table improvements */
+.table td, .table th {
+    vertical-align: middle;
+}
+
+/* Card header improvements */
+.card-header .card-tools {
+    float: right;
+    margin-right: -0.625rem;
+}
+
+/* Form improvements */
+.form-text {
+    font-size: 0.875rem;
+}
+
+/* Badge improvements */
+.badge {
+    font-size: 0.75rem;
+}
+
+/* Danger zone styling */
+.card .card-header .card-title {
+    margin-bottom: 0;
+}
+
+.text-muted {
+    font-size: 0.875rem;
+}
+
+/* Filter Styles */
+.card-header .card-tools {
+    float: right;
+    margin-right: -0.625rem;
+}
+
+.btn-tool {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Table improvements */
+.table-responsive {
+    border-radius: 0.25rem;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    user-select: none;
+}
+
+.table th:hover {
+    background-color: #f8f9fa;
+}
+
+/* Badge improvements */
+.badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Active filters */
+.d-flex.flex-wrap.gap-2 {
+    gap: 0.5rem;
+}
+
+/* Form improvements */
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+/* Button group improvements */
+.btn-group .btn {
+    border-radius: 0.25rem;
+}
+
+/* Empty state */
+.text-center.py-4 {
+    padding: 2rem 0;
+}
+
+/* Avatar images */
+.img-circle {
+    border-radius: 50%;
+}
+
+/* Pagination improvements */
+.pagination {
+    margin-bottom: 0;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .card-body .row > [class*="col-"] {
+        margin-bottom: 1rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+    
+    .btn-group .btn {
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Profile Page Styles */
+.profile-user-img {
+    border: 3px solid #adb5bd;
+    margin: 0 auto;
+    padding: 3px;
+    width: 100px;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.box-profile {
+    text-align: center;
+}
+
+.profile-username {
+    font-size: 21px;
+    margin-top: 5px;
+}
+
+.list-group-unbordered > .list-group-item {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Tab Navigation */
+.nav-pills .nav-link.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0.25rem;
+    color: #495057;
+    padding: 0.5rem 1rem;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #e9ecef;
+}
+
+/* Danger Zone */
+.card-danger {
+    border-color: #dc3545;
+}
+
+.card-danger .card-header {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* File Input */
+.form-control-file {
+    display: block;
+    width: 100%;
+}
+
+/* Avatar Preview */
+#avatar-preview {
+    transition: all 0.3s ease;
+}
+
+#avatar-preview:hover {
+    opacity: 0.8;
+}
+
+.ck-editor__editable_inline {
+    min-height: 400px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-user-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .box-profile {
+        text-align: left;
+    }
+}
+
+/* .main-footer {
+    display: none !important;
+} */

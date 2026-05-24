@@ -1,0 +1,98 @@
+<!-- forum-flow.svg - responsive inline SVG mockup -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="auto" role="img" aria-labelledby="forumFlowTitle forumFlowDesc">
+  <title id="forumFlowTitle">Forum flow: ask, discuss, counselor reply</title>
+  <desc id="forumFlowDesc">A simple infographic showing a student asking a question, community discussion, and a verified counselor reply.</desc>
+
+  <defs>
+    <!-- gradient for strokes/fills -->
+    <linearGradient id="gradAccent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#00b2f2"/>
+      <stop offset="0.55" stop-color="#8a63f7"/>
+      <stop offset="1" stop-color="#b76cff"/>
+    </linearGradient>
+
+    <!-- soft shadow filter -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#6e4be0" flood-opacity="0.08"/>
+    </filter>
+
+    <!-- rounded rectangle path for consistent corners -->
+    <clipPath id="roundRectClip">
+      <rect x="0" y="0" width="420" height="240" rx="18" ry="18"/>
+    </clipPath>
+  </defs>
+
+  <!-- background card (light) -->
+  <rect x="18" y="18" width="1164" height="384" rx="20" fill="#ffffff" stroke="#f0eefb" />
+
+  <!-- LEFT: User asking -->
+  <g transform="translate(48,56)">
+    <!-- avatar circle -->
+    <circle cx="64" cy="48" r="44" fill="#f5f5ff" stroke="url(#gradAccent)" stroke-width="2" filter="url(#softShadow)"/>
+    <!-- simple face lines -->
+    <circle cx="64" cy="48" r="14" fill="#e9e7ff"/>
+    <path d="M54 58 q10 10 20 0" fill="none" stroke="#b6b3e9" stroke-width="2" stroke-linecap="round"/>
+    <!-- speech bubble (ask) -->
+    <g transform="translate(120,18)">
+      <rect x="0" y="0" width="240" height="86" rx="12" fill="#fbfbff" stroke="#e9e8f7"/>
+      <path d="M18 86 L8 100 L28 86" fill="#fbfbff" stroke="#e9e8f7" />
+      <text x="18" y="30" font-family="Inter, Arial, sans-serif" font-size="18" fill="#3b3b58" font-weight="700">Ask a question</text>
+      <text x="18" y="54" font-family="Inter, Arial, sans-serif" font-size="13" fill="#6b6b88">Add context — what, where, when</text>
+    </g>
+  </g>
+
+  <!-- arrow to center -->
+  <g transform="translate(380,122)">
+    <path d="M0 0 L170 0" stroke="url(#gradAccent)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="170,0 156,-10 156,10" fill="url(#gradAccent)"/>
+  </g>
+
+  <!-- CENTER: Forum discussion window -->
+  <g transform="translate(568,44)">
+    <g clip-path="url(#roundRectClip)">
+      <rect x="0" y="0" width="420" height="240" rx="18" fill="#fff" stroke="#efeafc"/>
+      <rect x="18" y="18" width="384" height="36" rx="8" fill="#f7f5ff"/>
+      <!-- header text -->
+      <text x="28" y="42" font-family="Inter, Arial, sans-serif" font-size="18" fill="#4a3f9e" font-weight="700">Forum</text>
+
+      <!-- small avatar + snippet rows -->
+      <g transform="translate(28,74)">
+        <circle cx="20" cy="20" r="18" fill="#fbfbff" stroke="#e9e8f7"/>
+        <rect x="52" y="4" width="290" height="12" rx="8" fill="#f6f6ff"/>
+        <rect x="52" y="26" width="220" height="10" rx="6" fill="#fbfbff"/>
+      </g>
+
+      <!-- another reply -->
+      <g transform="translate(28,126)">
+        <circle cx="20" cy="20" r="18" fill="#fbfbff" stroke="#e9e8f7"/>
+        <rect x="52" y="4" width="290" height="12" rx="8" fill="#f6f6ff"/>
+        <rect x="52" y="26" width="200" height="10" rx="6" fill="#fbfbff"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- arrow to right counselor reply -->
+  <g transform="translate(1020,122)">
+    <path d="M0 0 L-170 0" stroke="url(#gradAccent)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="-170,0 -156,-10 -156,10" fill="url(#gradAccent)"/>
+  </g>
+
+  <!-- RIGHT: Counselor verified reply -->
+  <g transform="translate(880,56)">
+    <rect x="0" y="0" width="240" height="164" rx="16" fill="#fff" stroke="#efeafc" />
+    <!-- badge -->
+    <rect x="16" y="16" width="68" height="68" rx="12" fill="url(#gradAccent)" />
+    <text x="48" y="60" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" fill="#fff" font-weight="800">C</text>
+
+    <text x="100" y="40" font-family="Inter, Arial, sans-serif" font-size="16" fill="#3b3b58" font-weight="700">Counselor Reply</text>
+    <rect x="100" y="60" width="112" height="14" rx="6" fill="#f6f6ff"/>
+    <rect x="16" y="96" width="208" height="12" rx="6" fill="#fbfbff"/>
+    <rect x="16" y="116" width="180" height="12" rx="6" fill="#fbfbff"/>
+    <rect x="16" y="136" width="120" height="12" rx="6" fill="#fbfbff"/>
+  </g>
+
+  <!-- tiny caption -->
+  <text x="48" y="380" font-family="Inter, Arial, sans-serif" font-size="12" fill="#7b7a8a">
+    1. Ask → 2. Community discussion → 3. Verified counselor reply
+  </text>
+</svg>

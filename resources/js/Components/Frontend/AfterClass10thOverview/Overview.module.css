@@ -1,0 +1,79 @@
+
+
+
+/* Heading */
+.heading {
+  text-align: center;
+  color: var(--heading);
+  font-weight: 300;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+  font-size: 2rem;
+}
+.lead {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* Panel card */
+.panel {
+  border-radius: var(--panel-radius);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  background: var(--bg);
+}
+
+/* header */
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.98), rgba(250,250,250,0.98));
+  border-bottom: 1px solid rgba(15,23,42,0.03);
+}
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(15,23,42,0.03);
+}
+.titleWrap { flex: 1; }
+.titleText { font-weight: 700; color: #0f172a; font-size: 1rem; }
+.subtitleText { font-size: 0.82rem; color: var(--muted); margin-top: 3px; }
+
+/* body */
+.body {
+  padding: 12px 14px 18px 14px;
+  max-height: 360px;
+  overflow: auto;
+}
+.line {
+  margin: 0 0 8px 0;
+  font-size: 0.92rem;
+  color: #263238;
+  line-height: 1.45;
+  white-space: pre-wrap; /* keeps indentation where present */
+}
+
+/* color accents for panels (easy to tweak) */
+.red .iconWrap { background: linear-gradient(135deg,#fee2e2,#fecaca); }
+.pink .iconWrap { background: linear-gradient(135deg,#fff0f6,#ffdde6); }
+.orange .iconWrap { background: linear-gradient(135deg,#fff7ed,#ffedd5); }
+.blue .iconWrap { background: linear-gradient(135deg,#eef2ff,#e0e7ff); }
+.teal .iconWrap { background: linear-gradient(135deg,#ecfeff,#cffafe); }
+.violet .iconWrap { background: linear-gradient(135deg,#f3e8ff,#ede9fe); }
+
+
+
+/* responsive tweaks */
+@media (max-width: 767px) {
+  .body { max-height: 280px; }
+  .heading { font-size: 1.28rem; }
+  .line { font-size: 0.9rem; }
+}

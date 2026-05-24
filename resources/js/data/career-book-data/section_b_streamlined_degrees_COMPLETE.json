@@ -1,0 +1,717 @@
+{
+  "section_id": "B",
+  "section_title": "STREAMLINED DEGREE COURSES",
+  "target_students": "Class 11 and 12 students",
+  "pages": "33-64",
+  "description": "Full time degree courses for career building after higher secondary education",
+  "class_12_arts_pathways": {
+    "target": "Students who completed Class 12 in Arts stream",
+    "pathways": [
+      {
+        "degree": "B.A. (Bachelor of Arts)",
+        "duration": "3 Years",
+        "next_steps": [
+          "M.A.",
+          "M.Phil",
+          "Ph.D",
+          "Post Doc"
+        ],
+        "career_options": [
+          "Assistant Professor (through NET/SET)",
+          "WBCS/WBFS/IAS/IPS/IFS/IRS"
+        ],
+        "eligibility": "Class 12 Arts"
+      },
+      {
+        "degree": "B.A. Public Administration",
+        "duration": "3 Years",
+        "next_steps": [
+          "M.A. Public Administration",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Public Administration Jobs",
+          "Government Services"
+        ]
+      },
+      {
+        "degree": "B.A. LLB (Integrated)",
+        "duration": "5 Years",
+        "next_steps": [
+          "LLM (2 Years)",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Judicial Service",
+          "Legal Practice"
+        ],
+        "entrance_exam": "CLAT Exam"
+      },
+      {
+        "degree": "B.S.W. (Bachelor of Social Work)",
+        "duration": "3 Years",
+        "next_steps": [
+          "M.S.W.",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Social Worker",
+          "NGO Professional",
+          "Community Development"
+        ]
+      },
+      {
+        "degree": "BBA (Bachelor of Business Administration)",
+        "duration": "3 Years",
+        "next_steps": [
+          "MBA (2 Years)",
+          "Ph.D"
+        ],
+        "entrance_exams": [
+          "CAT",
+          "MAT",
+          "XAT",
+          "SNAP",
+          "GMAT",
+          "JEMAT"
+        ],
+        "career_options": [
+          "Business Management",
+          "Corporate Jobs",
+          "Entrepreneurship"
+        ]
+      },
+      {
+        "degree": "B.Ed (Special Education)",
+        "duration": "2 Years",
+        "eligibility": "50% in Graduation",
+        "specializations": [
+          "Hearing Impairment",
+          "Visual Impairment",
+          "Mental Retardation",
+          "Learning Disability"
+        ],
+        "next_steps": [
+          "M.Ed",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Secondary Teacher (through CSC/PSC)",
+          "Special Educator"
+        ]
+      },
+      {
+        "degree": "B.Lib (Bachelor of Library Science)",
+        "duration": "1 Year",
+        "next_steps": [
+          "M.Lib"
+        ],
+        "career_options": [
+          "Librarian",
+          "Information Specialist",
+          "Library Manager"
+        ]
+      },
+      {
+        "degree": "Journalism",
+        "career_options": [
+          "Media Professional",
+          "Content Writer",
+          "News Reporter",
+          "Anchor"
+        ]
+      }
+    ]
+  },
+  "class_12_commerce_pathways": {
+    "target": "Students who completed Class 12 in Commerce stream",
+    "pathways": [
+      {
+        "degree": "B.Com (Bachelor of Commerce)",
+        "duration": "3 Years",
+        "next_steps": [
+          "M.Com",
+          "MBA",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Accountant",
+          "Financial Analyst",
+          "Tax Consultant",
+          "Auditor"
+        ]
+      },
+      {
+        "degree": "BCA (Bachelor of Computer Applications)",
+        "duration": "3 Years",
+        "next_steps": [
+          "MCA (2 Years)",
+          "MBA"
+        ],
+        "entrance_exam": "JECA Exam (Science/Arts students)",
+        "career_options": [
+          "Software Developer",
+          "IT Professional",
+          "Web Developer"
+        ]
+      },
+      {
+        "degree": "BBA (Bachelor of Business Administration)",
+        "duration": "3 Years",
+        "next_steps": [
+          "MBA (2 Years)",
+          "Ph.D"
+        ],
+        "entrance_exams": [
+          "CAT",
+          "MAT",
+          "XAT",
+          "SNAP",
+          "GMAT",
+          "JEMAT"
+        ],
+        "career_options": [
+          "Business Manager",
+          "Corporate Professional",
+          "Marketing Manager"
+        ]
+      },
+      {
+        "degree": "BA LLB (Integrated)",
+        "duration": "5 Years",
+        "next_steps": [
+          "LLM (2 Years)",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Judicial Service",
+          "Corporate Lawyer",
+          "Legal Advisor"
+        ],
+        "entrance_exam": "CLAT Exam"
+      },
+      {
+        "degree": "LLB (Bachelor of Laws)",
+        "duration": "3 Years",
+        "eligibility": "After Graduation (50% marks)",
+        "next_steps": [
+          "LLM (2 Years)",
+          "Ph.D"
+        ],
+        "entrance_exam": "CLAT EXAM",
+        "career_options": [
+          "Judicial Exam",
+          "Legal Practice",
+          "Advocate"
+        ]
+      },
+      {
+        "degree": "CA (Chartered Accountant)",
+        "levels": [
+          "Fundamental",
+          "Intermediate",
+          "Final"
+        ],
+        "career_options": [
+          "Chartered Accountant",
+          "Financial Auditor",
+          "Tax Consultant"
+        ]
+      },
+      {
+        "degree": "CS (Company Secretary)",
+        "career_options": [
+          "Company Secretary",
+          "Corporate Compliance Officer"
+        ]
+      },
+      {
+        "degree": "CFA (Chartered Financial Analyst)",
+        "career_options": [
+          "Financial Analyst",
+          "Investment Banker",
+          "Portfolio Manager"
+        ]
+      },
+      {
+        "degree": "Costing (Cost Accountant)",
+        "levels": [
+          "Inter",
+          "Final"
+        ],
+        "career_options": [
+          "Cost Accountant",
+          "Financial Planner",
+          "Cost Analyst"
+        ]
+      },
+      {
+        "degree": "Tax Practitioner (Bengal Tax Council)",
+        "duration": "1 Year",
+        "career_options": [
+          "Tax Consultant",
+          "Tax Practitioner"
+        ]
+      },
+      {
+        "degree": "B.Ed (Bachelor of Education)",
+        "duration": "2 Years",
+        "eligibility": "50% in Graduation",
+        "next_steps": [
+          "M.Ed",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Secondary Teacher (through CSC/PSC)",
+          "Educator"
+        ]
+      },
+      {
+        "degree": "PG Dip in Islamic Banking and Finance",
+        "career_options": [
+          "Islamic Banking Professional"
+        ]
+      }
+    ],
+    "competitive_exams": [
+      "WBAA (West Bengal Audits & Accounts Service Exam)",
+      "UPSC Exam",
+      "Comptroller & Auditor General of India Exam"
+    ]
+  },
+  "class_12_science_pathways": {
+    "target": "Students who completed Class 12 in Science stream",
+    "general_science": [
+      {
+        "degree": "B.Sc (Bachelor of Science)",
+        "duration": "3 Years",
+        "next_steps": [
+          "M.Sc",
+          "Ph.D",
+          "Post Doc"
+        ],
+        "entrance_exams": [
+          "CSIR-UGC NET/SET",
+          "GATE",
+          "JEST Exam"
+        ],
+        "career_options": [
+          "Research Scientist",
+          "Assistant Professor",
+          "Lab Scientist"
+        ]
+      },
+      {
+        "degree": "BS-MS Dual Degree at IISER",
+        "duration": "5 Years",
+        "institution": "Indian Institute of Science Education & Research",
+        "admission": "Through JEE Advanced / KVPY / SCB Channel",
+        "career_options": [
+          "Research",
+          "Teaching",
+          "Scientific Officer"
+        ]
+      },
+      {
+        "degree": "B.Sc in Nutrition",
+        "duration": "3 Years",
+        "next_steps": [
+          "M.Sc in Nutrition"
+        ],
+        "career_options": [
+          "Nutritionist",
+          "Dietician",
+          "Health Consultant"
+        ]
+      },
+      {
+        "degree": "Bachelor of Fishery Sc. (B.F.Sc)",
+        "duration": "4 Years",
+        "next_steps": [
+          "Master of Fishery Sc. (M.F.Sc) - 2 Years"
+        ],
+        "career_options": [
+          "Fishery Officer",
+          "Aquaculture Specialist"
+        ]
+      },
+      {
+        "degree": "B.Sc (Agri) / B.Sc (Hort)",
+        "duration": "4 Years",
+        "next_steps": [
+          "M.Sc (Agri) / M.Sc (Hort) - 2 Years",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Agricultural Officer",
+          "Horticulturist",
+          "ADO Exam"
+        ]
+      },
+      {
+        "degree": "B.Stat (H) / B.Math(H)",
+        "duration": "3 Years",
+        "next_steps": [
+          "M.Stat (H) / M.Math(H) - 2 Years"
+        ],
+        "entrance_exam": "ISI EXAM",
+        "career_options": [
+          "Statistician",
+          "Data Scientist",
+          "Actuary"
+        ]
+      },
+      {
+        "degree": "Bachelor in Hotel Management",
+        "duration": "4 Years",
+        "entrance_exam": "NCHMCT JEE",
+        "next_steps": [
+          "Master in Hotel Management (2 Years)",
+          "MBA (HM) - 2 Years"
+        ],
+        "career_options": [
+          "Hotel Manager",
+          "Hospitality Professional",
+          "Chef"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "degree": "B.E/B.Tech",
+        "duration": "4 Years",
+        "entrance_exams": {
+          "national": [
+            "JEE (MAIN)",
+            "JEE (ADVANCED) for IITs"
+          ],
+          "state": [
+            "WBJEE"
+          ],
+          "institutional": [
+            "JEM",
+            "BITS",
+            "TATA"
+          ]
+        },
+        "specializations": [
+          "Computer Science & Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Civil Engineering",
+          "Electronics & Communication",
+          "Chemical Engineering",
+          "Aeronautical Engineering",
+          "Biotechnology",
+          "Information Technology"
+        ],
+        "next_steps": [
+          "M.Tech (2 Years through GATE)",
+          "MBA",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Engineer",
+          "Research Scientist",
+          "Assistant Professor",
+          "Corporate Jobs"
+        ]
+      },
+      {
+        "degree": "B.Arch (Bachelor of Architecture)",
+        "duration": "5 Years",
+        "entrance_exam": "NATA / JEE Main Paper 2",
+        "career_options": [
+          "Architect",
+          "Urban Planner",
+          "Interior Designer"
+        ]
+      },
+      {
+        "degree": "B.Pharm (Bachelor of Pharmacy)",
+        "duration": "4 Years",
+        "next_steps": [
+          "M.Pharm (2 Years through GPAT)",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Pharmacist",
+          "Pharmaceutical Researcher",
+          "Drug Inspector"
+        ]
+      },
+      {
+        "degree": "Polytechnic Diploma",
+        "duration": "3 Years",
+        "entrance_exam": "JEXPO Exam",
+        "next_steps": [
+          "JELET (2nd Year Lateral Entry for B.Tech)",
+          "Post Diploma",
+          "AMIE"
+        ],
+        "career_options": [
+          "Technician",
+          "Diploma Engineer"
+        ]
+      },
+      {
+        "degree": "Integrated M.Sc",
+        "duration": "5 Years",
+        "specializations": [
+          "Math",
+          "Statistics",
+          "Physics & Metrology",
+          "Chemistry",
+          "Geography & Geophysics"
+        ],
+        "entrance_exam": "IIT JAM Exam",
+        "career_options": [
+          "Scientist",
+          "Researcher",
+          "Analyst"
+        ]
+      }
+    ],
+    "medical_paramedical": [
+      {
+        "degree": "MBBS (Bachelor of Medicine & Bachelor of Surgery)",
+        "duration": "5.5 Years (4.5 Years + 1 Year Internship)",
+        "entrance_exams": [
+          "NEET",
+          "AFMC",
+          "JIPMER"
+        ],
+        "next_steps": [
+          "MD/MS",
+          "DNB",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Doctor",
+          "Surgeon",
+          "Medical Researcher",
+          "Medical Officer"
+        ]
+      },
+      {
+        "degree": "BDS (Bachelor of Dental Surgery)",
+        "duration": "5 Years (4 Years + 1 Year Internship)",
+        "entrance_exam": "NEET",
+        "next_steps": [
+          "MDS",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Dentist",
+          "Dental Surgeon",
+          "Orthodontist"
+        ]
+      },
+      {
+        "degree": "BHMS (Bachelor of Homeopathic Medicine & Surgery)",
+        "duration": "5.5 Years",
+        "entrance_exam": "NEET",
+        "next_steps": [
+          "MD (Homeopathy)",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Homeopathy Practitioner",
+          "Medical Officer"
+        ]
+      },
+      {
+        "degree": "BUMS (Bachelor of Unani Medicine & Surgery)",
+        "duration": "5.5 Years",
+        "entrance_exam": "NEET",
+        "next_steps": [
+          "MD (Unani)",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Unani Practitioner",
+          "Medical Officer"
+        ]
+      },
+      {
+        "degree": "BAMS (Bachelor of Ayurvedic Medicine & Surgery)",
+        "duration": "5.5 Years",
+        "entrance_exam": "NEET",
+        "next_steps": [
+          "MD (Ayurveda)",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Ayurveda Practitioner",
+          "Medical Officer"
+        ]
+      },
+      {
+        "degree": "B.Pharm",
+        "duration": "4 Years",
+        "next_steps": [
+          "M.Pharm (2 Years through GPAT)",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Pharmacist",
+          "Pharmaceutical Researcher"
+        ]
+      },
+      {
+        "degree": "D.Pharm (Diploma in Pharmacy)",
+        "duration": "2 Years",
+        "career_options": [
+          "Pharmacist",
+          "Medical Representative"
+        ]
+      },
+      {
+        "degree": "B.Sc (H) Nursing / Bachelor in Nursing",
+        "duration": "4 Years",
+        "next_steps": [
+          "M.Sc (H) Nursing (2 Years)",
+          "Ph.D"
+        ],
+        "career_options": [
+          "Nurse",
+          "Nursing Administrator",
+          "Nursing Educator"
+        ]
+      },
+      {
+        "degree": "GNM (General Nursing & Midwifery)",
+        "duration": "3.5 Years",
+        "next_steps": [
+          "Bachelor in Nursing"
+        ],
+        "career_options": [
+          "Staff Nurse",
+          "Community Health Nurse"
+        ]
+      },
+      {
+        "degree": "BPT (Bachelor of Physiotherapy)",
+        "duration": "4.5 Years",
+        "next_steps": [
+          "MPT (Master in Physiotherapy) - 2 Years"
+        ],
+        "career_options": [
+          "Physiotherapist",
+          "Sports Physiotherapist"
+        ]
+      },
+      {
+        "degree": "B.V.Sc & A.H (Veterinary & Animal Husbandry)",
+        "duration": "5 Years",
+        "entrance_exam": "WBJEE VETS Exam",
+        "next_steps": [
+          "M.V.Sc & A.H (2 Years)"
+        ],
+        "career_options": [
+          "Veterinary Doctor",
+          "Animal Husbandry Officer",
+          "Vet Service Exam"
+        ]
+      }
+    ],
+    "paramedical_courses_after_hs": [
+      {
+        "name": "Diploma in Medical Laboratory Technology (DMLT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Radiography (DRD)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Physiotherapy (DPT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Radioorthoptic Technology",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Optometry & Ophthalmic Technology (DCPT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Neuroelectro physiology (DNEP)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Perfusion Technology (DPFT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Cath Lab Technician (DCLT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Dialysis Technique",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Critical care Technology (DCCT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Electro cardio Graphic Technique (ECG)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Clinical Child Development",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in X-Ray Technician & Radiography",
+        "duration": "2 years"
+      },
+      {
+        "name": "Dental Technician (DT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Medical Social Work",
+        "duration": "2 years"
+      },
+      {
+        "name": "Diploma in Yoga & Naturopathy",
+        "duration": "2 years"
+      },
+      {
+        "name": "Occupational Therapy (BOT)",
+        "duration": "4 years"
+      },
+      {
+        "name": "Occupational Therapy (MOT)",
+        "duration": "2 years"
+      },
+      {
+        "name": "Prosthetic or Orthotic Engineering",
+        "duration": "4.5 years"
+      },
+      {
+        "name": "Audiology & Speech Therapy",
+        "duration": "4 years"
+      },
+      {
+        "name": "Bachelor of Medical Lab Tech. (BMLT)",
+        "duration": "3.5 years"
+      },
+      {
+        "name": "Bachelor of Optometry Sc. (B. OPTM)",
+        "duration": "4 years"
+      },
+      {
+        "name": "Bachelor of Radio Imaging Tech (BRIT)",
+        "duration": "3 years"
+      },
+      {
+        "name": "Bachelor of Hospital Management (BHM)",
+        "duration": "3 years"
+      }
+    ]
+  }
+}

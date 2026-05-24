@@ -1,0 +1,230 @@
+.container {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #1a56db 0%, #7e22ce 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Instructions Section */
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.instructionsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.instructionItem {
+  padding: 1rem 1.5rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.instructionItem:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+}
+
+/* Schemes Table */
+.schemesTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1rem;
+}
+
+.schemesTable th {
+  background: #3b82f6;
+  color: white;
+  padding: 1rem;
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.schemesTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+
+.schemesTable tr:last-child td {
+  border-bottom: none;
+}
+
+.schemesTable tr:hover {
+  background: #f8fafc;
+}
+
+.schemeNumber {
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+}
+
+.schemeName {
+  font-weight: 600;
+  color: #1e293b;
+  min-width: 200px;
+}
+
+.classStudy {
+  min-width: 150px;
+}
+
+.website {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.minimumMarks {
+  min-width: 120px;
+}
+
+.income {
+  font-weight: 600;
+  color: #059669;
+  min-width: 100px;
+}
+
+/* Rates Table */
+.ratesTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.ratesTable th {
+  background: #10b981;
+  color: white;
+  padding: 1rem;
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.ratesTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+
+.ratesTable tr:last-child td {
+  border-bottom: none;
+}
+
+.ratesTable tr:hover {
+  background: #f8fafc;
+}
+
+.amountSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.amount {
+  font-weight: 600;
+  color: #059669;
+}
+
+.amountDetail {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.remarks {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .schemesTable,
+  .ratesTable {
+    font-size: 0.8rem;
+  }
+  
+  .schemesTable th,
+  .schemesTable td,
+  .ratesTable th,
+  .ratesTable td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .schemesTable,
+  .ratesTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

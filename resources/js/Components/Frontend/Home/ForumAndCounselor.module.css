@@ -1,0 +1,71 @@
+.section {
+  background: #fff;
+  overflow: hidden;
+}
+
+.heading {
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #2c247d;
+  margin-bottom: 1rem;
+  letter-spacing: -0.4px;
+}
+
+.subtext {
+  color: #545677;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.8rem;
+}
+
+.steps h5 {
+  font-weight: 700;
+  font-size: 1.07rem;
+  color: #3a338f;
+  margin-bottom: 0.25rem;
+}
+
+.steps p {
+  color: #5a5c7a;
+  font-size: 0.98rem;
+  line-height: 1.48;
+  opacity: 0.9;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00b2f2, #b76cff);
+  border: none;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(111, 72, 235, 0.25);
+}
+
+.footerNote {
+  margin-top: 0.8rem;
+  color: #757599;
+  font-size: 0.95rem;
+}
+
+.svgWrap {
+  text-align: center;
+}
+
+.svg {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(111, 72, 235, 0.1));
+}

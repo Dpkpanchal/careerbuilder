@@ -1,0 +1,455 @@
+{
+  "questionnaire_version": "1.0",
+  "description": "WBMDFC Career Pathfinder - Adaptive Question Flow with Conditional Logic",
+  "questions": {
+    "q1_education_level": {
+      "id": "q1_education_level",
+      "question": "What is your current education level?",
+      "type": "select",
+      "icon": "BookOpen",
+      "required": true,
+      "options": [
+        {
+          "value": "class8",
+          "label": "Class 8 (Completed/Appearing)",
+          "next_question": "q2_class8_interest"
+        },
+        {
+          "value": "class10",
+          "label": "Class 10 (Completed/Appearing)",
+          "next_question": "q2_class10_stream"
+        },
+        {
+          "value": "class12",
+          "label": "Class 12 (Completed/Appearing)",
+          "next_question": "q2_class12_stream"
+        },
+        {
+          "value": "graduation",
+          "label": "Graduation (Completed/Pursuing)",
+          "next_question": "q2_graduation_field"
+        }
+      ]
+    },
+    "q2_class8_interest": {
+      "id": "q2_class8_interest",
+      "question": "What type of work interests you most?",
+      "type": "select",
+      "icon": "Heart",
+      "condition": {
+        "q1_education_level": "class8"
+      },
+      "options": [
+        {
+          "value": "technical_work",
+          "label": "Technical/Skill-based work (Mechanic, Electrician, Carpenter)",
+          "next_question": "q3_class8_technical"
+        },
+        {
+          "value": "business_work",
+          "label": "Business/Marketing work",
+          "next_question": "q3_class8_business"
+        },
+        {
+          "value": "creative_work",
+          "label": "Creative work (Tailoring, Art, Beauty)",
+          "next_question": "q3_class8_creative"
+        },
+        {
+          "value": "agriculture",
+          "label": "Agriculture/Farming related work",
+          "next_question": "q3_class8_agriculture"
+        }
+      ]
+    },
+    "q2_class10_stream": {
+      "id": "q2_class10_stream",
+      "question": "Which stream do you want to choose for Class 11-12?",
+      "type": "select",
+      "icon": "GraduationCap",
+      "condition": {
+        "q1_education_level": "class10"
+      },
+      "options": [
+        {
+          "value": "science",
+          "label": "Science (Physics, Chemistry, Biology/Math)",
+          "next_question": "q3_class10_science"
+        },
+        {
+          "value": "commerce",
+          "label": "Commerce (Accounts, Business, Economics)",
+          "next_question": "q3_class10_commerce"
+        },
+        {
+          "value": "arts",
+          "label": "Arts (History, Geography, Languages)",
+          "next_question": "q3_class10_arts"
+        },
+        {
+          "value": "vocational",
+          "label": "Vocational/Technical courses (ITI, Diploma)",
+          "next_question": "q3_class10_vocational"
+        }
+      ]
+    },
+    "q2_class12_stream": {
+      "id": "q2_class12_stream",
+      "question": "What is your Class 12 stream?",
+      "type": "select",
+      "icon": "Award",
+      "condition": {
+        "q1_education_level": "class12"
+      },
+      "options": [
+        {
+          "value": "science_pcm",
+          "label": "Science - PCM (Physics, Chemistry, Math)",
+          "next_question": "q3_class12_pcm"
+        },
+        {
+          "value": "science_pcb",
+          "label": "Science - PCB (Physics, Chemistry, Biology)",
+          "next_question": "q3_class12_pcb"
+        },
+        {
+          "value": "commerce",
+          "label": "Commerce",
+          "next_question": "q3_class12_commerce"
+        },
+        {
+          "value": "arts",
+          "label": "Arts/Humanities",
+          "next_question": "q3_class12_arts"
+        }
+      ]
+    },
+    "q3_class12_pcm": {
+      "id": "q3_class12_pcm",
+      "question": "Which field interests you most?",
+      "type": "select",
+      "icon": "Wrench",
+      "condition": {
+        "q2_class12_stream": "science_pcm"
+      },
+      "options": [
+        {
+          "value": "engineering",
+          "label": "Engineering (B.Tech - Computer, Mechanical, Civil, etc.)",
+          "next_question": "q4_engineering_branch"
+        },
+        {
+          "value": "architecture",
+          "label": "Architecture (B.Arch)",
+          "next_question": "q4_final_goals"
+        },
+        {
+          "value": "pure_science",
+          "label": "Pure Science (B.Sc Physics, Chemistry, Math)",
+          "next_question": "q4_final_goals"
+        }
+      ]
+    },
+    "q3_class12_pcb": {
+      "id": "q3_class12_pcb",
+      "question": "Which medical field interests you?",
+      "type": "select",
+      "icon": "Heart",
+      "condition": {
+        "q2_class12_stream": "science_pcb"
+      },
+      "options": [
+        {
+          "value": "mbbs",
+          "label": "Medicine (MBBS)",
+          "next_question": "q4_final_goals"
+        },
+        {
+          "value": "dental",
+          "label": "Dental (BDS)",
+          "next_question": "q4_final_goals"
+        },
+        {
+          "value": "pharmacy",
+          "label": "Pharmacy (B.Pharm)",
+          "next_question": "q4_final_goals"
+        },
+        {
+          "value": "paramedical",
+          "label": "Paramedical (Nursing, Physiotherapy, etc.)",
+          "next_question": "q4_paramedical_type"
+        }
+      ]
+    },
+    "q4_engineering_branch": {
+      "id": "q4_engineering_branch",
+      "question": "Which engineering branch do you prefer?",
+      "type": "checkbox",
+      "icon": "Settings",
+      "condition": {
+        "q3_class12_pcm": "engineering"
+      },
+      "options": [
+        {
+          "value": "computer",
+          "label": "Computer Science/IT"
+        },
+        {
+          "value": "mechanical",
+          "label": "Mechanical Engineering"
+        },
+        {
+          "value": "civil",
+          "label": "Civil Engineering"
+        },
+        {
+          "value": "electrical",
+          "label": "Electrical Engineering"
+        },
+        {
+          "value": "electronics",
+          "label": "Electronics & Communication"
+        }
+      ],
+      "next_question": "q4_final_goals"
+    },
+    "q4_final_goals": {
+      "id": "q4_final_goals",
+      "question": "What are your primary career goals?",
+      "type": "select",
+      "icon": "Target",
+      "options": [
+        {
+          "value": "job_security",
+          "label": "Job Security & Government Jobs",
+          "next_question": "q5_study_preference"
+        },
+        {
+          "value": "high_salary",
+          "label": "High Salary & Private Sector",
+          "next_question": "q5_study_preference"
+        },
+        {
+          "value": "entrepreneurship",
+          "label": "Start Own Business",
+          "next_question": "q5_study_preference"
+        },
+        {
+          "value": "social_service",
+          "label": "Social Service & Community Work",
+          "next_question": "q5_study_preference"
+        }
+      ]
+    },
+    "q5_study_preference": {
+      "id": "q5_study_preference",
+      "question": "How do you prefer to study?",
+      "type": "select",
+      "icon": "BookOpenCheck",
+      "options": [
+        {
+          "value": "regular",
+          "label": "Regular full-time college"
+        },
+        {
+          "value": "distance",
+          "label": "Distance/Online learning"
+        },
+        {
+          "value": "part_time",
+          "label": "Part-time/Weekend courses"
+        }
+      ],
+      "next_question": "results"
+    }
+  },
+  "career_mapping": {
+    "class8": {
+      "technical_work": {
+        "careers": [
+          {
+            "name": "ITI Courses",
+            "options": [
+              "Electrician (2 years)",
+              "Fitter (2 years)",
+              "Welder (1 year)",
+              "Plumber (1 year)"
+            ],
+            "entrance_exams": [
+              "Direct admission",
+              "ITI entrance test"
+            ],
+            "colleges": [
+              "Government ITI centers",
+              "Private ITI institutes"
+            ],
+            "scholarships": [
+              "WBMDFC Technical Education Loan"
+            ]
+          }
+        ]
+      },
+      "business_work": {
+        "careers": [
+          {
+            "name": "Business & Commerce Courses",
+            "options": [
+              "Rural Marketing",
+              "Marketing Assistant",
+              "Security Guard"
+            ],
+            "entrance_exams": [
+              "Direct admission"
+            ],
+            "colleges": [
+              "Skill development centers"
+            ],
+            "scholarships": [
+              "WBMDFC Business Development Loan"
+            ]
+          }
+        ]
+      }
+    },
+    "class12_pcm_engineering": {
+      "computer": {
+        "careers": [
+          {
+            "name": "Computer Science Engineering",
+            "options": [
+              "B.Tech CSE",
+              "B.Tech IT"
+            ],
+            "entrance_exams": [
+              "JEE Main",
+              "WBJEE",
+              "BITSAT"
+            ],
+            "colleges": [
+              "IIT",
+              "NIT",
+              "State Engineering Colleges"
+            ],
+            "scholarships": [
+              "AICTE Pragati",
+              "NEST",
+              "WBMDFC Engineering Loan"
+            ]
+          }
+        ]
+      },
+      "mechanical": {
+        "careers": [
+          {
+            "name": "Mechanical Engineering",
+            "options": [
+              "B.Tech Mechanical",
+              "B.Tech Production"
+            ],
+            "entrance_exams": [
+              "JEE Main",
+              "WBJEE"
+            ],
+            "colleges": [
+              "Engineering colleges across India"
+            ],
+            "scholarships": [
+              "Merit-based scholarships"
+            ]
+          }
+        ]
+      }
+    },
+    "class12_pcb_medical": {
+      "mbbs": {
+        "careers": [
+          {
+            "name": "Medical (MBBS)",
+            "options": [
+              "MBBS (5.5 years)"
+            ],
+            "entrance_exams": [
+              "NEET"
+            ],
+            "colleges": [
+              "Medical colleges",
+              "AIIMS",
+              "JIPMER"
+            ],
+            "scholarships": [
+              "Central/State government scholarships"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "resources": {
+    "entrance_exams": {
+      "NEET": {
+        "full_name": "National Eligibility cum Entrance Test",
+        "purpose": "Medical & Dental admissions",
+        "eligibility": "Class 12 with PCB, minimum 50% marks",
+        "exam_dates": "Usually conducted in May",
+        "application_link": "neet.nta.nic.in"
+      },
+      "JEE_Main": {
+        "full_name": "Joint Entrance Examination Main",
+        "purpose": "Engineering admissions to NITs, IIITs",
+        "eligibility": "Class 12 with PCM, minimum 75% marks",
+        "exam_dates": "January & April sessions",
+        "application_link": "jeemain.nta.nic.in"
+      },
+      "WBJEE": {
+        "full_name": "West Bengal Joint Entrance Examination",
+        "purpose": "Engineering, Pharmacy admissions in WB",
+        "eligibility": "Class 12 with 45% marks (40% for SC/ST)",
+        "exam_dates": "Usually in April",
+        "application_link": "wbjeeb.nic.in"
+      }
+    },
+    "scholarships": {
+      "WBMDFC_Loan": {
+        "name": "WBMDFC Education Loan",
+        "amount": "Up to 8% interest rate",
+        "eligibility": "Students from minority communities",
+        "application": "www.wbmdfc.net"
+      },
+      "AICTE_Pragati": {
+        "name": "AICTE Pragati Scholarship",
+        "amount": "Rs. 50,000 per year",
+        "eligibility": "Girl students in technical education",
+        "application": "www.aicte-india.org"
+      },
+      "NEST": {
+        "name": "NEST Scholarship",
+        "amount": "Rs. 35,000 - Rs. 40,000",
+        "eligibility": "Science/Engineering/Medical students",
+        "application": "www.nest.net.in"
+      }
+    },
+    "counselors": [
+      {
+        "name": "Dr. Nurul Alam",
+        "specialization": "Science subjects",
+        "qualification": "Ph.D Physics",
+        "contact": "8906964777",
+        "email": "nurulalam.ju@gmail.com"
+      },
+      {
+        "name": "Dr. Anwar Sadat Halder",
+        "specialization": "Medical",
+        "qualification": "MBBS, MD Medicine",
+        "contact": "8902408420",
+        "email": "anwarpg786@gmail.com"
+      },
+      {
+        "name": "Kh. Jinnatul Islam",
+        "specialization": "Engineering",
+        "qualification": "B.Tech CSE, M.Tech CSE",
+        "contact": "9830072424",
+        "email": "kjislam@gmail.com"
+      }
+    ]
+  }
+}

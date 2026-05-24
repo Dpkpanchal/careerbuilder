@@ -1,0 +1,1387 @@
+{
+  "section_id": "A",
+  "section_title": "CAREER LAUNCHER COURSES",
+  "target_students": "Class 8 and 10 onwards",
+  "pages": "02-32",
+  "description": "Vocational courses for freelancing and early income opportunities before venturing into college degree courses",
+  "career_options_class_8": {
+    "description": "Career pathways after Class 8",
+    "pathways": [
+      {
+        "pathway": "Continue to Class IX",
+        "options": [
+          "Regular School",
+          "National Institute of Open Schooling (NIOS)",
+          "Rabindra Open Schooling"
+        ]
+      },
+      {
+        "pathway": "Vocational Courses (VIII+ Level)",
+        "duration_options": [
+          "6 months",
+          "1 year",
+          "2 years"
+        ],
+        "direct_admission": true,
+        "selection": "Direct Admission or Selection Test Conducted by Institute"
+      },
+      {
+        "pathway": "ITI/ITC/Jr Polytechnic (E-Category Only)",
+        "admission": "Exam/Counselling"
+      }
+    ],
+    "vocational_courses_viii_plus": {
+      "engineering_technology": [
+        {
+          "name": "Painter general",
+          "duration": "2 years"
+        },
+        {
+          "name": "Wireman",
+          "duration": "2 years"
+        },
+        {
+          "name": "Welder (Gas & Electric)",
+          "duration": "1 year"
+        },
+        {
+          "name": "Plumber",
+          "duration": "1 year"
+        },
+        {
+          "name": "Foundry man",
+          "duration": "1 year"
+        },
+        {
+          "name": "Mason",
+          "duration": "1 year"
+        },
+        {
+          "name": "Carpenter",
+          "duration": "1 year"
+        },
+        {
+          "name": "Sheet Metal Worker",
+          "duration": "1 year"
+        },
+        {
+          "name": "Cutting & Sewing",
+          "duration": "1 year"
+        },
+        {
+          "name": "Manufacture of Footwear & Leather Goods",
+          "duration": "1 year"
+        },
+        {
+          "name": "Agricultural machinery Mechanic",
+          "duration": "1 year"
+        },
+        {
+          "name": "Amin Survey",
+          "duration": "6 months"
+        },
+        {
+          "name": "Electrical House wiring & Motor Winding"
+        },
+        {
+          "name": "Servicing Of Domestic Electronics product"
+        },
+        {
+          "name": "2/3 wheeler mechanic"
+        },
+        {
+          "name": "Auto Electrician"
+        },
+        {
+          "name": "Automobile maintenance"
+        },
+        {
+          "name": "Diesel Pump set Repairing"
+        },
+        {
+          "name": "Rural Sanitation & sanitary plumbing"
+        },
+        {
+          "name": "Mechanic rural electrician"
+        },
+        {
+          "name": "Photography"
+        },
+        {
+          "name": "Videography"
+        },
+        {
+          "name": "Manufacture of jute product"
+        },
+        {
+          "name": "Plumbing"
+        },
+        {
+          "name": "Wooden Furniture Making"
+        },
+        {
+          "name": "Telephone & Mobile Set Repairing"
+        },
+        {
+          "name": "Footwear(open type)"
+        },
+        {
+          "name": "Welding"
+        },
+        {
+          "name": "Repair & maintenance of Agriculture machinaries"
+        },
+        {
+          "name": "DTP"
+        },
+        {
+          "name": "Mason"
+        }
+      ],
+      "home_science": [
+        {
+          "name": "Tailoring"
+        },
+        {
+          "name": "Commercial Art"
+        },
+        {
+          "name": "Manufacture of Jam, jelly & pickles"
+        },
+        {
+          "name": "Silk screen printing"
+        },
+        {
+          "name": "Crèche management"
+        },
+        {
+          "name": "Jari work & kantha embroidery"
+        },
+        {
+          "name": "Toy Making(Soft)"
+        },
+        {
+          "name": "Interior Decoration"
+        },
+        {
+          "name": "Beautician"
+        },
+        {
+          "name": "Boutique work"
+        },
+        {
+          "name": "Glass painting & Production of ceramic & Candle items"
+        },
+        {
+          "name": "Garment Manufacturing"
+        },
+        {
+          "name": "Machine Embroidery with CAD"
+        },
+        {
+          "name": "Painter"
+        },
+        {
+          "name": "Book & Doc Binder"
+        }
+      ],
+      "business_commerce": [
+        {
+          "name": "Rural Marketing"
+        },
+        {
+          "name": "Marketing"
+        },
+        {
+          "name": "Security Guard"
+        }
+      ],
+      "paramedical": [
+        {
+          "name": "Blood Collection Assistant"
+        },
+        {
+          "name": "Health Worker"
+        },
+        {
+          "name": "OT Assistant"
+        }
+      ],
+      "agriculture": [
+        {
+          "name": "Marine Fisheries"
+        },
+        {
+          "name": "Ornamental Fish Culture"
+        },
+        {
+          "name": "Mushroom Cultivation"
+        },
+        {
+          "name": "Composting"
+        },
+        {
+          "name": "Dairy farming"
+        },
+        {
+          "name": "Poultry farming"
+        },
+        {
+          "name": "Bee keeping"
+        },
+        {
+          "name": "Goat keeping"
+        },
+        {
+          "name": "Seed Production Tech"
+        }
+      ]
+    }
+  },
+  "career_options_class_10": {
+    "description": "Career pathways after Class 10",
+    "pathways": [
+      {
+        "pathway": "Class XI-XII (Science/Arts/Commerce)",
+        "admission": "School Exam based"
+      },
+      {
+        "pathway": "Vocational Course (X+2 Level)",
+        "duration": "2 years",
+        "admission": "Direct admission",
+        "equivalent_to": "Class XII"
+      },
+      {
+        "pathway": "Polytechnic Diploma",
+        "duration": "3 years",
+        "admission": "JEXPO Exam",
+        "eligibility": "60% marks in Class X"
+      },
+      {
+        "pathway": "ITI/ITC/Jr Polytechnic (M & B Category)",
+        "admission": "Exam/Counselling",
+        "categories": [
+          "M Category (2 years)",
+          "B Category (1 year)"
+        ]
+      },
+      {
+        "pathway": "Auxiliary Nursing & Midwifery (ANM)",
+        "duration": "18 months",
+        "admission": "Class X Marks Basis",
+        "gender": "Girls only"
+      },
+      {
+        "pathway": "Diploma in Hotel Management",
+        "duration": "3 years",
+        "admission": "JHMAT Exam",
+        "eligibility": "Required 50% in Class X"
+      }
+    ],
+    "vocational_courses_x_plus_2": {
+      "agriculture": [
+        "Fish Farming",
+        "Animal Husbandry",
+        "Cultivation of Fruits & Vegetable",
+        "Horticulture",
+        "Crop Management",
+        "Plant Management"
+      ],
+      "home_science": [
+        "Community Healthcare",
+        "Food & Nutrition",
+        "Home Management"
+      ],
+      "business_commerce": [
+        "Retail Services & Operations",
+        "Taxation & Management",
+        "Library & Information Science",
+        "Travel, Tourism & Event Management"
+      ],
+      "engineering_technology": [
+        "Building Construction & Maintenance",
+        "Automobile Technology",
+        "Refrigeration & Air-conditioning",
+        "Computer Maintenance & Networking",
+        "IT Application",
+        "Electrical Maintenance & Installation",
+        "Consumer Electronics"
+      ]
+    },
+    "iti_trades": {
+      "m_category_2_years": [
+        "Tool & Die maker (3yrs)",
+        "Draftsman mechanical",
+        "Drafts man civil",
+        "Electrician",
+        "Fitter",
+        "Electronic mechanic",
+        "Grinder",
+        "Instrument mechanic",
+        "Machinist",
+        "Radio & TV Mechanic",
+        "Refrigeration & Air Cond. Mechanic",
+        "Surveyor",
+        "Turner",
+        "Motor vehicle Mechanic",
+        "Information Technology & Electronic System Maintenance"
+      ],
+      "m_category_1_year": [
+        "Plastic Processing Operator",
+        "Dress Making",
+        "Hair & skin care",
+        "Diesel Mechanic"
+      ],
+      "b_category_1_year": [
+        "Automobile",
+        "Production & manufacturing",
+        "Instrumentation",
+        "Chemical",
+        "Electrical",
+        "Construction & Wood working",
+        "Information Technology",
+        "Apparel",
+        "Agricultural Machinery",
+        "Food Processing",
+        "Hospitality",
+        "Electrician",
+        "Fabrication – Fitting & Welding"
+      ]
+    }
+  },
+  "stream_selection_after_class_10": {
+    "note": "ICSE and CBSE Board Students generally prefer English A (Alternative English) and Bengali B, whereas Bengal Board Students generally opt for Bengali A and English B",
+    "streams": [
+      {
+        "stream_name": "SCIENCE (MEDICAL) - PCB",
+        "language_groups": {
+          "group_a": [
+            "Bengali A",
+            "Hindi A",
+            "English A"
+          ],
+          "group_b": [
+            "English B",
+            "Bengali B",
+            "Hindi B",
+            "Alternative English"
+          ]
+        },
+        "main_subjects": [
+          "PHYSICS",
+          "CHEMISTRY",
+          "BIOLOGY"
+        ],
+        "additional_optional_subjects": [
+          "MATHS",
+          "PHYSICAL EDUCATION",
+          "HOME SCIENCE",
+          "ECONOMICS",
+          "FINE ARTS",
+          "FASHION STUDIES",
+          "PSYCHOLOGY",
+          "DANCE",
+          "BIOTECHNOLOGY",
+          "NUTRITION",
+          "EVS",
+          "MODERN COMPUTER APPLICATION OR COMPUTER SCIENCE",
+          "EDUCATION",
+          "GEOGRAPHY",
+          "STATISTICS"
+        ]
+      },
+      {
+        "stream_name": "SCIENCE (NON-MEDICAL) - PCM",
+        "language_groups": {
+          "group_a": [
+            "Bengali A",
+            "Hindi A",
+            "English A"
+          ],
+          "group_b": [
+            "English B",
+            "Bengali B",
+            "Hindi B",
+            "Alternative English"
+          ]
+        },
+        "main_subjects": [
+          "PHYSICS",
+          "CHEMISTRY",
+          "MATH"
+        ],
+        "additional_optional_subjects": [
+          "BIOLOGY",
+          "PHYSICAL EDUCATION",
+          "HOME SCIENCE",
+          "ECONOMICS",
+          "FINE ARTS",
+          "FASHION STUDIES",
+          "PSYCHOLOGY",
+          "DANCE",
+          "BIOTECHNOLOGY",
+          "NUTRITION",
+          "EVS",
+          "MODERN COMPUTER APPLICATION OR COMPUTER SCIENCE",
+          "DANCE",
+          "EDUCATION",
+          "STATISTICS"
+        ]
+      },
+      {
+        "stream_name": "ARTS",
+        "language_groups": {
+          "group_a": [
+            "Bengali A",
+            "Hindi A",
+            "English A"
+          ],
+          "group_b": [
+            "English B",
+            "Bengali B",
+            "Hindi B",
+            "Alternative English"
+          ]
+        },
+        "main_subjects": [
+          "POLITICAL SCIENCE",
+          "HISTORY",
+          "GEOGRAPHY",
+          "ECONOMICS",
+          "SOCIOLOGY",
+          "PSYCHOLOGY"
+        ],
+        "additional_optional_subjects": [
+          "MATHS",
+          "PHYSICAL EDUCATION",
+          "HOME SCIENCE",
+          "ECONOMICS",
+          "FINE ARTS",
+          "FASHION STUDIES",
+          "PSYCHOLOGY",
+          "DANCE",
+          "BIOTECH",
+          "NUTRITION",
+          "EVS",
+          "MODERN COMPUTER APPLICATION OR COMPUTER SCIENCE",
+          "EDUCATION"
+        ]
+      },
+      {
+        "stream_name": "COMMERCE",
+        "language_groups": {
+          "group_a": [
+            "Bengali A",
+            "Hindi A",
+            "English A"
+          ],
+          "group_b": [
+            "English B",
+            "Bengali B",
+            "Hindi B",
+            "Alternative English"
+          ]
+        },
+        "main_subjects": [
+          "ACCOUNTANCY",
+          "BUSSINESS STUDIES",
+          "ECONOMICS",
+          "ENTREPRENEURSHIP"
+        ],
+        "additional_optional_subjects": [
+          "MATHS",
+          "COMPUTER APPLICATION",
+          "COSTING AND TAXATION",
+          "COMMERCIAL LAW AND PRELIMINARIES OF AUDITING (CLPA)"
+        ]
+      }
+    ]
+  },
+  "government_itis": {
+    "total_count": 43,
+    "website": "www.ditwb.org",
+    "note": "Government Industrial Training Institutes in West Bengal",
+    "institutes": [
+      {
+        "id": 1,
+        "name": "ITI GARIAHAT",
+        "address": "10 & 10/A GARIAHAT ROAD, KOLKATA-700 091",
+        "phone": "033-24404348",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "DRAFTSMAN CIVIL",
+            "DRAFTSMAN MECH",
+            "ELECTRICIAN",
+            "ELECTRONICS MECHANIC",
+            "FITTER",
+            "MACHINIST",
+            "MACHINIST (GRINDER)",
+            "INSTRUMENT MECHANIC",
+            "REF & AC",
+            "RADIO & TV MECHANIC",
+            "SURVEYOR",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "PAINTER GENERAL",
+            "DIESEL MECH"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "FOUNDRYMAN",
+            "SHEET METAL WORKER",
+            "WELDER",
+            "PLUMBER",
+            "CUTTING & SEWING"
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "name": "ITI TOLLYGUNJ",
+        "address": "24, CHANDI GHOSH ROAD, KOLKATA 700 040",
+        "phone": "033-24113692",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "DRAFTSMAN CIVIL",
+            "DRAFTSMAN MECH",
+            "ELECTRICIAN",
+            "ELECTRONICS MECHANIC",
+            "FITTER",
+            "MACHINIST",
+            "MACHINIST (GRINDER)",
+            "REF & AC",
+            "RADIO & TV MECHANIC",
+            "SURVEYOR",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "PAINTER GENERAL",
+            "DIESEL MECH",
+            "INFORMATION TECHNOLOGY & ELECTRONICS SYSTEM MAINTENANCE"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "FOUNDRYMAN",
+            "SHEET METAL WORKER",
+            "WELDER",
+            "PLUMBER",
+            "CUTTING & SEWING",
+            "COMPUTER OPERATOR & PROGRAMMING ASSISTANT",
+            "PLASTIC PROCESSING OPERATOR"
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "name": "ITI HOWRAH HOMES",
+        "address": "PO. SANTRAGACHI, DIST. HOWRAH-711104",
+        "phone": "033-26271176",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "DRAFTSMAN CIVIL",
+            "DRAFTSMAN MECH",
+            "ELECTRICIAN",
+            "ELECTRONICS MECHANIC",
+            "FITTER",
+            "MACHINIST",
+            "MACHINIST (GRINDER)",
+            "REF & AC",
+            "RADIO & TV MECHANIC",
+            "SURVEYOR",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "DIESEL MECH",
+            "INFORMATION TECHNOLOGY & ELECTRONICS SYSTEM MAINTENANCE"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "FOUNDRYMAN",
+            "SHEET METAL WORKER",
+            "WELDER",
+            "CUTTING & SEWING",
+            "COMPUTER OPERATOR & PROGRAMMING ASSISTANT",
+            "MANUFACTURE OF FOOTWARE"
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "name": "ITI HOOGHLY",
+        "address": "PO. SAHAGUNJ, DIST. HOOGHLY-712104",
+        "phone": "033-2631 2327",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "DRAFTSMAN CIVIL",
+            "DRAFTSMAN MECH",
+            "ELECTRICIAN",
+            "ELECTRONICS MECHANIC",
+            "FITTER",
+            "MACHINIST",
+            "MACHINIST (GRINDER)",
+            "REF & AC",
+            "RADIO & TV MECHANIC",
+            "SURVEYOR",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "DIESEL MECH"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "FOUNDRYMAN",
+            "SHEET METAL WORKER",
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 5,
+        "name": "ITI KALYANI",
+        "address": "GHOSHPARA ROAD, KALYANI, DIST. NADIA-741235",
+        "phone": "033-2582 8360",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "DRAFTSMAN CIVIL",
+            "DRAFTSMAN MECH",
+            "ELECTRICIAN",
+            "ELECTRONICS MECHANIC",
+            "FITTER",
+            "MACHINIST",
+            "MACHINIST (GRINDER)",
+            "REF & AC",
+            "RADIO & TV MECHANIC",
+            "SURVEYOR",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "DIESEL MECH",
+            "MAS",
+            "MFW"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "FOUNDRYMAN",
+            "SHEET METAL WORKER",
+            "WELDER",
+            "PLUMBER",
+            "CUTTING & SEWING",
+            "COMPUTER OPERATOR & PROGRAMMING ASSISTANT",
+            "PLASTIC PROCESSING OPERATOR",
+            "LEATHER GOODS MAKER"
+          ]
+        }
+      },
+      {
+        "id": 6,
+        "name": "ITI DURGAPUR",
+        "address": "MUCHIPARA, PO. DURGAPUR-713222, DIST. BURDWAN",
+        "phone": "0343-255 7371",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "DRAFTSMAN CIVIL",
+            "DRAFTSMAN MECH",
+            "ELECTRICIAN",
+            "ELECTRONICS MECHANIC",
+            "FITTER",
+            "MACHINIST",
+            "MACHINIST (GRINDER)",
+            "REF & AC",
+            "RADIO & TV MECHANIC",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "DIESEL MECH"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "FOUNDRYMAN",
+            "SHEET METAL WORKER",
+            "WELDER",
+            "COMPUTER OPERATOR & PROGRAMMING ASSISTANT",
+            "PLASTIC PROCESSING OPERATOR"
+          ]
+        }
+      },
+      {
+        "id": 7,
+        "name": "ITI PURULIA",
+        "address": "PO. RAGHUNATHPUR, DIST. PURULIA-723133",
+        "phone": "03251-255217",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "MACHINIST",
+            "MACHINIST (GRINDER)",
+            "RADIO & TV MECHANIC",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "DIESEL MECH",
+            "SURVEYOR"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "FOUNDRYMAN",
+            "SHEET METAL WORKER",
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 8,
+        "name": "ITI SURI",
+        "address": "PO. SURI, DIST. BIRBHUM-731101",
+        "phone": "03462-255453",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "MACHINIST",
+            "MACHINIST (GRINDER)",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES"
+          ],
+          "1_year": [
+            "PLASTIC PROCESSING OPERATOR",
+            "FOUNDRYMAN",
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "name": "ITI MIDNAPUR",
+        "address": "PO. RANGAMATI, DIST. PASCIM MIDNAPUR-721101",
+        "phone": "03222-275412",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "MACHINIST",
+            "TURNER",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES"
+          ],
+          "1_year": [
+            "PLASTIC PROCESSING OPERATOR",
+            "FOUNDRYMAN",
+            "WELDER",
+            "CARPENTER"
+          ]
+        }
+      },
+      {
+        "id": 10,
+        "name": "ITI HALDIA",
+        "address": "PO. DURGACHAK, DIST. PURBA MIDNAPUR",
+        "phone": "03224-274220",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "DIESEL MECH",
+            "MECHANIC MOTOR VEHICLES",
+            "PAINTER GENERAL"
+          ],
+          "1_year": [
+            "PLASTIC PROCESSING OPERATOR",
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 11,
+        "name": "ITI JHARGRAM",
+        "address": "PO. JHARGRAM, DIST. PASCHIM MIDNAPUR-721507",
+        "phone": "03221-255015",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "DRAFTSMAN CIVIL",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES"
+          ],
+          "1_year": [
+            "SHEET METAL WORKER",
+            "CUTTING & SEWING",
+            "WELDER",
+            "CARPENTER"
+          ]
+        }
+      },
+      {
+        "id": 12,
+        "name": "ITI BERHAMPORE",
+        "address": "PO. KASHIMBAZAR RAJ, DIST. MURSHIDABAD-742102",
+        "phone": "03482-251458",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "MACHINIST",
+            "TURNER",
+            "WIREMAN",
+            "SURVEYOR",
+            "DIESEL MECH"
+          ],
+          "1_year": [
+            "FOUNDRYMAN",
+            "WELDER",
+            "CARPENTER",
+            "SHEET METAL WORKER"
+          ]
+        }
+      },
+      {
+        "id": 13,
+        "name": "ITI MALDA",
+        "address": "PO. & DIST. MALDA-732101",
+        "phone": "03512-266322",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "MACHINIST",
+            "TURNER",
+            "WIREMAN",
+            "RADIO & TV",
+            "MECHANIC MOTOR VEHICLES",
+            "REF & AC"
+          ],
+          "1_year": [
+            "FOUNDRYMAN",
+            "WELDER",
+            "CARPENTER"
+          ]
+        }
+      },
+      {
+        "id": 14,
+        "name": "ITI RAIGUNJ",
+        "address": "PO. KARNAJORA, DIST. UTTAR DINAJPUR-733130",
+        "phone": "03523-252820",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "DRAFTSMAN MECHANIC",
+            "DRAFTSMAN CIVIL",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES"
+          ],
+          "1_year": [
+            "CUTTING & SEWING",
+            "WELDER",
+            "CARPENTER"
+          ]
+        }
+      },
+      {
+        "id": 15,
+        "name": "ITI SILIGURI",
+        "address": "SEVOKE ROAD, PO. EKTIASAL, DIST. DARJEELING-734401",
+        "phone": "0353-2542281",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "DRAFTSMAN MECHANIC",
+            "DRAFTSMAN CIVIL",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "REF & AC",
+            "SURVEYOR",
+            "TURNER",
+            "DIESEL MECH",
+            "RADIO & TV"
+          ],
+          "1_year": [
+            "PLASTIC PROCESSING OPERATOR",
+            "WELDER",
+            "SHEET METAL WORKER",
+            "STENOGRAPHY"
+          ]
+        }
+      },
+      {
+        "id": 16,
+        "name": "ITI COOCHBEHAR",
+        "address": "P.O. & DIST. COOCHBEHAR-736101",
+        "phone": "03582-227758",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "DRAFTSMAN MECHANIC",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "SURVEYOR",
+            "TURNER",
+            "PAINTER GENERAL"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "WELDER",
+            "SHEET METAL WORKER"
+          ]
+        }
+      },
+      {
+        "id": 17,
+        "name": "ITI TUNG",
+        "address": "PO. TUNG, DIST. DARJEELING-734224",
+        "phone": "0354-2342057",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "DRAFTSMAN CIVIL",
+            "WIREMAN",
+            "MECHANIC MOTOR VEHICLES",
+            "RADIO & TV",
+            "DIESEL MECH"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "CUTTING & SEWING"
+          ]
+        }
+      },
+      {
+        "id": 18,
+        "name": "WOMEN ITI BURDWAN",
+        "address": "ALISHA BY-PASS MORE, G.T. ROAD, BURDWAN",
+        "phone": "0342 2540 350",
+        "type": "Government - Women",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC",
+            "RADIO & TV"
+          ],
+          "1_year": [
+            "COMPUTER OPERATOR & PROGRAMMING ASSISTANT"
+          ]
+        }
+      },
+      {
+        "id": 19,
+        "name": "WOMEN ITI KOLKATA",
+        "address": "10 & 10/1 GARIAHAT ROAD, KOLKATA-700019",
+        "phone": "033-24402786",
+        "type": "Government - Women",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC",
+            "RADIO & TV"
+          ],
+          "1_year": [
+            "COMPUTER OPERATOR & PROGRAMMING ASSISTANT",
+            "HAIR & SKIN CARE",
+            "SECRETARIAL PRACTICE"
+          ]
+        }
+      },
+      {
+        "id": 20,
+        "name": "WOMEN ITI SILIGURI",
+        "address": "SEVOKE ROAD, PO. EKTIASAL, DIST. DARJEELING-734 401",
+        "phone": "0353-2542281",
+        "type": "Government - Women",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC",
+            "RADIO & TV"
+          ],
+          "1_year": [
+            "COMPUTER OPERATOR & PROGRAMMING ASSISTANT",
+            "HAIR & SKIN CARE",
+            "SECRETARIAL PRACTICE"
+          ]
+        }
+      },
+      {
+        "id": 21,
+        "name": "WOMEN ITI BANIPUR",
+        "address": "PO. BANIPUR, DIST. NORTH 24 PARAGNAS",
+        "phone": "03216-270 743",
+        "type": "Government - Women",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC"
+          ],
+          "1_year": [
+            "SECRETARIAL PRACTICE"
+          ]
+        }
+      },
+      {
+        "id": 22,
+        "name": "ITI CHHATNA",
+        "address": "KALAIBERIA, DIST. BANKURA",
+        "phone": "03242-277284",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC",
+            "RADIO & TV",
+            "FITTER"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 23,
+        "name": "BASIC TRAINING CENTRE (CHEMICAL) HOOGHLY",
+        "address": "PO. SAHAGUNJ, DIST. HOOGHLY",
+        "phone": "003-2631 2351",
+        "type": "Government",
+        "trades": {
+          "2_year": [],
+          "1_year": [
+            "LABORATORY ASSTT. CHEMICAL PLANT"
+          ]
+        }
+      },
+      {
+        "id": 24,
+        "name": "P. ROY ITI",
+        "address": "AMTALA, PO. BISHNUPUR, AMTALA, DIST. SOUTH 24 PARAGANAS",
+        "phone": "003-2480 9040",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC",
+            "RADIO & TV"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 25,
+        "name": "ITI ALIPURDUAR",
+        "address": "PO. ALIPURDUAR, DIST. JALPAIGURI",
+        "phone": "03564-204007",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 26,
+        "name": "ITI TOOFANGUNJ",
+        "address": "DIST. COOCHBEHAR",
+        "phone": "03582-246803",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 27,
+        "name": "ITI SHIBPUR",
+        "address": "P.O. SHIBPUR, HOWRAH",
+        "phone": "033-2668 4675",
+        "type": "Government - Centre of Excellence ELECTRICAL",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "DRAFTSMAN MECHANIC",
+            "MECHINIST",
+            "MECHANIC MOTOR VEHICLES",
+            "TURNER"
+          ],
+          "1_year": [
+            "TOOL & DIE MAKING"
+          ]
+        }
+      },
+      {
+        "id": 28,
+        "name": "ITI FOR PHYSICALLY CHALLENGED",
+        "address": "KOLKATA KARIGARI BHAVAN, 110 S.N. BANERJEE ROAD, KOLKATA-700013",
+        "phone": "2227 8077",
+        "type": "Government - Centre of Excellence APPAREL",
+        "trades": {
+          "2_year": [],
+          "1_year": [
+            "DESK TOP PUBLISHING",
+            "DRESS MAKING"
+          ]
+        }
+      },
+      {
+        "id": 29,
+        "name": "ITI BARRACKPORE",
+        "address": "P.O. B.D. SOPAN, KHARDAH, DIST. 24 PARGANAS (N)",
+        "phone": "2523 3065",
+        "type": "Government",
+        "trades": {
+          "6_months": [
+            "NETWORK TECHNICIAN",
+            "SANITARY HARDWARE FITTER"
+          ],
+          "2_year": [],
+          "1_year": []
+        }
+      },
+      {
+        "id": 30,
+        "name": "ITI FULIA",
+        "address": "P.O. FULIA, DIST. NADIA",
+        "phone": "03473-234478",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER"
+          ],
+          "1_year": [
+            "WELDER",
+            "DRESS MAKING",
+            "COMPUTER OPERATOR & PROGRAMMING ASSISTANT"
+          ]
+        }
+      },
+      {
+        "id": 31,
+        "name": "ITI BALURGHAT",
+        "address": "P.O. BELTALA PARK, DIST. DAKSHIN DINAJPUR",
+        "phone": "03522-256407",
+        "type": "Government - Centre of Excellence HOSPITALITY",
+        "trades": {
+          "2_year": [
+            "ELECTRONICS MECHANIC",
+            "RADIO & TV"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 32,
+        "name": "BAPRADAS PAL CHOWDHURY ITI",
+        "address": "P.O. KRISHNANAGAR, DIST. NADIA, PIN-741101",
+        "phone": "03472-252413",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "FITTER",
+            "TURNER",
+            "WIREMEN",
+            "MECHANIC MOTOR VEHICLE",
+            "DRAUGHTS MAN MECHANICAL"
+          ],
+          "1_year": [
+            "CARPENTER",
+            "WELDER",
+            "FORGER HEAT TREATER (D)"
+          ]
+        }
+      },
+      {
+        "id": 33,
+        "name": "ITI JALPAIGURI",
+        "address": "P.O. & DIST. JALPAIGURI, PIN-735101",
+        "phone": "03561-255498",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "ELECTRICIAN",
+            "TURNER"
+          ],
+          "1_year": [
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 34,
+        "name": "ITI SUBHASNAGAR",
+        "address": "P.O. BENGAI, DIST. HOOGHLY, PIN-712611",
+        "phone": "03211-246388",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "TURNER",
+            "WIREMEN"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 35,
+        "name": "ITI RUPNARAYANPUR",
+        "address": "P.O. HINUSTAN CABLES, DIST. BURDWAN, PIN-713 335",
+        "phone": "0341-2525 323",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "ELECTRICIAN",
+            "TURNER"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 36,
+        "name": "ITI HIJLI",
+        "address": "P.O. KHARAGPUR (I.I.T. CAMPUS), DIST. MIDNAPORE, PIN-721302",
+        "phone": "03222-277 153",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "DRAUGHTSMEN MECHANICAL",
+            "ELECTRONIC MECHANIC"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 37,
+        "name": "ITI CHINSURAH (HOOGHLY ITC)",
+        "address": "P.O. & DIST. HOOGHLY, PIN-712 103",
+        "phone": "2680-2064",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "ELECTRICIAN"
+          ],
+          "1_year": [
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 38,
+        "name": "ITI CHHOTAJAGULIA",
+        "address": "P.O. CHHOTAJAGULIA, DIST. NORTH 24 PRGS.",
+        "phone": "2552-3329",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "ELECTRICIAN",
+            "TURNER",
+            "DRAUGHTS MAN MECHANICAL"
+          ],
+          "1_year": [
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 39,
+        "name": "SATISH CHANDRA ITI",
+        "address": "P.O. KALANABAGRAM, DIST. BURDWAN, PIN-713124",
+        "phone": "0342-258 6367",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "TURNER",
+            "ELECTRICIAN"
+          ],
+          "1_year": [
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 40,
+        "name": "SARAJU PRASAD JUNIOR ENGINEERING ITI",
+        "address": "P.O. DURGI, VIA-JHALDA, DIST. PURULIA, PIN-723 202",
+        "phone": "03254-255 307",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "ELECTRICIAN",
+            "TURNER"
+          ],
+          "1_year": []
+        }
+      },
+      {
+        "id": 41,
+        "name": "ITI KALIAGUNGE",
+        "address": "P.O. KALIAGUNGE, DIST. UTTAR DINAJPUR, PIN-733129",
+        "phone": "03523-258 023",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "ELECTRICIAN"
+          ],
+          "1_year": [
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 42,
+        "name": "ITI KANYAPUR",
+        "address": "P.O. ASANSOL-4, DIST. BURDWAN, PIN-713304",
+        "phone": "0341-225 2933",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "ELECTRICIAN",
+            "MACHINIST",
+            "DRAUGHTS MAN MECHANICAL"
+          ],
+          "1_year": [
+            "WELDER"
+          ]
+        }
+      },
+      {
+        "id": 43,
+        "name": "ITI SABRAKONE",
+        "address": "P.O. SABRAKONE, DIST. BANKURA",
+        "phone": "03244-264 231",
+        "type": "Government",
+        "trades": {
+          "2_year": [
+            "FITTER",
+            "ELECTRICIAN",
+            "TURNER"
+          ],
+          "1_year": []
+        }
+      }
+    ]
+  }
+}

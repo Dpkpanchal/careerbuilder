@@ -1,0 +1,795 @@
+{
+  "section_id": "D",
+  "section_title": "RESEARCH-BASED COURSES",
+  "pages": "84-126",
+  "description": "Institutions of national importance and higher research opportunities",
+  "iits": {
+    "full_form": "Indian Institutes of Technology",
+    "total_count": 23,
+    "description": "Autonomous public institutes of higher education. Admission through JEE-Advanced for UG, GATE for M.Tech/MS, CAT for MBA, JAM for M.Sc, CEED for Design",
+    "institutes": [
+      {
+        "id": 1,
+        "name": "IIT Kharagpur",
+        "short_name": "IITKGP",
+        "state": "West Bengal",
+        "year_established": 1951,
+        "website": "http://www.iitkgp.ac.in"
+      },
+      {
+        "id": 2,
+        "name": "IIT Bombay",
+        "short_name": "IITB",
+        "state": "Maharashtra",
+        "year_established": 1958,
+        "website": "http://www.iitb.ac.in"
+      },
+      {
+        "id": 3,
+        "name": "IIT Kanpur",
+        "short_name": "IITK",
+        "state": "Uttar Pradesh",
+        "year_established": 1959,
+        "website": "http://www.iitk.ac.in"
+      },
+      {
+        "id": 4,
+        "name": "IIT Madras",
+        "short_name": "IITM",
+        "state": "Tamil Nadu",
+        "year_established": 1959,
+        "website": "http://www.iitm.ac.in/"
+      },
+      {
+        "id": 5,
+        "name": "IIT Delhi",
+        "short_name": "IITD",
+        "state": "Delhi",
+        "year_established": 1961,
+        "website": "http://www.iitd.ac.in"
+      },
+      {
+        "id": 6,
+        "name": "IIT Guwahati",
+        "short_name": "IITG",
+        "state": "Assam",
+        "year_established": 1994,
+        "website": "http://www.iitg.ernet.in"
+      },
+      {
+        "id": 7,
+        "name": "IIT Roorkee",
+        "short_name": "IITR",
+        "state": "Uttarakhand",
+        "year_established": 2001,
+        "website": "http://www.iitr.ernet.in"
+      },
+      {
+        "id": 8,
+        "name": "IIT Ropar",
+        "short_name": "IITRPR",
+        "state": "Punjab",
+        "year_established": 2008,
+        "website": "http://www.iitrpr.ac.in"
+      },
+      {
+        "id": 9,
+        "name": "IIT Bhubaneswar",
+        "short_name": "IITBBS",
+        "state": "Odisha",
+        "year_established": 2008,
+        "website": "http://www.iitbbs.ac.in"
+      },
+      {
+        "id": 10,
+        "name": "IIT Gandhinagar",
+        "short_name": "IITGN",
+        "state": "Gujarat",
+        "year_established": 2008,
+        "website": "https://www.iitgn.ac.in/"
+      },
+      {
+        "id": 11,
+        "name": "IIT Hyderabad",
+        "short_name": "IITH",
+        "state": "Telangana",
+        "year_established": 2008,
+        "website": "http://www.iith.ac.in"
+      },
+      {
+        "id": 12,
+        "name": "IIT Jodhpur",
+        "short_name": "IITJ",
+        "state": "Rajasthan",
+        "year_established": 2008,
+        "website": "http://www.iitj.ac.in"
+      },
+      {
+        "id": 13,
+        "name": "IIT Patna",
+        "short_name": "IITP",
+        "state": "Bihar",
+        "year_established": 2008,
+        "website": "http://www.iitp.ac.in"
+      },
+      {
+        "id": 14,
+        "name": "IIT Indore",
+        "short_name": "IITI",
+        "state": "Madhya Pradesh",
+        "year_established": 2009,
+        "website": "http://www.iiti.ac.in"
+      },
+      {
+        "id": 15,
+        "name": "IIT Mandi",
+        "short_name": "IITMandi",
+        "state": "Himachal Pradesh",
+        "year_established": 2009,
+        "website": "http://www.iitmandi.ac.in"
+      },
+      {
+        "id": 16,
+        "name": "IIT (BHU) Varanasi",
+        "short_name": "IIT (BHU)",
+        "state": "Uttar Pradesh",
+        "year_established": 2012,
+        "website": "http://iitbhu.ac.in"
+      },
+      {
+        "id": 17,
+        "name": "IIT Palakkad",
+        "short_name": "IITPKD",
+        "state": "Kerala",
+        "year_established": 2015,
+        "website": "http://iitpkd.ac.in"
+      },
+      {
+        "id": 18,
+        "name": "IIT Tirupati",
+        "short_name": "IITTP",
+        "state": "Andhra Pradesh",
+        "year_established": 2015,
+        "website": "http://iittp.ac.in"
+      },
+      {
+        "id": 19,
+        "name": "IIT Dhanbad (ISM)",
+        "short_name": "IIT (ISM)",
+        "state": "Jharkhand",
+        "year_established": 2016,
+        "website": "http://iitism.ac.in"
+      },
+      {
+        "id": 20,
+        "name": "IIT Bhilai",
+        "short_name": "IITBH",
+        "state": "Chhattisgarh",
+        "year_established": 2016,
+        "website": "https://www.iitbhilai.ac.in"
+      },
+      {
+        "id": 21,
+        "name": "IIT Goa",
+        "short_name": "IITGOA",
+        "state": "Goa",
+        "year_established": 2016,
+        "website": "http://www.iitgoa.ac.in"
+      },
+      {
+        "id": 22,
+        "name": "IIT Jammu",
+        "short_name": "IITJMU",
+        "state": "Jammu and Kashmir",
+        "year_established": 2016,
+        "website": "http://iitjammu.ac.in"
+      },
+      {
+        "id": 23,
+        "name": "IIT Dharwad",
+        "short_name": "IITDH",
+        "state": "Karnataka",
+        "year_established": 2016,
+        "website": "http://www.iitdh.ac.in"
+      }
+    ]
+  },
+  "nits": {
+    "full_form": "National Institutes of Technology",
+    "total_count": 31,
+    "description": "Premier engineering institutes in India. Admission through JEE Main for B.Tech",
+    "institutes": [
+      {
+        "id": 1,
+        "name": "NIT Agartala",
+        "state": "Tripura",
+        "website": "http://www.nita.ac.in"
+      },
+      {
+        "id": 2,
+        "name": "NIT Allahabad",
+        "state": "Uttar Pradesh",
+        "website": "http://www.mnnit.ac.in"
+      },
+      {
+        "id": 3,
+        "name": "NIT Bhopal",
+        "state": "Madhya Pradesh",
+        "website": "http://www.manit.ac.in"
+      },
+      {
+        "id": 4,
+        "name": "NIT Calicut",
+        "state": "Kerala",
+        "website": "http://www.nitc.ac.in"
+      },
+      {
+        "id": 5,
+        "name": "NIT Durgapur",
+        "state": "West Bengal",
+        "website": "http://www.nitdgp.ac.in"
+      },
+      {
+        "id": 6,
+        "name": "NIT Hamirpur",
+        "state": "Himachal Pradesh",
+        "website": "http://www.nith.ac.in"
+      },
+      {
+        "id": 7,
+        "name": "NIT Jaipur",
+        "state": "Rajasthan",
+        "website": "http://www.mnit.ac.in"
+      },
+      {
+        "id": 8,
+        "name": "NIT Jalandhar",
+        "state": "Punjab",
+        "website": "http://www.nitj.ac.in"
+      },
+      {
+        "id": 9,
+        "name": "NIT Jamshedpur",
+        "state": "Jharkhand",
+        "website": "http://www.nitjsr.ac.in"
+      },
+      {
+        "id": 10,
+        "name": "NIT Karnataka (Surathkal)",
+        "state": "Karnataka",
+        "website": "http://www.nitk.ac.in"
+      },
+      {
+        "id": 11,
+        "name": "NIT Kurukshetra",
+        "state": "Haryana",
+        "website": "http://www.nitkkr.ac.in"
+      },
+      {
+        "id": 12,
+        "name": "NIT Meghalaya",
+        "state": "Meghalaya",
+        "website": "http://www.nitm.ac.in"
+      },
+      {
+        "id": 13,
+        "name": "NIT Nagaland",
+        "state": "Nagaland",
+        "website": "http://www.nitnagaland.ac.in"
+      },
+      {
+        "id": 14,
+        "name": "NIT Patna",
+        "state": "Bihar",
+        "website": "http://www.nitp.ac.in"
+      },
+      {
+        "id": 15,
+        "name": "NIT Raipur",
+        "state": "Chhattisgarh",
+        "website": "http://www.nitrr.ac.in"
+      },
+      {
+        "id": 16,
+        "name": "NIT Rourkela",
+        "state": "Odisha",
+        "website": "http://www.nitrkl.ac.in"
+      },
+      {
+        "id": 17,
+        "name": "NIT Silchar",
+        "state": "Assam",
+        "website": "http://www.nits.ac.in"
+      },
+      {
+        "id": 18,
+        "name": "NIT Srinagar",
+        "state": "Jammu and Kashmir",
+        "website": "http://www.nitsri.net"
+      },
+      {
+        "id": 19,
+        "name": "NIT Trichy",
+        "state": "Tamil Nadu",
+        "website": "http://www.nitt.edu"
+      },
+      {
+        "id": 20,
+        "name": "NIT Warangal",
+        "state": "Telangana",
+        "website": "http://www.nitw.ac.in"
+      },
+      {
+        "id": 21,
+        "name": "NIT Arunachal Pradesh",
+        "state": "Arunachal Pradesh",
+        "website": "http://www.nitap.in"
+      },
+      {
+        "id": 22,
+        "name": "NIT Delhi",
+        "state": "Delhi",
+        "website": "http://www.nitdelhi.ac.in"
+      },
+      {
+        "id": 23,
+        "name": "NIT Goa",
+        "state": "Goa",
+        "website": "http://www.nitgoa.ac.in"
+      },
+      {
+        "id": 24,
+        "name": "NIT Manipur",
+        "state": "Manipur",
+        "website": "http://www.nitmanipur.ac.in"
+      },
+      {
+        "id": 25,
+        "name": "NIT Mizoram",
+        "state": "Mizoram",
+        "website": "http://www.nitmz.ac.in"
+      },
+      {
+        "id": 26,
+        "name": "NIT Puducherry",
+        "state": "Puducherry",
+        "website": "http://www.nitpy.ac.in"
+      },
+      {
+        "id": 27,
+        "name": "NIT Sikkim",
+        "state": "Sikkim",
+        "website": "http://www.nitsikkim.ac.in"
+      },
+      {
+        "id": 28,
+        "name": "NIT Uttarakhand",
+        "state": "Uttarakhand",
+        "website": "http://www.nituk.ac.in"
+      },
+      {
+        "id": 29,
+        "name": "NIT Andhra Pradesh",
+        "state": "Andhra Pradesh",
+        "website": "http://www.nitandhra.ac.in"
+      },
+      {
+        "id": 30,
+        "name": "SVNIT Surat",
+        "state": "Gujarat",
+        "website": "http://www.svnit.ac.in"
+      },
+      {
+        "id": 31,
+        "name": "VNIT Nagpur",
+        "state": "Maharashtra",
+        "website": "http://www.vnit.ac.in"
+      }
+    ]
+  },
+  "iims": {
+    "full_form": "Indian Institutes of Management",
+    "total_count": 20,
+    "description": "Premier management institutes in India. Admission through CAT exam for MBA/PGDM",
+    "institutes": [
+      {
+        "id": 1,
+        "name": "IIM Ahmedabad",
+        "state": "Gujarat",
+        "year_established": 1961,
+        "website": "http://www.iima.ac.in"
+      },
+      {
+        "id": 2,
+        "name": "IIM Bangalore",
+        "state": "Karnataka",
+        "year_established": 1973,
+        "website": "http://www.iimb.ac.in"
+      },
+      {
+        "id": 3,
+        "name": "IIM Calcutta",
+        "state": "West Bengal",
+        "year_established": 1961,
+        "website": "http://www.iimcal.ac.in"
+      },
+      {
+        "id": 4,
+        "name": "IIM Lucknow",
+        "state": "Uttar Pradesh",
+        "year_established": 1984,
+        "website": "http://www.iiml.ac.in"
+      },
+      {
+        "id": 5,
+        "name": "IIM Kozhikode",
+        "state": "Kerala",
+        "year_established": 1996,
+        "website": "http://www.iimk.ac.in"
+      },
+      {
+        "id": 6,
+        "name": "IIM Indore",
+        "state": "Madhya Pradesh",
+        "year_established": 1996,
+        "website": "http://www.iimidr.ac.in"
+      },
+      {
+        "id": 7,
+        "name": "IIM Shillong",
+        "state": "Meghalaya",
+        "year_established": 2007,
+        "website": "http://www.iimshillong.in"
+      },
+      {
+        "id": 8,
+        "name": "IIM Rohtak",
+        "state": "Haryana",
+        "year_established": 2009,
+        "website": "http://www.iimrohtak.ac.in"
+      },
+      {
+        "id": 9,
+        "name": "IIM Ranchi",
+        "state": "Jharkhand",
+        "year_established": 2009,
+        "website": "http://www.iimranchi.ac.in"
+      },
+      {
+        "id": 10,
+        "name": "IIM Raipur",
+        "state": "Chhattisgarh",
+        "year_established": 2010,
+        "website": "http://www.iimraipur.ac.in"
+      },
+      {
+        "id": 11,
+        "name": "IIM Trichy",
+        "state": "Tamil Nadu",
+        "year_established": 2011,
+        "website": "http://www.iimtrichy.ac.in"
+      },
+      {
+        "id": 12,
+        "name": "IIM Udaipur",
+        "state": "Rajasthan",
+        "year_established": 2011,
+        "website": "http://www.iimu.ac.in"
+      },
+      {
+        "id": 13,
+        "name": "IIM Kashipur",
+        "state": "Uttarakhand",
+        "year_established": 2011,
+        "website": "http://www.iimkashipur.ac.in"
+      },
+      {
+        "id": 14,
+        "name": "IIM Nagpur",
+        "state": "Maharashtra",
+        "year_established": 2015,
+        "website": "http://www.iimnagpur.ac.in"
+      },
+      {
+        "id": 15,
+        "name": "IIM Amritsar",
+        "state": "Punjab",
+        "year_established": 2015,
+        "website": "http://www.iimamritsar.ac.in"
+      },
+      {
+        "id": 16,
+        "name": "IIM Bodh Gaya",
+        "state": "Bihar",
+        "year_established": 2015,
+        "website": "http://www.iimbg.ac.in"
+      },
+      {
+        "id": 17,
+        "name": "IIM Sambalpur",
+        "state": "Odisha",
+        "year_established": 2015,
+        "website": "http://www.iimsambalpur.ac.in"
+      },
+      {
+        "id": 18,
+        "name": "IIM Sirmaur",
+        "state": "Himachal Pradesh",
+        "year_established": 2015,
+        "website": "http://www.iimsirmaur.ac.in"
+      },
+      {
+        "id": 19,
+        "name": "IIM Visakhapatnam",
+        "state": "Andhra Pradesh",
+        "year_established": 2015,
+        "website": "http://www.iimv.ac.in"
+      },
+      {
+        "id": 20,
+        "name": "IIM Jammu",
+        "state": "Jammu and Kashmir",
+        "year_established": 2016,
+        "website": "http://www.iimj.ac.in"
+      }
+    ]
+  },
+  "nift": {
+    "full_form": "National Institute of Fashion Technology",
+    "total_count": 16,
+    "description": "Premier fashion design and technology institutes. Admission through NIFT Entrance Exam",
+    "campuses": [
+      {
+        "id": 1,
+        "name": "NIFT Delhi (Hauz Khas)",
+        "state": "Delhi",
+        "year_established": 1986
+      },
+      {
+        "id": 2,
+        "name": "NIFT Mumbai",
+        "state": "Maharashtra"
+      },
+      {
+        "id": 3,
+        "name": "NIFT Kolkata",
+        "state": "West Bengal"
+      },
+      {
+        "id": 4,
+        "name": "NIFT Gandhinagar",
+        "state": "Gujarat"
+      },
+      {
+        "id": 5,
+        "name": "NIFT Hyderabad",
+        "state": "Telangana"
+      },
+      {
+        "id": 6,
+        "name": "NIFT Chennai",
+        "state": "Tamil Nadu"
+      },
+      {
+        "id": 7,
+        "name": "NIFT Bangalore",
+        "state": "Karnataka"
+      },
+      {
+        "id": 8,
+        "name": "NIFT Patna",
+        "state": "Bihar"
+      },
+      {
+        "id": 9,
+        "name": "NIFT Bhubaneswar",
+        "state": "Odisha"
+      },
+      {
+        "id": 10,
+        "name": "NIFT Raebareli",
+        "state": "Uttar Pradesh"
+      },
+      {
+        "id": 11,
+        "name": "NIFT Kangra",
+        "state": "Himachal Pradesh"
+      },
+      {
+        "id": 12,
+        "name": "NIFT Kannur",
+        "state": "Kerala"
+      },
+      {
+        "id": 13,
+        "name": "NIFT Shillong",
+        "state": "Meghalaya"
+      },
+      {
+        "id": 14,
+        "name": "NIFT Jodhpur",
+        "state": "Rajasthan"
+      },
+      {
+        "id": 15,
+        "name": "NIFT Srinagar",
+        "state": "Jammu and Kashmir"
+      },
+      {
+        "id": 16,
+        "name": "NIFT Panchkula",
+        "state": "Haryana"
+      }
+    ],
+    "website": "https://www.nift.ac.in/"
+  },
+  "law_universities": {
+    "description": "National Law Universities and Law Colleges. Admission through CLAT for 5-year BA LLB and 3-year LLB",
+    "national_law_universities": [
+      {
+        "id": 1,
+        "name": "National Law School of India University (NLSIU)",
+        "location": "Bangalore",
+        "state": "Karnataka",
+        "year_established": 1987
+      },
+      {
+        "id": 2,
+        "name": "NALSAR University of Law",
+        "location": "Hyderabad",
+        "state": "Telangana",
+        "year_established": 1998
+      },
+      {
+        "id": 3,
+        "name": "National Law Institute University (NLIU)",
+        "location": "Bhopal",
+        "state": "Madhya Pradesh",
+        "year_established": 1997
+      },
+      {
+        "id": 4,
+        "name": "West Bengal National University of Juridical Sciences (WBNUJS)",
+        "location": "Kolkata",
+        "state": "West Bengal",
+        "year_established": 1999
+      },
+      {
+        "id": 5,
+        "name": "National Law University (NLU)",
+        "location": "Jodhpur",
+        "state": "Rajasthan",
+        "year_established": 1999
+      },
+      {
+        "id": 6,
+        "name": "Hidayatullah National Law University (HNLU)",
+        "location": "Raipur",
+        "state": "Chhattisgarh",
+        "year_established": 2003
+      },
+      {
+        "id": 7,
+        "name": "Gujarat National Law University (GNLU)",
+        "location": "Gandhinagar",
+        "state": "Gujarat",
+        "year_established": 2003
+      },
+      {
+        "id": 8,
+        "name": "Dr. Ram Manohar Lohiya National Law University",
+        "location": "Lucknow",
+        "state": "Uttar Pradesh",
+        "year_established": 2005
+      },
+      {
+        "id": 9,
+        "name": "Rajiv Gandhi National University of Law (RGNUL)",
+        "location": "Patiala",
+        "state": "Punjab",
+        "year_established": 2006
+      },
+      {
+        "id": 10,
+        "name": "Chanakya National Law University (CNLU)",
+        "location": "Patna",
+        "state": "Bihar",
+        "year_established": 2006
+      },
+      {
+        "id": 11,
+        "name": "National University of Advanced Legal Studies (NUALS)",
+        "location": "Kochi",
+        "state": "Kerala",
+        "year_established": 2005
+      },
+      {
+        "id": 12,
+        "name": "National Law University (NLU)",
+        "location": "Odisha",
+        "state": "Odisha",
+        "year_established": 2008
+      },
+      {
+        "id": 13,
+        "name": "National University of Study and Research in Law (NUSRL)",
+        "location": "Ranchi",
+        "state": "Jharkhand",
+        "year_established": 2010
+      },
+      {
+        "id": 14,
+        "name": "National Law University and Judicial Academy (NLUJA)",
+        "location": "Assam",
+        "state": "Assam",
+        "year_established": 2009
+      },
+      {
+        "id": 15,
+        "name": "Damodaram Sanjivayya National Law University",
+        "location": "Visakhapatnam",
+        "state": "Andhra Pradesh",
+        "year_established": 2008
+      },
+      {
+        "id": 16,
+        "name": "Tamil Nadu National Law School",
+        "location": "Tiruchirappalli",
+        "state": "Tamil Nadu",
+        "year_established": 2012
+      },
+      {
+        "id": 17,
+        "name": "Maharashtra National Law University",
+        "location": "Mumbai/Nagpur/Aurangabad",
+        "state": "Maharashtra",
+        "year_established": 2014
+      },
+      {
+        "id": 18,
+        "name": "Himachal Pradesh National Law University",
+        "location": "Shimla",
+        "state": "Himachal Pradesh",
+        "year_established": 2016
+      }
+    ],
+    "entrance_exam": "CLAT (Common Law Admission Test)",
+    "website": "https://consortiumofnlus.ac.in/"
+  },
+  "other_premier_institutes": {
+    "aiims": {
+      "full_form": "All India Institute of Medical Sciences",
+      "flagship": "AIIMS New Delhi",
+      "description": "Premier medical institutes. Admission through NEET for MBBS",
+      "total_count": 16,
+      "major_campuses": [
+        "AIIMS New Delhi",
+        "AIIMS Bhopal",
+        "AIIMS Bhubaneswar",
+        "AIIMS Jodhpur",
+        "AIIMS Patna",
+        "AIIMS Raipur",
+        "AIIMS Rishikesh",
+        "AIIMS Nagpur"
+      ]
+    },
+    "iisers": {
+      "full_form": "Indian Institutes of Science Education and Research",
+      "description": "Premier science institutes offering 5-year BS-MS program. Admission through JEE Advanced/KVPY/SCB",
+      "institutes": [
+        "IISER Kolkata",
+        "IISER Pune",
+        "IISER Mohali",
+        "IISER Bhopal",
+        "IISER Thiruvananthapuram",
+        "IISER Tirupati",
+        "IISER Berhampur"
+      ]
+    },
+    "iisc": {
+      "full_form": "Indian Institute of Science",
+      "location": "Bangalore",
+      "description": "Premier research institute for science and engineering"
+    }
+  }
+}

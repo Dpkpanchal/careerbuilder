@@ -1,0 +1,319 @@
+{
+  "section_id": "F",
+  "section_title": "EDUCATIONAL RESOURCE DATABASE",
+  "pages": "142-155",
+  "description": "Career counselors, coaching centers, job portals, and important web resources",
+  "job_opportunities": {
+    "description": "Various sectors offering job opportunities",
+    "sectors": [
+      {
+        "sector": "Government Jobs",
+        "portals": [
+          {
+            "name": "UPSC",
+            "website": "https://www.upsc.gov.in/"
+          },
+          {
+            "name": "WBPSC",
+            "website": "https://pscwb.org.in/"
+          },
+          {
+            "name": "SSC",
+            "website": "https://ssc.nic.in/"
+          },
+          {
+            "name": "Railway Recruitment",
+            "website": "https://www.rrbcdg.gov.in/"
+          }
+        ]
+      },
+      {
+        "sector": "Private Sector",
+        "portals": [
+          {
+            "name": "Naukri.com",
+            "website": "https://www.naukri.com/"
+          },
+          {
+            "name": "LinkedIn",
+            "website": "https://www.linkedin.com/"
+          },
+          {
+            "name": "Indeed",
+            "website": "https://www.indeed.co.in/"
+          },
+          {
+            "name": "Monster India",
+            "website": "https://www.monsterindia.com/"
+          }
+        ]
+      },
+      {
+        "sector": "Banking & Finance",
+        "exams": [
+          "IBPS",
+          "SBI PO/Clerk",
+          "RBI Grade B"
+        ],
+        "website": "https://www.ibps.in/"
+      },
+      {
+        "sector": "Teaching",
+        "opportunities": [
+          "School Teacher (TET)",
+          "College Professor (NET/SET)",
+          "Educational Institutions"
+        ]
+      }
+    ]
+  },
+  "university_admission_support": {
+    "description": "Support teams for university admissions in India and abroad",
+    "services": [
+      "Course selection guidance",
+      "University application assistance",
+      "Visa guidance for foreign universities",
+      "Scholarship application support"
+    ],
+    "contact": "Contact WBMDFC for university admission support"
+  },
+  "career_counselors": {
+    "description": "Qualified career counselors to guide students",
+    "note": "Contact details available on pages 148-149 of the career book",
+    "services": [
+      "Career assessment and planning",
+      "Course selection guidance",
+      "Entrance exam preparation advice",
+      "Personality development counseling"
+    ],
+    "contact_wbmdfc": {
+      "organization": "WBMDFC Career Counseling Cell",
+      "phone": "033 40047469",
+      "email": "mdfc.wb@gmail.com"
+    }
+  },
+  "coaching_centers": {
+    "description": "Coaching centers for competitive examinations",
+    "upsc_wbcs": {
+      "exams": [
+        "UPSC Civil Services",
+        "WBCS",
+        "WBPS",
+        "Other State Services"
+      ],
+      "note": "Multiple coaching centers available in Kolkata and other districts"
+    },
+    "jee_neet": {
+      "exams": [
+        "JEE Main",
+        "JEE Advanced",
+        "NEET"
+      ],
+      "popular_institutes": [
+        "FIITJEE",
+        "Allen Career Institute",
+        "Aakash Institute",
+        "Resonance",
+        "Narayana",
+        "Sri Chaitanya"
+      ]
+    },
+    "cat_management": {
+      "exams": [
+        "CAT",
+        "XAT",
+        "MAT",
+        "SNAP"
+      ],
+      "institutes": [
+        "IMS",
+        "TIME",
+        "Career Launcher",
+        "Triumphant Institute"
+      ]
+    },
+    "banking_ssc": {
+      "exams": [
+        "IBPS",
+        "SBI PO/Clerk",
+        "SSC CGL/CHSL"
+      ],
+      "institutes": "Multiple institutes in major cities"
+    }
+  },
+  "wakf_hostels": {
+    "description": "Hostel facilities for students from minority communities",
+    "total_count": 15,
+    "note": "Hostels available across West Bengal providing accommodation for students",
+    "contact": "Contact West Bengal State Wakf Board for details",
+    "facilities": [
+      "Boys and Girls hostels",
+      "Subsidized accommodation",
+      "Study facilities",
+      "Located near educational institutions"
+    ]
+  },
+  "important_web_links": {
+    "vocational_education": [
+      {
+        "name": "WB State Council of Vocational Education & Training",
+        "url": "http://www.wbscvet.nic.in/"
+      },
+      {
+        "name": "Directorate of Industrial Training, WB",
+        "url": "http://www.ditwb.org"
+      },
+      {
+        "name": "National Skill Development Corporation",
+        "url": "http://www.nsdcindia.org/"
+      },
+      {
+        "name": "Director General of Training",
+        "url": "http://dget.nic.in/"
+      }
+    ],
+    "engineering": [
+      {
+        "name": "JEE Main",
+        "url": "http://jeemain.nic.in/"
+      },
+      {
+        "name": "JEE Advanced",
+        "url": "http://jeeadv.iitd.ac.in/"
+      },
+      {
+        "name": "WBJEE",
+        "url": "http://www.wbjeeb.in/"
+      },
+      {
+        "name": "WB State Council of Technical Education",
+        "url": "http://wbscte.net/"
+      },
+      {
+        "name": "AICTE",
+        "url": "https://www.aicte-india.org/"
+      }
+    ],
+    "medical": [
+      {
+        "name": "NEET",
+        "url": "https://ntaneet.nic.in/"
+      },
+      {
+        "name": "AIIMS",
+        "url": "https://www.aiimsexams.org/"
+      },
+      {
+        "name": "JIPMER",
+        "url": "https://www.jipmer.edu.in/"
+      }
+    ],
+    "management": [
+      {
+        "name": "CAT",
+        "url": "https://iimcat.ac.in/"
+      },
+      {
+        "name": "MAT",
+        "url": "http://www.aima.in/"
+      },
+      {
+        "name": "XAT",
+        "url": "https://xatonline.in/"
+      },
+      {
+        "name": "SNAP",
+        "url": "https://www.snaptest.org/"
+      }
+    ],
+    "law": [
+      {
+        "name": "CLAT",
+        "url": "https://consortiumofnlus.ac.in/"
+      }
+    ],
+    "general_education": [
+      {
+        "name": "UGC (University Grants Commission)",
+        "url": "https://www.ugc.ac.in/"
+      },
+      {
+        "name": "MHRD (Ministry of Human Resource Development)",
+        "url": "https://www.education.gov.in/"
+      },
+      {
+        "name": "IGNOU",
+        "url": "http://www.ignou.ac.in/"
+      },
+      {
+        "name": "NSOU (Netaji Subhas Open University)",
+        "url": "http://www.wbnsou.ac.in/"
+      },
+      {
+        "name": "Distance Education Bureau",
+        "url": "https://www.ugc.ac.in/deb/"
+      }
+    ],
+    "scholarships": [
+      {
+        "name": "National Scholarship Portal",
+        "url": "https://scholarships.gov.in/"
+      },
+      {
+        "name": "WBMDFC",
+        "url": "http://wbmdfc.org"
+      },
+      {
+        "name": "Minority Affairs Ministry",
+        "url": "https://www.minorityaffairs.gov.in/"
+      }
+    ],
+    "career_guidance": [
+      {
+        "name": "Youth Employment Portal",
+        "url": "https://www.ncs.gov.in/"
+      },
+      {
+        "name": "Apprenticeship Training",
+        "url": "https://apprenticeshipindia.gov.in/"
+      },
+      {
+        "name": "Skill India",
+        "url": "https://www.skillindia.gov.in/"
+      }
+    ]
+  },
+  "cv_cover_letter": {
+    "description": "Guidelines for writing professional CV and cover letter",
+    "cv_tips": [
+      "Keep it concise (1-2 pages for fresher, 2-3 pages for experienced)",
+      "Use clear, professional font (Arial, Calibri, Times New Roman)",
+      "Include: Personal details, Educational qualifications, Skills, Experience, Projects, Achievements",
+      "Use bullet points for better readability",
+      "Proofread for errors",
+      "Update regularly"
+    ],
+    "cover_letter_tips": [
+      "Address to specific person/organization",
+      "Mention the position you're applying for",
+      "Highlight relevant skills and experience",
+      "Show enthusiasm for the role",
+      "Keep it brief (one page)",
+      "Professional tone and format"
+    ],
+    "online_tools": [
+      {
+        "name": "Canva",
+        "url": "https://www.canva.com/"
+      },
+      {
+        "name": "Resume.io",
+        "url": "https://resume.io/"
+      },
+      {
+        "name": "Zety",
+        "url": "https://zety.com/"
+      }
+    ]
+  }
+}

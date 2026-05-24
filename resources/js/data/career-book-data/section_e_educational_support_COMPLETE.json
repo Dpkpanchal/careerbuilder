@@ -1,0 +1,153 @@
+{
+  "section_id": "E",
+  "section_title": "EDUCATIONAL SUPPORT",
+  "pages": "127-141",
+  "description": "Scholarships, education loans, and fellowship programs",
+  "wbmdfc_contact": {
+    "organization": "West Bengal Minorities' Development & Finance Corporation",
+    "address": "AMBER DD-27/E, Sector-I, Salt Lake City, Kolkata-700064",
+    "phone": "033 40047469",
+    "email": "mdfc.wb@gmail.com",
+    "website": "http://wbmdfc.org"
+  },
+  "scholarship_schemes": {
+    "description": "Various scholarship schemes for minority and economically weaker students",
+    "wbmdfc_scholarships": [
+      {
+        "name": "Pre-Matric Scholarship",
+        "target": "Students from Class I to X",
+        "eligibility": "Minority community students with parental income < Rs. 1,00,000",
+        "amount": "As per government norms"
+      },
+      {
+        "name": "Post-Matric Scholarship",
+        "target": "Students from Class XI onwards",
+        "eligibility": "Minority community students with parental income < Rs. 2,00,000",
+        "amount": "Varies by course and hostel/day scholar status"
+      },
+      {
+        "name": "Merit-cum-Means Scholarship",
+        "target": "Meritorious students from economically weaker sections",
+        "eligibility": "Based on marks and income criteria"
+      }
+    ],
+    "national_schemes": [
+      {
+        "name": "National Means-cum-Merit Scholarship",
+        "authority": "Ministry of Education, Govt of India",
+        "target": "Class IX to XII students"
+      },
+      {
+        "name": "National Scholarship Portal",
+        "website": "https://scholarships.gov.in/",
+        "description": "One-stop solution for end-to-end scholarship process"
+      },
+      {
+        "name": "Maulana Azad National Fellowship",
+        "target": "Minority students pursuing M.Phil/Ph.D",
+        "authority": "UGC"
+      }
+    ]
+  },
+  "education_loan": {
+    "description": "Education loan schemes from various banks and financial institutions",
+    "government_schemes": [
+      {
+        "scheme": "Central Sector Interest Subsidy Scheme (CSIS)",
+        "for": "Students from economically weaker sections",
+        "benefit": "Full interest subsidy during moratorium period",
+        "income_limit": "Family income up to Rs. 4.5 lakh per annum"
+      },
+      {
+        "scheme": "Padho Pardesh",
+        "for": "Minority students for foreign studies",
+        "benefit": "Interest subsidy on education loan"
+      }
+    ],
+    "loan_providers": [
+      "State Bank of India (SBI)",
+      "Punjab National Bank (PNB)",
+      "Bank of Baroda",
+      "Canara Bank",
+      "Union Bank of India",
+      "HDFC Bank",
+      "ICICI Bank",
+      "Axis Bank"
+    ],
+    "loan_features": {
+      "amount": "Up to Rs. 1.5 crore for studies abroad",
+      "interest_rate": "Generally 8-12% per annum (varies by bank)",
+      "repayment": "Starts after course completion + 1 year grace period",
+      "collateral": "Required for loans above Rs. 7.5 lakh (generally)"
+    },
+    "contact": "Contact WBMDFC for guidance on education loan application"
+  },
+  "fellowship_programs": {
+    "description": "National fellowship programs for research scholars",
+    "fellowships": [
+      {
+        "name": "JRF (Junior Research Fellowship)",
+        "conducting_body": "UGC/CSIR",
+        "eligibility": "M.Sc/M.Tech with NET qualification",
+        "amount": "Rs. 31,000 per month (first 2 years), Rs. 35,000 (next 3 years)",
+        "exam": "UGC-NET / CSIR-NET"
+      },
+      {
+        "name": "CSIR Research Fellowship",
+        "conducting_body": "Council of Scientific & Industrial Research",
+        "for": "Science & Technology research",
+        "exam": "CSIR-NET"
+      },
+      {
+        "name": "DST INSPIRE Fellowship",
+        "conducting_body": "Department of Science & Technology",
+        "for": "Ph.D in Basic/Applied Sciences",
+        "website": "http://online-inspire.gov.in/"
+      },
+      {
+        "name": "DBT-JRF",
+        "conducting_body": "Department of Biotechnology",
+        "for": "Biotechnology research"
+      },
+      {
+        "name": "ICMR-JRF",
+        "conducting_body": "Indian Council of Medical Research",
+        "for": "Medical research"
+      },
+      {
+        "name": "ICAR-JRF",
+        "conducting_body": "Indian Council of Agricultural Research",
+        "for": "Agricultural research"
+      },
+      {
+        "name": "Maulana Azad National Fellowship (MANF)",
+        "conducting_body": "UGC",
+        "for": "Minority students pursuing M.Phil/Ph.D",
+        "amount": "Rs. 25,000-28,000 per month + contingency",
+        "website": "https://www.ugc.ac.in/"
+      }
+    ]
+  },
+  "important_links": {
+    "scholarships": [
+      {
+        "name": "National Scholarship Portal",
+        "url": "https://scholarships.gov.in/"
+      },
+      {
+        "name": "UGC Scholarships",
+        "url": "https://www.ugc.ac.in/"
+      },
+      {
+        "name": "WBMDFC Scholarships",
+        "url": "http://wbmdfc.org"
+      }
+    ],
+    "education_loans": [
+      {
+        "name": "Vidya Lakshmi Portal",
+        "url": "https://www.vidyalakshmi.co.in/"
+      }
+    ]
+  }
+}

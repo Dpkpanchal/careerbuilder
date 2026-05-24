@@ -1,0 +1,223 @@
+
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #1e293b;
+  margin-bottom: 1rem;
+ 
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Streams Grid */
+.streamsGrid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.streamCard {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.streamCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+/* Stream-specific colors */
+.scienceMedical::before {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.scienceNonMedical::before {
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.arts::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.commerce::before {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+}
+
+.streamHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.streamTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.streamBadge {
+  background: #f1f5f9;
+  color: #64748b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f8fafc;
+}
+
+/* Subjects Grid */
+.subjectsGrid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.subjectList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.subjectItem {
+  background: #f8fafc;
+  color: #374151;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.subjectItem:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+.mainSubject {
+  background: #dbeafe;
+  color: #1e40af;
+  border-color: #93c5fd;
+  font-weight: 600;
+}
+
+.optionalSubject {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.languageSubject {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+
+
+.noteTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.noteContent {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.noteHighlight {
+  background: #fef3c7;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #92400e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .streamsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .streamHeader {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .subjectList {
+    justify-content: center;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
