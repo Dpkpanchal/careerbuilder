@@ -292,19 +292,45 @@ Route::middleware(['auth'])->group(function () {
 // Registers a GET route for every active menu link that has a slug but no
 // route_name. These are content pages managed from the admin panel.
 // ─────────────────────────────────────────────────────────────────────────────
+// try {
+//     \App\Models\Menu::whereNull('route_name')
+//         ->whereNotNull('slug')
+//         ->where('is_active', true)
+//         ->where('type', 'link')
+//         ->get()
+//         ->each(function ($item) {
+//             Route::get('/' . ltrim($item->slug, '/'), [PageController::class, 'show'])
+//                 ->defaults('slug', $item->slug)
+//                 ->name($item->key);
+//         });
+// } catch (\Throwable) {
+//     // DB unavailable during fresh migrations — skip silently.
+// }
+
 try {
-    \App\Models\Menu::whereNull('route_name')
+
+    $menus = \App\Models\Menu::query()
+        ->whereNull('route_name')
         ->whereNotNull('slug')
         ->where('is_active', true)
         ->where('type', 'link')
-        ->get()
-        ->each(function ($item) {
-            Route::get('/' . ltrim($item->slug, '/'), [PageController::class, 'show'])
-                ->defaults('slug', $item->slug)
-                ->name($item->key);
-        });
-} catch (\Throwable) {
-    // DB unavailable during fresh migrations — skip silently.
+        ->get();
+
+    foreach ($menus as $item) {
+
+        $slug = trim($item->slug, '/');
+
+        if (empty($slug)) {
+            continue;
+        }
+
+        Route::get('/' . $slug, [PageController::class, 'show'])
+            ->defaults('slug', $slug)
+            ->name('dynamic.' . $item->id);
+    }
+
+} catch (\Throwable $e) {
+
 }
 
 Route::fallback(function () {

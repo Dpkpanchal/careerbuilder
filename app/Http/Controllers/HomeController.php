@@ -37,7 +37,12 @@ class HomeController extends Controller
         ];
          })->values();
 
-         $leaders = LeaderMessage::latest()->get();
+        // $leaders = LeaderMessage::latest()->get();
+
+         $leaders = LeaderMessage::where('is_blocked', false)
+    ->latest()
+    ->get();
+
          $items = LoanSection::orderBy('order')->get();
 
            $factCards = $items
@@ -157,11 +162,14 @@ class HomeController extends Controller
                 'link' => route('news.updates', [
                     'news' => $item->slug
                 ]),
+                'category' => $item->category,
             ];
         })->values(),
 
     ]);
 }
+
+
 
 
 

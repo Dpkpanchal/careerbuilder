@@ -15,6 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
 
     ->withMiddleware(function (Middleware $middleware): void {
 
+        // Trust the reverse proxy (Nginx/LB) so Laravel uses X-Forwarded-Host/Proto
+        // instead of the raw EC2 internal hostname.
+        $middleware->trustProxies(at: '*');
+
         /*
         |--------------------------------------------------------------------------
         | Web Middleware Stack

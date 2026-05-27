@@ -26,4 +26,7 @@ class News extends Model
 
         });
     }
+
+
+
 }

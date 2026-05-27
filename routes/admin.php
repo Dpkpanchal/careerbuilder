@@ -96,7 +96,11 @@ Route::middleware(['admin.session', 'auth:admin'])
         Route::resource('cm-message', CmMessageController::class);
         Route::resource('hero-slides', HeroSlideController::class);
         Route::resource('leaders', LeaderMessageController::class);
+        Route::post( '/leaders/{id}/toggle-block', [LeaderMessageController::class, 'toggleBlock'] )->name('leaders.toggle-block');
+        Route::post( '/leaders/{id}/restore', [LeaderMessageController::class, 'restore'] )->name('leaders.restore');
+    
         Route::resource('career-domains', CareerDomainController::class);
+
         Route::resource('news', NewsController::class);
         Route::resource('loan-sections', LoanSectionController::class);
         Route::resource('sections', SectionController::class);

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\LeaderMessage;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class LeaderMessageController extends Controller
@@ -13,19 +15,25 @@ class LeaderMessageController extends Controller
     /**
      * Display a listing of the resource.
      */
+  
+
     public function index()
     {
-         return Inertia::render('Admin/Leaders/Index', [
-                'messages' => LeaderMessage::latest()->get()
-         ]);
+        return Inertia::render('Admin/Leaders/Index', [
+
+            'messages' => LeaderMessage::withTrashed()
+                ->latest()
+                ->get()
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        dd("sdsd");
+        return Inertia::render('Admin/Leaders/Create');
     }
 
     /**
@@ -33,7 +41,49 @@ class LeaderMessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'post' => 'nullable|string|max:255',
+            'designation' => 'nullable|string|max:255',
+            'about' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        $imagePath = null;
+
+        if ($request->hasFile('image')) {
+
+            $imagePath = $request
+                ->file('image')
+                ->store('leaders', 'public');
+        }
+
+        
+
+        // CREATE LEADER
+        LeaderMessage::create([
+
+            'name' => $request->name,
+
+            'slug' => Str::slug($request->name),
+
+            'post' => $request->post,
+
+            'designation' => $request->designation,
+
+            'about' => $request->about,
+
+            'image' => $imagePath,
+
+            'is_blocked' => false,
+        ]);
+
+        return redirect()
+            ->route('admin.leaders.index')
+            ->with(
+                'success',
+                'Leader created successfully.'
+            );
     }
 
     /**
@@ -84,8 +134,45 @@ class LeaderMessageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $leader = LeaderMessage::findOrFail($id);
+
+        $leader->delete();
+
+        return back()->with(
+            'success',
+            'Leader deleted successfully.'
+        );
     }
+
+    public function toggleBlock($id)
+    {
+        $leader = LeaderMessage::findOrFail($id);
+
+        $leader->is_blocked = !$leader->is_blocked;
+
+        $leader->save();
+
+        return back()->with(
+            'success',
+            $leader->is_blocked
+                ? 'Leader blocked successfully.'
+                : 'Leader unblocked successfully.'
+        );
+    }
+
+    public function restore($id)
+    {
+        $leader = LeaderMessage::withTrashed()
+            ->findOrFail($id);
+
+        $leader->restore();
+
+        return back()->with(
+            'success',
+            'Leader restored successfully.'
+        );
+    }
+
 }

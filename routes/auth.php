@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('/admin/register', [RegisteredUserController::class, 'create'])
-        ->name('register');
+        ->name('admin.register');
 
-    Route::post('/admin/register', [RegisteredUserController::class, 'store']);
+    Route::post('/admin/register', [RegisteredUserController::class, 'store'])
+        ->name('admin.register.store');
 
     // Route::get('admin/login', [AuthenticatedSessionController::class, 'create'])
     //     ->name('login');
@@ -37,16 +38,8 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('verify-email', EmailVerificationPromptController::class)
-        ->name('verification.notice');
-
-    Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
-        ->middleware(['signed', 'throttle:6,1'])
-        ->name('verification.verify');
-
-    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware('throttle:6,1')
-        ->name('verification.send');
+    // verification.notice, verification.verify, verification.send are defined
+    // with custom implementations in web.php — not repeated here.
 
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
         ->name('password.confirm');
