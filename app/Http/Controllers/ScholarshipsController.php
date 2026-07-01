@@ -9,6 +9,7 @@ class ScholarshipsController extends Controller
 {
     public function overview()
     {
+       
         return Inertia::render('Frontend/Scholarship/overview', [
             'title' => 'Scholarship Overview',
             'description' => 'Overview of scholarships available for students.',

@@ -20,7 +20,7 @@ const SCHEMES_AT_GLANCE = [
   {
     no: 1,
     name: "Pre Matric",
-    classOfStudy: "Class I – X",
+    classOfStudy: "Class I – IX",
     website: "https://scholarships.gov.in",
     minMarks: "50% in last exam (Class I exempt)",
     income: "Up to ₹1 Lakh",
@@ -28,7 +28,7 @@ const SCHEMES_AT_GLANCE = [
   {
     no: 2,
     name: "Post Matric",
-    classOfStudy: "Up to Ph.D.",
+    classOfStudy: "XI Upto Ph.D.",
     website: "https://scholarships.gov.in",
     minMarks: "50% in last exam",
     income: "Up to ₹2 Lakh",
@@ -40,15 +40,8 @@ const SCHEMES_AT_GLANCE = [
     website: "https://scholarships.gov.in",
     minMarks: "50% in last exam",
     income: "Up to ₹2.5 Lakh",
-  },
-  {
-    no: 4,
-    name: "Post-Matric Stipend – Talent Support Programme (TSP)",
-    classOfStudy: "Up to Ph.D.",
-    website: "https://wbmdfcscholarship.in",
-    minMarks: "Less than 50% in last exam",
-    income: "Up to ₹2 Lakh",
-  },
+  }
+
 ];
 
 export default function ScholarshipsOverviewPage() {
@@ -102,14 +95,14 @@ export default function ScholarshipsOverviewPage() {
                         <span className="sch-stat-label">Core schemes</span>
                         <span className="sch-stat-value">4</span>
                         <span className="sch-stat-meta">
-                          Pre-Matric, Post-Matric, Merit-cum-Means, TSP
+                          Pre-Matric, Post-Matric, Merit-cum-Means
                         </span>
                       </div>
                     </div>
                     <div className="col-md-4">
                       <div className="sch-stat">
                         <span className="sch-stat-label">Study coverage</span>
-                        <span className="sch-stat-value">Class I → Ph.D.</span>
+                        <span className="sch-stat-value">Class IX → Ph.D.</span>
                         <span className="sch-stat-meta">
                           From school to research
                         </span>
