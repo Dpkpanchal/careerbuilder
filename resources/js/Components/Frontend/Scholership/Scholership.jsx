@@ -21,7 +21,7 @@ const SCHOLARSHIP_SCHEMES = [
   {
     no: 1,
     scheme: "Pre-Matric",
-    class_of_study: "I – X",
+    class_of_study: "I – IX",
     website: "www.scholarships.gov.in",
     minimum_marks: "50% in last exam (except for Class I)",
     annual_family_income: "Up to ₹2 Lakh"
@@ -29,7 +29,7 @@ const SCHOLARSHIP_SCHEMES = [
   {
     no: 2,
     scheme: "Post-Matric",
-    class_of_study: "Up to Ph.D.",
+    class_of_study: "XI Upto Ph.D.",
     website: "www.scholarships.gov.in",
     minimum_marks: "50% in last exam",
     annual_family_income: "Up to ₹2 Lakh"
@@ -41,15 +41,15 @@ const SCHOLARSHIP_SCHEMES = [
     website: "www.scholarships.gov.in",
     minimum_marks: "50% in last exam",
     annual_family_income: "Up to ₹2.5 Lakh"
-  },
-  {
-    no: 4,
-    scheme: "Post-Matric Stipend under Talent Support Program (TSP)",
-    class_of_study: "Up to Ph.D.",
-    website: "www.wbmdfcscholarship.in",
-    minimum_marks: "Less than 50% in last exam",
-    annual_family_income: "Up to ₹2 Lakh"
   }
+  // {
+  //   no: 4,
+  //   scheme: "Post-Matric Stipend under Talent Support Program (TSP)",
+  //   class_of_study: "Up to Ph.D.",
+  //   website: "www.wbmdfcscholarship.in",
+  //   minimum_marks: "Less than 50% in last exam",
+  //   annual_family_income: "Up to ₹2 Lakh"
+  // }
 ];
 
 const RATE_OF_SCHOLARSHIP = [
@@ -87,14 +87,14 @@ const RATE_OF_SCHOLARSHIP = [
     day_scholar: { maintenance_allowance: 5000, total: 5000 },
     hosteller: { maintenance_allowance: 10000, total: 10000 },
     remarks: "Reimbursement of course fee, maintenance allowance as admissible"
-  },
-  {
-    type: "Talent Support Program (TSP)",
-    class_range: "XI onwards (Undergraduate / Postgraduate)",
-    day_scholar: { maintenance_allowance: 2540, total: 2540 },
-    hosteller: { maintenance_allowance: 4830, total: 4830 },
-    remarks: "Special assistance to students securing less than 50% marks"
   }
+  // {
+  //   type: "Talent Support Program (TSP)",
+  //   class_range: "XI onwards (Undergraduate / Postgraduate)",
+  //   day_scholar: { maintenance_allowance: 2540, total: 2540 },
+  //   hosteller: { maintenance_allowance: 4830, total: 4830 },
+  //   remarks: "Special assistance to students securing less than 50% marks"
+  // }
 ];
 
 const Scholarship = () => {

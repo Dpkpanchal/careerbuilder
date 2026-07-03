@@ -20,7 +20,7 @@ const SCHEMES_AT_GLANCE = [
   {
     no: 1,
     name: "Pre Matric",
-    classOfStudy: "Class I – IX",
+    classOfStudy: "Class IX – X",
     website: "https://scholarships.gov.in",
     minMarks: "50% in last exam (Class I exempt)",
     income: "Up to ₹1 Lakh",
@@ -138,7 +138,7 @@ export default function ScholarshipsOverviewPage() {
                       scholarships.gov.in
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <span>
                       Talent Support Programme (TSP) portal for West Bengal
                     </span>
@@ -149,7 +149,7 @@ export default function ScholarshipsOverviewPage() {
                     >
                       tsp.wbmdfc.co.in
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
 
                 <div className="sch-note small d-flex gap-2">

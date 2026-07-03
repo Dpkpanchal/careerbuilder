@@ -342,7 +342,7 @@ export default function RateOfScholarshipPage() {
                   <table className="table sch-table align-middle mb-0">
                     <thead>
                       <tr>
-                        <th>No.</th>
+                        {/* <th>No.</th> */}
                         <th>Type of Scholarship</th>
                         <th>Class of Study</th>
                         <th colSpan={3} className="text-center border-start">
@@ -353,7 +353,7 @@ export default function RateOfScholarshipPage() {
                         </th>
                       </tr>
                       <tr>
-                        <th></th>
+                        {/* <th></th> */}
                         <th></th>
                         <th></th>
                         <th className="text-center">Admission & Tuition Fee</th>
@@ -367,7 +367,7 @@ export default function RateOfScholarshipPage() {
                     <tbody>
                       {SCHOLARSHIP_RATES.map((scholarship, index) => (
                         <tr key={index}>
-                          <td>{scholarship.no}</td>
+                          {/* <td>{scholarship.no}</td> */}
                           <td className="fw-semibold">{scholarship.type}</td>
                           <td>{scholarship.classOfStudy}</td>
                           <td className="text-center">{formatAmount(scholarship.dayScholar.admissionTuitionFee)}</td>
