@@ -366,69 +366,7 @@ export default function ShortTermSkillProgramsPage() {
         </div>
       </section>
 
-      {/* Explore other course paths */}
-      <section className="py-4 py-md-5 bg-light">
-        <div className="container">
-         <div className="row justify-content-center ">
-          <div className="col-lg-7 text-center mb-5">
-            <h2 className="sectionHeading mb-2">Explore Other Course Paths</h2>
-            <p className="sectionSub mb-0">
-              Use this page as a hub and then explore long-term and regular
-              vocational options that match your interest.
-            </p>
-            </div>
-          </div>
-
-          <div className="row g-3 g-md-4 justify-content-center">
-            <div className="col-12 col-md-6 col-lg-3">
-              <Link
-                href="/courses/vocational/class-8-plus"
-                className="text-decoration-none"
-              >
-                <div className="sectionCard hoverCard h-100">
-                  <h3 className="h6 mb-1">Class 8+ Vocational Trades</h3>
-                  <p className="small text-muted mb-0">
-                    Early “career launcher” type options after Class 8.
-                  </p>
-                </div>
-              </Link>
-            </div>
-            <div className="col-12 col-md-6 col-lg-3">
-              <Link
-                href="/courses/vocational/class-10-plus"
-                className="text-decoration-none"
-              >
-                <div className="sectionCard hoverCard h-100">
-                  <h3 className="h6 mb-1">Class 10+ Vocational Trades</h3>
-                  <p className="small text-muted mb-0">
-                    Vocational higher-secondary streams after Class 10.
-                  </p>
-                </div>
-              </Link>
-            </div>
-            <div className="col-12 col-md-6 col-lg-3">
-              <Link href="/courses/vocational/iti" className="text-decoration-none">
-                <div className="sectionCard hoverCard h-100">
-                  <h3 className="h6 mb-1">ITI & ITC Trades</h3>
-                  <p className="small text-muted mb-0">
-                    Industrial training routes with strong job orientation.
-                  </p>
-                </div>
-              </Link>
-            </div>
-            <div className="col-12 col-md-6 col-lg-3">
-              <Link href="/courses/vocational/msme" className="text-decoration-none">
-                <div className="sectionCard hoverCard h-100">
-                  <h3 className="h6 mb-1">MSME Tool Room Courses</h3>
-                  <p className="small text-muted mb-0">
-                    Advanced technical skill programs in design and manufacturing.
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+     
     </>
   );
 }

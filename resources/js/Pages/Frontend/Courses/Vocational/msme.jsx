@@ -595,47 +595,7 @@ export default function MSMEToolRoomPage() {
         </div>
       </section>
 
-      {/* Explore other pathways */}
-      <section className="py-4 py-md-5 spotlightSection">
-      <div className="container py-lg-4">
-        <div className="row justify-content-center ">
-          <div className="col-lg-7 text-center mb-5">
-          <h2 className="sectionHeading text-white mb-2">Explore Other Course Paths</h2>
-            <p className="sectionSub mb-0">
-              Combine MSME programs with vocational streams, ITI or short-term
-              courses to create a complete skill journey.
-            </p>
-            </div>
-          </div>
-
-          <div className="row g-3 g-md-4 justify-content-center">
-            <div className="col-12 col-md-6 col-lg-4">
-              <Link
-                href="/courses/vocational/class-10-plus"
-                className="text-decoration-none"
-              >
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h5 mb-2 fw-medium text-white pharmacyTitleGradient">Class 10+ Vocational Trades</h3>
-                  <p className="small text-light mb-0">
-                    Higher secondary vocational streams after Class 10.
-                  </p>
-                </div>
-              </Link>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4">
-              <Link href="/courses/vocational/iti" className="text-decoration-none">
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h5 mb-2 fw-medium text-white pharmacyTitleGradient">ITI & ITC Trades</h3>
-                  <p className="small text-light mb-0">
-                    Industrial training routes with strong job orientation.
-                  </p>
-                </div>
-              </Link>
-            </div>
-           
-          </div>
-        </div>
-      </section>
+    
       </FrontendLayout>
     </>
   );

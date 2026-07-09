@@ -487,69 +487,7 @@ export default function IITsPage() {
         </div>
       </section>
 
-      {/* 5. EXPLORE OTHER NATIONAL INSTITUTES – ALL SIBLING PAGES */}
-      <section className="py-5 spotlightSection">
-        <div className="container py-lg-4">
-          <div className="row g-4 align-items-center justify-content-center mb-3 mb-lg-5 text-center">
-            <div className="col-12 col-lg-7">
-              <h2 className="sectionHeading text-white mb-2">
-                Explore Other College Categories
-              </h2>
-              <p className="sectionSub text-light mb-0">
-                Move from IITs to other major groups in the Colleges section –
-                universities, stream-wise colleges and vocational & technical
-                institutes.
-              </p>
-            </div>
-          </div>
-
-          <div className="row g-4 justify-content-center">
-            {/* Universities */}
-            <div className="col-12 col-md-4 col-lg-4">
-              <Link href="/colleges/central" className="text-decoration-none">
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h6 mb-1 fw-medium text-white">Universities</h3>
-                  <p className="small text-light mb-0">
-                    Central, state, private / deemed and open universities.
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            {/* By Field of Study */}
-            <div className="col-12 col-md-4 col-lg-4">
-              <Link
-                href="/colleges/engineering"
-                className="text-decoration-none"
-              >
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h6 mb-1 fw-medium text-white">
-                    By Field of Study
-                  </h3>
-                  <p className="small text-light mb-0">
-                    Engineering, medical, management, law, agriculture and more.
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            {/* Vocational & Technical Institutes */}
-            <div className="col-12 col-md-4 col-lg-4">
-              <Link href="/colleges/iti" className="text-decoration-none">
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h6 mb-1 fw-medium text-white">
-                    Vocational & Technical Institutes
-                  </h3>
-                  <p className="small text-light mb-0">
-                    ITI centres, polytechnic colleges, MSME tool rooms, skill
-                    centres.
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+    
       </FrontendLayout>
     </>
   );

@@ -889,10 +889,10 @@ color: #fff!important;
 }         
 @media (max-width: 768px) {
     .main-logo {
-        max-width: 80px;
+        max-width: 60px;
     }
     .scrolled-nav .main-logo {
-      max-width: 80px;
+      max-width: 60px;
     }
      .btn.btn-forum {
       padding: 5px 8px !important;
@@ -1400,7 +1400,7 @@ color: #fff!important;
   background: var(--color-surface);
   border-bottom: 1px solid #e2e8f0;
   position: sticky;
-  top: 70px;
+  top: 125px;
   z-index: 100;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -1756,7 +1756,7 @@ color: #fff!important;
   padding: .5rem 0;
 }
 .tabsContainer {
-  top: 62px;
+  top: 115px;
 }
 }
 

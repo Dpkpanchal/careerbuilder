@@ -366,17 +366,13 @@ export default function PortalFooterMinimal() {
       </div>
 
       {/* UPDATED CSS for 5 columns */}
-      <style jsx global>{`
+     <style jsx global>{`
         /* Root */
         .cbf {
           color: rgba(233, 238, 252, 0.92);
-          background:
-            radial-gradient(1200px 600px at 20% 0%, rgba(77, 171, 255, 0.18), transparent 55%),
-            radial-gradient(900px 500px at 80% 20%, rgba(34, 193, 195, 0.12), transparent 55%),
-            linear-gradient(180deg, #050816 0%, #050816 100%);
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          background:var(--color-secondary)
         }
-
+ 
         /* CTA (minimal, not boxy) */
         .cbf-cta { padding: 18px 0; }
         .cbf-cta-row {
@@ -400,7 +396,7 @@ export default function PortalFooterMinimal() {
         }
         .cbf-brand-name { font-weight: 500; color: #fff; letter-spacing: -0.2px; }
         .cbf-brand-sub { font-size: 0.88rem; color: rgba(233,238,252,0.72); margin-top: 2px; }
-
+ 
         .cbf-cta-links {
           display: flex;
           gap: 10px;
@@ -408,19 +404,19 @@ export default function PortalFooterMinimal() {
           align-items: center;
           justify-content: flex-end;
         }
-
+ 
         .cbf-cta-pill {
           display: inline-flex;
           align-items: center;
           gap: 10px;
           padding: 10px 12px;
           border-radius: 999px;
-
+ 
           text-decoration: none;
-          color: rgba(233,238,252,0.9);
-
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
+          color: rgba(233,238,252,1);
+ 
+          background: rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.1);
           backdrop-filter: blur(10px);
           transition: transform .18s ease, background .18s ease, border-color .18s ease;
           white-space: nowrap;
@@ -446,28 +442,20 @@ export default function PortalFooterMinimal() {
         .cbf-cta-title { font-weight: 500; color: #fff; font-size: 0.92rem; }
         .cbf-cta-sub { font-size: 0.78rem; color: rgba(233,238,252,0.68); margin-top: 2px; }
         .cbf-cta-arrow { opacity: 0.9; }
-
+ 
         /* Nav */
         .cbf-nav {
           padding: 18px 0 22px;
-          border-top: 1px solid rgba(255,255,255,0.08);
+          border-top: 1px solid rgba(255,255,255,0.15);
         }
-
-        /* UPDATED: 5 columns for desktop */
+ 
+        /* 4 columns only, spacious */
         .cbf-grid {
           display: grid;
-          grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
-          gap: 18px 20px; /* Reduced gap for 5 columns */
+          grid-template-columns: 1.2fr 1.1fr 1.1fr 0.9fr;
+          gap: 18px 28px;
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 1200px) {
-          .cbf-grid {
-            grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
-            gap: 18px 24px;
-          }
-        }
-
+ 
         /* No cards/boxes everywhere: just clean columns */
         .cbf-col { min-width: 0; }
         .cbf-col-head {
@@ -475,67 +463,51 @@ export default function PortalFooterMinimal() {
           align-items: center;
           gap: 10px;
           padding-bottom: 10px;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.15);
           margin-bottom: 10px;
         }
         .cbf-ico {
           width: 28px; height: 28px;
           display: grid; place-items: center;
           border-radius: 10px;
-          background: rgba(77,171,255,0.10);
-          border: 1px solid rgba(77,171,255,0.16);
+          background: rgba(255,255,255,.1);
+          border: 1px solid rgba(255,255,255,.1);
           color: rgba(207,231,255,0.95);
           flex: 0 0 auto;
         }
-        .cbf-title { 
-          font-weight: 500; 
-          color: #fff; 
-          font-size: 0.92rem; /* Slightly smaller for 5 columns */
-          letter-spacing: -0.15px; 
-        }
-
-        .cbf-list { 
-          list-style: none; 
-          padding: 0; 
-          margin: 0; 
-          display: grid; 
-          gap: 2px; 
-        }
+        .cbf-title { font-weight: 500; color: #fff; font-size: 0.95rem; letter-spacing: -0.15px; }
+ 
+        .cbf-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
         .cbf-li { margin: 0; }
-
-        /* Links: minimal, professional (no "blue default") */
+ 
+        /* Links: minimal, professional (no “blue default”) */
         .cbf-link,
         .cbf-link:visited {
           display: flex;
           align-items: center;
-          gap: 8px; /* Reduced gap for 5 columns */
-          padding: 6px 4px; /* Reduced padding */
+          gap: 10px;
+          padding: 7px 4px;
           text-decoration: none;
-          color: rgba(205,220,255,0.82);
-          font-size: 0.85rem; /* Slightly smaller font */
+          color: rgba(255,255,255,1);
+          font-size: 0.90rem;
           line-height: 1.2;
-          border-radius: 8px;
+          border-radius: 10px;
           transition: transform .15s ease, color .15s ease, background .15s ease;
         }
-        .cbf-chev { 
-          opacity: 0.70; 
-          color: rgba(77,171,255,0.95); 
-          transition: transform .15s ease, opacity .15s ease; 
-          flex-shrink: 0;
-        }
-
+        .cbf-chev { opacity: 0.70; color: rgba(255,255,255,1); transition: transform .15s ease, opacity .15s ease; }
+ 
         .cbf-link:hover {
           color: #fff;
           background: rgba(255,255,255,0.04);
           transform: translateX(2px);
         }
         .cbf-link:hover .cbf-chev { transform: translateX(2px); opacity: 1; }
-
+ 
         .cbf-link:focus-visible {
           outline: 2px solid rgba(77,171,255,0.65);
           outline-offset: 3px;
         }
-
+ 
         /* Mobile accordion: still minimal (no heavy borders) */
         .cbf-acc {
           border-radius: 14px;
@@ -568,7 +540,7 @@ export default function PortalFooterMinimal() {
           padding: 0 12px 12px;
           border-top: 1px solid rgba(255,255,255,0.08);
         }
-
+ 
         /* Bottom */
         .cbf-bottom {
           padding: 14px 0;
@@ -587,13 +559,13 @@ export default function PortalFooterMinimal() {
           padding: 6px 10px;
           border-radius: 999px;
           font-size: 0.82rem;
-          background: rgba(34,193,195,0.10);
-          border: 1px solid rgba(34,193,195,0.18);
+          background: rgba(255,255,255,0.10);
+          border: 1px solid rgba(255,255,255,0.18);
           color: rgba(233,238,252,0.92);
           font-weight: 500;
         }
         .cbf-copy { color: rgba(233,238,252,0.68); font-size: 0.88rem; }
-
+ 
         .cbf-top {
           border: 1px solid rgba(255,255,255,0.10);
           background: rgba(255,255,255,0.04);
@@ -615,25 +587,9 @@ export default function PortalFooterMinimal() {
           outline: 2px solid rgba(77,171,255,0.65);
           outline-offset: 3px;
         }
-
+ 
         @media (prefers-reduced-motion: reduce) {
           .cbf-link, .cbf-cta-pill, .cbf-top, .cbf-chev { transition: none; }
-        }
-
-        /* Extra small screens */
-        @media (max-width: 576px) {
-          .cbf-cta-row {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 16px;
-          }
-          .cbf-cta-links {
-            justify-content: flex-start;
-            width: 100%;
-          }
-          .cbf-brand {
-            min-width: auto;
-          }
         }
       `}</style>
     </footer>

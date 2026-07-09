@@ -341,70 +341,7 @@ export default function DiplomaITPage() {
         </div>
       </section>
 
-      {/* Explore other diploma paths – spotlight */}
-      <section className="py-5 spotlightSection">
-        <div className="container py-lg-4">
-          <div className="mb-4 mb-lg-5 text-center">
-            <h2 className="sectionHeading text-white mb-2">
-              Explore Other Diploma Paths
-            </h2>
-            <p className="sectionSub text-light mb-0">
-              Compare technical, healthcare and pharmacy routes before finalising
-              your long-term plan.
-            </p>
-          </div>
-
-          <div className="row g-4 justify-content-center">
-            <div className="col-12 col-md-4">
-              <Link
-                href="/courses/diploma/engineering"
-                className="text-decoration-none"
-              >
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h5 mb-2 fw-medium text-white pharmacyTitleGradient">
-                    Diploma in Engineering
-                  </h3>
-                  <p className="small text-light mb-0">
-                    Core technical diploma routes in engineering branches.
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            <div className="col-12 col-md-4">
-              <Link
-                href="/courses/diploma/paramedical"
-                className="text-decoration-none"
-              >
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h5 mb-2 fw-medium text-white pharmacyTitleGradient">
-                    Diploma in Paramedical
-                  </h3>
-                  <p className="small text-light mb-0">
-                    Hospital, diagnostic and allied health support routes.
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            <div className="col-12 col-md-4">
-              <Link
-                href="/courses/diploma/pharmacy"
-                className="text-decoration-none"
-              >
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h5 mb-2 fw-medium text-white pharmacyTitleGradient">
-                    Diploma in Pharmacy (D.Pharm)
-                  </h3>
-                  <p className="small text-light mb-0">
-                    Foundation for careers in medicine dispensing and pharma.
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+     
       </FrontendLayout>
     </>
   );

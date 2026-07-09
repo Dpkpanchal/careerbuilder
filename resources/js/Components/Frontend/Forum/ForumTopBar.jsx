@@ -70,7 +70,7 @@ export default function ForumTopBar() {
               Welcome back, {formatName(user?.name)}
             </h1>
           ) : (
-            <h1 className="forum-hero-title gradient-text">
+            <h1 className="forum-hero-title">
               Ask. Learn. Get Expert Guidance.
             </h1>
           )}

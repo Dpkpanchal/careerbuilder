@@ -100,7 +100,7 @@ const user = auth?.user;
                 className="main-logo"
                 alt="Government of West Bengal and WBMDFC logo"
                 loading="lazy"
-                width="200"
+                width="73"
                 height="60"
               />
             </Link>
