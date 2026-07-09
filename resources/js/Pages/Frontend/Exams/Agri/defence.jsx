@@ -17,134 +17,6 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// Marine + Navy + Defence (Career Book list: AIMNET, IMU CET, CDS, Navy SSR, Army TES, NDA)
-// IMPORTANT:
-// - For Merchant Navy: ONLY list portals that are official/verification-safe.
-// - AIMNET is commonly institute-run; there is no single govt “AIMNET official portal” to trust.
-//   So we show it as "Institute-run screening test" and point users to DGS Approved Institutes list.
-// -------------------------------------------------------------
-const MARINE_NAVY_DEFENCE = [
-  // ---------------------- MARINE ----------------------
-  {
-    sl: 1,
-    group: "Marine (Merchant Navy)",
-    exam: "IMU CET",
-    fullForm: "Indian Maritime University Common Entrance Test",
-    purpose:
-      "Admissions to IMU UG/PG programmes (B.Tech / B.Sc / DNS etc.) and counselling (as notified)",
-    eligibility: "As per IMU CET prospectus/notice",
-    apply: "Online",
-    activity: "As per IMU CET calendar",
-    links: [
-      { label: "IMU Admissions (Official)", href: "https://www.imu.edu.in/imunew/admissions-2025-26" },
-      { label: "IMU CET Registration (Official)", href: "https://imu.cbexams.com/imu25cetl/regprocess.aspx" },
-      { label: "IMU Main Website (Official)", href: "https://www.imu.edu.in/" },
-    ],
-    tag: "Marine • National",
-  },
-  {
-    sl: 2,
-    group: "Marine (Merchant Navy)",
-    exam: "AIMNET (Institute-run screening)",
-    fullForm: "All India Merchant Navy Entrance Test (used by some training institutes)",
-    purpose:
-      "Screening test used by some maritime training institutes for admissions (not a single govt counselling system)",
-    eligibility: "Varies by institute/course",
-    apply: "Via institute (verify institute approval first)",
-    activity: "Varies",
-    links: [
-      {
-        label: "DGS Approved Training Institutes (Verify Institute First)",
-        href: "https://www.dgshipping.gov.in/Content/ApprovedTraininginstitutes.aspx",
-      },
-      {
-        label: "DGS Main Site (Official)",
-        href: "https://www.dgshipping.gov.in/",
-      },
-    ],
-    tag: "Marine • Verify",
-    note:
-      "Before paying any fee to any maritime institute/agent, verify the institute is DGS-approved using the official DGS “Approved Training Institutes” list.",
-  },
-
-  // ---------------------- DEFENCE / NAVY ----------------------
-  {
-    sl: 3,
-    group: "Navy & Defence (Govt)",
-    exam: "NDA & NA (UPSC)",
-    fullForm: "National Defence Academy & Naval Academy Examination",
-    purpose:
-      "Entry to NDA (Army/Navy/Air Force wings) + Naval Academy course (as per UPSC notification)",
-    eligibility: "As per UPSC notification",
-    apply: "Online (UPSC portal)",
-    activity: "As per UPSC calendar",
-    links: [
-      {
-        label: "UPSC NDA/NA Exam Page (Official)",
-        href: "https://upsc.gov.in/examinations/National%20Defence%20Academy%20and%20Naval%20Academy%20Examination%20%28I%29%2C%202025",
-      },
-      { label: "UPSC Apply Online", href: "https://upsc.gov.in/apply-online" },
-    ],
-    tag: "Defence • National",
-  },
-  {
-    sl: 4,
-    group: "Navy & Defence (Govt)",
-    exam: "CDS (UPSC)",
-    fullForm: "Combined Defence Services Examination",
-    purpose:
-      "Entry to IMA / INA / AFA / OTA (as per UPSC notification and eligibility)",
-    eligibility: "As per UPSC notification",
-    apply: "Online (UPSC portal)",
-    activity: "As per UPSC calendar",
-    links: [
-      {
-        label: "UPSC Examinations (Official)",
-        href: "https://upsc.gov.in/examinations",
-      },
-      { label: "UPSC Apply Online", href: "https://upsc.gov.in/apply-online" },
-    ],
-    tag: "Defence • National",
-    note:
-      "UPSC exam pages change each cycle. Use UPSC 'Examinations' page to open the latest CDS notification link.",
-  },
-  {
-    sl: 5,
-    group: "Navy & Defence (Govt)",
-    exam: "Indian Navy Agniveer (SSR)",
-    fullForm: "Agniveer (SSR) – Join Indian Navy",
-    purpose:
-      "Recruitment route for Sailor entry under Agniveer (SSR) as notified by Indian Navy",
-    eligibility: "As per Join Indian Navy notification (varies by batch)",
-    apply: "Online (official portals only)",
-    activity: "As per Navy recruitment cycle",
-    links: [
-      { label: "Agniveer (SSR) – Join Indian Navy", href: "https://www.joinindiannavy.gov.in/en/page/agniveer-ssr.html" },
-      { label: "Agniveer Navy Portal (CDAC)", href: "https://agniveernavy.cdac.in/" },
-      { label: "Selection Procedure (SSR/MR)", href: "https://www.joinindiannavy.gov.in/page/selection-procedure-agniveer-ssr-and-agniveer-mr.html" },
-    ],
-    tag: "Navy • National",
-  },
-  {
-    sl: 6,
-    group: "Navy & Defence (Govt)",
-    exam: "Indian Army 10+2 TES",
-    fullForm: "Technical Entry Scheme (TES) – Indian Army (10+2)",
-    purpose:
-      "Officer entry route for PCM students through TES (as per latest notification)",
-    eligibility: "As per TES notification",
-    apply: "Online (Join Indian Army portal)",
-    activity: "As per Army schedule",
-    links: [
-      { label: "Join Indian Army (Official)", href: "https://www.joinindianarmy.nic.in/" },
-    ],
-    tag: "Army • National",
-    note:
-      "TES runs by course number (TES-53/54/55...). Always open the latest TES notification on the official Join Indian Army site.",
-  },
-];
-
-// -------------------------------------------------------------
 function ExamCard({ item }) {
   return (
     <div className="iitCard w-100 d-flex flex-column h-100">
@@ -180,32 +52,35 @@ function ExamCard({ item }) {
       {!!item.note && (
         <div className="sectionCard bg-light border small mt-2">
           <div className="d-flex align-items-start gap-2">
-            <Info size={16} className="text-primary mt-1 flex-" />
+            <Info size={16} className="text-primary mt-1 flex-shrink-0" />
             <div>{item.note}</div>
           </div>
         </div>
       )}
 
       <div className="mt-auto d-flex flex-column gap-2 pt-3">
-        {item.links?.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            target="_blank"
-            rel="noreferrer"
-            className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-          >
-            <span className="">{l.label}</span>
-            <ExternalLink size={14} />
-          </a>
-        ))}
+        {item.sources?.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                className="iitWebsiteLink d-inline-flex align-items-center gap-1"
+              >
+                <span className="small">{l.label}</span>
+                <ExternalLink size={14} />
+              </a>
+            ))}
       </div>
     </div>
   );
 }
 
 // -------------------------------------------------------------
-export default function MarineNavyDefencePage() {
+export default function MarineNavyDefencePage({ examContents }) {
+
+  const marineNavyDefence = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -214,7 +89,7 @@ export default function MarineNavyDefencePage() {
         breadcrumb="Agri • Defence • School → Marine / Merchant Navy"
       />
 
-      <ExamTabsBar tabs={EXAM_TABS} activeId="marine" />
+      <ExamTabsBar tabs={EXAM_TABS} activeId="defence" />
 
       {/* INTRO + SNAPSHOT */}
       <section className="py-4 py-md-5">
@@ -238,7 +113,7 @@ export default function MarineNavyDefencePage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Routes listed</dt>
-                  <dd className="col-6 mb-2">{MARINE_NAVY_DEFENCE.length}</dd>
+                  <dd className="col-6 mb-2">{marineNavyDefence.length}</dd>
 
                   <dt className="col-6">Marine (official)</dt>
                   <dd className="col-6 mb-2">IMU CET</dd>
@@ -321,13 +196,19 @@ export default function MarineNavyDefencePage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">Official Links </h2>
 
-          <div className="row g-3 g-md-4">
-            {MARINE_NAVY_DEFENCE.map((item) => (
-              <div key={`${item.exam}-${item.sl}`} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {marineNavyDefence.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {marineNavyDefence.map((item) => (
+                <div key={`${item.exam}-${item.sl}`} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

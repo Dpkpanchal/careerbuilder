@@ -16,63 +16,6 @@ const EXAM_TABS = [
   { id: "school", label: "School-level", href: "/exams/agri/school" },
 ];
 
-
-const SCHOOL_EXAMS = [
-  {
-    sl: 1,
-    exam: "NTSE",
-    fullForm: "National Talent Search Examination (NTS Scheme) – NCERT",
-    purpose:
-      "Scholarship programme to identify and support talented school students (Stage I/II as notified)",
-    eligibility: "As per NCERT notice (class/age rules vary by cycle/state)",
-    apply: "As per NCERT / State authority process",
-    activity: "As per NCERT notices",
-    links: [
-      { label: "NCERT – NTSE / NTS Scheme Page (Official)", href: "https://ncert.nic.in/national-talent-examination.php?ln=en" },
-      { label: "India.gov.in – NTSE Service Listing", href: "https://services.india.gov.in/service/detail/apply-for-national-talent-search-scheme" },
-      { label: "NCERT Main Site", href: "https://ncert.nic.in/" },
-    ],
-    tag: "Govt • Scholarship",
-    note:
-      "Dates/format may change. Always follow the latest notice on the NCERT NTSE page.",
-  },
-
-  {
-    sl: 2,
-    exam: "KVPY (Status Update)",
-    fullForm: "Kishore Vaigyanik Protsahan Yojana – Fellowship route (Exam discontinued)",
-    purpose:
-      "Earlier a national fellowship route for science talent; the aptitude test has been discontinued from 2022 onwards and subsumed with INSPIRE (DST).",
-    eligibility: "Replacement route runs under INSPIRE rules/notifications",
-    apply: "Online (INSPIRE portal)",
-    activity: "As per INSPIRE schedule",
-    links: [
-      { label: "INSPIRE Portal (Official – DST)", href: "https://online-inspire.gov.in/" },
-      { label: "IISc UG Admission FAQ mentioning KVPY discontinued", href: "https://oir.iisc.ac.in/index.php/announcement-of-iisc-ug-program-b-sc-research-admission-2021-22-1/" },
-    ],
-    tag: "Govt • Fellowship",
-    note:
-      "We keep KVPY here because it appears in the Career Book, but the exam is not conducted now. Use INSPIRE for the current official fellowship route.",
-  },
-
-  {
-    sl: 3,
-    exam: "NSO (SOF)",
-    fullForm: "National Science Olympiad – Science Olympiad Foundation (SOF)",
-    purpose:
-      "School olympiad competition to assess science reasoning and aptitude (classes 1–12)",
-    eligibility: "As per SOF NSO rules",
-    apply: "Through school / online as per SOF instructions",
-    activity: "As per SOF schedule",
-    links: [
-      { label: "SOF – NSO Official Page", href: "https://sofworld.org/nso" },
-      { label: "SOF Main Site", href: "https://sofworld.org/" },
-      { label: "SOF Results Portal", href: "https://results.sofworld.org/results" },
-    ],
-    tag: "Olympiad",
-  },
-];
-
 // -------------------------------------------------------------
 function ExamCard({ item }) {
   return (
@@ -111,25 +54,28 @@ function ExamCard({ item }) {
       )}
 
       <div className="mt-auto d-flex flex-column gap-2 pt-3">
-        {item.links?.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            target="_blank"
-            rel="noreferrer"
-            className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-          >
-            <span className="">{l.label}</span>
-            <ExternalLink size={14} />
-          </a>
-        ))}
+        {item.sources?.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              target="_blank"
+              rel="noreferrer"
+              className="iitWebsiteLink d-inline-flex align-items-center gap-1"
+            >
+              <span className="small">{l.label}</span>
+              <ExternalLink size={14} />
+            </a>
+          ))}
       </div>
     </div>
   );
 }
 
 // -------------------------------------------------------------
-export default function SchoolLevelExamsPage() {
+export default function SchoolLevelExamsPage({ examContents }) {
+
+  const schoolExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -158,7 +104,7 @@ export default function SchoolLevelExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Exams listed</dt>
-                  <dd className="col-6 mb-2">{SCHOOL_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{schoolExams.length}</dd>
 
                   <dt className="col-6">Govt scholarship</dt>
                   <dd className="col-6 mb-2">NTSE (NCERT)</dd>
@@ -181,7 +127,7 @@ export default function SchoolLevelExamsPage() {
                   <ShieldCheck size={16} className="text-success mt-1" />
                   <div>
                     Use only official portals for dates, application steps and fee payment. If any website/agent claims
-                    “guaranteed selection” or asks for payment via unknown UPI IDs, ignore and verify from the official notice.
+                    "guaranteed selection" or asks for payment via unknown UPI IDs, ignore and verify from the official notice.
                   </div>
                 </div>
               </div>
@@ -237,13 +183,19 @@ export default function SchoolLevelExamsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">Official Links</h2>
 
-          <div className="row g-3 g-md-4">
-            {SCHOOL_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {schoolExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {schoolExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

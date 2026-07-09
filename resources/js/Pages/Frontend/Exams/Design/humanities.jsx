@@ -17,83 +17,6 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// Humanities & Social Science entrance exams/routes
-// Rule: official + working links only.
-// -------------------------------------------------------------
-const HUMANITIES_EXAMS = [
-  {
-    sl: 1,
-    exam: "BHU Admissions (UG / Humanities routes)",
-    fullForm: "Banaras Hindu University – Admissions Portal",
-    purpose: "UG admissions across disciplines (Humanities/Social Sciences as notified)",
-    apply: "Online",
-    activity: "As per BHU admission notices / CUET cycle (as applicable)",
-    links: [
-      { label: "BHU Admission Portal (Official)", href: "https://admission.bhu.ac.in/en" },
-      { label: "BHU CUET UG Portal (Official)", href: "https://bhucuet.samarth.edu.in/" },
-      { label: "BHU Admissions & Counselling (Official)", href: "https://www.bhu.ac.in/Site/AdmissionCounselling/1_2_16_Main-Site" },
-    ],
-    tag: "University",
-  },
-
-  {
-    sl: 2,
-    exam: "HSEE (IIT Madras)",
-    fullForm: "Humanities and Social Sciences Entrance Examination",
-    purpose: "Admissions route for integrated M.A. programme(s) at IIT Madras (as notified)",
-    apply: "Online",
-    activity: "As per HSEE notification (varies by year)",
-    links: [{ label: "HSEE Portal (Official)", href: "https://hsee.iitm.ac.in/" }],
-    tag: "National / Institute",
-    note:
-      "HSEE schedule can vary by year. Always verify the current notification on the official portal before planning.",
-  },
-
-  {
-    sl: 3,
-    exam: "TISS-BAT",
-    fullForm: "Tata Institute of Social Sciences – Bachelors Admission Test (as notified)",
-    purpose: "Admissions to TISS UG programmes (route depends on the current policy)",
-    apply: "Online",
-    activity: "As per TISS admissions notices",
-    links: [
-      { label: "TISS Admissions (Official)", href: "https://admissions.tiss.ac.in/" },
-      { label: "TISS BAT Instructions (Official)", href: "https://admissions.tiss.ac.in/view/5/admissions/ba-ma-admissions/instruction-for-all-candidates-appearing-for-bat/" },
-    ],
-    tag: "Institute",
-  },
-
-  {
-    sl: 4,
-    exam: "JNU Admissions (JNUEE Portal)",
-    fullForm: "Jawaharlal Nehru University – Admissions Portal",
-    purpose: "UG/PG admissions as notified by JNU (mode/criteria can change by year)",
-    apply: "Online",
-    activity: "As per JNU admissions notifications",
-    links: [
-      { label: "JNUEE/JNU Admissions Portal (Official)", href: "https://jnuee.jnu.ac.in/" },
-      { label: "JNU Admissions Notices (Official)", href: "https://www.jnu.ac.in/admissions" },
-    ],
-    tag: "University",
-  },
-
-  {
-    sl: 5,
-    exam: "EFLU Entrance / Admissions",
-    fullForm: "The English and Foreign Languages University – Admissions",
-    purpose: "Admissions for language & humanities programmes (BA/MA/others as notified)",
-    apply: "Online",
-    activity: "As per EFLU admissions notices",
-    links: [
-      { label: "EFLU Main Site (Official)", href: "https://www.efluniversity.ac.in/" },
-      { label: "EFLU Admissions Portal (Official)", href: "https://efluadm.samarth.edu.in/" },
-      { label: "EFLU CUET Portal (Official)", href: "https://eflucuet.samarth.edu.in/pg/index.php" },
-    ],
-    tag: "University",
-  },
-];
-
-// -------------------------------------------------------------
 function ExamCard({ item }) {
   return (
     <div className="iitCard w-100 d-flex flex-column h-100">
@@ -128,25 +51,28 @@ function ExamCard({ item }) {
       )}
 
       <div className="mt-auto d-flex flex-column gap-2 pt-3">
-        {item.links?.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            target="_blank"
-            rel="noreferrer"
-            className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-          >
-            <span className="">{l.label}</span>
-            <ExternalLink size={14} />
-          </a>
-        ))}
+        {item.sources?.map((l) => (
+                         <a
+                           key={l.href}
+                           href={l.href}
+                           target="_blank"
+                           rel="noreferrer"
+                           className="iitWebsiteLink d-inline-flex align-items-center gap-1"
+                         >
+                           <span className="small">{l.label}</span>
+                           <ExternalLink size={14} />
+                         </a>
+                       ))}
       </div>
     </div>
   );
 }
 
 // -------------------------------------------------------------
-export default function HumanitiesExamsPage() {
+export default function HumanitiesExamsPage({ examContents }) {
+
+  const humanitiesExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -178,7 +104,7 @@ export default function HumanitiesExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Routes listed</dt>
-                  <dd className="col-6 mb-2">{HUMANITIES_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{humanitiesExams.length}</dd>
 
                   <dt className="col-6">Institute routes</dt>
                   <dd className="col-6 mb-2">HSEE (IITM), TISS</dd>
@@ -244,13 +170,19 @@ export default function HumanitiesExamsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">Official Portals</h2>
 
-          <div className="row g-3 g-md-4">
-            {HUMANITIES_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {humanitiesExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {humanitiesExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

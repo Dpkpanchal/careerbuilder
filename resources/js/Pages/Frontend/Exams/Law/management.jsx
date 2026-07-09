@@ -15,90 +15,6 @@ const EXAM_TABS = [
   { id: "finance-accounts", label: "Finance & Accounts", href: '/exams/law/finance-accounts' },
 ];
 
-
-const MANAGEMENT_EXAMS = [
-  {
-    sl: 1,
-    exam: "CAT",
-    fullForm: "Common Admission Test",
-    purpose: "MBA/PGDM admissions in IIMs + many top B-schools (as per institute acceptance)",
-    apply: "Online",
-    activity: "Once a year (check official notification)",
-    links: [{ label: "CAT Official (iimcat.ac.in)", href: "https://iimcat.ac.in/" }],
-    tag: "National • PG",
-  },
-  {
-    sl: 2,
-    exam: "XAT",
-    fullForm: "Xavier Aptitude Test",
-    purpose: "MBA/PGDM admissions in XLRI + XAT-member/accepting institutes",
-    apply: "Online",
-    activity: "Once a year (check official notification)",
-    links: [
-      { label: "XAT Official (xatonline.in)", href: "https://xatonline.in/" },
-      { label: "XLRI XAT info (official)", href: "https://www.xlri.ac.in/academic-programmes/admission-procedure/overview/XAT" },
-    ],
-    tag: "National • PG",
-  },
-  {
-    sl: 3,
-    exam: "MAT",
-    fullForm: "Management Aptitude Test (AIMA)",
-    purpose: "MBA/PGDM admissions in participating institutes (as per institute acceptance)",
-    apply: "Online",
-    activity: "Multiple sessions yearly (check official schedule)",
-    links: [{ label: "MAT Official (AIMA)", href: "https://mat.aima.in/" }],
-    tag: "National • PG",
-  },
-  {
-    sl: 4,
-    exam: "CMAT",
-    fullForm: "Common Management Admission Test (NTA)",
-    purpose: "MBA/PGDM admissions in AICTE-approved institutions (as per CMAT acceptance rules)",
-    apply: "Online",
-    activity: "Once a year (check official notification)",
-    links: [{ label: "CMAT Official (NTA)", href: "https://cmat.nta.nic.in/" }],
-    tag: "National • PG",
-  },
-  {
-    sl: 5,
-    exam: "IIFT (MBA Admissions)",
-    fullForm: "Indian Institute of Foreign Trade – MBA Admissions",
-    purpose: "MBA (IB) / MBA (BA) admissions at IIFT (as notified by IIFT)",
-    apply: "Online",
-    activity: "As per IIFT admission calendar",
-    links: [
-      { label: "IIFT Admissions (official)", href: "https://www.iift.ac.in/iift/new-admissions.php" },
-      { label: "NTA – IIFT exam page (official)", href: "https://nta.ac.in/Iiftexam" },
-    ],
-    tag: "Institute • PG",
-    note:
-      "IIFT admission mode (exam / score accepted / process) can change by year—always follow the latest IIFT admission notice.",
-  },
-  {
-    sl: 6,
-    exam: "SNAP",
-    fullForm: "Symbiosis National Aptitude Test",
-    purpose: "MBA admissions in Symbiosis institutes (as per SNAP / SIU rules)",
-    apply: "Online",
-    activity: "Multiple test slots in a season (check official schedule)",
-    links: [{ label: "SNAP Official (snaptest.org)", href: "https://www.snaptest.org/" }],
-    tag: "National • PG",
-  },
-  {
-    sl: 7,
-    exam: "SET",
-    fullForm: "Symbiosis Entrance Test (UG)",
-    purpose: "UG management routes like BBA and other UG programmes (Symbiosis ecosystem)",
-    apply: "Online",
-    activity: "As per SET cycle",
-    links: [{ label: "SET Official (set-test.org)", href: "https://www.set-test.org/" }],
-    tag: "National • UG",
-    note:
-      "SET is primarily for UG programmes (like BBA). For Symbiosis MBA, use SNAP.",
-  },
-];
-
 // -------------------------------------------------------------
 function ExamCard({ item }) {
   return (
@@ -134,25 +50,28 @@ function ExamCard({ item }) {
       )}
 
       <div className="mt-auto d-flex flex-column gap-2 pt-3">
-        {item.links?.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            target="_blank"
-            rel="noreferrer"
-            className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-          >
-            <span className="small">{l.label}</span>
-            <ExternalLink size={16} />
-          </a>
-        ))}
+         {item.sources?.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              target="_blank"
+              rel="noreferrer"
+              className="iitWebsiteLink d-inline-flex align-items-center gap-1"
+            >
+              <span className="small">{l.label}</span>
+              <ExternalLink size={14} />
+            </a>
+          ))}
       </div>
     </div>
   );
 }
 
 // -------------------------------------------------------------
-export default function ManagementExamsPage() {
+export default function ManagementExamsPage({ examContents }) {
+
+  const managementExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -181,7 +100,7 @@ export default function ManagementExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Exams covered</dt>
-                  <dd className="col-6 mb-2">{MANAGEMENT_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{managementExams.length}</dd>
 
                   <dt className="col-6">Top PG gateways</dt>
                   <dd className="col-6 mb-2">CAT, XAT, CMAT</dd>
@@ -249,13 +168,19 @@ export default function ManagementExamsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">MBA & Management Exams – Official Links</h2>
 
-          <div className="row g-3 g-md-4">
-            {MANAGEMENT_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {managementExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {managementExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

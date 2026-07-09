@@ -17,174 +17,6 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// Veterinary entrance routes (Career Book list) + official portals
-// Rule: use only official/working links.
-// -------------------------------------------------------------
-const VET_EXAMS = [
-  {
-    sl: 1,
-    exam: "VCI Admission & eCounselling (BVSc & AH)",
-    fullForm: "Veterinary Council of India – Admission & eCounselling",
-    purpose:
-      "Central counselling and information for veterinary admissions (seat matrix, allotment, notices) as published by VCI portal",
-    eligibility: "As per VCI notices / information bulletin",
-    apply: "Online",
-    activity: "As per VCI schedule",
-    links: [
-      { label: "VCI Admission & eCounselling (Official)", href: "https://vci.admissions.nic.in/" },
-      { label: "VCI Main Site (Official)", href: "https://vci.dahd.gov.in/" },
-      { label: "VCI Help: How to Register/Login", href: "https://vci.admissions.nic.in/how-to-register-and-login/" },
-    ],
-    tag: "National",
-    note:
-      "For the latest counselling rules (seat matrix, category rules, documents), rely on the VCI portal notices and information bulletin only.",
-  },
-
-  {
-    sl: 2,
-    exam: "KEAM (Kerala CEE) – Veterinary/Allied Admissions",
-    fullForm: "CEE Kerala – KEAM Admission Process",
-    purpose:
-      "Admissions to professional programmes including veterinary/allied streams in Kerala (as notified by CEE Kerala)",
-    eligibility: "As per CEE Kerala rules",
-    apply: "Online",
-    activity: "As per KEAM cycle",
-    links: [
-      { label: "CEE Kerala Candidate Portal (Official)", href: "https://cee.kerala.gov.in/main.php" },
-      { label: "KEAM 2025 Portal (Official)", href: "https://cee.kerala.gov.in/keam2025/" },
-      { label: "KEAM (Main) Page (Official)", href: "https://www.cee.kerala.gov.in/KEAM/" },
-    ],
-    tag: "State • Kerala",
-  },
-
-  {
-    sl: 3,
-    exam: "AP EAPCET (APSCHE) – Veterinary/Allied Routes",
-    fullForm: "Andhra Pradesh Engineering, Agriculture & Pharmacy Common Entrance Test",
-    purpose:
-      "State entrance route for professional programmes in AP; check notifications for veterinary/allied options (as notified)",
-    eligibility: "As per APSCHE rules",
-    apply: "Online",
-    activity: "As per AP EAPCET calendar",
-    links: [
-      { label: "AP EAPCET – Official (APSCHE)", href: "https://cets.apsche.ap.gov.in/EAPCET/" },
-      { label: "APSCHE CETS Portal (Official)", href: "https://cets.apsche.ap.gov.in/" },
-    ],
-    tag: "State • AP",
-  },
-
-  {
-    sl: 4,
-    exam: "KCET / UGCET (KEA) – Veterinary/Farm Science",
-    fullForm: "Karnataka Examinations Authority – UG CET",
-    purpose:
-      "Admissions to professional programmes including farm science/veterinary-related options (as notified by KEA)",
-    eligibility: "As per KEA rules",
-    apply: "Online",
-    activity: "As per KEA schedule",
-    links: [{ label: "KEA Official Portal", href: "https://cetonline.karnataka.gov.in/kea/" }],
-    tag: "State • Karnataka",
-    note:
-      "KEA regularly alerts about fake sites—use only the official cetonline.karnataka.gov.in domain.",
-  },
-
-  {
-    sl: 5,
-    exam: "JCECE (Jharkhand) – Veterinary/Allied Admissions",
-    fullForm: "Jharkhand Combined Entrance Competitive Examination Board (JCECEB)",
-    purpose:
-      "State entrance/counselling authority for multiple professional admissions in Jharkhand (as notified)",
-    eligibility: "As per JCECEB notices",
-    apply: "Online",
-    activity: "As per JCECEB calendar",
-    links: [
-      { label: "JCECEB Official Site", href: "https://jceceb.jharkhand.gov.in/" },
-      { label: "JCECEB Admit Card/Notices", href: "https://jceceb.jharkhand.gov.in/Links/admit_card.aspx" },
-    ],
-    tag: "State • Jharkhand",
-  },
-
-  {
-    sl: 6,
-    exam: "RPVT (Rajasthan)",
-    fullForm: "Rajasthan Pre-Veterinary Test – RAJUVAS",
-    purpose: "Admission to BVSc & AH programmes in Rajasthan (as notified by RAJUVAS)",
-    eligibility: "As per RPVT information bulletin",
-    apply: "Online",
-    activity: "As per RPVT cycle",
-    links: [
-      { label: "RAJUVAS Main Site (Official)", href: "https://rajuvas.ac.in/" },
-      { label: "RPVT Information Bulletin (Official PDF)", href: "https://rajuvas.ac.in/wp-content/uploads/2025/04/Information-Booklet-RPVT-2025.pdf" },
-    ],
-    tag: "State • Rajasthan",
-  },
-
-  {
-    sl: 7,
-    exam: "OUAT Admissions – Veterinary Route",
-    fullForm: "Odisha University of Agriculture & Technology – Admissions",
-    purpose:
-      "Admissions to OUAT programmes including BVSc & AH (as notified by OUAT)",
-    eligibility: "As per OUAT rules",
-    apply: "Online",
-    activity: "As per OUAT admission notices",
-    links: [
-      { label: "OUAT Admissions (Official)", href: "https://ouat.ac.in/en/admissions/" },
-      { label: "OUAT Main Site (Official)", href: "https://ouat.ac.in/en/" },
-    ],
-    tag: "University",
-  },
-
-  {
-    sl: 8,
-    exam: "AAU VET Admissions (Assam Agricultural University)",
-    fullForm: "Assam Agricultural University – Admission Portal",
-    purpose:
-      "Admissions to AAU including Faculty of Veterinary Science routes (as notified by AAU)",
-    eligibility: "As per AAU admission bulletin",
-    apply: "Online",
-    activity: "As per AAU admission schedule",
-    links: [
-      { label: "AAU Admission Portal (Official)", href: "https://admission.aau.ac.in/" },
-      { label: "AAU Admission Page (Official)", href: "https://www.aau.ac.in/admission" },
-      { label: "AAU Main Site (Official)", href: "https://aau.ac.in/" },
-    ],
-    tag: "University • Assam",
-  },
-
-  {
-    sl: 9,
-    exam: "UPCATET (UP) – Veterinary/Agri/Allied",
-    fullForm: "U.P. Combined Agriculture & Technology Entrance Test",
-    purpose:
-      "Admission to agriculture & allied programmes including veterinary-related options (as notified)",
-    eligibility: "As per UPCATET notification",
-    apply: "Online",
-    activity: "As per UPCATET calendar",
-    links: [
-      { label: "UPCATET Official Portal", href: "https://upcatet.net/" },
-    ],
-    tag: "State • UP",
-  },
-
-  {
-    sl: 10,
-    exam: "UP VEE / DUVASU Admissions (Mathura)",
-    fullForm: "DUVASU (UP Veterinary University) – Admissions",
-    purpose:
-      "Admissions for BVSc & AH and other programmes through university admission process (as notified by DUVASU)",
-    eligibility: "As per DUVASU prospectus",
-    apply: "Online",
-    activity: "As per DUVASU admission notices",
-    links: [
-      { label: "DUVASU Official Website", href: "https://upvetuniv.edu.in/" },
-      { label: "DUVASU Admissions Page (Official)", href: "https://upvetuniv.edu.in/admission/" },
-    ],
-    tag: "University • UP",
-  },
-];
-
-// -------------------------------------------------------------
 function ExamCard({ item }) {
   return (
     <div className="iitCard w-100 d-flex flex-column h-100">
@@ -222,25 +54,28 @@ function ExamCard({ item }) {
       )}
 
       <div className="mt-auto d-flex flex-column gap-2 pt-3">
-        {item.links?.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            target="_blank"
-            rel="noreferrer"
-            className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-          >
-            <span className="">{l.label}</span>
-            <ExternalLink size={14} />
-          </a>
-        ))}
+         {item.sources?.map((l) => (
+                 <a
+                   key={l.href}
+                   href={l.href}
+                   target="_blank"
+                   rel="noreferrer"
+                   className="iitWebsiteLink d-inline-flex align-items-center gap-1"
+                 >
+                   <span className="small">{l.label}</span>
+                   <ExternalLink size={14} />
+                 </a>
+               ))}
       </div>
     </div>
   );
 }
 
 // -------------------------------------------------------------
-export default function VeterinaryExamsPage() {
+export default function VeterinaryExamsPage({ examContents }) {
+
+  const agriExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -269,7 +104,7 @@ export default function VeterinaryExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Routes listed</dt>
-                  <dd className="col-6 mb-2">{VET_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{agriExams.length}</dd>
 
                   <dt className="col-6">National portal</dt>
                   <dd className="col-6 mb-2">VCI counselling</dd>
@@ -291,7 +126,7 @@ export default function VeterinaryExamsPage() {
                 <div className="d-flex align-items-start gap-2">
                   <ShieldCheck size={16} className="text-success mt-1" />
                   <div>
-                    Avoid agents and unofficial “registration” sites. Use only government/university domains shown below,
+                    Avoid agents and unofficial "registration" sites. Use only government/university domains shown below,
                     and cross-check dates from the official notice PDFs/portals.
                   </div>
                 </div>
@@ -337,7 +172,7 @@ export default function VeterinaryExamsPage() {
             <div className="col-12 col-lg-7 d-flex">
               <div className="sectionCard bg-light border w-100 small">
                 <strong>For West Bengal minority students:</strong> if you plan veterinary, keep at least two tracks open:
-                (1) national counselling route and (2) one university/state route where you’re eligible. Keep documents ready
+                (1) national counselling route and (2) one university/state route where you're eligible. Keep documents ready
                 (HS marksheet, photo ID, category/income certificates if applicable).
               </div>
             </div>
@@ -350,13 +185,19 @@ export default function VeterinaryExamsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">Veterinary Exams – Official Links</h2>
 
-          <div className="row g-3 g-md-4">
-            {VET_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {agriExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {agriExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

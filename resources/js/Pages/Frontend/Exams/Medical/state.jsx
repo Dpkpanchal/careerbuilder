@@ -17,144 +17,6 @@ const EXAM_TABS = [
   { id: "pharmacy-exams", label: "Pharmacy Entrance Exams", href: '/exams/pharmacy' },
 ];
 
-
-// -------------------------------------------------------------
-// NEET replaced these state-level MBBS entrances
-// (#) items are still conducted for other courses (engineering/pharmacy etc.)
-// -------------------------------------------------------------
-const REPLACED_STATE_MEDICAL_EXAMS = [
-  {
-    id: "odisha-mbbs",
-    title: "Odisha MBBS",
-    note: "MBBS/BDS admissions are via NEET score + state counselling.",
-    linkLabel: "Odisha MBBS/BDS counselling (official)",
-    href: "https://ojee.nic.in/medical-information/",
-  },
-  {
-    id: "mgims-pmt",
-    title: "MGIMS PMT",
-    note: "MBBS admission is based on NEET score as per institute/admission notices.",
-    linkLabel: "MGIMS admission process (official)",
-    href: "https://www.mgims.ac.in/index.php/admission-process",
-  },
-  {
-    id: "cmc-vellore",
-    title: "CMC Vellore",
-    note: "MBBS selection uses NEET-based eligibility + institute process as notified.",
-    linkLabel: "CMC Vellore online admissions (official)",
-    href: "https://admissions.cmcvellore.ac.in/",
-  },
-  {
-    id: "cmc-ludhiana",
-    title: "CMC Ludhiana",
-    note: "MBBS/BDS admissions follow NEET eligibility + institute rules as notified.",
-    linkLabel: "CMC Ludhiana admissions (official)",
-    href: "https://www.cmcludhiana.in/admissions/admission-2025/",
-  },
-  {
-    id: "mu-oet",
-    title: "MU OET",
-    note: "For medical MBBS seats, NEET is used. Manipal entrance is now MET for eligible programs as notified.",
-    linkLabel: "Manipal Entrance Test (MET) (official)",
-    href: "https://www.manipal.edu/entrancetest",
-  },
-  {
-    id: "bihar-cet",
-    title: "Bihar CET",
-    note: "Old state medical entrance replaced; medical admissions use NEET + Bihar counselling.",
-    linkLabel: "BCECEB (official)",
-    href: "https://bceceboard.bihar.gov.in/",
-  },
-  {
-    id: "wbjee",
-    title: "WB JEE",
-    note: "WBJEE is for engineering/pharmacy routes; MBBS admissions in WB are through NEET + state counselling.",
-    linkLabel: "WBJEEB (official)",
-    href: "https://wbjeeb.nic.in/",
-    isHash: true, // not medical now; treated as (#) style in display
-  },
-  {
-    id: "assam-cee",
-    title: "Assam CEE",
-    note: "Assam CEE is primarily for engineering; MBBS admissions are through NEET + state process.",
-    linkLabel: "ASTU (official)",
-    href: "https://astu.ac.in/",
-    isHash: true,
-  },
-  {
-    id: "ap-eamcet",
-    title: "AP EAMCET",
-    note: "AP EAMCET is for engineering/agri/pharmacy; MBBS admissions are through NEET + AP counselling.",
-    linkLabel: "AP EAPCET (official)",
-    href: "https://cets.apsche.ap.gov.in/EAPCET/",
-    isHash: true,
-  },
-  {
-    id: "gcet",
-    title: "GCET",
-    note: "GCET is used for Goa engineering routes; MBBS admissions are through NEET + state counselling.",
-    linkLabel: "DTE Goa GCET page (official)",
-    href: "https://dte.goa.gov.in/admission/gcet-application-form",
-    isHash: true,
-  },
-  {
-    id: "jkcet",
-    title: "JKCET",
-    note: "JKCET is an engineering entrance. MBBS admissions are through NEET + J&K counselling.",
-    linkLabel: "J&K BOPEE (official)",
-    href: "https://www.jkbopee.gov.in/",
-    isHash: true,
-  },
-  {
-    id: "gujcet",
-    title: "GUJCET",
-    note: "GUJCET is primarily for engineering/pharmacy. MBBS admissions are through NEET + Gujarat counselling.",
-    linkLabel: "GUJCET (official)",
-    href: "https://gujcet.gseb.org/",
-    isHash: true,
-  },
-  {
-    id: "uttarakhand-mbbs",
-    title: "Uttarakhand MBBS",
-    note: "State MBBS admissions are via NEET score + Uttarakhand counselling.",
-    linkLabel: "Uttarakhand NEET UG counselling (official)",
-    href: "https://meta-secure.com/HNBUMU_NEETUG",
-  },
-  {
-    id: "mhtcet",
-    title: "MHTCET",
-    note: "MHT-CET is for engineering/pharmacy. MBBS admissions are through NEET + Maharashtra counselling.",
-    linkLabel: "Maharashtra CET Cell (official)",
-    href: "https://cetcell.mahacet.org/",
-    isHash: true,
-  },
-  {
-    id: "ap-mbbs",
-    title: "AP MBBS",
-    note: "MBBS admissions in Andhra Pradesh happen via NEET + state counselling.",
-    linkLabel: "AP MBBS counselling portal (official)",
-    href: "https://apuhs-ugadmissions.aptonline.in/MBBS/Home/Home",
-  },
-
-  // Explicit (#) items from your list:
-  {
-    id: "keam",
-    title: "KEAM",
-    note: "Conducted for other courses (engineering/architecture etc.). MBBS admissions are through NEET.",
-    linkLabel: "KEAM (official)",
-    href: "https://cee.kerala.gov.in/keam",
-    isHash: true,
-  },
-  {
-    id: "kcet",
-    title: "KCET",
-    note: "Conducted for other courses (engineering/agri/pharma etc.). MBBS admissions are through NEET.",
-    linkLabel: "KEA (official)",
-    href: "https://cetonline.karnataka.gov.in/kea/",
-    isHash: true,
-  },
-];
-
 // -------------------------------------------------------------
 // Helpers
 // -------------------------------------------------------------
@@ -196,9 +58,11 @@ function ExamItemCard({ item }) {
 // -------------------------------------------------------------
 // Page
 // -------------------------------------------------------------
-export default function MedicalStateExamsPage() {
-  const replacedCount = REPLACED_STATE_MEDICAL_EXAMS.filter((x) => !x.isHash).length;
-  const hashCount = REPLACED_STATE_MEDICAL_EXAMS.filter((x) => x.isHash).length;
+export default function MedicalStateExamsPage({ examContents }) {
+
+  const replacedStateMedicalExams = Array.isArray(examContents) ? examContents : [];
+  const replacedCount = replacedStateMedicalExams.filter((x) => !x.isHash).length;
+  const hashCount = replacedStateMedicalExams.filter((x) => x.isHash).length;
 
   return (
     <>
@@ -228,7 +92,7 @@ export default function MedicalStateExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Items listed</dt>
-                  <dd className="col-6 mb-2">{REPLACED_STATE_MEDICAL_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{replacedStateMedicalExams.length}</dd>
 
                   <dt className="col-6">Replaced for MBBS</dt>
                   <dd className="col-6 mb-2">{replacedCount}</dd>
@@ -305,13 +169,19 @@ export default function MedicalStateExamsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">List of Exams Replaced (and # Exams Still Used for Other Courses)</h2>
 
-          <div className="row g-3 g-md-4">
-            {REPLACED_STATE_MEDICAL_EXAMS.map((item) => (
-              <div key={item.id} className="col-12 col-md-6 d-flex">
-                <ExamItemCard item={item} />
-              </div>
-            ))}
-          </div>
+          {replacedStateMedicalExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {replacedStateMedicalExams.map((item) => (
+                <div key={item.id ?? item.title} className="col-12 col-md-6 d-flex">
+                  <ExamItemCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

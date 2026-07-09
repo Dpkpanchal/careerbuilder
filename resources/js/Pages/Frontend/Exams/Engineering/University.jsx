@@ -34,136 +34,21 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// UNIVERSITY LEVEL ENTRANCE EXAM FOR ENGINEERING
-//
-// "If Students aspiring to take direct admission in B-Tech courses of various
-//  prestigious Universities across India, then must appear in the University
-//  Level Entrance Exams for Engineering."
-//
-// SL. NO. | ENTRANCE EXAM FOR ENGINEERING (UNIVERSITY WISE)
-//         | FULL FORM OF ENGINEERING EXAMS IN INDIA
-//         | ENGINEERING ENTRANCE EXAMS CALENDAR
-// -------------------------------------------------------------
-const UNIVERSITY_ENGINEERING_EXAMS = [
-  {
-    id: "srmjee",
-    tag: "SRMJEE",
-    name: "SRM Engineering Entrance Exam",
-    calendar: "APRIL",
-  },
-  {
-    id: "ipu-cet",
-    tag: "IPU CET",
-    name: "Guru Gobind Singh Indraprastha University Common Entrance Test",
-    calendar: "APRIL",
-  },
-  {
-    id: "imu-cet",
-    tag: "IMU CET",
-    name: "Indian Marine University Common Entrance Test",
-    calendar: "MAY",
-  },
-  {
-    id: "vmu-eee",
-    tag: "VMU EEE",
-    name: "Vinayaka Mission University Engineering Entrance Examination",
-    calendar: "MAY",
-  },
-  {
-    id: "vsat",
-    tag: "VSAT",
-    name: "Vignan University Entrance Test",
-    calendar: "APRIL",
-  },
-  {
-    id: "aueee",
-    tag: "AUEEE",
-    name: "Andhra University Engineering Entrance Exam",
-    calendar: "MAY",
-  },
-  {
-    id: "kiitee",
-    tag: "KIITEE",
-    name: "Kalinga Institute of Industrial Technology Engineering Entrance Exam",
-    calendar: "APRIL",
-  },
-  {
-    id: "bvp-cet",
-    tag: "BVP CET",
-    name: "Bharati Vidyapeeth Common Entrance Test",
-    calendar: "JUNE",
-  },
-  {
-    id: "aeee",
-    tag: "AEEE",
-    name: "Amrita Engineering Entrance Examination",
-    calendar: "APRIL",
-  },
-  {
-    id: "kee",
-    tag: "KEE",
-    name: "Karunya Entrance Examination",
-    calendar: "MAY",
-  },
-  {
-    id: "bsaueee",
-    tag: "BSAUEEE",
-    name: "B S Abdur Rehman University Engineering Entrance Exam",
-    calendar: "APRIL",
-  },
-  {
-    id: "saat",
-    tag: "SAAT",
-    name: "Siksha Anusandhan University Admission Test",
-    calendar: "MAY",
-  },
-  {
-    id: "cusat-cat",
-    tag: "CUSAT CAT",
-    name: "Cochin University of Science & Technology Common Admission Test",
-    calendar: "APRIL TO MAY",
-  },
-  {
-    id: "sliet",
-    tag: "SLIET",
-    name: "Sliet Engineering Test",
-    calendar: "JUNE",
-  },
-  {
-    id: "vee",
-    tag: "VEE",
-    name: "Vels Entrance Examination",
-    calendar: "MAY",
-  },
-  {
-    id: "beee",
-    tag: "BEEE",
-    name: "Bharath Engineering Entrance Examination",
-    calendar: "APRIL",
-  },
-  {
-    id: "amueee",
-    tag: "AMUEEE",
-    name: "Aligarh Muslim University Engineering Entrance Exam",
-    calendar: "APRIL",
-  },
-  {
-    id: "aueet",
-    tag: "AUEET",
-    name: "Alliance University Engineering Entrance Test",
-    calendar: "JUNE",
-  },
-];
-
-// -------------------------------------------------------------
 // Card – attractive, equal height, with "show more" on long name
 // -------------------------------------------------------------
 function UniversityExamCard({ exam }) {
   const [expanded, setExpanded] = useState(false);
 
-  const isLongName = exam.name && exam.name.length > 42;
-  const titlePreview = getNamePreview(exam.name, 42);
-  const showName = expanded || !isLongName ? exam.name : titlePreview;
+  // Defensive: coerce name to a plain string (backend may send array/null)
+  const nameRaw = Array.isArray(exam.name)
+    ? exam.name.join(" ")
+    : typeof exam.name === "string"
+    ? exam.name
+    : "";
+
+  const isLongName = nameRaw.length > 42;
+  const titlePreview = getNamePreview(nameRaw, 42);
+  const showName = expanded || !isLongName ? nameRaw : titlePreview;
 
   return (
     <div className="iitCard w-100 d-flex flex-column h-100">
@@ -200,7 +85,10 @@ function UniversityExamCard({ exam }) {
 // -------------------------------------------------------------
 // MAIN PAGE
 // -------------------------------------------------------------
-export default function EngineeringUniversityExamsPage() {
+export default function EngineeringUniversityExamsPage({ examContents }) {
+
+  const universityEngineeringExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -226,8 +114,8 @@ export default function EngineeringUniversityExamsPage() {
                 appear in the University Level Entrance Exams for Engineering.
               </p>
               <p className="sectionSub mb-0">
-                This page converts the table of “UNIVERSITY LEVEL ENTRANCE
-                EXAM FOR ENGINEERING” into a clean interface. Each card
+                This page converts the table of "UNIVERSITY LEVEL ENTRANCE
+                EXAM FOR ENGINEERING" into a clean interface. Each card
                 represents one university-specific engineering entrance test,
                 showing its short name, full form and the exam month from the
                 calendar column.
@@ -244,7 +132,7 @@ export default function EngineeringUniversityExamsPage() {
                 <dl className="row small mb-0">
                   <dt className="col-5">University exams listed</dt>
                   <dd className="col-7 mb-2">
-                    {UNIVERSITY_ENGINEERING_EXAMS.length} entrance exams
+                    {universityEngineeringExams.length} entrance exams
                   </dd>
 
                   <dt className="col-5">Purpose</dt>
@@ -426,13 +314,19 @@ export default function EngineeringUniversityExamsPage() {
             </div>
           </div>
 
-          <div className="row g-3 g-md-4">
-            {UNIVERSITY_ENGINEERING_EXAMS.map((exam) => (
-              <div key={exam.id} className="col-12 col-md-6 col-lg-6 d-flex">
-                <UniversityExamCard exam={exam} />
-              </div>
-            ))}
-          </div>
+          {universityEngineeringExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {universityEngineeringExams.map((exam, idx) => (
+                <div key={exam.id ?? `${exam.tag ?? "exam"}-${idx}`} className="col-12 col-md-6 col-lg-6 d-flex">
+                  <UniversityExamCard exam={exam} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -444,7 +338,7 @@ export default function EngineeringUniversityExamsPage() {
             <p className="mb-2">
               Treat this page as a quick index of university-based engineering
               entrance exams. Use the exam short name and full form exactly as
-              written here to search for the latest year’s notification on the
+              written here to search for the latest year's notification on the
               official university website.
             </p>
             <p className="mb-0 text-muted">

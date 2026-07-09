@@ -34,7 +34,7 @@ use App\Http\Controllers\Admin\SectionController;
 
 use App\Http\Controllers\Admin\NavMenuController;
 use App\Http\Controllers\Admin\PageContentController;
-
+use App\Http\Controllers\Admin\ExamContentController;
 
 
 
@@ -107,6 +107,13 @@ Route::middleware(['admin.session', 'auth:admin'])
        
         Route::resource('central-universities', CentralUniversityController::class);
 
+        Route::resource('exam-content', ExamContentController::class);
+
+        Route::put(
+            'exam-content/{examContent}/status',
+            [ExamContentController::class,'status']
+        )->name('exam-content.status');
+
         // Navigation Menus (menus table)
         Route::resource('nav-menus', NavMenuController::class);
         Route::post('/nav-menus/{navMenu}/toggle-active', [NavMenuController::class, 'toggleActive'])
@@ -138,6 +145,10 @@ Route::middleware(['admin.session', 'auth:admin'])
 
     Route::post('/counsellors/{id}/restore', [CounsellorController::class, 'restore'])
     ->name('admin.counsellors.restore');
+
+       
+
+
 
 
 

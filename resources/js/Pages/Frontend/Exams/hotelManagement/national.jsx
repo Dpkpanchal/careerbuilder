@@ -17,46 +17,6 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// NATIONAL LEVEL HOTEL MANAGEMENT ENTRANCE EXAMS
-// (EXACTLY from Career Book)
-// -------------------------------------------------------------
-const NATIONAL_HOTEL_EXAMS = [
-  {
-    sl: 1,
-    exam: "NCHMCT JEE",
-    fullForm:
-      "National Council of Hotel Management and Catering Technology Joint Entrance Examination",
-    purpose: "B.Sc. Hospitality & Hotel Administration",
-    eligibility: "10+2 with English as one of the subjects",
-    apply: "Online",
-    activity: "December",
-    source: "https://nchm.nic.in/",
-  },
-  {
-    sl: 2,
-    exam: "IIHM e-CHAT",
-    fullForm:
-      "International Institute of Hotel Management – Electronic Common Hospitality Admission Test",
-    purpose:
-      "B.A in Hospitality Management, Advanced Diploma in International Hospitality Administration, B.Sc in Hotel Management, Catering & Tourism",
-    eligibility: "10+2 with English, minimum 50%",
-    apply: "Online",
-    activity: "December",
-    source: "http://echat.elink.in/",
-  },
-  {
-    sl: 3,
-    exam: "AIMA UGAT",
-    fullForm: "All India Management Association – Under Graduate Aptitude Test",
-    purpose: "Bachelor in Hospitality Management",
-    eligibility: "10+2",
-    apply: "Online",
-    activity: "April",
-    source: "https://apps.aima.in/",
-  },
-];
-
-// -------------------------------------------------------------
 // Card
 // -------------------------------------------------------------
 function ExamCard({ item }) {
@@ -104,7 +64,10 @@ function ExamCard({ item }) {
 // -------------------------------------------------------------
 // Page
 // -------------------------------------------------------------
-export default function HotelManagementNationalPage() {
+export default function HotelManagementNationalPage({ examContents }) {
+
+  const nationalHotelExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -137,7 +100,7 @@ export default function HotelManagementNationalPage() {
                 </h3>
                 <dl className="row small mb-0">
                   <dt className="col-6">Exams listed</dt>
-                  <dd className="col-6 mb-2">{NATIONAL_HOTEL_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{nationalHotelExams.length}</dd>
 
                   <dt className="col-6">Primary gateway</dt>
                   <dd className="col-6 mb-2">NCHMCT JEE</dd>
@@ -210,13 +173,19 @@ export default function HotelManagementNationalPage() {
             National Level Hotel Management Entrance Exams
           </h2>
 
-          <div className="row g-3 g-md-4">
-            {NATIONAL_HOTEL_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {nationalHotelExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {nationalHotelExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

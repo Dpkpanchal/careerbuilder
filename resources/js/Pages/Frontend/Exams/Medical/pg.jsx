@@ -18,141 +18,6 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// PG Medical & Allied (MS/MD etc.) — based on your provided list
-// Notes for accuracy:
-// - "AIIMS PG" is now routed via AIIMS exams portal (INI-CET / INI-SS, as applicable).
-// - "AIPGMEE" is a legacy name and has been replaced by NEET-PG.
-// - "DNB CET" is represented by NBEMS entrance routes (incl. NEET-PG for MD/MS + DNB-PDCET for post-diploma DNB).
-// -------------------------------------------------------------
-const PG_MEDICAL_EXAMS = [
-  {
-    sl: 1,
-    exam: "NEET PG",
-    fullForm: "National Eligibility cum Entrance Test (Postgraduate)",
-    purpose: "Admission to MD/MS/PG Diploma and related NBEMS programmes as notified",
-    apply: "Online",
-    activity: "As per NBEMS schedule",
-    sources: [{ label: "NBEMS NEET-PG (official)", href: "https://natboard.edu.in/viewnbeexam?exam=neetpg" }],
-    tag: "National",
-  },
-  {
-    sl: 2,
-    exam: "AIIMS PG (INI-CET / INI-SS)",
-    fullForm: "AIIMS Entrance (Institute of National Importance Combined Entrance Test / INI Super Specialty)",
-    purpose: "PG admission to AIIMS and other INIs (MD/MS/DM/MCh/MDS) as notified",
-    apply: "Online",
-    activity: "As per AIIMS exams key dates",
-    sources: [{ label: "AIIMS Exams Portal (official)", href: "https://www.aiimsexams.ac.in/" }],
-    tag: "National (INI)",
-  },
-  {
-    sl: 3,
-    exam: "JIPMER (via INI-CET)",
-    fullForm: "JIPMER PG admission process (through INI-CET as notified)",
-    purpose: "PG admission at JIPMER (MD/MS/MDS etc.) through INI-CET process (as notified)",
-    apply: "Online",
-    activity: "As per JIPMER notices / AIIMS INI schedule",
-    sources: [{ label: "JIPMER Entrance/Admissions (official)", href: "https://jipmer.edu.in/announcement/entrance-examinations-admissions" }],
-    tag: "National (INI)",
-  },
-  {
-    sl: 4,
-    exam: "PGIMER (INI-CET route / institute notices)",
-    fullForm: "Postgraduate Institute of Medical Education & Research (PGIMER) – Admissions",
-    purpose: "PG admission information and institute-specific notices (INI-CET linked as notified)",
-    apply: "Online",
-    activity: "As per PGIMER/INI schedule",
-    sources: [{ label: "PGIMER Official Portal", href: "https://pgimer.edu.in/" }],
-    tag: "National (INI)",
-  },
-  {
-    sl: 5,
-    exam: "DNB CET (NBEMS)",
-    fullForm: "NBEMS Entrance Routes for DNB/DrNB as notified (incl. DNB-PDCET where applicable)",
-    purpose: "DNB/DrNB admission routes as notified by NBEMS",
-    apply: "Online",
-    activity: "As per NBEMS schedule",
-    sources: [
-      { label: "NBEMS Notices / Entrance list", href: "https://natboard.edu.in/allnotice.php" },
-      { label: "DNB-PDCET (official)", href: "https://natboard.edu.in/viewnbeexam?exam=pdcet" },
-    ],
-    tag: "National (NBEMS)",
-  },
-  {
-    sl: 6,
-    exam: "AIAPGET",
-    fullForm: "All India AYUSH Post Graduate Entrance Test",
-    purpose: "PG AYUSH admission (MD/MS Ayurveda/Unani/Siddha/Homeopathy) as notified",
-    apply: "Online",
-    activity: "As per NTA schedule",
-    sources: [
-      { label: "NTA Official (AIAPGET appears under NTA exams)", href: "https://nta.ac.in/" },
-      { label: "AIAPGET Counselling (AACCC) (official)", href: "https://aaccc.gov.in/pg-counselling/" },
-    ],
-    tag: "National (AYUSH)",
-  },
-  {
-    sl: 7,
-    exam: "IPU CET (PG Medical – as notified)",
-    fullForm: "Guru Gobind Singh Indraprastha University – Admission route for PG Medical (code-wise)",
-    purpose: "PG medical admissions/notifications for GGSIPU (MD/MS/Diploma etc.) as notified",
-    apply: "Online / Physical (as notified)",
-    activity: "As per IPU admission notices",
-    sources: [
-      { label: "IPU Admission Services Platform (official)", href: "https://ipu.admissions.nic.in/" },
-      { label: "IPU Admission Notices page (official)", href: "https://www.ipu.ac.in/admission2025main.php" },
-    ],
-    tag: "University",
-  },
-  {
-    sl: 8,
-    exam: "SAAT",
-    fullForm: "Siksha ‘O’ Anusandhan Admission Test",
-    purpose: "Entrance/admission test for programmes of SOA (as applicable; medical admissions may also follow NEET rules where mandated)",
-    apply: "Online",
-    activity: "As per SOA admission portal",
-    sources: [
-      { label: "SOA Admission Portal (official)", href: "https://www.admission.soa.ac.in/" },
-      { label: "SAAT Page (official)", href: "https://www.admission.soa.ac.in/saat" },
-    ],
-    tag: "University",
-    note:
-      "Important: For MBBS/MD/MS in many institutions, admission is mandated through NEET/NEET-PG as per rules. Always verify on the institute’s official admission page.",
-  },
-  {
-    sl: 9,
-    exam: "IUET",
-    fullForm: "Integral University Entrance Test",
-    purpose: "Admission test for eligible programmes at Integral University (as notified)",
-    apply: "Online",
-    activity: "As per IUET schedule",
-    sources: [{ label: "IUET Official (Integral University)", href: "https://www.iul.ac.in/iuet_syllabus.aspx" }],
-    tag: "University",
-  },
-  {
-    sl: 10,
-    exam: "RUET",
-    fullForm: "Rama University Entrance Test",
-    purpose: "Admission test for programmes at Rama University (as notified)",
-    apply: "Online",
-    activity: "As per RUET schedule",
-    sources: [{ label: "RUET Official (Rama University)", href: "https://www.ramauniversity.ac.in/admissions-ruet-4-118" }],
-    tag: "University",
-  },
-  {
-    sl: 11,
-    exam: "AIPGMEE (Legacy)",
-    fullForm: "All India Post Graduate Medical Entrance Examination",
-    purpose: "Legacy name — replaced by NEET-PG",
-    apply: "—",
-    activity: "—",
-    sources: [{ label: "Use NEET-PG official portal (NBEMS)", href: "https://natboard.edu.in/viewnbeexam?exam=neetpg" }],
-    tag: "Legacy",
-    note: "AIPGMEE is an older name; do not follow outdated notices. For PG medical admissions, follow NEET-PG/NBEMS.",
-  },
-];
-
-// -------------------------------------------------------------
 // Card
 // -------------------------------------------------------------
 function ExamCard({ item }) {
@@ -209,7 +74,10 @@ function ExamCard({ item }) {
 // -------------------------------------------------------------
 // Page
 // -------------------------------------------------------------
-export default function PGMedicalExamsPage() {
+export default function PGMedicalExamsPage({ examContents }) {
+
+  const pgMedicalExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -236,7 +104,7 @@ export default function PGMedicalExamsPage() {
                 </h3>
                 <dl className="row small mb-0">
                   <dt className="col-6">Exams listed</dt>
-                  <dd className="col-6 mb-2">{PG_MEDICAL_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{pgMedicalExams.length}</dd>
 
                   <dt className="col-6">Core MD/MS gateway</dt>
                   <dd className="col-6 mb-2">NEET-PG (NBEMS)</dd>
@@ -303,13 +171,19 @@ export default function PGMedicalExamsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">PG Medical Exams – Official Links</h2>
 
-          <div className="row g-3 g-md-4">
-            {PG_MEDICAL_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {pgMedicalExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {pgMedicalExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

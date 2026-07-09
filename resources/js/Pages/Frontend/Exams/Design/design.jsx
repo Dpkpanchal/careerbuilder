@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -17,58 +18,12 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// DESIGN & FASHION ENTRANCE EXAMS
-// Source: Career Book (Fashion and Design section)
-// -------------------------------------------------------------
-const DESIGN_EXAMS = [
-  {
-    sl: 1,
-    exam: "NIFT Entrance Exam",
-    fullForm: "National Institute of Fashion Technology Entrance Examination",
-    purpose:
-      "B.Des / B.FTech (UG), M.Des / M.FTech / MFM (PG) programmes at NIFT campuses",
-    eligibility:
-      "As per NIFT norms (UG after Class 12, PG after graduation)",
-    apply: "Online",
-    activity: "October – January",
-    source: "https://nift.ac.in/admission",
-    tag: "National",
-  },
-  {
-    sl: 2,
-    exam: "NID DAT",
-    fullForm: "National Institute of Design – Design Aptitude Test",
-    purpose:
-      "B.Des / GDPD (UG) and M.Des (PG) programmes at NID campuses",
-    eligibility:
-      "UG after Class 12, PG after graduation (as per NID rules)",
-    apply: "Online",
-    activity: "September – November",
-    source: "https://admissions.nid.edu/",
-    tag: "National",
-  },
-  {
-    sl: 3,
-    exam: "CEED",
-    fullForm: "Common Entrance Examination for Design",
-    purpose:
-      "M.Des and PhD programmes in Design at IITs and participating institutes",
-    eligibility:
-      "Graduation in any discipline",
-    apply: "Online",
-    activity: "September – November",
-    source: "https://ceed.iitb.ac.in/",
-    tag: "National (PG)",
-  },
-];
-
-// -------------------------------------------------------------
 function ExamCard({ item }) {
   return (
     <div className="iitCard w-100 d-flex flex-column h-100">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <span className="iitRank small fw-semibold">
-          {item.sl}. {item.exam}
+          {item.exam}
         </span>
         <span className="iitCodeBadge">{item.tag}</span>
       </div>
@@ -103,12 +58,17 @@ function ExamCard({ item }) {
           <ExternalLink size={14} />
         </a>
       </div>
+
+
     </div>
   );
 }
 
 // -------------------------------------------------------------
-export default function DesignEntranceExamsPage() {
+export default function DesignEntranceExamsPage({ examContents }) {
+
+  const designExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -143,7 +103,7 @@ export default function DesignEntranceExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Exams listed</dt>
-                  <dd className="col-6 mb-2">{DESIGN_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{designExams.length}</dd>
 
                   <dt className="col-6">UG entry</dt>
                   <dd className="col-6 mb-2">NIFT, NID</dd>
@@ -216,13 +176,19 @@ export default function DesignEntranceExamsPage() {
             Design & Fashion Entrance Exams – Official Links
           </h2>
 
-          <div className="row g-3 g-md-4">
-            {DESIGN_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {designExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {designExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

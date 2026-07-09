@@ -7,6 +7,7 @@ use App\Models\ItiCollege;
 use App\Models\Menu;
 use App\Models\PageContent;
 use Inertia\Inertia;
+use App\Models\ExamContent;
 
 class PageController extends Controller
 {
@@ -160,9 +161,11 @@ class PageController extends Controller
 
     public function show(string $slug)
     {
+
         $menuItem = Menu::where('slug', $slug)
             ->where('is_active', true)
             ->firstOrFail();
+
 
         $content = PageContent::where('menu_id', $menuItem->id)->first();
 
@@ -191,8 +194,39 @@ class PageController extends Controller
                 'colleges/central-universities' => [
                     'universities' => CentralUniversity::where('is_active', true)->orderBy('name')->get(),
                 ],
+
+
                 default => [],
             };
+
+            if (str_starts_with($slug, 'exams/')) {
+
+
+            $fields = config("exam_fields.{$menuItem->key}", []);
+
+            $columns = config('exam_columns');
+
+            $props['examContents'] = ExamContent::where('url', $slug)
+                ->where('is_active', true)
+                ->orderBy('id')
+                ->get()
+                ->map(function ($exam) use ($fields, $columns) {
+
+                    $item = [];
+
+                    foreach ($fields as $field) {
+
+                        $column = $columns[$field] ?? $field;
+
+                        $item[$field] = $exam->{$column};
+                    }
+
+                    return $item;
+                });
+
+                //dd($props['examContents']);
+
+            }
 
             return Inertia::render(self::LEGACY_PAGES[$slug], $props);
         }

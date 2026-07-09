@@ -21,65 +21,6 @@ const EXAM_TABS = [
 // MCA Entrance Exams (exact set as given)
 // - Links are official and working
 // -------------------------------------------------------------
-const MCA_ENTRANCE_EXAMS = [
-  {
-    sl: 1,
-    exam: "NIMCET",
-    fullForm: "NIT MCA Common Entrance Test",
-    purpose: "Admission to MCA in participating NITs and some IIITs (as notified)",
-    eligibility: "As per NIMCET information brochure (UG degree requirements as notified)",
-    apply: "Online",
-    activity: "Usually Apr–May (check official schedule)",
-    source: "https://nimcet.admissions.nic.in/",
-    tag: "National",
-  },
-  {
-    sl: 2,
-    exam: "DU MCA",
-    fullForm: "University of Delhi – MCA Entrance / PG Admission Route",
-    purpose: "MCA admission at University of Delhi (as notified)",
-    eligibility: "As per DU MCA admission details + PG bulletin (as notified)",
-    apply: "Online",
-    activity: "As per DU PG admission schedule (check portal)",
-    source: "https://cs.du.ac.in/admission/mca/",
-    tag: "University",
-  },
-  {
-    sl: 3,
-    exam: "BIT MCA",
-    fullForm: "Birla Institute of Technology (BIT Mesra) – MCA Admission",
-    purpose: "MCA admission at BIT Mesra and its campuses (as notified)",
-    eligibility: "As per BIT MCA admission brochure/notification (as notified)",
-    apply: "Online",
-    activity: "As per BIT admission notification (check portal)",
-    source: "https://bitmesra.ac.in/admission/notification/1",
-    tag: "University",
-  },
-  {
-    sl: 4,
-    exam: "WB JECA",
-    fullForm: "West Bengal Joint Entrance Examination for Computer Applications",
-    purpose: "Admission to MCA in various institutions in West Bengal",
-    eligibility: "As per WBJEEB JECA information brochure (as notified)",
-    apply: "Online",
-    activity: "As per WBJEEB schedule (check portal)",
-    source: "https://wbjeeb.nic.in/jeca/",
-    tag: "State (WB)",
-    wbFocus: true,
-  },
-  {
-    sl: 5,
-    exam: "CG PRE MCA",
-    fullForm: "Chhattisgarh Pre MCA Entrance Examination",
-    purpose: "Admission to MCA in Chhattisgarh (as notified by Vyapam)",
-    eligibility: "As per CG Vyapam rules / notice (as notified)",
-    apply: "Online",
-    activity: "As per CG Vyapam calendar/notice (check portal)",
-    source: "https://vyapamcg.cgstate.gov.in/Post?PostID=MCA24ONLINE",
-    tag: "State (CG)",
-  },
-];
-
 // -------------------------------------------------------------
 // Helpers
 // -------------------------------------------------------------
@@ -95,7 +36,7 @@ function ExamCard({ item }) {
     <div className="iitCard w-100 d-flex flex-column h-100">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <span className="iitRank small fw-semibold">
-          {item.sl}. {item.exam}
+         {item.exam}
         </span>
         <span className="iitCodeBadge">{item.tag}</span>
       </div>
@@ -132,8 +73,10 @@ function ExamCard({ item }) {
   );
 }
 
-export default function MCAEntranceExamsPage() {
-  const wbCount = MCA_ENTRANCE_EXAMS.filter((x) => x.wbFocus).length;
+export default function MCAEntranceExamsPage({examContents}) {
+  const wbCount = examContents.filter((x) => x.wb_focus).length;
+
+  const computerApplicationsExams = Array.isArray(examContents) ? examContents : [];
 
   return (
     <>
@@ -161,7 +104,7 @@ export default function MCAEntranceExamsPage() {
                 </h3>
                 <dl className="row small mb-0">
                   <dt className="col-5">Exams listed</dt>
-                  <dd className="col-7 mb-2">{MCA_ENTRANCE_EXAMS.length} MCA routes</dd>
+                  <dd className="col-7 mb-2">{computerApplicationsExams.length} MCA routes</dd>
 
                   <dt className="col-5">Coverage</dt>
                   <dd className="col-7 mb-2">National + University + State</dd>
@@ -231,7 +174,7 @@ export default function MCAEntranceExamsPage() {
           <h2 className="sectionHeading mb-3">Official MCA Entrance Exam Links</h2>
 
           <div className="row g-3 g-md-4">
-            {MCA_ENTRANCE_EXAMS.map((item) => (
+            {computerApplicationsExams.map((item) => (
               <div key={item.exam} className="col-12 col-md-6 d-flex">
                 <ExamCard item={item} />
               </div>

@@ -34,179 +34,32 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// STATE LEVEL ENGINEERING ENTRANCE
-// Text taken from “STATE LEVEL ENGINEERING ENTRANCE” block
-// on pages 59–61 (no exams added/removed)
-// -------------------------------------------------------------
-const STATE_ENGINEERING_EXAMS = [
-  {
-    id: "mht-cet",
-    tag: "MHT CET",
-    level: "UG",
-    name: "Maharashtra’s Common Entrance Test (MHT CET)",
-    purpose: "4 Year B.Tech/B Pharm /B Arch Courses",
-    eligibility:
-      "Indian National, Class 12 or equivalent with 50% marks. For SC/ST/OBC 45%.",
-    apply: "Online",
-    activity: "January to March",
-    source: "https://mhtcet2018.dtemaharashtra.gov.in/",
-  },
-  {
-    id: "ap-eamcet",
-    tag: "AP EAMCET",
-    level: "UG",
-    name: "Andhra Pradesh Engineering, Agriculture and Medicine Common Entrance Test (AP EAMCET)",
-    purpose: "B.Tech Engineering, Agriculture, Pharmacy.",
-    eligibility: "10+2.",
-    apply: "Online",
-    activity: "February",
-    source: "www.sche.ap.gov.in/eamcet",
-  },
-  {
-    id: "comedk",
-    tag: "COMED-K",
-    level: "UG",
-    name: "Consortium of Medical, Engineering and Dental Colleges of Karnataka’s (COMED-K)",
-    purpose: "",
-    eligibility:
-      "• 10+2 with Physics, Chemistry and Mathematics with English as a compulsory subject. • The General Merit candidates should have passed with a minimum aggregate of 45% marks (40% in respect of SC, ST and OBC candidates of Karnataka State).",
-    apply: "Online",
-    activity: "January",
-    source: "www.comedk.org",
-  },
-  {
-    id: "upsee",
-    tag: "UPSEE",
-    level: "UG",
-    name: "Uttar Pradesh State Entrance Exam (UPSEE)",
-    purpose:
-      "B. Tech./ B.Arch./B.Des./ B.Pharm./ BHMCT /BFAD /BFA /MBA /MBA (Integrated)/MCA/MCA (Integrated) and 2nd Year of B. Tech./B.Pharm./MCA (Lateral Entry).",
-    eligibility:
-      "45% in Physics, Mathematics and Chemistry or Computer Sc or Biology. 40% for SC/ST.",
-    apply: "Online",
-    activity: "January",
-    source: "http://www.upsee.nic.in/",
-  },
-  {
-    id: "kar-pgcet",
-    tag: "Karnataka PGCET",
-    level: "PG",
-    name: "Karnataka Post Graduate Common Entrance Test (Karnataka PGCET)",
-    purpose: "MBA, MCA, ME / M.Tech / M.Arch.",
-    eligibility: "BE/BTECH.",
-    apply: "Online",
-    activity: "May",
-    source: "http://www.kea.kar.nic.in/pgcet_2018.htm",
-  },
-  {
-    id: "wbjee",
-    tag: "WBJEE",
-    level: "UG",
-    name: "West Bengal Joint Entrance Examinations Board (WB JEE)",
-    purpose: "B.Tech / B.Arch / Bpharm Courses.",
-    eligibility: "45% in 10+2. SC/ST 40%.",
-    apply: "Online",
-    activity: "December",
-    source: "wbjeeb.nic.in",
-  },
-  {
-    id: "bcece",
-    tag: "BCECE",
-    level: "UG",
-    name: "Bihar Combined Entrance Competitive Examination (BCECE)",
-    purpose: "BE/BTECH.",
-    eligibility: "10+2.",
-    apply: "Online",
-    activity: "",
-    source: "http://bceceboard.bihar.gov.in/",
-  },
-  {
-    id: "ojee",
-    tag: "OJEE",
-    level: "UG",
-    name: "Orissa Joint Entrance Examination (Orissa JEE)",
-    purpose: "BTech/BPlan, BPharma.",
-    eligibility: "45% in 10+2, 40% for SC/ST.",
-    apply: "Online",
-    activity: "March",
-    source: "www.ojee.nic.in",
-  },
-  {
-    id: "kcet",
-    tag: "Karnataka CET",
-    level: "UG",
-    name: "Karnataka Common Entrance Test (Karnataka CET)",
-    purpose:
-      "Engineering / Technology courses (B.E. / B.Tech) B.Sc. (Hons) Agriculture, B.Sc. (Hons) Sericulture, B.Sc. (Hons) Horticulture, B.Sc. (Hons) Forestry, B.Sc. Agri Bio Tech, B.H.Sc. (Home Science), B.Tech (Agri. Engg), B.Tech (Food Technology), B.Tech (Dairy Tech), B.F.Sc (Fisheries), B.Tech (Food Science & Tech), B.Sc. (Hons) Agri. Marketing & Bachelor of Veterinary Science and Animal Husbandry (B.V. Sc. & A.H.), B-Pharma.",
-    eligibility:
-      "Passed in 2nd PUC / 12th Std / Equivalent Exam with English as one of the Languages and obtained a minimum of 45% marks in aggregate in Physics and Mathematics along with Chemistry / Bio-Technology / Biology / Electronics / Computer. (40% for SC, ST, Cat-1, 2A, 2B, 3A and 3B category candidates).",
-    apply: "Online",
-    activity: "February",
-    source: "http://kea.kar.nic.in/",
-  },
-  {
-    id: "tripura-jee",
-    tag: "Tripura JEE",
-    level: "UG",
-    name: "Tripura Joint Entrance Examination (Tripura JEE)",
-    purpose:
-      "Engineering, Technological, Agricultural, Veterinary, Fisheries and others.",
-    eligibility: "Permanent resident of Tripura, 10+2 pass.",
-    apply: "Offline (downloading form).",
-    activity: "January",
-    source: "http://tbjee.nic.in/",
-  },
-  {
-    id: "iisc-ug",
-    tag: "IISc UG",
-    level: "UG",
-    name: "IISC-Bangalore",
-    purpose: "BSc (Research).",
-    eligibility: "10+2.",
-    apply: "Online.",
-    activity: "February.",
-    source: "http://www.iisc.ac.in/ug",
-  },
-  {
-    id: "jk-bpee-cet",
-    tag: "JK-BPEE CET",
-    level: "UG",
-    name: "JK-BPEE CET",
-    purpose: "BE/B.Tech.",
-    eligibility: "50% in 10+2.",
-    apply: "Online.",
-    activity: "February.",
-    source: "Jakbopee.org /jkbopee.gov.in",
-  },
-  {
-    id: "gujarat-cet",
-    tag: "Gujarat-CET",
-    level: "UG",
-    name: "Gujarat-CET",
-    purpose: "B.Tech.",
-    eligibility: "Resident of Gujarat, 10+2 with 45%. 40% for reserve category.",
-    apply: "Online.",
-    activity: "March.",
-    source: "www.gseb.org",
-  },
-];
-
-// -------------------------------------------------------------
 // Card Component – Show more on Purpose + Eligibility
 // -------------------------------------------------------------
 function StateExamCard({ exam }) {
   const [expanded, setExpanded] = useState(false);
 
-  const longPurpose = exam.purpose && exam.purpose.length > 150;
-  const longEligibility = exam.eligibility && exam.eligibility.length > 150;
+  // Defensive: coerce to plain strings so show more/less works
+  // even if the backend sends arrays, null, or non-string values.
+  const purposeRaw = Array.isArray(exam.purpose)
+    ? exam.purpose.join(" ")
+    : typeof exam.purpose === "string"
+    ? exam.purpose
+    : "";
+
+  const eligibilityRaw = Array.isArray(exam.eligibility)
+    ? exam.eligibility.join(" ")
+    : typeof exam.eligibility === "string"
+    ? exam.eligibility
+    : "";
+
+  const longPurpose = purposeRaw.length > 150;
+  const longEligibility = eligibilityRaw.length > 150;
   const hasShowMore = longPurpose || longEligibility;
 
-  const purposeText =
-    expanded || !longPurpose ? exam.purpose : getPreview(exam.purpose);
+  const purposeText = expanded || !longPurpose ? purposeRaw : getPreview(purposeRaw);
   const eligibilityText =
-    expanded || !longEligibility
-      ? exam.eligibility
-      : getPreview(exam.eligibility);
+    expanded || !longEligibility ? eligibilityRaw : getPreview(eligibilityRaw);
 
   return (
     <div className="iitCard w-100 d-flex flex-column h-100">
@@ -225,12 +78,12 @@ function StateExamCard({ exam }) {
 
       {/* Purpose + Eligibility block (main content area) */}
       <div className="small text-muted mb-2 flex-grow-1">
-        {exam.purpose && (
+        {!!purposeRaw && (
           <p className="mb-1">
             <strong>Purpose:</strong> {purposeText}
           </p>
         )}
-        {exam.eligibility && (
+        {!!eligibilityRaw && (
           <p className="mb-0">
             <strong>Eligibility:</strong> {eligibilityText}
           </p>
@@ -286,7 +139,10 @@ function StateExamCard({ exam }) {
 // -------------------------------------------------------------
 // MAIN PAGE
 // -------------------------------------------------------------
-export default function EngineeringStateExamsPage() {
+export default function EngineeringStateExamsPage({ examContents }) {
+
+  const stateEngineeringExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -310,13 +166,13 @@ export default function EngineeringStateExamsPage() {
                 The state-wise list of engineering exams is given so that
                 students can understand which entrance tests are used for
                 admission into colleges and universities of a particular state.
-                Based on these exams’ scores, candidates get an opportunity to
+                Based on these exams' scores, candidates get an opportunity to
                 take admission in different engineering, pharmacy, architecture
                 and allied programmes offered by state universities and private
                 colleges.
               </p>
               <p className="sectionSub mb-0">
-                This page organises the “State Level Engineering Entrance”
+                This page organises the "State Level Engineering Entrance"
                 details from the Career Guide into a clean, card-based layout so
                 that you can quickly scan the exam name, purpose, eligibility,
                 application mode, typical activity months and official links.
@@ -333,7 +189,7 @@ export default function EngineeringStateExamsPage() {
                 <dl className="row small mb-0">
                   <dt className="col-5">State exams listed</dt>
                   <dd className="col-7 mb-2">
-                    {STATE_ENGINEERING_EXAMS.length} entrance exams
+                    {stateEngineeringExams.length} entrance exams
                   </dd>
 
                   <dt className="col-5">States covered</dt>
@@ -358,7 +214,7 @@ export default function EngineeringStateExamsPage() {
                   <dt className="col-5">Typical months</dt>
                   <dd className="col-7 mb-0">
                     Application windows mostly between December and March, with
-                    some PG tests in May (always confirm the current year’s
+                    some PG tests in May (always confirm the current year's
                     schedule).
                   </dd>
                 </dl>
@@ -510,20 +366,26 @@ export default function EngineeringStateExamsPage() {
                 State-Level Engineering Entrance Exams – Details
               </h2>
               <p className="sectionSub mb-0">
-                All exams listed here are taken from the “STATE LEVEL
-                ENGINEERING ENTRANCE” section of the Career Guide, organised in
+                All exams listed here are taken from the "STATE LEVEL
+                ENGINEERING ENTRANCE" section of the Career Guide, organised in
                 a modern card layout for easy comparison.
               </p>
             </div>
           </div>
 
-          <div className="row g-3 g-md-4">
-            {STATE_ENGINEERING_EXAMS.map((exam) => (
-              <div key={exam.id} className="col-12 col-md-6 col-lg-6 d-flex">
-                <StateExamCard exam={exam} />
-              </div>
-            ))}
-          </div>
+          {stateEngineeringExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {stateEngineeringExams.map((exam, idx) => (
+                <div key={exam.id ?? `${exam.tag ?? "exam"}-${idx}`} className="col-12 col-md-6 col-lg-6 d-flex">
+                  <StateExamCard exam={exam} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

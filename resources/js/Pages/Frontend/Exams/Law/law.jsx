@@ -15,204 +15,6 @@ const EXAM_TABS = [
   { id: "finance-accounts", label: "Finance & Accounts", href: '/exams/law/finance-accounts' },
 ];
 
-const LAW_EXAMS = [
-  {
-    sl: 1,
-    exam: "CLAT",
-    fullForm: "Common Law Admission Test",
-    purpose: "UG/PG law admissions in participating National Law Universities (NLUs)",
-    activity: "February (as per your Career Book; verify current cycle on official portal)",
-    sourceLinks: [{ label: "Consortium of NLUs (Official)", href: "https://consortiumofnlus.ac.in/" }],
-    tag: "National",
-  },
-  {
-    sl: 2,
-    exam: "AILET",
-    fullForm: "All India Law Entrance Test (NLU Delhi)",
-    purpose: "UG/PG/PhD admissions at National Law University Delhi",
-    activity: "February (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "NLU Delhi (Official)", href: "https://nludelhi.ac.in/" }],
-    tag: "National",
-  },
-
-  // LSAT-India has changed over years; keep as “status check required”
-  {
-    sl: 3,
-    exam: "LSAT (India)",
-    fullForm: "Law School Admission Test – India",
-    purpose: "Used by some private law schools (status may change by year)",
-    activity: "March (Career Book; verify current status before planning)",
-    sourceLinks: [{ label: "LSAC (Reference)", href: "https://www.lsac.org/" }],
-    tag: "Status Check",
-    note:
-      "Important: LSAT-India availability can change. Always verify if it is being conducted for the current admission cycle before applying.",
-  },
-
-  {
-    sl: 4,
-    exam: "UL-SAT (UPES)",
-    fullForm: "UPES Legal Studies Aptitude Test",
-    purpose: "UG law admissions at UPES (also accepts other pathways as notified)",
-    activity: "March (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "UPES ULSAT (Official)", href: "https://www.upes.ac.in/admissions/admission-alerts/ulsat" }],
-    tag: "University",
-  },
-
-  {
-    sl: 5,
-    exam: "SET / SLAT (Symbiosis)",
-    fullForm: "Symbiosis Law Admission Test (SLAT) / Symbiosis Entrance ecosystem",
-    purpose: "UG law admissions for Symbiosis Law Schools",
-    activity: "March (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "SLAT (Official)", href: "https://www.slat-test.org/" }],
-    tag: "University",
-  },
-
-  {
-    sl: 6,
-    exam: "IPU CET (Law)",
-    fullForm: "Guru Gobind Singh Indraprastha University – Common Entrance Test",
-    purpose: "Law admissions (and other programmes) as notified by GGSIPU",
-    activity: "March (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "GGSIPU (Official)", href: "https://ipu.ac.in/" }],
-    tag: "University",
-  },
-
-  {
-    sl: 7,
-    exam: "MH-CET (Law)",
-    fullForm: "Maharashtra Common Entrance Test – Law",
-    purpose: "5-year / 3-year LLB admissions in Maharashtra through CET Cell processes",
-    activity: "March (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "CET Cell Maharashtra (Official)", href: "https://cetcell.mahacet.org/" }],
-    tag: "State",
-  },
-
-  {
-    sl: 8,
-    exam: "Christ University ET (Law)",
-    fullForm: "Christ University – Online Entrance Test (Law)",
-    purpose: "UG/PG law admissions at Christ University (as notified)",
-    activity: "March (Career Book; verify dates on admissions page)",
-    sourceLinks: [{ label: "Christ University (Official)", href: "https://christuniversity.in/" }],
-    tag: "University",
-  },
-
-  {
-    sl: 9,
-    exam: "RULET",
-    fullForm: "Rajasthan University Law Entrance Test",
-    purpose: "BA LLB / BCom LLB admissions (as notified by University of Rajasthan)",
-    activity: "August (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "University of Rajasthan (Official)", href: "https://www.uniraj.ac.in/" }],
-    tag: "University",
-  },
-
-  {
-    sl: 10,
-    exam: "APLAWCET",
-    fullForm: "Andhra Pradesh Law Common Entrance Test",
-    purpose: "LLB admissions in Andhra Pradesh (as notified by APSCHE)",
-    activity: "March (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "AP LAWCET (Official)", href: "https://cets.apsche.ap.gov.in/LAWCET/" }],
-    tag: "State",
-  },
-
-  {
-    sl: 11,
-    exam: "ILSAT",
-    fullForm: "ICFAI Law School Admission Test",
-    purpose: "UG/PG law admissions at ICFAI Law School (as notified)",
-    activity: "May (Career Book; verify current cycle)",
-    sourceLinks: [
-      { label: "ICFAI Law – Admissions (Official)", href: "https://www.ifheindia.org/icfai-law-school-hyderabad" },
-    ],
-    tag: "University",
-  },
-
-  {
-    sl: 12,
-    exam: "KIIT Law Entrance",
-    fullForm: "K-LAT (KIIT School of Law Entrance) / KIIT pathways as notified",
-    purpose: "UG law admissions at KIIT School of Law",
-    activity: "November (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "KIIT Law K-LAT (Official)", href: "https://law.kiit.ac.in/k-lat/" }],
-    tag: "University",
-  },
-
-  {
-    sl: 13,
-    exam: "AMU Law Entrance",
-    fullForm: "Aligarh Muslim University – Law Entrance (as notified)",
-    purpose: "Law admissions at AMU (as per admission notifications)",
-    activity: "May (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "AMU (Official)", href: "https://www.amu.ac.in/" }],
-    tag: "University",
-  },
-
-  {
-    sl: 14,
-    exam: "ILICAT / ILI Admission Test",
-    fullForm: "Indian Law Institute – All India Admission Test (as notified)",
-    purpose: "Admissions at Indian Law Institute (programmes as notified)",
-    activity: "May (Career Book; verify current cycle)",
-    sourceLinks: [
-      { label: "Indian Law Institute (Official)", href: "https://ili.ac.in/" },
-      { label: "ILI Admissions Portal (Official)", href: "https://iliadm.samarth.edu.in/" },
-    ],
-    tag: "National / Institute",
-  },
-
-  {
-    sl: 15,
-    exam: "KLEE",
-    fullForm: "Kerala Law Entrance Examination",
-    purpose: "Law admissions in Kerala via CEE Kerala processes",
-    activity: "June end (Career Book; verify current cycle)",
-    sourceLinks: [{ label: "CEE Kerala (Official)", href: "https://cee.kerala.gov.in/main.php" }],
-    tag: "State",
-  },
-
-  // GNDU items in your book — but official domains are currently unreliable (avoid linking unsafe pages)
-  {
-    sl: 16,
-    exam: "GNDU CET (Law)",
-    fullForm: "Guru Nanak Dev University – Common Entrance Test (as notified)",
-    purpose: "Admissions as notified by GNDU / state counselling (verify current policy)",
-    activity: "March (Career Book; verify via trusted official notices)",
-    sourceLinks: [],
-    tag: "Verify",
-    note:
-      "We are not linking GNDU portals here because multiple GNDU-looking domains currently appear unsafe/spammy. Use only verified GNDU/UGC notices before applying.",
-  },
-
-  {
-    sl: 17,
-    exam: "ACLAT",
-    fullForm: "Alliance Common Law Admission Test (Alliance University)",
-    purpose: "UG/PG law admissions at Alliance University (as notified)",
-    activity: "April (Career Book; verify current cycle)",
-    sourceLinks: [
-      { label: "Alliance University (Official)", href: "https://www.alliance.edu.in/" },
-      { label: "Alliance Apply (Official)", href: "https://apply.alliance.edu.in/" },
-    ],
-    tag: "University",
-  },
-
-  {
-    sl: 18,
-    exam: "University of Calcutta – B.A. LL.B Entrance",
-    fullForm: "B.A., LL.B Admission Entrance Test (as notified)",
-    purpose: "5-year B.A. LL.B admissions under University of Calcutta process",
-    activity: "May (Career Book; verify current cycle)",
-    sourceLinks: [
-      { label: "CU Admission / Examination Notices (Official)", href: "https://www.caluniv.ac.in/admission/admission.html" },
-      { label: "CU B.A. LL.B Portal (Official)", href: "https://www.caluniv-ucsta.net/llb/" },
-    ],
-    tag: "WB / University",
-  },
-];
-
 // -------------------------------------------------------------
 function ExamCard({ item }) {
   return (
@@ -244,9 +46,9 @@ function ExamCard({ item }) {
         </div>
       )}
 
-      <div className="mt-auto d-flex flex-column gap-2 pt-3">
-        {item.sourceLinks?.length ? (
-          item.sourceLinks.map((s) => (
+     <div className="mt-auto d-flex flex-column gap-2 pt-3">
+        {item.sources?.length ? (
+          item.sources.map((s) => (
             <a
               key={s.href}
               href={s.href}
@@ -270,7 +72,10 @@ function ExamCard({ item }) {
 }
 
 // -------------------------------------------------------------
-export default function LawEntranceExamsPage() {
+export default function LawEntranceExamsPage({ examContents }) {
+
+  const lawExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -299,7 +104,7 @@ export default function LawEntranceExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Exams covered</dt>
-                  <dd className="col-6 mb-2">{LAW_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{lawExams.length}</dd>
 
                   <dt className="col-6">Best national gateways</dt>
                   <dd className="col-6 mb-2">CLAT, AILET</dd>
@@ -367,13 +172,19 @@ export default function LawEntranceExamsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">Law Entrance Exams – Official Links</h2>
 
-          <div className="row g-3 g-md-4">
-            {LAW_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {lawExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {lawExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

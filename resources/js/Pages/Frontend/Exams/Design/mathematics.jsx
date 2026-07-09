@@ -17,62 +17,6 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// Mathematics UG routes (Career Book: merit basis + Presidency tests)
-// Rule: only official + working links.
-// -------------------------------------------------------------
-const MATH_UG_ROUTES = [
-  {
-    sl: 1,
-    route: "Jadavpur University — Merit Basis",
-    nature: "Merit / Selection list (UG)",
-    purpose: "B.Sc Mathematics (Honours) and related UG admissions (as notified by JU)",
-    apply: "Online (JU admission portal / notices)",
-    activity: "As per JU admission cycle",
-    links: [
-      { label: "Jadavpur University Admissions (Official)", href: "https://jadavpuruniversity.in/admission/" },
-      // JU publishes subject-wise lists on its admission portal; keep root portal link too
-      { label: "JU Admission Portal (Official)", href: "https://admission.jdvu.ac.in/" },
-    ],
-    tag: "WB • University",
-    note:
-      "JU UG admissions are typically merit-based with subject-wise lists/updates on the official admission portal.",
-  },
-
-  {
-    sl: 2,
-    route: "St. Xavier’s College, Kolkata — Merit Basis",
-    nature: "Merit / Selection list (UG)",
-    purpose: "B.Sc Mathematics (Honours) admissions (as per SXC admission notices)",
-    apply: "Online (SXC UG admission portal)",
-    activity: "As per SXC admission schedule",
-    links: [
-      { label: "SXC UG Admissions (Official)", href: "https://admissions.sxccal.edu/ug2025/" },
-      { label: "SXC Mathematics (Honours) Lists (Official)", href: "https://admissions.sxccal.edu/ug2025/list.htm" },
-    ],
-    tag: "WB • College",
-    note:
-      "Selection lists are published on the official admissions portal—always track list updates and reporting dates.",
-  },
-
-  {
-    sl: 3,
-    route: "Presidency University (WB) — PUBDET",
-    nature: "Entrance test (UG)",
-    purpose: "UG admissions into Presidency University through PUBDET (as notified by WBJEEB)",
-    apply: "Online (WBJEEB portal)",
-    activity: "As per WBJEEB PUBDET calendar + counselling",
-    links: [
-      { label: "PUBDET (Official – WBJEEB)", href: "https://wbjeeb.nic.in/pubdet/" },
-      { label: "WBJEEB Candidate Portal (Official)", href: "https://admissions.nic.in/WBJEEB/Applicant/Root/Home.aspx" },
-      { label: "WBJEEB Main Site (Official)", href: "https://wbjeeb.nic.in/" },
-    ],
-    tag: "WB • Entrance",
-    note:
-      "PUBDET handles UG entrance + counselling. Always use WBJEEB official notices for dates, seat matrix and counselling steps.",
-  },
-];
-
-// -------------------------------------------------------------
 function RouteCard({ item }) {
   return (
     <div className="iitCard w-100 d-flex flex-column h-100">
@@ -107,25 +51,28 @@ function RouteCard({ item }) {
       )}
 
       <div className="mt-auto d-flex flex-column gap-2 pt-3">
-        {item.links?.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            target="_blank"
-            rel="noreferrer"
-            className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-          >
-            <span className="">{l.label}</span>
-            <ExternalLink size={14} />
-          </a>
-        ))}
+         {item.sources?.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              target="_blank"
+              rel="noreferrer"
+              className="iitWebsiteLink d-inline-flex align-items-center gap-1"
+            >
+              <span className="small">{l.label}</span>
+              <ExternalLink size={14} />
+            </a>
+          ))}
       </div>
     </div>
   );
 }
 
 // -------------------------------------------------------------
-export default function MathematicsUGAdmissionsPage() {
+export default function MathematicsUGAdmissionsPage({ examContents }) {
+
+  const mathRoutes = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -144,7 +91,7 @@ export default function MathematicsUGAdmissionsPage() {
               <h2 className="sectionHeading mb-3">Mathematics Admissions Routes (After Class 12)</h2>
               <p className="sectionSub mb-0">
                 For Mathematics UG in West Bengal, admissions commonly happen through merit-based selection lists
-                (like JU / St. Xavier’s) or through an entrance + counselling route (PUBDET for Presidency University).
+                (like JU / St. Xavier's) or through an entrance + counselling route (PUBDET for Presidency University).
               </p>
             </div>
 
@@ -157,10 +104,10 @@ export default function MathematicsUGAdmissionsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Routes listed</dt>
-                  <dd className="col-6 mb-2">{MATH_UG_ROUTES.length}</dd>
+                  <dd className="col-6 mb-2">{mathRoutes.length}</dd>
 
                   <dt className="col-6">Merit basis</dt>
-                  <dd className="col-6 mb-2">JU, St. Xavier’s</dd>
+                  <dd className="col-6 mb-2">JU, St. Xavier's</dd>
 
                   <dt className="col-6">Entrance route</dt>
                   <dd className="col-6 mb-2">PUBDET (WBJEEB)</dd>
@@ -221,13 +168,19 @@ export default function MathematicsUGAdmissionsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">Official Portals</h2>
 
-          <div className="row g-3 g-md-4">
-            {MATH_UG_ROUTES.map((item) => (
-              <div key={item.route} className="col-12 col-md-6 d-flex">
-                <RouteCard item={item} />
-              </div>
-            ))}
-          </div>
+          {mathRoutes.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {mathRoutes.map((item) => (
+                <div key={item.sl ?? item.route} className="col-12 col-md-6 d-flex">
+                  <RouteCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

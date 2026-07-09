@@ -17,77 +17,6 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// STATE LEVEL HOTEL MANAGEMENT ENTRANCE EXAMS (from your dataset)
-// - UPSEE BHMCT: current official route is UPTAC counselling; BHMCT shown under "Entrance Examinations".
-// - UKSEE BHMCT: official UTU page exists (UKSEE).
-// - MAH HM CET: official CET Cell page for BHMCT.
-// - WBJEE HM (JEHOM): WBJEEB is official authority; JEHOM may be listed under "Examinations" when active.
-// -------------------------------------------------------------
-const STATE_HOTEL_EXAMS = [
-  {
-    sl: 1,
-    exam: "UPSEE BHMCT",
-    fullForm: "Uttar Pradesh State Entrance Examination – BHMCT Route",
-    purpose: "Bachelor of Hotel Management and Catering Technology (BHMCT) admissions in UP",
-    eligibility: "10+2 with 45% (SC/ST 40%)",
-    apply: "Online",
-    activity: "January (varies yearly)",
-    sources: [
-      { label: "UPTAC (official counselling portal)", href: "https://uptac.admissions.nic.in/" },
-      { label: "UPTAC – Entrance Examinations (BHMCT listed)", href: "https://uptac.admissions.nic.in/entrance-examinations/" },
-    ],
-    tag: "State (UP)",
-    note:
-      "UPSEE name is used widely, but current admissions are routed via UPTAC (AKTU counselling). Always verify the BHMCT entry under UPTAC entrance examinations.",
-  },
-  {
-    sl: 2,
-    exam: "UKSEE BHMCT",
-    fullForm: "Uttarakhand State Entrance Exam (UKSEE) – BHMCT",
-    purpose: "BHMCT admissions in Uttarakhand (as notified)",
-    eligibility: "10+2 with 50% with English as main/mandatory subject (as notified)",
-    apply: "Online",
-    activity: "April (varies yearly)",
-    sources: [
-      { label: "Uttarakhand Technical University (official)", href: "https://uktech.ac.in/" },
-      { label: "UKSEE page (official)", href: "https://uktech.ac.in/en/page/uk-see-2022" },
-    ],
-    tag: "State (UK)",
-  },
-  {
-    sl: 3,
-    exam: "MAH HM CET",
-    fullForm: "Maharashtra Hotel Management Common Entrance Test (MAH HM CET / BHMCT CET)",
-    purpose: "Bachelor of Hotel Management & Catering Technology admissions in Maharashtra (CAP process)",
-    eligibility: "10+2 (as notified by CET Cell)",
-    apply: "Online",
-    activity: "April (varies yearly)",
-    sources: [
-      { label: "CET Cell – BHMCT page (official)", href: "https://cetcell.mahacet.org/bachelor-of-hotel-management-and-catering-technology/" },
-      { label: "CET Cell Maharashtra (official)", href: "https://cetcell.mahacet.org/" },
-    ],
-    tag: "State (MH)",
-  },
-  {
-    sl: 4,
-    exam: "WBJEE HM (JEHOM)",
-    fullForm: "WBJEEB Joint Entrance for Hotel Management (JEHOM)",
-    purpose: "Bachelor Degree in Hotel Management and Catering Technology (HMCT) admissions in West Bengal",
-    eligibility: "10+2 with 45% in regular mode (as notified by WBJEEB)",
-    apply: "Online",
-    activity: "March to April (varies yearly)",
-    sources: [
-      { label: "WBJEEB – Examinations list (official)", href: "https://wbjeeb.nic.in/wbjee/" },
-      { label: "WBJEEB Home (official)", href: "https://wbjeeb.nic.in/" },
-    ],
-    tag: "State (WB)",
-    wbFocus: true,
-    note:
-      "JEHOM may not be active every year as a separate page. Use WBJEEB official site → Examinations, and follow the latest notice when JEHOM/HMCT is published.",
-  },
-];
-
-// -------------------------------------------------------------
 // Card
 // -------------------------------------------------------------
 function ExamCard({ item }) {
@@ -127,18 +56,18 @@ function ExamCard({ item }) {
       )}
 
       <div className="mt-auto d-flex flex-column gap-2 pt-2">
-        {item.sources?.map((s) => (
-          <a
-            key={s.href}
-            href={s.href}
-            target="_blank"
-            rel="noreferrer"
-            className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-          >
-            <span className="">{s.label}</span>
-            <ExternalLink size={14} />
-          </a>
-        ))}
+        {item.sources?.map((l) => (
+                         <a
+                           key={l.href}
+                           href={l.href}
+                           target="_blank"
+                           rel="noreferrer"
+                           className="iitWebsiteLink d-inline-flex align-items-center gap-1"
+                         >
+                           <span className="small">{l.label}</span>
+                           <ExternalLink size={14} />
+                         </a>
+                       ))}
       </div>
     </div>
   );
@@ -147,8 +76,11 @@ function ExamCard({ item }) {
 // -------------------------------------------------------------
 // Page
 // -------------------------------------------------------------
-export default function HotelManagementStatePage() {
-  const wbCount = STATE_HOTEL_EXAMS.filter((x) => x.wbFocus).length;
+export default function HotelManagementStatePage({ examContents }) {
+
+  const stateHotelExams = Array.isArray(examContents) ? examContents : [];
+  const wbCount = stateHotelExams.filter((x) => x.wbFocus).length;
+  const wbFocusExam = stateHotelExams.find((x) => x.wbFocus);
 
   return (
     <>
@@ -181,10 +113,10 @@ export default function HotelManagementStatePage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-6">Exams listed</dt>
-                  <dd className="col-6 mb-2">{STATE_HOTEL_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{stateHotelExams.length}</dd>
 
                   <dt className="col-6">West Bengal focus</dt>
-                  <dd className="col-6 mb-2">{wbCount ? "WBJEEB HM (JEHOM)" : "—"}</dd>
+                  <dd className="col-6 mb-2">{wbCount ? wbFocusExam.exam : "—"}</dd>
 
                   <dt className="col-6">Admission mode</dt>
                   <dd className="col-6 mb-0">Exam + counselling (state CAP)</dd>
@@ -236,7 +168,7 @@ export default function HotelManagementStatePage() {
             <div className="col-12 col-lg-7 d-flex">
               <div className="sectionCard bg-light border w-100 small">
                 <strong>West Bengal minority students:</strong> For WB, always track WBJEEB notices and counselling
-                updates. If JEHOM/HMCT notice is active, you’ll find it under WBJEEB → Examinations.
+                updates. If JEHOM/HMCT notice is active, you'll find it under WBJEEB → Examinations.
               </div>
             </div>
           </div>
@@ -248,13 +180,19 @@ export default function HotelManagementStatePage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">State Level Hotel Management Entrance Exams – Official Links</h2>
 
-          <div className="row g-3 g-md-4">
-            {STATE_HOTEL_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {stateHotelExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {stateHotelExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

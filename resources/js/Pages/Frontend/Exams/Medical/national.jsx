@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -17,58 +18,7 @@ const EXAM_TABS = [
   { id: "pharmacy-exams", label: "Pharmacy Entrance Exams", href: '/exams/pharmacy' },
 ];
 
-// -------------------------------------------------------------
-// National Level Medical Entrance Exams (table-driven)
-// - Keep the same fields you pasted: EXAM, PURPOSE, ELIGIBILITY, APPLY, ACTIVITY, SOURCE
-// - Update SOURCE to current official portals
-// - Add a short "statusNote" ONLY where needed to avoid wrong info today
-// -------------------------------------------------------------
-const NATIONAL_MEDICAL_EXAMS = [
-  {
-    id: "neet-ug",
-    exam: "NEET",
-    purpose: "MBBS (also used for BDS / AYUSH and other UG medical seats as notified)",
-    eligibility: [
-      "General: Age 17 to 25 and 50% in Physics, Chemistry and Biology in 10+2 level",
-      "SC/ST/OBC: Age 17 to 25 and 40% in Physics, Chemistry and Biology in 10+2 level",
-      "PWD: 45% in PCB",
-    ],
-    apply: "Online",
-    activity: [
-      "Fee payment modes (as notified): Credit Card/Debit Card, Net Banking/UPI, E-wallet (CSC / service providers)",
-      "Registration period varies by year (check official portal for current dates)",
-    ],
-    source: "https://neet.nta.nic.in/",
-  },
-
-  // NOTE: JIPMER MBBS is via NEET-UG now; keep entry, but avoid wrong claim of separate exam.
-  {
-    id: "jipmer-mbbs",
-    exam: "JIPMER",
-    purpose: "MBBS",
-    eligibility: ["Eligibility and category requirements are as notified in the admission brochure (through NEET-UG)."],
-    apply: "Online",
-    activity: ["Admission notices/brochure are released by JIPMER (timeline varies by year)."],
-    source: "https://jipmer.edu.in/announcement/entrance-examinations-admissions",
-    statusNote:
-      "Important: JIPMER MBBS admissions are through NEET-UG. There is no separate JIPMER UG entrance test for MBBS now.",
-  },
-
-  // NOTE: AIIMS MBBS is via NEET-UG now; AIIMS exams site still exists for other programs.
-  {
-    id: "aiims-mbbs",
-    exam: "AIIMS",
-    purpose: "MBBS",
-    eligibility: ["10+2 with English, Physics, Chemistry, Biology (as per NEET-UG / admission rules)."],
-    apply: "Online",
-    activity: ["MBBS admissions are through NEET-UG; counselling is via MCC / State authorities (timeline varies)."],
-    source: "https://www.aiimsexams.ac.in/",
-    statusNote:
-      "Important: AIIMS MBBS admissions are through NEET-UG. The old separate AIIMS MBBS entrance exam is not conducted now.",
-  },
-];
-
-// Extra official pathway links (NOT a new section; used inside Snapshot only if you want later)
+// Extra official pathway links (kept static — this is a fixed reference link, not exam data)
 const OFFICIAL_COUNSELLING = {
   mccUg: "https://mcc.nic.in/ug-medical-counselling/",
 };
@@ -179,7 +129,10 @@ function ExamCard({ item }) {
 // -------------------------------------------------------------
 // Page
 // -------------------------------------------------------------
-export default function MedicalNationalExamsPage() {
+export default function MedicalNationalExamsPage({ examContents }) {
+
+  const nationalMedicalExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -207,7 +160,7 @@ export default function MedicalNationalExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-5">Exams listed</dt>
-                  <dd className="col-7 mb-2">{NATIONAL_MEDICAL_EXAMS.length} (NEET + major institutes)</dd>
+                  <dd className="col-7 mb-2">{nationalMedicalExams.length} (NEET + major institutes)</dd>
 
                   <dt className="col-5">Primary UG gateway</dt>
                   <dd className="col-7 mb-2">NEET-UG (for MBBS admissions)</dd>
@@ -281,13 +234,19 @@ export default function MedicalNationalExamsPage() {
             <p className="sectionSub mb-0">Below are the key national-level exam pathways and their official portals.</p>
           </div>
 
-          <div className="row g-3 g-md-4">
-            {NATIONAL_MEDICAL_EXAMS.map((item) => (
-              <div key={item.id} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {nationalMedicalExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {nationalMedicalExams.map((item) => (
+                <div key={item.id ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

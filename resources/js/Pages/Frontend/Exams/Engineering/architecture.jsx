@@ -20,41 +20,41 @@ const EXAM_TABS = [
 // -------------------------------------------------------------
 // Architecture Entrance Exams (EXACTLY as given)
 // -------------------------------------------------------------
-const ARCHITECTURE_EXAMS = [
-  {
-    sl: 1,
-    exam: "NATA",
-    fullForm: "National Aptitude Test in Architecture",
-    purpose: "Admission to B.Arch degree courses in architecture colleges across India",
-    eligibility: "10+2 or equivalent with eligibility as notified by Council of Architecture",
-    apply: "Online",
-    activity: "As notified annually (multiple sessions may be conducted)",
-    source: "https://www.nata.in/",
-    tag: "National",
-  },
-  {
-    sl: 2,
-    exam: "AAT",
-    fullForm: "Architecture Aptitude Test",
-    purpose: "Admission to B.Arch programme offered by IIT Kharagpur and IIT Roorkee",
-    eligibility: "Qualified JEE Advanced candidates as notified by IITs",
-    apply: "Online",
-    activity: "June (after JEE Advanced)",
-    source: "https://josaa.nic.in/",
-    tag: "National (IIT)",
-  },
-  {
-    sl: 3,
-    exam: "TANATA",
-    fullForm: "Tamil Nadu Aptitude Test in Architecture",
-    purpose: "Admission into B.Arch degree programmes in Tamil Nadu colleges",
-    eligibility: "10+2 or equivalent as notified by state authority",
-    apply: "Online",
-    activity: "As per Tamil Nadu admission schedule",
-    source: "https://www.tn.gov.in/",
-    tag: "State (TN)",
-  },
-];
+// const ARCHITECTURE_EXAMS = [
+//   {
+//     sl: 1,
+//     exam: "NATA",
+//     fullForm: "National Aptitude Test in Architecture",
+//     purpose: "Admission to B.Arch degree courses in architecture colleges across India",
+//     eligibility: "10+2 or equivalent with eligibility as notified by Council of Architecture",
+//     apply: "Online",
+//     activity: "As notified annually (multiple sessions may be conducted)",
+//     source: "https://www.nata.in/",
+//     tag: "National",
+//   },
+//   {
+//     sl: 2,
+//     exam: "AAT",
+//     fullForm: "Architecture Aptitude Test",
+//     purpose: "Admission to B.Arch programme offered by IIT Kharagpur and IIT Roorkee",
+//     eligibility: "Qualified JEE Advanced candidates as notified by IITs",
+//     apply: "Online",
+//     activity: "June (after JEE Advanced)",
+//     source: "https://josaa.nic.in/",
+//     tag: "National (IIT)",
+//   },
+//   {
+//     sl: 3,
+//     exam: "TANATA",
+//     fullForm: "Tamil Nadu Aptitude Test in Architecture",
+//     purpose: "Admission into B.Arch degree programmes in Tamil Nadu colleges",
+//     eligibility: "10+2 or equivalent as notified by state authority",
+//     apply: "Online",
+//     activity: "As per Tamil Nadu admission schedule",
+//     source: "https://www.tn.gov.in/",
+//     tag: "State (TN)",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // Helpers
@@ -74,7 +74,7 @@ function ExamCard({ item }) {
     <div className="iitCard w-100 d-flex flex-column h-100">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <span className="iitRank small fw-semibold">
-          {item.sl}. {item.exam}
+      {item.exam}
         </span>
         <span className="iitCodeBadge">{item.tag}</span>
       </div>
@@ -114,7 +114,10 @@ function ExamCard({ item }) {
 // -------------------------------------------------------------
 // Page
 // -------------------------------------------------------------
-export default function ArchitectureEntranceExamsPage() {
+export default function ArchitectureEntranceExamsPage({examContents}) {
+
+  const architectureEngineeringExams = Array.isArray(examContents) ? examContents : [];
+
   return (
     <>
     <FrontendLayout>
@@ -147,7 +150,7 @@ export default function ArchitectureEntranceExamsPage() {
 
                 <dl className="row small mb-0">
                   <dt className="col-5">Exams listed</dt>
-                  <dd className="col-7 mb-2">{ARCHITECTURE_EXAMS.length} entrance exams</dd>
+                  <dd className="col-7 mb-2">{architectureEngineeringExams.length} entrance exams</dd>
 
                   <dt className="col-5">Primary exam</dt>
                   <dd className="col-7 mb-2">NATA (National)</dd>
@@ -214,10 +217,12 @@ export default function ArchitectureEntranceExamsPage() {
       {/* LIST */}
       <section className="py-4 py-md-5">
         <div className="container">
+
+
           <h2 className="sectionHeading mb-3">Architecture Entrance Exams – Official Links</h2>
 
           <div className="row g-3 g-md-4">
-            {ARCHITECTURE_EXAMS.map((item) => (
+            {architectureEngineeringExams.map((item) => (
               <div key={item.exam} className="col-12 col-md-6 d-flex">
                 <ExamCard item={item} />
               </div>

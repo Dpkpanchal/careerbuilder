@@ -18,46 +18,6 @@ const EXAM_TABS = [
 ];
 
 // -------------------------------------------------------------
-// Nursing & Allied Exams (based on your provided data)
-// - WB: JENPAUH is the nursing entrance reference; WBJEEB currently publishes nursing intake under JENPAS-UG / ANM & GNM.
-// - AMU: Nursing (GNM) admission via AMU admissions portal / controller exams.
-// -------------------------------------------------------------
-const NURSING_EXAMS = [
-  {
-    sl: 1,
-    exam: "JENPAUH (WB)",
-    fullForm: "Joint Entrance for Nursing courses in different Government and Private Nursing colleges of West Bengal",
-    purpose: "Admission to Nursing / Allied seats in West Bengal as notified by WB authority",
-    eligibility: "As per WBJEEB information bulletin (category & course-wise rules as notified)",
-    apply: "Online",
-    activity: "As per WBJEEB schedule (check portal)",
-    // Official portals (working)
-    sources: [
-      { label: "WBJEEB JENPAS-UG (official)", href: "https://wbjeeb.nic.in/jenpas-ug/" },
-      { label: "WBJEEB ANM & GNM (official)", href: "https://wbjeeb.nic.in/" }, // WBJEEB main (ANM & GNM is inside Examinations)
-    ],
-    tag: "State (WB)",
-    wbFocus: true,
-    statusNote:
-      "Note: The West Bengal nursing entrance is currently published by WBJEEB under JENPAS-UG / ANM & GNM portals. Always verify the latest bulletin on WBJEEB.",
-  },
-  {
-    sl: 2,
-    exam: "AMU Entrance Test",
-    fullForm: "Aligarh Muslim University – Diploma in General Nursing & Midwifery (GNM) Admission Route",
-    purpose: "Diploma in General Nursing & Midwifery (GNM) admission at AMU (as notified)",
-    eligibility: "As per AMU guide/brochure for the concerned session",
-    apply: "Online",
-    activity: "As per AMU admission schedule (check portal)",
-    sources: [
-      { label: "AMU Controller Exams – General Admissions (official)", href: "https://www.amucontrollerexams.com/page/view/general-admission-1550578415" },
-      { label: "AMU Online Application (OAPS) (official)", href: "https://oaps.amuonline.ac.in/" },
-    ],
-    tag: "University",
-  },
-];
-
-// -------------------------------------------------------------
 // Card
 // -------------------------------------------------------------
 function ExamCard({ item }) {
@@ -117,8 +77,10 @@ function ExamCard({ item }) {
 // -------------------------------------------------------------
 // Page
 // -------------------------------------------------------------
-export default function NursingExamsPage() {
-  const wbCount = NURSING_EXAMS.filter((x) => x.wbFocus).length;
+export default function NursingExamsPage({ examContents }) {
+
+  const nursingExams = Array.isArray(examContents) ? examContents : [];
+  const wbCount = nursingExams.filter((x) => x.wbFocus).length;
 
   return (
     <>
@@ -146,7 +108,7 @@ export default function NursingExamsPage() {
                 </h3>
                 <dl className="row small mb-0">
                   <dt className="col-6">Exams listed</dt>
-                  <dd className="col-6 mb-2">{NURSING_EXAMS.length}</dd>
+                  <dd className="col-6 mb-2">{nursingExams.length}</dd>
 
                   <dt className="col-6">West Bengal focus</dt>
                   <dd className="col-6 mb-2">{wbCount ? "Included" : "—"}</dd>
@@ -213,13 +175,19 @@ export default function NursingExamsPage() {
         <div className="container">
           <h2 className="sectionHeading mb-3">Nursing Entrance Exams – Official Links</h2>
 
-          <div className="row g-3 g-md-4">
-            {NURSING_EXAMS.map((item) => (
-              <div key={item.exam} className="col-12 col-md-6 d-flex">
-                <ExamCard item={item} />
-              </div>
-            ))}
-          </div>
+          {nursingExams.length === 0 ? (
+            <div className="sectionCard bg-light border text-center small text-muted">
+              No exam data available right now. Please check back later.
+            </div>
+          ) : (
+            <div className="row g-3 g-md-4">
+              {nursingExams.map((item) => (
+                <div key={item.sl ?? item.exam} className="col-12 col-md-6 d-flex">
+                  <ExamCard item={item} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       </FrontendLayout>

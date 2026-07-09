@@ -48,8 +48,8 @@ const Sidebar = ({ collapsed, user }) => {
         { path: '/admin/career-domains', icon: 'fas fa-graduation-cap', label: 'Career Domains', active: url.startsWith('/admin/career-domains') },
         { path: '/admin/news', icon: 'fas fa-newspaper', label: 'News', active: url.startsWith('/admin/news') },
         { path: '/admin/loan-sections', icon: 'fas fa-hand-holding-usd', label: 'Loan & Schemes', active: url.startsWith('/admin/loan-sections') },
-        { path: '/admin/sections', icon: 'fas fa-layer-group', label: 'Sections', active: url.startsWith('/admin/sections') }
-        
+        { path: '/admin/sections', icon: 'fas fa-layer-group', label: 'Sections', active: url.startsWith('/admin/sections') },
+        { path: '/admin/exam-content', icon: 'fas fa-file-alt', label: 'Exam Content', active: url.startsWith('/admin/exam-content') }
         
         // { path: '/admin/pages/demo', icon: 'fas fa-cog', label: 'Demo Pages', active: url.startsWith('/admin/pages/demo') },
     ];

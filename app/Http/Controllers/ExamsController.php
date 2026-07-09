@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\ExamContent;
 
 class ExamsController extends Controller
 {
+
+    private function getExamContents($menuId, $tabId, $sectionId)
+    {
+        return ExamContent::where('menu_id', $menuId)
+            ->where('tab_id', $tabId)
+            ->where('section_id', $sectionId)
+            ->where('is_active', true)
+            ->orderBy('id')
+            ->get();
+    }
+
     public function national()
     {
         return Inertia::render('Frontend/Exams/Engineering/National', [
@@ -169,6 +181,7 @@ class ExamsController extends Controller
 
     public function agricultureExams()
     {
+
         return Inertia::render('Frontend/Exams/Agri/agriculture', [
             'title' => 'Agriculture Exams',
             'description' => 'List of Agriculture Entrance Exams',

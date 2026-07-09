@@ -164,25 +164,18 @@ function ExamCard({ item }) {
       )}
 
       <div className="mt-auto d-flex flex-column gap-2 pt-3">
-        {item.links?.length ? (
-          item.links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              target="_blank"
-              rel="noreferrer"
-              className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-            >
-              <span className="">{l.label}</span>
-              <ExternalLink size={14} />
-            </a>
-          ))
-        ) : (
-          <div className="small text-muted">
-            <Info size={14} className="me-1" />
-            Official link not listed (verify via institute notice).
-          </div>
-        )}
+       {item.links?.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="iitWebsiteLink d-inline-flex align-items-center gap-1"
+                  >
+                    <span className="small">{l.label}</span>
+                    <ExternalLink size={14} />
+                  </a>
+                ))}
       </div>
     </div>
   );
