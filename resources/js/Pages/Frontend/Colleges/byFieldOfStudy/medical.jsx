@@ -77,25 +77,27 @@ const INSTITUTE_LINKS = [
 // West Bengal spotlight – Medical colleges (with official websites)
 // (curated, not exhaustive)
 // -------------------------------------------------------------
-const WB_MEDICAL_SPOTLIGHT = [
-  { no: 1, name: "Medical College & Hospital, Kolkata", city: "Kolkata", state: "West Bengal", website: "https://www.medicalcollegekolkata.in/" },
-  { no: 2, name: "IPGMER & SSKM Hospital", city: "Kolkata", state: "West Bengal", website: "https://www.ipgmer.gov.in/" },
-  { no: 3, name: "Nil Ratan Sircar Medical College & Hospital (NRSMC)", city: "Kolkata", state: "West Bengal", website: "https://nrsmc.edu.in/" },
-  { no: 4, name: "R. G. Kar Medical College & Hospital", city: "Kolkata", state: "West Bengal", website: "https://www.rgkarmch.in/" },
-  { no: 5, name: "Calcutta National Medical College & Hospital (CNMC)", city: "Kolkata", state: "West Bengal", website: "https://www.cnmckolkata.com/" },
-  { no: 6, name: "College of Medicine & JNM Hospital (COMJNMH)", city: "Kalyani (Nadia)", state: "West Bengal", website: "https://comjnmh.ac.in/" },
-  { no: 7, name: "Burdwan Medical College & Hospital", city: "Purba Bardhaman", state: "West Bengal", website: "https://bmcgov.com/" },
-  { no: 8, name: "North Bengal Medical College & Hospital", city: "Sushrutanagar (Darjeeling)", state: "West Bengal", website: "https://nbmch.ac.in/" },
-  { no: 9, name: "Bankura Sammilani Medical College & Hospital", city: "Bankura", state: "West Bengal", website: "https://bsmedicalcollege.org.in/" },
-  { no: 10, name: "Midnapore Medical College & Hospital", city: "Paschim Medinipur", state: "West Bengal", website: "https://midnaporemmc.ac.in/" },
-  { no: 11, name: "Malda Medical College & Hospital", city: "Malda", state: "West Bengal", website: "https://www.maldamedicalcollege.co.in/" },
-  { no: 12, name: "Murshidabad Medical College & Hospital", city: "Berhampore (Murshidabad)", state: "West Bengal", website: "https://www.msdmch.org/" },
-];
+// const WB_MEDICAL_SPOTLIGHT = [
+//   { no: 1, name: "Medical College & Hospital, Kolkata", city: "Kolkata", state: "West Bengal", website: "https://www.medicalcollegekolkata.in/" },
+//   { no: 2, name: "IPGMER & SSKM Hospital", city: "Kolkata", state: "West Bengal", website: "https://www.ipgmer.gov.in/" },
+//   { no: 3, name: "Nil Ratan Sircar Medical College & Hospital (NRSMC)", city: "Kolkata", state: "West Bengal", website: "https://nrsmc.edu.in/" },
+//   { no: 4, name: "R. G. Kar Medical College & Hospital", city: "Kolkata", state: "West Bengal", website: "https://www.rgkarmch.in/" },
+//   { no: 5, name: "Calcutta National Medical College & Hospital (CNMC)", city: "Kolkata", state: "West Bengal", website: "https://www.cnmckolkata.com/" },
+//   { no: 6, name: "College of Medicine & JNM Hospital (COMJNMH)", city: "Kalyani (Nadia)", state: "West Bengal", website: "https://comjnmh.ac.in/" },
+//   { no: 7, name: "Burdwan Medical College & Hospital", city: "Purba Bardhaman", state: "West Bengal", website: "https://bmcgov.com/" },
+//   { no: 8, name: "North Bengal Medical College & Hospital", city: "Sushrutanagar (Darjeeling)", state: "West Bengal", website: "https://nbmch.ac.in/" },
+//   { no: 9, name: "Bankura Sammilani Medical College & Hospital", city: "Bankura", state: "West Bengal", website: "https://bsmedicalcollege.org.in/" },
+//   { no: 10, name: "Midnapore Medical College & Hospital", city: "Paschim Medinipur", state: "West Bengal", website: "https://midnaporemmc.ac.in/" },
+//   { no: 11, name: "Malda Medical College & Hospital", city: "Malda", state: "West Bengal", website: "https://www.maldamedicalcollege.co.in/" },
+//   { no: 12, name: "Murshidabad Medical College & Hospital", city: "Berhampore (Murshidabad)", state: "West Bengal", website: "https://www.msdmch.org/" },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function MedicalParamedicalCollegesPage() {
+export default function MedicalParamedicalCollegesPage({collegeContents}) {
+  const WB_MEDICAL_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

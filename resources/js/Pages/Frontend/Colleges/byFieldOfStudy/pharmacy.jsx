@@ -78,48 +78,50 @@ const INSTITUTE_LINKS = [
 // West Bengal spotlight – Pharmacy colleges (official websites/pages)
 // (curated, not exhaustive)
 // -------------------------------------------------------------
-const WB_PHARMACY_SPOTLIGHT = [
-  {
-    no: 1,
-    name: "Jadavpur University – Pharmaceutical Technology",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://jadavpuruniversity.in/academics/pharmaceutical-technology/",
-  },
-  {
-    no: 2,
-    name: "Bengal College of Pharmaceutical Sciences & Research (BCPSR)",
-    city: "Durgapur",
-    state: "West Bengal",
-    website: "https://www.bcpsr.ac.in/",
-  },
-  {
-    no: 3,
-    name: "Bengal College of Pharmaceutical Technology (BCPT)",
-    city: "Dubrajpur (Birbhum)",
-    state: "West Bengal",
-    website: "https://bcpt.in/",
-  },
-  {
-    no: 4,
-    name: "Gupta College of Technological Sciences (GCTS) – Pharmacy",
-    city: "Asansol",
-    state: "West Bengal",
-    website: "https://www.gctsindia.in/",
-  },
-  {
-    no: 5,
-    name: "NSHM Knowledge Campus, Kolkata – B.Pharm",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://kolkata.nshm.com/courses/bachelor-of-pharmacy/",
-  },
-];
+// const WB_PHARMACY_SPOTLIGHT = [
+//   {
+//     no: 1,
+//     name: "Jadavpur University – Pharmaceutical Technology",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://jadavpuruniversity.in/academics/pharmaceutical-technology/",
+//   },
+//   {
+//     no: 2,
+//     name: "Bengal College of Pharmaceutical Sciences & Research (BCPSR)",
+//     city: "Durgapur",
+//     state: "West Bengal",
+//     website: "https://www.bcpsr.ac.in/",
+//   },
+//   {
+//     no: 3,
+//     name: "Bengal College of Pharmaceutical Technology (BCPT)",
+//     city: "Dubrajpur (Birbhum)",
+//     state: "West Bengal",
+//     website: "https://bcpt.in/",
+//   },
+//   {
+//     no: 4,
+//     name: "Gupta College of Technological Sciences (GCTS) – Pharmacy",
+//     city: "Asansol",
+//     state: "West Bengal",
+//     website: "https://www.gctsindia.in/",
+//   },
+//   {
+//     no: 5,
+//     name: "NSHM Knowledge Campus, Kolkata – B.Pharm",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://kolkata.nshm.com/courses/bachelor-of-pharmacy/",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function PharmacyCollegesPage() {
+export default function PharmacyCollegesPage({collegeContents}) {
+  const WB_PHARMACY_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
       <FrontendLayout>

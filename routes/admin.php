@@ -35,8 +35,12 @@ use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\NavMenuController;
 use App\Http\Controllers\Admin\PageContentController;
 use App\Http\Controllers\Admin\ExamContentController;
-
-
+use App\Http\Controllers\Admin\CollegeContentController;
+use App\Http\Controllers\Admin\JobGroupController;
+use App\Http\Controllers\Admin\ScholarshipOverviewTableController;
+use App\Http\Controllers\Admin\ScholarshipRateController;
+use App\Http\Controllers\Admin\ScholarshipController;
+use App\Http\Controllers\Admin\EducationLoanController;
 
 
 Route::middleware('guest:admin')
@@ -108,6 +112,35 @@ Route::middleware(['admin.session', 'auth:admin'])
         Route::resource('central-universities', CentralUniversityController::class);
 
         Route::resource('exam-content', ExamContentController::class);
+        Route::resource('college-content', CollegeContentController::class);
+        Route::resource('job-groups', \App\Http\Controllers\Admin\JobGroupController::class);
+
+        Route::resource('scholarship-overview-table', ScholarshipOverviewTableController::class);
+        Route::resource('scholarship-rates', ScholarshipRateController::class);
+        Route::resource('scholarships', ScholarshipController::class);
+
+        Route::get('education-loan', [EducationLoanController::class, 'index'])->name('education-loan.index');
+        Route::put('education-loan', [EducationLoanController::class, 'update'])->name('education-loan.update');
+
+        Route::resource('national-fellowships', \App\Http\Controllers\Admin\NationalFellowshipController::class);
+        Route::put('national-fellowships/{national_fellowship}/status', [\App\Http\Controllers\Admin\NationalFellowshipController::class, 'status'])
+            ->name('national-fellowships.status');
+
+
+
+       
+
+        Route::delete(
+                'college-content/{collegeContent}',
+                [CollegeContentController::class, 'destroy']
+            )->name('college-content.destroy');
+
+         Route::put(
+            'college-content/{collegeContent}/status',
+            [CollegeContentController::class,'status']
+        )->name('college-content.status');
+
+
 
         Route::put(
             'exam-content/{examContent}/status',

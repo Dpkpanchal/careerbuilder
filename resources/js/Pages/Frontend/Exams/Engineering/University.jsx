@@ -352,75 +352,7 @@ export default function EngineeringUniversityExamsPage({ examContents }) {
       </section>
 
       {/* 5. EXPLORE OTHER EXAM CATEGORIES (SIBLINGS OF ENGINEERING) */}
-      <section className="py-5 spotlightSection">
-        <div className="container py-lg-4">
-          <div className="row g-4 align-items-center justify-content-center mb-3 mb-lg-5 text-center">
-            <div className="col-12 col-lg-7">
-              <h2 className="sectionHeading text-white mb-2">
-                Explore Other Exam Categories
-              </h2>
-              <p className="sectionSub text-light mb-0">
-                Along with engineering entrance exams, students may also prepare
-                for medical, management, law and other competitive or
-                international examinations. Use these sections to explore full
-                details stream-wise.
-              </p>
-            </div>
-          </div>
-
-          <div className="row g-4 justify-content-center">
-            {/* Medical Entrance Exams */}
-            <div className="col-12 col-md-4 col-lg-4">
-              <Link
-                href="/exams/medical/national"
-                className="text-decoration-none"
-              >
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h6 mb-1 fw-medium text-white">
-                    Medical Entrance Exams
-                  </h3>
-                  <p className="small text-light mb-0">
-                    NEET UG and other national, state and university-level
-                    exams for MBBS, BDS, AYUSH and allied medical courses.
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            {/* Management & Law Entrance */}
-            <div className="col-12 col-md-4 col-lg-4">
-              <Link href="/exams/mba" className="text-decoration-none">
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h6 mb-1 fw-medium text-white">
-                    Management &amp; MBA Entrance
-                  </h3>
-                  <p className="small text-light mb-0">
-                    CAT, XAT, MAT and other tests leading to BBA / MBA and
-                    management programmes, with a separate section for Law
-                    (CLAT, AILET, etc.).
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            {/* Other Competitive & International */}
-            <div className="col-12 col-md-4 col-lg-4">
-              <Link href="/exams/international" className="text-decoration-none">
-                <div className="glassCard premiumHover h-100">
-                  <h3 className="h6 mb-1 fw-medium text-white">
-                    Other Competitive &amp; International Exams
-                  </h3>
-                  <p className="small text-light mb-0">
-                    Defence services, civil services &amp; government
-                    recruitment, as well as GRE, GMAT, IELTS, TOEFL and other
-                    international tests.
-                  </p>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+  
       </FrontendLayout>
     </>
   );

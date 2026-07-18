@@ -12,7 +12,7 @@ import { Layers3, Network, MapPin, ExternalLink, University, ShieldCheck } from 
 const UNIVERSITY_TABS = [
   { id: "central", label: "Central", href: '/colleges/central-universities' },
   { id: "state", label: "State", href: '/colleges/state-universities' },
-  { id: "private", label: "Private / Deemed", href: '#' },
+  // { id: "private", label: "Private / Deemed", href: '#' },
   { id: "open", label: "Open & Distance", href: '/colleges/open-distance-universities-ignou-nsou' },
 ];
 

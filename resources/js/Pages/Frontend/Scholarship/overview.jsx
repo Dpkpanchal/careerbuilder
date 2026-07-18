@@ -7,7 +7,7 @@ import { GraduationCap, ShieldCheck, ListChecks, Info } from "lucide-react";
 const SCHOLARSHIP_TABS = [
   { id: "overview", label: "Overview", href: route("scholarship.overview") },
   { id: "rate-scholarship", label: "Rate Of Scholarship", href: route("rate.of.scholarship") },
- {
+  {
     id: "more-scholarships ",
     label: "More Scholarships",
     href: route("more.scholarships"),
@@ -16,35 +16,40 @@ const SCHOLARSHIP_TABS = [
   { id: "national-fellowships", label: "National Fellowships", href: route("national.fellowships") },
   { id: "study-abroad", label: "Study Abroad", href: route("study.abroad") },
 ];
-const SCHEMES_AT_GLANCE = [
-  {
-    no: 1,
-    name: "Pre Matric",
-    classOfStudy: "Class IX – X",
-    website: "https://scholarships.gov.in",
-    minMarks: "50% in last exam (Class I exempt)",
-    income: "Up to ₹1 Lakh",
-  },
-  {
-    no: 2,
-    name: "Post Matric",
-    classOfStudy: "XI Upto Ph.D.",
-    website: "https://scholarships.gov.in",
-    minMarks: "50% in last exam",
-    income: "Up to ₹2 Lakh",
-  },
-  {
-    no: 3,
-    name: "Merit-cum-Means",
-    classOfStudy: "Specified Technical & Professional courses",
-    website: "https://scholarships.gov.in",
-    minMarks: "50% in last exam",
-    income: "Up to ₹2.5 Lakh",
-  }
 
-];
 
-export default function ScholarshipsOverviewPage() {
+// const SCHEMES_AT_GLANCE = [
+//   {
+//     no: 1,
+//     name: "Pre Matric",
+//     classOfStudy: "Class IX – X",
+//     website: "https://scholarships.gov.in",
+//     minMarks: "50% in last exam (Class I exempt)",
+//     income: "Up to ₹1 Lakh",
+//   },
+//   {
+//     no: 2,
+//     name: "Post Matric",
+//     classOfStudy: "XI Upto Ph.D.",
+//     website: "https://scholarships.gov.in",
+//     minMarks: "50% in last exam",
+//     income: "Up to ₹2 Lakh",
+//   },
+//   {
+//     no: 3,
+//     name: "Merit-cum-Means",
+//     classOfStudy: "Specified Technical & Professional courses",
+//     website: "https://scholarships.gov.in",
+//     minMarks: "50% in last exam",
+//     income: "Up to ₹2.5 Lakh",
+//   }
+
+// ];
+
+export default function ScholarshipsOverviewPage({data}) {
+
+  const SCHEMES_AT_GLANCE = Array.isArray(data) ? data : [];
+
   return (
     <>
     <FrontendLayout>

@@ -56,127 +56,129 @@ function getWebsiteHref(raw) {
 // -------------------------------------------------------------
 // NLUs – list of 19 National Law Universities
 // -------------------------------------------------------------
-const NLU_LIST = [
-  {
-    name: "National Law School of India University (NLSIU)",
-    city: "Bengaluru",
-    state: "Karnataka",
-    website: "https://www.nls.ac.in",
-  },
-  {
-    name: "NALSAR University of Law",
-    city: "Hyderabad",
-    state: "Telangana",
-    website: "https://www.nalsar.ac.in",
-  },
-  {
-    name: "National Law Institute University (NLIU)",
-    city: "Bhopal",
-    state: "Madhya Pradesh",
-    website: "https://www.nliu.ac.in",
-  },
-  {
-    name: "The WB National University of Juridical Sciences (WBNUJS)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.nujs.edu",
-  },
-  {
-    name: "National Law University, Jodhpur (NLUJ)",
-    city: "Jodhpur",
-    state: "Rajasthan",
-    website: "https://nlujodhpur.ac.in",
-  },
-  {
-    name: "Hidayatullah National Law University (HNLU)",
-    city: "Raipur",
-    state: "Chhattisgarh",
-    website: "https://www.hnlu.ac.in",
-  },
-  {
-    name: "Gujarat National Law University (GNLU)",
-    city: "Gandhinagar",
-    state: "Gujarat",
-    website: "https://www.gnlu.ac.in",
-  },
-  {
-    name: "Dr. Ram Manohar Lohiya National Law University (RMLNLU)",
-    city: "Lucknow",
-    state: "Uttar Pradesh",
-    website: "https://www.rmlnlu.ac.in",
-  },
-  {
-    name: "Rajiv Gandhi National University of Law (RGNUL)",
-    city: "Patiala",
-    state: "Punjab",
-    website: "https://www.rgnul.ac.in",
-  },
-  {
-    name: "Chanakya National Law University (CNLU)",
-    city: "Patna",
-    state: "Bihar",
-    website: "https://www.cnlu.ac.in",
-  },
-  {
-    name: "National University of Advanced Legal Studies (NUALS)",
-    city: "Kochi",
-    state: "Kerala",
-    website: "https://nuals.ac.in",
-  },
-  {
-    name: "National Law University Odisha (NLUO)",
-    city: "Cuttack",
-    state: "Odisha",
-    website: "https://www.nluo.ac.in",
-  },
-  {
-    name: "National University of Study and Research in Law (NUSRL)",
-    city: "Ranchi",
-    state: "Jharkhand",
-    website: "https://www.nusrlranchi.in",
-  },
-  {
-    name: "National Law University and Judicial Academy, Assam (NLUJA)",
-    city: "Guwahati",
-    state: "Assam",
-    website: "https://www.nluassam.ac.in",
-  },
-  {
-    name: "Damodaram Sanjivayya National Law University (DSNLU)",
-    city: "Visakhapatnam",
-    state: "Andhra Pradesh",
-    website: "https://dsnlu.ac.in",
-  },
-  {
-    name: "Tamil Nadu National Law University (TNNLU)",
-    city: "Tiruchirappalli",
-    state: "Tamil Nadu",
-    website: "https://tnnlu.ac.in",
-  },
-  {
-    name: "Maharashtra National Law University Mumbai (MNLU Mumbai)",
-    city: "Mumbai",
-    state: "Maharashtra",
-    website: "https://mnlumumbai.edu.in",
-  },
-  {
-    name: "Maharashtra National Law University Nagpur (MNLU Nagpur)",
-    city: "Nagpur",
-    state: "Maharashtra",
-    website: "https://www.nlunagpur.ac.in",
-  },
-  {
-    name: "Maharashtra National Law University Aurangabad (MNLU Aurangabad)",
-    city: "Aurangabad",
-    state: "Maharashtra",
-    website: "https://mnlua.ac.in",
-  },
-];
+// const NLU_LIST = [
+//   {
+//     name: "National Law School of India University (NLSIU)",
+//     city: "Bengaluru",
+//     state: "Karnataka",
+//     website: "https://www.nls.ac.in",
+//   },
+//   {
+//     name: "NALSAR University of Law",
+//     city: "Hyderabad",
+//     state: "Telangana",
+//     website: "https://www.nalsar.ac.in",
+//   },
+//   {
+//     name: "National Law Institute University (NLIU)",
+//     city: "Bhopal",
+//     state: "Madhya Pradesh",
+//     website: "https://www.nliu.ac.in",
+//   },
+//   {
+//     name: "The WB National University of Juridical Sciences (WBNUJS)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.nujs.edu",
+//   },
+//   {
+//     name: "National Law University, Jodhpur (NLUJ)",
+//     city: "Jodhpur",
+//     state: "Rajasthan",
+//     website: "https://nlujodhpur.ac.in",
+//   },
+//   {
+//     name: "Hidayatullah National Law University (HNLU)",
+//     city: "Raipur",
+//     state: "Chhattisgarh",
+//     website: "https://www.hnlu.ac.in",
+//   },
+//   {
+//     name: "Gujarat National Law University (GNLU)",
+//     city: "Gandhinagar",
+//     state: "Gujarat",
+//     website: "https://www.gnlu.ac.in",
+//   },
+//   {
+//     name: "Dr. Ram Manohar Lohiya National Law University (RMLNLU)",
+//     city: "Lucknow",
+//     state: "Uttar Pradesh",
+//     website: "https://www.rmlnlu.ac.in",
+//   },
+//   {
+//     name: "Rajiv Gandhi National University of Law (RGNUL)",
+//     city: "Patiala",
+//     state: "Punjab",
+//     website: "https://www.rgnul.ac.in",
+//   },
+//   {
+//     name: "Chanakya National Law University (CNLU)",
+//     city: "Patna",
+//     state: "Bihar",
+//     website: "https://www.cnlu.ac.in",
+//   },
+//   {
+//     name: "National University of Advanced Legal Studies (NUALS)",
+//     city: "Kochi",
+//     state: "Kerala",
+//     website: "https://nuals.ac.in",
+//   },
+//   {
+//     name: "National Law University Odisha (NLUO)",
+//     city: "Cuttack",
+//     state: "Odisha",
+//     website: "https://www.nluo.ac.in",
+//   },
+//   {
+//     name: "National University of Study and Research in Law (NUSRL)",
+//     city: "Ranchi",
+//     state: "Jharkhand",
+//     website: "https://www.nusrlranchi.in",
+//   },
+//   {
+//     name: "National Law University and Judicial Academy, Assam (NLUJA)",
+//     city: "Guwahati",
+//     state: "Assam",
+//     website: "https://www.nluassam.ac.in",
+//   },
+//   {
+//     name: "Damodaram Sanjivayya National Law University (DSNLU)",
+//     city: "Visakhapatnam",
+//     state: "Andhra Pradesh",
+//     website: "https://dsnlu.ac.in",
+//   },
+//   {
+//     name: "Tamil Nadu National Law University (TNNLU)",
+//     city: "Tiruchirappalli",
+//     state: "Tamil Nadu",
+//     website: "https://tnnlu.ac.in",
+//   },
+//   {
+//     name: "Maharashtra National Law University Mumbai (MNLU Mumbai)",
+//     city: "Mumbai",
+//     state: "Maharashtra",
+//     website: "https://mnlumumbai.edu.in",
+//   },
+//   {
+//     name: "Maharashtra National Law University Nagpur (MNLU Nagpur)",
+//     city: "Nagpur",
+//     state: "Maharashtra",
+//     website: "https://www.nlunagpur.ac.in",
+//   },
+//   {
+//     name: "Maharashtra National Law University Aurangabad (MNLU Aurangabad)",
+//     city: "Aurangabad",
+//     state: "Maharashtra",
+//     website: "https://mnlua.ac.in",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // Main Page
 // -------------------------------------------------------------
-export default function NLUsPage() {
+export default function NLUsPage({collegeContents}) {
+  const NLU_LIST = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

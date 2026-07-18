@@ -8,6 +8,7 @@ use App\Models\Menu;
 use App\Models\PageContent;
 use Inertia\Inertia;
 use App\Models\ExamContent;
+use App\Models\CollegeContent;
 
 class PageController extends Controller
 {
@@ -199,12 +200,34 @@ class PageController extends Controller
                 default => [],
             };
 
-            if (str_starts_with($slug, 'exams/')) {
+
+           if (str_starts_with($slug, 'colleges/')) {
+
+                $fields = config("content_fields.{$menuItem->key}", []);
+                $columns = config('content_columns');
+
+                $props['collegeContents'] = CollegeContent::where('url', $slug)
+                    ->where('is_active', true)
+                    ->orderBy('id')
+                    ->get()
+                    ->map(function ($college) use ($fields, $columns) {
+
+                        $item = [];
+
+                        foreach ($fields as $field) {
+                            $item[$field] = $college->{$columns[$field] ?? $field};
+                        }
+
+                        return $item;
+                    });
+            }
+
+           if (str_starts_with($slug, 'exams/')) {
 
 
-            $fields = config("exam_fields.{$menuItem->key}", []);
+            $fields = config("content_fields.{$menuItem->key}", []);
 
-            $columns = config('exam_columns');
+            $columns = config('content_columns');
 
             $props['examContents'] = ExamContent::where('url', $slug)
                 ->where('is_active', true)

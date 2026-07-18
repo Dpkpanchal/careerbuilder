@@ -140,128 +140,128 @@ const SCHOLARSHIP_TABS = [
 //   }
 // ];
 
-const SCHOLARSHIP_RATES = [
-  {
-    no: 1,
-    type: "PRE MATRIC",
-    classOfStudy: "I to V",
-    dayScholar: {
-      admissionTuitionFee: 0,
-      maintenanceAllowance: 1100,
-      total: 1100
-    },
-    hosteller: {
-      admissionTuitionFee: 0,
-      maintenanceAllowance: 0,
-      total: 0
-    }
-  },
-  {
-    no: 1,
-    type: "PRE MATRIC",
-    classOfStudy: "VI to X",
-    dayScholar: {
-      admissionTuitionFee: 4400,
-      maintenanceAllowance: 1100,
-      total: 5500
-    },
-    hosteller: {
-      admissionTuitionFee: 4400,
-      maintenanceAllowance: 6600,
-      total: 11000
-    }
-  },
-  {
-    no: 2,
-    type: "POST MATRIC",
-    classOfStudy: "XI & XII",
-    dayScholar: {
-      admissionTuitionFee: 7700,
-      maintenanceAllowance: 2500,
-      total: 10200
-    },
-    hosteller: {
-      admissionTuitionFee: 7700,
-      maintenanceAllowance: 4200,
-      total: 11900
-    }
-  },
-  {
-    no: 2,
-    type: "POST MATRIC",
-    classOfStudy: "XI & XII (technical & vocational courses)",
-    dayScholar: {
-      admissionTuitionFee: 11000,
-      maintenanceAllowance: 2500,
-      total: 13500
-    },
-    hosteller: {
-      admissionTuitionFee: 11000,
-      maintenanceAllowance: 4200,
-      total: 15200
-    }
-  },
-  {
-    no: 2,
-    type: "POST MATRIC",
-    classOfStudy: "Undergraduate & Post Graduate",
-    dayScholar: {
-      admissionTuitionFee: 3300,
-      maintenanceAllowance: 3300,
-      total: 6600
-    },
-    hosteller: {
-      admissionTuitionFee: 3300,
-      maintenanceAllowance: 6300,
-      total: 9600
-    }
-  },
-  {
-    no: 2,
-    type: "POST MATRIC",
-    classOfStudy: "M.Phil & Ph.D",
-    dayScholar: {
-      admissionTuitionFee: 3300,
-      maintenanceAllowance: 6000,
-      total: 9300
-    },
-    hosteller: {
-      admissionTuitionFee: 3300,
-      maintenanceAllowance: 13200,
-      total: 16500
-    }
-  },
-  {
-    no: 3,
-    type: "MERIT CUM MEANS",
-    classOfStudy: "Medical, Engineering, Management, Law, CA etc.",
-    dayScholar: {
-      admissionTuitionFee: 22000,
-      maintenanceAllowance: 5500,
-      total: 27500
-    },
-    hosteller: {
-      admissionTuitionFee: 22000,
-      maintenanceAllowance: 11000,
-      total: 33000
-    }
-  },
-  {
-    no: 4,
-    type: "TALENT SUPPORT STIPEND (TSP)",
-    classOfStudy: "XI & XII",
-    dayScholar: {
-      admissionTuitionFee: null,
-      maintenanceAllowance: 2550,
-      total: null
-    },
-    hosteller: {
-      admissionTuitionFee: 2550,
-      maintenanceAllowance: 4800,
-      total: 4900
-    }
-  }
-];
+// const SCHOLARSHIP_RATES = [
+//   {
+//     no: 1,
+//     type: "PRE MATRIC",
+//     classOfStudy: "I to V",
+//     dayScholar: {
+//       admissionTuitionFee: 0,
+//       maintenanceAllowance: 1100,
+//       total: 1100
+//     },
+//     hosteller: {
+//       admissionTuitionFee: 0,
+//       maintenanceAllowance: 0,
+//       total: 0
+//     }
+//   },
+//   {
+//     no: 1,
+//     type: "PRE MATRIC",
+//     classOfStudy: "VI to X",
+//     dayScholar: {
+//       admissionTuitionFee: 4400,
+//       maintenanceAllowance: 1100,
+//       total: 5500
+//     },
+//     hosteller: {
+//       admissionTuitionFee: 4400,
+//       maintenanceAllowance: 6600,
+//       total: 11000
+//     }
+//   },
+//   {
+//     no: 2,
+//     type: "POST MATRIC",
+//     classOfStudy: "XI & XII",
+//     dayScholar: {
+//       admissionTuitionFee: 7700,
+//       maintenanceAllowance: 2500,
+//       total: 10200
+//     },
+//     hosteller: {
+//       admissionTuitionFee: 7700,
+//       maintenanceAllowance: 4200,
+//       total: 11900
+//     }
+//   },
+//   {
+//     no: 2,
+//     type: "POST MATRIC",
+//     classOfStudy: "XI & XII (technical & vocational courses)",
+//     dayScholar: {
+//       admissionTuitionFee: 11000,
+//       maintenanceAllowance: 2500,
+//       total: 13500
+//     },
+//     hosteller: {
+//       admissionTuitionFee: 11000,
+//       maintenanceAllowance: 4200,
+//       total: 15200
+//     }
+//   },
+//   {
+//     no: 2,
+//     type: "POST MATRIC",
+//     classOfStudy: "Undergraduate & Post Graduate",
+//     dayScholar: {
+//       admissionTuitionFee: 3300,
+//       maintenanceAllowance: 3300,
+//       total: 6600
+//     },
+//     hosteller: {
+//       admissionTuitionFee: 3300,
+//       maintenanceAllowance: 6300,
+//       total: 9600
+//     }
+//   },
+//   {
+//     no: 2,
+//     type: "POST MATRIC",
+//     classOfStudy: "M.Phil & Ph.D",
+//     dayScholar: {
+//       admissionTuitionFee: 3300,
+//       maintenanceAllowance: 6000,
+//       total: 9300
+//     },
+//     hosteller: {
+//       admissionTuitionFee: 3300,
+//       maintenanceAllowance: 13200,
+//       total: 16500
+//     }
+//   },
+//   {
+//     no: 3,
+//     type: "MERIT CUM MEANS",
+//     classOfStudy: "Medical, Engineering, Management, Law, CA etc.",
+//     dayScholar: {
+//       admissionTuitionFee: 22000,
+//       maintenanceAllowance: 5500,
+//       total: 27500
+//     },
+//     hosteller: {
+//       admissionTuitionFee: 22000,
+//       maintenanceAllowance: 11000,
+//       total: 33000
+//     }
+//   },
+//   {
+//     no: 4,
+//     type: "TALENT SUPPORT STIPEND (TSP)",
+//     classOfStudy: "XI & XII",
+//     dayScholar: {
+//       admissionTuitionFee: null,
+//       maintenanceAllowance: 2550,
+//       total: null
+//     },
+//     hosteller: {
+//       admissionTuitionFee: 2550,
+//       maintenanceAllowance: 4800,
+//       total: 4900
+//     }
+//   }
+// ];
 
 
 const REMARKS = [
@@ -274,11 +274,13 @@ const REMARKS = [
   "Separate allowance for hostellers is not admissible"
 ];
 
-export default function RateOfScholarshipPage() {
+export default function RateOfScholarshipPage({data}) {
   const formatAmount = (amount) => {
     if (amount === null) return "-";
     return `₹${amount.toLocaleString('en-IN')}`;
   };
+
+  const SCHOLARSHIP_RATES = Array.isArray(data) ? data : [];
 
   return (
     <>

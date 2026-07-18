@@ -45,153 +45,155 @@ const COLLEGE_TABS = [
 // -------------------------------------------------------------
 // IIM LIST – 20 IIMs (name, city, state, website)
 // -------------------------------------------------------------
-const IIM_LIST = [
-  {
-    no: 1,
-    name: "Indian Institute of Management Calcutta",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.iimcal.ac.in",
-  },
-  {
-    no: 2,
-    name: "Indian Institute of Management Ahmedabad",
-    city: "Ahmedabad",
-    state: "Gujarat",
-    website: "https://www.iima.ac.in",
-  },
-  {
-    no: 3,
-    name: "Indian Institute of Management Bangalore",
-    city: "Bengaluru",
-    state: "Karnataka",
-    website: "https://www.iimb.ac.in",
-  },
-  {
-    no: 4,
-    name: "Indian Institute of Management Lucknow",
-    city: "Lucknow",
-    state: "Uttar Pradesh",
-    website: "https://www.iiml.ac.in",
-  },
-  {
-    no: 5,
-    name: "Indian Institute of Management Kozhikode",
-    city: "Kozhikode",
-    state: "Kerala",
-    website: "https://www.iimk.ac.in",
-  },
-  {
-    no: 6,
-    name: "Indian Institute of Management Indore",
-    city: "Indore",
-    state: "Madhya Pradesh",
-    website: "https://www.iimidr.ac.in",
-  },
-  {
-    no: 7,
-    name: "Indian Institute of Management Shillong",
-    city: "Shillong",
-    state: "Meghalaya",
-    website: "https://www.iimshillong.ac.in",
-  },
-  {
-    no: 8,
-    name: "Indian Institute of Management Rohtak",
-    city: "Rohtak",
-    state: "Haryana",
-    website: "https://www.iimrohtak.ac.in",
-  },
-  {
-    no: 9,
-    name: "Indian Institute of Management Ranchi",
-    city: "Ranchi",
-    state: "Jharkhand",
-    website: "https://www.iimranchi.ac.in",
-  },
-  {
-    no: 10,
-    name: "Indian Institute of Management Raipur",
-    city: "Raipur",
-    state: "Chhattisgarh",
-    website: "https://www.iimraipur.ac.in",
-  },
-  {
-    no: 11,
-    name: "Indian Institute of Management Kashipur",
-    city: "Kashipur",
-    state: "Uttarakhand",
-    website: "https://www.iimkashipur.ac.in",
-  },
-  {
-    no: 12,
-    name: "Indian Institute of Management Tiruchirappalli",
-    city: "Tiruchirappalli",
-    state: "Tamil Nadu",
-    website: "https://www.iimtrichy.ac.in",
-  },
-  {
-    no: 13,
-    name: "Indian Institute of Management Udaipur",
-    city: "Udaipur",
-    state: "Rajasthan",
-    website: "https://www.iimu.ac.in",
-  },
-  {
-    no: 14,
-    name: "Indian Institute of Management Amritsar",
-    city: "Amritsar",
-    state: "Punjab",
-    website: "https://www.iimamritsar.ac.in",
-  },
-  {
-    no: 15,
-    name: "Indian Institute of Management Bodh Gaya",
-    city: "Bodh Gaya",
-    state: "Bihar",
-    website: "https://www.iimbg.ac.in",
-  },
-  {
-    no: 16,
-    name: "Indian Institute of Management Nagpur",
-    city: "Nagpur",
-    state: "Maharashtra",
-    website: "https://www.iimnagpur.ac.in",
-  },
-  {
-    no: 17,
-    name: "Indian Institute of Management Sambalpur",
-    city: "Sambalpur",
-    state: "Odisha",
-    website: "https://www.iimsambalpur.ac.in",
-  },
-  {
-    no: 18,
-    name: "Indian Institute of Management Sirmaur",
-    city: "Sirmaur district",
-    state: "Himachal Pradesh",
-    website: "https://www.iimsirmaur.ac.in",
-  },
-  {
-    no: 19,
-    name: "Indian Institute of Management Visakhapatnam",
-    city: "Visakhapatnam",
-    state: "Andhra Pradesh",
-    website: "https://www.iimv.ac.in",
-  },
-  {
-    no: 20,
-    name: "Indian Institute of Management Jammu",
-    city: "Jammu",
-    state: "Jammu and Kashmir",
-    website: "https://www.iimj.ac.in",
-  },
-];
+// const IIM_LIST = [
+//   {
+//     no: 1,
+//     name: "Indian Institute of Management Calcutta",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.iimcal.ac.in",
+//   },
+//   {
+//     no: 2,
+//     name: "Indian Institute of Management Ahmedabad",
+//     city: "Ahmedabad",
+//     state: "Gujarat",
+//     website: "https://www.iima.ac.in",
+//   },
+//   {
+//     no: 3,
+//     name: "Indian Institute of Management Bangalore",
+//     city: "Bengaluru",
+//     state: "Karnataka",
+//     website: "https://www.iimb.ac.in",
+//   },
+//   {
+//     no: 4,
+//     name: "Indian Institute of Management Lucknow",
+//     city: "Lucknow",
+//     state: "Uttar Pradesh",
+//     website: "https://www.iiml.ac.in",
+//   },
+//   {
+//     no: 5,
+//     name: "Indian Institute of Management Kozhikode",
+//     city: "Kozhikode",
+//     state: "Kerala",
+//     website: "https://www.iimk.ac.in",
+//   },
+//   {
+//     no: 6,
+//     name: "Indian Institute of Management Indore",
+//     city: "Indore",
+//     state: "Madhya Pradesh",
+//     website: "https://www.iimidr.ac.in",
+//   },
+//   {
+//     no: 7,
+//     name: "Indian Institute of Management Shillong",
+//     city: "Shillong",
+//     state: "Meghalaya",
+//     website: "https://www.iimshillong.ac.in",
+//   },
+//   {
+//     no: 8,
+//     name: "Indian Institute of Management Rohtak",
+//     city: "Rohtak",
+//     state: "Haryana",
+//     website: "https://www.iimrohtak.ac.in",
+//   },
+//   {
+//     no: 9,
+//     name: "Indian Institute of Management Ranchi",
+//     city: "Ranchi",
+//     state: "Jharkhand",
+//     website: "https://www.iimranchi.ac.in",
+//   },
+//   {
+//     no: 10,
+//     name: "Indian Institute of Management Raipur",
+//     city: "Raipur",
+//     state: "Chhattisgarh",
+//     website: "https://www.iimraipur.ac.in",
+//   },
+//   {
+//     no: 11,
+//     name: "Indian Institute of Management Kashipur",
+//     city: "Kashipur",
+//     state: "Uttarakhand",
+//     website: "https://www.iimkashipur.ac.in",
+//   },
+//   {
+//     no: 12,
+//     name: "Indian Institute of Management Tiruchirappalli",
+//     city: "Tiruchirappalli",
+//     state: "Tamil Nadu",
+//     website: "https://www.iimtrichy.ac.in",
+//   },
+//   {
+//     no: 13,
+//     name: "Indian Institute of Management Udaipur",
+//     city: "Udaipur",
+//     state: "Rajasthan",
+//     website: "https://www.iimu.ac.in",
+//   },
+//   {
+//     no: 14,
+//     name: "Indian Institute of Management Amritsar",
+//     city: "Amritsar",
+//     state: "Punjab",
+//     website: "https://www.iimamritsar.ac.in",
+//   },
+//   {
+//     no: 15,
+//     name: "Indian Institute of Management Bodh Gaya",
+//     city: "Bodh Gaya",
+//     state: "Bihar",
+//     website: "https://www.iimbg.ac.in",
+//   },
+//   {
+//     no: 16,
+//     name: "Indian Institute of Management Nagpur",
+//     city: "Nagpur",
+//     state: "Maharashtra",
+//     website: "https://www.iimnagpur.ac.in",
+//   },
+//   {
+//     no: 17,
+//     name: "Indian Institute of Management Sambalpur",
+//     city: "Sambalpur",
+//     state: "Odisha",
+//     website: "https://www.iimsambalpur.ac.in",
+//   },
+//   {
+//     no: 18,
+//     name: "Indian Institute of Management Sirmaur",
+//     city: "Sirmaur district",
+//     state: "Himachal Pradesh",
+//     website: "https://www.iimsirmaur.ac.in",
+//   },
+//   {
+//     no: 19,
+//     name: "Indian Institute of Management Visakhapatnam",
+//     city: "Visakhapatnam",
+//     state: "Andhra Pradesh",
+//     website: "https://www.iimv.ac.in",
+//   },
+//   {
+//     no: 20,
+//     name: "Indian Institute of Management Jammu",
+//     city: "Jammu",
+//     state: "Jammu and Kashmir",
+//     website: "https://www.iimj.ac.in",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function IIMsPage() {
+export default function IIMsPage({collegeContents}) {
+  const IIM_LIST = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

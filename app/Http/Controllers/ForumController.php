@@ -395,7 +395,7 @@ class ForumController extends Controller
         ]);
     }
 
- public function profile()
+    public function profile()
     {
         $user = Auth::user();
 
@@ -828,17 +828,17 @@ class ForumController extends Controller
     }
 
     // ReplyController.php
-public function replyDestroy(Reply $reply)
-{
-    // Authorization check
-    $this->authorize('delete', $reply);
-    
-    $reply->delete();
-    
-    return redirect()->back()
-        ->with('message', 'Reply deleted successfully!')
-        ->with('type', 'success');
-}
+    public function replyDestroy(Reply $reply)
+    {
+        // Authorization check
+        $this->authorize('delete', $reply);
+        
+        $reply->delete();
+        
+        return redirect()->back()
+            ->with('message', 'Reply deleted successfully!')
+            ->with('type', 'success');
+    }
 
 
 

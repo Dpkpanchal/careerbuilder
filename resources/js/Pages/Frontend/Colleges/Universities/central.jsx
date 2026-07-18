@@ -13,7 +13,7 @@ import { Layers3, Network, MapPin, ExternalLink, University } from "lucide-react
 const UNIVERSITY_TABS = [
   { id: "central", label: "Central", href: '/colleges/central-universities' },
   { id: "state", label: "State", href: '/colleges/state-universities' },
-  { id: "private", label: "Private / Deemed", href: '#' },
+  // { id: "private", label: "Private / Deemed", href: '#' },
   { id: "open", label: "Open & Distance", href: '/colleges/open-distance-universities-ignou-nsou' },
 ];
 
@@ -35,126 +35,126 @@ const OFFICIAL_LINKS = {
 // - Websites are the official university domains (as used in MoE list / official sites).
 // - You can tweak city spellings as per your portal style.
 // -------------------------------------------------------------
-const CENTRAL_UNIVERSITIES = [
-  // Andhra Pradesh (3)
-  { no: 1, name: "Central University of Andhra Pradesh", city: "Anantapur", state: "Andhra Pradesh", website: "https://cuap.ac.in/" },
-  { no: 2, name: "Central Tribal University of Andhra Pradesh", city: "Vizianagaram", state: "Andhra Pradesh", website: "https://ctuap.ac.in/" },
-  { no: 3, name: "National Sanskrit University", city: "Tirupati", state: "Andhra Pradesh", website: "https://nsktu.ac.in/" },
+// const CENTRAL_UNIVERSITIES = [
+//   // Andhra Pradesh (3)
+//   { no: 1, name: "Central University of Andhra Pradesh", city: "Anantapur", state: "Andhra Pradesh", website: "https://cuap.ac.in/" },
+//   { no: 2, name: "Central Tribal University of Andhra Pradesh", city: "Vizianagaram", state: "Andhra Pradesh", website: "https://ctuap.ac.in/" },
+//   { no: 3, name: "National Sanskrit University", city: "Tirupati", state: "Andhra Pradesh", website: "https://nsktu.ac.in/" },
 
-  // Arunachal Pradesh (1)
-  { no: 4, name: "Rajiv Gandhi University", city: "Doimukh (Itanagar)", state: "Arunachal Pradesh", website: "https://rgu.ac.in/" },
+//   // Arunachal Pradesh (1)
+//   { no: 4, name: "Rajiv Gandhi University", city: "Doimukh (Itanagar)", state: "Arunachal Pradesh", website: "https://rgu.ac.in/" },
 
-  // Assam (2)
-  { no: 5, name: "Assam University", city: "Silchar", state: "Assam", website: "https://aus.ac.in/" },
-  { no: 6, name: "Tezpur University", city: "Tezpur", state: "Assam", website: "https://www.tezu.ernet.in/" },
+//   // Assam (2)
+//   { no: 5, name: "Assam University", city: "Silchar", state: "Assam", website: "https://aus.ac.in/" },
+//   { no: 6, name: "Tezpur University", city: "Tezpur", state: "Assam", website: "https://www.tezu.ernet.in/" },
 
-  // Bihar (4)
-  { no: 7, name: "Central University of South Bihar", city: "Gaya", state: "Bihar", website: "https://www.cusb.ac.in/" },
-  { no: 8, name: "Mahatma Gandhi Central University", city: "Motihari", state: "Bihar", website: "https://mgcub.ac.in/" },
-  { no: 9, name: "Nalanda University", city: "Rajgir", state: "Bihar", website: "https://nalandauniv.edu.in/" },
-  { no: 10, name: "Dr. Rajendra Prasad Central Agricultural University", city: "Pusa (Samastipur)", state: "Bihar", website: "https://www.rpcau.ac.in/" },
+//   // Bihar (4)
+//   { no: 7, name: "Central University of South Bihar", city: "Gaya", state: "Bihar", website: "https://www.cusb.ac.in/" },
+//   { no: 8, name: "Mahatma Gandhi Central University", city: "Motihari", state: "Bihar", website: "https://mgcub.ac.in/" },
+//   { no: 9, name: "Nalanda University", city: "Rajgir", state: "Bihar", website: "https://nalandauniv.edu.in/" },
+//   { no: 10, name: "Dr. Rajendra Prasad Central Agricultural University", city: "Pusa (Samastipur)", state: "Bihar", website: "https://www.rpcau.ac.in/" },
 
-  // Chhattisgarh (1)
-  { no: 11, name: "Guru Ghasidas Vishwavidyalaya", city: "Bilaspur", state: "Chhattisgarh", website: "https://www.ggu.ac.in/" },
+//   // Chhattisgarh (1)
+//   { no: 11, name: "Guru Ghasidas Vishwavidyalaya", city: "Bilaspur", state: "Chhattisgarh", website: "https://www.ggu.ac.in/" },
 
-  // Delhi (7)
-  { no: 12, name: "University of Delhi", city: "New Delhi", state: "Delhi", website: "https://www.du.ac.in/" },
-  { no: 13, name: "Jawaharlal Nehru University", city: "New Delhi", state: "Delhi", website: "https://www.jnu.ac.in/" },
-  { no: 14, name: "Jamia Millia Islamia", city: "New Delhi", state: "Delhi", website: "https://www.jmi.ac.in/" },
-  { no: 15, name: "Indira Gandhi National Open University (IGNOU)", city: "New Delhi", state: "Delhi", website: "https://www.ignou.ac.in/" },
-  { no: 16, name: "South Asian University", city: "New Delhi", state: "Delhi", website: "https://www.sau.int/" },
-  { no: 17, name: "Central Sanskrit University", city: "New Delhi", state: "Delhi", website: "https://www.sanskrit.nic.in/" },
-  { no: 18, name: "Shri Lal Bahadur Shastri National Sanskrit University", city: "New Delhi", state: "Delhi", website: "https://www.slbsrsv.ac.in/" },
+//   // Delhi (7)
+//   { no: 12, name: "University of Delhi", city: "New Delhi", state: "Delhi", website: "https://www.du.ac.in/" },
+//   { no: 13, name: "Jawaharlal Nehru University", city: "New Delhi", state: "Delhi", website: "https://www.jnu.ac.in/" },
+//   { no: 14, name: "Jamia Millia Islamia", city: "New Delhi", state: "Delhi", website: "https://www.jmi.ac.in/" },
+//   { no: 15, name: "Indira Gandhi National Open University (IGNOU)", city: "New Delhi", state: "Delhi", website: "https://www.ignou.ac.in/" },
+//   { no: 16, name: "South Asian University", city: "New Delhi", state: "Delhi", website: "https://www.sau.int/" },
+//   { no: 17, name: "Central Sanskrit University", city: "New Delhi", state: "Delhi", website: "https://www.sanskrit.nic.in/" },
+//   { no: 18, name: "Shri Lal Bahadur Shastri National Sanskrit University", city: "New Delhi", state: "Delhi", website: "https://www.slbsrsv.ac.in/" },
 
-  // Gujarat (2)
-  { no: 19, name: "Central University of Gujarat", city: "Gandhinagar", state: "Gujarat", website: "https://www.cug.ac.in/" },
-  { no: 20, name: "Gati Shakti Vishwavidyalaya", city: "Vadodara", state: "Gujarat", website: "https://gsv.ac.in/" },
+//   // Gujarat (2)
+//   { no: 19, name: "Central University of Gujarat", city: "Gandhinagar", state: "Gujarat", website: "https://www.cug.ac.in/" },
+//   { no: 20, name: "Gati Shakti Vishwavidyalaya", city: "Vadodara", state: "Gujarat", website: "https://gsv.ac.in/" },
 
-  // Haryana (1)
-  { no: 21, name: "Central University of Haryana", city: "Mahendragarh", state: "Haryana", website: "https://www.cuh.ac.in/" },
+//   // Haryana (1)
+//   { no: 21, name: "Central University of Haryana", city: "Mahendragarh", state: "Haryana", website: "https://www.cuh.ac.in/" },
 
-  // Himachal Pradesh (1)
-  { no: 22, name: "Central University of Himachal Pradesh", city: "Dharamshala", state: "Himachal Pradesh", website: "https://www.cuhimachal.ac.in/" },
+//   // Himachal Pradesh (1)
+//   { no: 22, name: "Central University of Himachal Pradesh", city: "Dharamshala", state: "Himachal Pradesh", website: "https://www.cuhimachal.ac.in/" },
 
-  // Jammu & Kashmir (2)
-  { no: 23, name: "Central University of Jammu", city: "Samba", state: "Jammu & Kashmir", website: "https://www.cujammu.ac.in/" },
-  { no: 24, name: "Central University of Kashmir", city: "Ganderbal", state: "Jammu & Kashmir", website: "https://www.cukashmir.ac.in/" },
+//   // Jammu & Kashmir (2)
+//   { no: 23, name: "Central University of Jammu", city: "Samba", state: "Jammu & Kashmir", website: "https://www.cujammu.ac.in/" },
+//   { no: 24, name: "Central University of Kashmir", city: "Ganderbal", state: "Jammu & Kashmir", website: "https://www.cukashmir.ac.in/" },
 
-  // Jharkhand (1)
-  { no: 25, name: "Central University of Jharkhand", city: "Ranchi", state: "Jharkhand", website: "https://www.cuj.ac.in/" },
+//   // Jharkhand (1)
+//   { no: 25, name: "Central University of Jharkhand", city: "Ranchi", state: "Jharkhand", website: "https://www.cuj.ac.in/" },
 
-  // Karnataka (1)
-  { no: 26, name: "Central University of Karnataka", city: "Kalaburagi", state: "Karnataka", website: "https://www.cuk.ac.in/" },
+//   // Karnataka (1)
+//   { no: 26, name: "Central University of Karnataka", city: "Kalaburagi", state: "Karnataka", website: "https://www.cuk.ac.in/" },
 
-  // Kerala (1)
-  { no: 27, name: "Central University of Kerala", city: "Kasaragod", state: "Kerala", website: "https://www.cukerala.ac.in/" },
+//   // Kerala (1)
+//   { no: 27, name: "Central University of Kerala", city: "Kasaragod", state: "Kerala", website: "https://www.cukerala.ac.in/" },
 
-  // Ladakh (1)
-  { no: 28, name: "Sindhu Central University", city: "Ladakh", state: "Ladakh", website: "https://sindhucu.ac.in/" },
+//   // Ladakh (1)
+//   { no: 28, name: "Sindhu Central University", city: "Ladakh", state: "Ladakh", website: "https://sindhucu.ac.in/" },
 
-  // Madhya Pradesh (2)
-  { no: 29, name: "Dr. Harisingh Gour Vishwavidyalaya", city: "Sagar", state: "Madhya Pradesh", website: "https://www.dhsgsu.edu.in/" },
-  { no: 30, name: "Indira Gandhi National Tribal University", city: "Amarkantak", state: "Madhya Pradesh", website: "https://www.igntu.ac.in/" },
+//   // Madhya Pradesh (2)
+//   { no: 29, name: "Dr. Harisingh Gour Vishwavidyalaya", city: "Sagar", state: "Madhya Pradesh", website: "https://www.dhsgsu.edu.in/" },
+//   { no: 30, name: "Indira Gandhi National Tribal University", city: "Amarkantak", state: "Madhya Pradesh", website: "https://www.igntu.ac.in/" },
 
-  // Maharashtra (1)
-  { no: 31, name: "Mahatma Gandhi Antarrashtriya Hindi Vishwavidyalaya", city: "Wardha", state: "Maharashtra", website: "https://www.mgahv.in/" },
+//   // Maharashtra (1)
+//   { no: 31, name: "Mahatma Gandhi Antarrashtriya Hindi Vishwavidyalaya", city: "Wardha", state: "Maharashtra", website: "https://www.mgahv.in/" },
 
-  // Manipur (3)
-  { no: 32, name: "Central Agricultural University", city: "Imphal", state: "Manipur", website: "https://www.cau.ac.in/" },
-  { no: 33, name: "Manipur University", city: "Imphal", state: "Manipur", website: "https://www.manipuruniv.ac.in/" },
-  { no: 34, name: "National Sports University", city: "Imphal (Khuman Lampak)", state: "Manipur", website: "https://www.nsu.ac.in/" },
+//   // Manipur (3)
+//   { no: 32, name: "Central Agricultural University", city: "Imphal", state: "Manipur", website: "https://www.cau.ac.in/" },
+//   { no: 33, name: "Manipur University", city: "Imphal", state: "Manipur", website: "https://www.manipuruniv.ac.in/" },
+//   { no: 34, name: "National Sports University", city: "Imphal (Khuman Lampak)", state: "Manipur", website: "https://www.nsu.ac.in/" },
 
-  // Meghalaya (1)
-  { no: 35, name: "North Eastern Hill University (NEHU)", city: "Shillong", state: "Meghalaya", website: "https://www.nehu.ac.in/" },
+//   // Meghalaya (1)
+//   { no: 35, name: "North Eastern Hill University (NEHU)", city: "Shillong", state: "Meghalaya", website: "https://www.nehu.ac.in/" },
 
-  // Mizoram (1)
-  { no: 36, name: "Mizoram University", city: "Aizawl", state: "Mizoram", website: "https://www.mzu.edu.in/" },
+//   // Mizoram (1)
+//   { no: 36, name: "Mizoram University", city: "Aizawl", state: "Mizoram", website: "https://www.mzu.edu.in/" },
 
-  // Nagaland (1)
-  { no: 37, name: "Nagaland University", city: "Lumami", state: "Nagaland", website: "https://nagalanduniversity.ac.in/" },
+//   // Nagaland (1)
+//   { no: 37, name: "Nagaland University", city: "Lumami", state: "Nagaland", website: "https://nagalanduniversity.ac.in/" },
 
-  // Odisha (1)
-  { no: 38, name: "Central University of Odisha", city: "Koraput", state: "Odisha", website: "https://www.cuo.ac.in/" },
+//   // Odisha (1)
+//   { no: 38, name: "Central University of Odisha", city: "Koraput", state: "Odisha", website: "https://www.cuo.ac.in/" },
 
-  // Puducherry (1)
-  { no: 39, name: "Pondicherry University", city: "Puducherry", state: "Puducherry", website: "https://www.pondiuni.edu.in/" },
+//   // Puducherry (1)
+//   { no: 39, name: "Pondicherry University", city: "Puducherry", state: "Puducherry", website: "https://www.pondiuni.edu.in/" },
 
-  // Punjab (1)
-  { no: 40, name: "Central University of Punjab", city: "Bathinda", state: "Punjab", website: "https://www.cup.edu.in/" },
+//   // Punjab (1)
+//   { no: 40, name: "Central University of Punjab", city: "Bathinda", state: "Punjab", website: "https://www.cup.edu.in/" },
 
-  // Rajasthan (1)
-  { no: 41, name: "Central University of Rajasthan", city: "Ajmer", state: "Rajasthan", website: "https://www.curaj.ac.in/" },
+//   // Rajasthan (1)
+//   { no: 41, name: "Central University of Rajasthan", city: "Ajmer", state: "Rajasthan", website: "https://www.curaj.ac.in/" },
 
-  // Sikkim (1)
-  { no: 42, name: "Sikkim University", city: "Gangtok", state: "Sikkim", website: "https://www.cus.ac.in/" },
+//   // Sikkim (1)
+//   { no: 42, name: "Sikkim University", city: "Gangtok", state: "Sikkim", website: "https://www.cus.ac.in/" },
 
-  // Tamil Nadu (2)
-  { no: 43, name: "Central University of Tamil Nadu", city: "Thiruvarur", state: "Tamil Nadu", website: "https://www.cutn.ac.in/" },
-  { no: 44, name: "Indian Maritime University", city: "Chennai", state: "Tamil Nadu", website: "https://www.imu.edu.in/" },
+//   // Tamil Nadu (2)
+//   { no: 43, name: "Central University of Tamil Nadu", city: "Thiruvarur", state: "Tamil Nadu", website: "https://www.cutn.ac.in/" },
+//   { no: 44, name: "Indian Maritime University", city: "Chennai", state: "Tamil Nadu", website: "https://www.imu.edu.in/" },
 
-  // Telangana (4)
-  { no: 45, name: "University of Hyderabad", city: "Hyderabad", state: "Telangana", website: "https://uohyd.ac.in/" },
-  { no: 46, name: "Maulana Azad National Urdu University", city: "Hyderabad", state: "Telangana", website: "https://manuu.edu.in/" },
-  { no: 47, name: "English and Foreign Languages University (EFLU)", city: "Hyderabad", state: "Telangana", website: "https://www.efluniversity.ac.in/" },
-  { no: 48, name: "Rajiv Gandhi National Institute of Youth Development (RGNIYD)", city: "Hyderabad", state: "Telangana", website: "https://www.rgniyd.gov.in/" },
+//   // Telangana (4)
+//   { no: 45, name: "University of Hyderabad", city: "Hyderabad", state: "Telangana", website: "https://uohyd.ac.in/" },
+//   { no: 46, name: "Maulana Azad National Urdu University", city: "Hyderabad", state: "Telangana", website: "https://manuu.edu.in/" },
+//   { no: 47, name: "English and Foreign Languages University (EFLU)", city: "Hyderabad", state: "Telangana", website: "https://www.efluniversity.ac.in/" },
+//   { no: 48, name: "Rajiv Gandhi National Institute of Youth Development (RGNIYD)", city: "Hyderabad", state: "Telangana", website: "https://www.rgniyd.gov.in/" },
 
-  // Tripura (1)
-  { no: 49, name: "Tripura University", city: "Agartala", state: "Tripura", website: "https://www.tripurauniv.ac.in/" },
+//   // Tripura (1)
+//   { no: 49, name: "Tripura University", city: "Agartala", state: "Tripura", website: "https://www.tripurauniv.ac.in/" },
 
-  // Uttar Pradesh (6)
-  { no: 50, name: "Aligarh Muslim University (AMU)", city: "Aligarh", state: "Uttar Pradesh", website: "https://www.amu.ac.in/" },
-  { no: 51, name: "Babasaheb Bhimrao Ambedkar University (BBAU)", city: "Lucknow", state: "Uttar Pradesh", website: "https://www.bbau.ac.in/" },
-  { no: 52, name: "Banaras Hindu University (BHU)", city: "Varanasi", state: "Uttar Pradesh", website: "https://www.bhu.ac.in/" },
-  { no: 53, name: "University of Allahabad", city: "Prayagraj", state: "Uttar Pradesh", website: "https://www.allduniv.ac.in/" },
-  { no: 54, name: "Rajiv Gandhi National Aviation University", city: "Amethi", state: "Uttar Pradesh", website: "https://www.rgnau.ac.in/" },
-  { no: 55, name: "Rani Lakshmi Bai Central Agricultural University", city: "Jhansi", state: "Uttar Pradesh", website: "https://www.rlbcau.ac.in/" },
+//   // Uttar Pradesh (6)
+//   { no: 50, name: "Aligarh Muslim University (AMU)", city: "Aligarh", state: "Uttar Pradesh", website: "https://www.amu.ac.in/" },
+//   { no: 51, name: "Babasaheb Bhimrao Ambedkar University (BBAU)", city: "Lucknow", state: "Uttar Pradesh", website: "https://www.bbau.ac.in/" },
+//   { no: 52, name: "Banaras Hindu University (BHU)", city: "Varanasi", state: "Uttar Pradesh", website: "https://www.bhu.ac.in/" },
+//   { no: 53, name: "University of Allahabad", city: "Prayagraj", state: "Uttar Pradesh", website: "https://www.allduniv.ac.in/" },
+//   { no: 54, name: "Rajiv Gandhi National Aviation University", city: "Amethi", state: "Uttar Pradesh", website: "https://www.rgnau.ac.in/" },
+//   { no: 55, name: "Rani Lakshmi Bai Central Agricultural University", city: "Jhansi", state: "Uttar Pradesh", website: "https://www.rlbcau.ac.in/" },
 
-  // Uttarakhand (1)
-  { no: 56, name: "Hemwati Nandan Bahuguna Garhwal University", city: "Srinagar (Garhwal)", state: "Uttarakhand", website: "https://hnbgu.ac.in/" },
+//   // Uttarakhand (1)
+//   { no: 56, name: "Hemwati Nandan Bahuguna Garhwal University", city: "Srinagar (Garhwal)", state: "Uttarakhand", website: "https://hnbgu.ac.in/" },
 
-  // West Bengal (1)
-  { no: 57, name: "Visva-Bharati", city: "Santiniketan", state: "West Bengal", website: "https://www.visvabharati.ac.in/" },
-];
+//   // West Bengal (1)
+//   { no: 57, name: "Visva-Bharati", city: "Santiniketan", state: "West Bengal", website: "https://www.visvabharati.ac.in/" },
+// ];
 
 // NOTE: If you prefer exactly 56 items, tell me which one to remove based on your chosen “central universities count”.
 // UGC & MoE references typically cite ~56 central universities (list updates over time). :contentReference[oaicite:3]{index=3}
@@ -162,9 +162,10 @@ const CENTRAL_UNIVERSITIES = [
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function CentralUniversitiesPage({universities}) {
+export default function CentralUniversitiesPage({collegeContents}) {
 
-const CENTRAL_UNIVERSITIES = universities || [];
+
+   const CENTRAL_UNIVERSITIES = Array.isArray(collegeContents) ? collegeContents : [];
 
   return (
     <>

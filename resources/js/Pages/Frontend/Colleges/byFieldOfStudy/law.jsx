@@ -81,48 +81,50 @@ const INSTITUTE_LINKS = [
 // West Bengal spotlight – Law colleges / NLUs (with official websites)
 // (curated list, not exhaustive)
 // -------------------------------------------------------------
-const WB_LAW_SPOTLIGHT = [
-  {
-    no: 1,
-    name: "The West Bengal National University of Juridical Sciences (NUJS)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.nujs.edu/",
-  },
-  {
-    no: 2,
-    name: "University of Calcutta – Department of Law",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.caluniv.ac.in/",
-  },
-  {
-    no: 3,
-    name: "Aliah University (Law)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.aliah.ac.in/",
-  },
-  {
-    no: 4,
-    name: "University of North Bengal (Law / affiliated ecosystem)",
-    city: "Siliguri (Darjeeling)",
-    state: "West Bengal",
-    website: "https://www.nbu.ac.in/",
-  },
-  {
-    no: 5,
-    name: "Burdwan University (Law / affiliated ecosystem)",
-    city: "Purba Bardhaman",
-    state: "West Bengal",
-    website: "https://www.buruniv.ac.in/",
-  },
-];
+// const WB_LAW_SPOTLIGHT = [
+//   {
+//     no: 1,
+//     name: "The West Bengal National University of Juridical Sciences (NUJS)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.nujs.edu/",
+//   },
+//   {
+//     no: 2,
+//     name: "University of Calcutta – Department of Law",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.caluniv.ac.in/",
+//   },
+//   {
+//     no: 3,
+//     name: "Aliah University (Law)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.aliah.ac.in/",
+//   },
+//   {
+//     no: 4,
+//     name: "University of North Bengal (Law / affiliated ecosystem)",
+//     city: "Siliguri (Darjeeling)",
+//     state: "West Bengal",
+//     website: "https://www.nbu.ac.in/",
+//   },
+//   {
+//     no: 5,
+//     name: "Burdwan University (Law / affiliated ecosystem)",
+//     city: "Purba Bardhaman",
+//     state: "West Bengal",
+//     website: "https://www.buruniv.ac.in/",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function LawCollegesPage() {
+export default function LawCollegesPage({collegeContents}) {
+  const WB_LAW_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

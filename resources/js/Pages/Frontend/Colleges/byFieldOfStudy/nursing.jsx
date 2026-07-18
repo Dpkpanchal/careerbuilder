@@ -99,55 +99,57 @@ const INSTITUTE_LINKS = [
 // West Bengal spotlight – Nursing colleges (with official pages)
 // (curated list, not exhaustive)
 // -------------------------------------------------------------
-const WB_NURSING_SPOTLIGHT = [
-  {
-    no: 1,
-    name: "College of Nursing, Medical College & Hospital, Kolkata",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.medicalcollegekolkata.in/main/page/Nursing92f1da",
-  },
-  {
-    no: 2,
-    name: "College of Nursing / Nursing Training School – IPGMER & SSKM Hospital",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.ipgmer.gov.in/nursingcourses",
-  },
-  {
-    no: 3,
-    name: "Govt. College of Nursing – NRS Medical College & Hospital",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://nrsmc.edu.in/department/college-of-nursing",
-  },
-  {
-    no: 4,
-    name: "College of Nursing – R. G. Kar Medical College & Hospital",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.rgkarmch.in/page/cms/college_of_nursing_f9c354",
-  },
-  {
-    no: 5,
-    name: "College of Nursing – Calcutta National Medical College",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.cnmckolkata.com/",
-  },
-  {
-    no: 6,
-    name: "College of Nursing – North Bengal Medical College & Hospital",
-    city: "Sushrutanagar (Darjeeling)",
-    state: "West Bengal",
-    website: "https://nbmch.ac.in/",
-  },
-];
+// const WB_NURSING_SPOTLIGHT = [
+//   {
+//     no: 1,
+//     name: "College of Nursing, Medical College & Hospital, Kolkata",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.medicalcollegekolkata.in/main/page/Nursing92f1da",
+//   },
+//   {
+//     no: 2,
+//     name: "College of Nursing / Nursing Training School – IPGMER & SSKM Hospital",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.ipgmer.gov.in/nursingcourses",
+//   },
+//   {
+//     no: 3,
+//     name: "Govt. College of Nursing – NRS Medical College & Hospital",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://nrsmc.edu.in/department/college-of-nursing",
+//   },
+//   {
+//     no: 4,
+//     name: "College of Nursing – R. G. Kar Medical College & Hospital",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.rgkarmch.in/page/cms/college_of_nursing_f9c354",
+//   },
+//   {
+//     no: 5,
+//     name: "College of Nursing – Calcutta National Medical College",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.cnmckolkata.com/",
+//   },
+//   {
+//     no: 6,
+//     name: "College of Nursing – North Bengal Medical College & Hospital",
+//     city: "Sushrutanagar (Darjeeling)",
+//     state: "West Bengal",
+//     website: "https://nbmch.ac.in/",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function NursingCollegesPage() {
+export default function NursingCollegesPage({collegeContents}) {
+  const WB_NURSING_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

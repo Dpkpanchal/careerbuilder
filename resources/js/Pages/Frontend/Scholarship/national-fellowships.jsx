@@ -17,192 +17,25 @@ const SCHOLARSHIP_TABS = [
   { id: "study-abroad", label: "Study Abroad", href: route("study.abroad") },
 ];
 
-const FELLOWSHIPS_DATA = [
-  {
-    id: 1,
-    name: "SRTT Visiting Fellowships",
-    organization: "Institute For Social And Economic Change",
-    link: "http://www.isec.ac.in/srtt-fellowships.htm"
-  },
-  {
-    id: 2,
-    name: "Raman – Charpak Fellowship",
-    organization: "Department Of Science And Technology, Government Of India And Ministry Of Foreign Affairs, Government Of France",
-    link: ""
-  },
-  {
-    id: 3,
-    name: "Tata Innovation Fellowship",
-    organization: "Department Of Biotechnology",
-    link: "www.dbtindia.nic.in"
-  },
-  {
-    id: 4,
-    name: "Ramalingaswamy Re-Entry Fellowship",
-    organization: "Department Of Biotechnology",
-    link: "www.dbtindia.nic.in"
-  },
-  {
-    id: 5,
-    name: "Ramanujan Fellowship",
-    organization: "Department Of Science And Technology",
-    link: "http://serb.gov.in/formats.php#ramanujan"
-  },
-  {
-    id: 6,
-    name: "J C Bose National Fellowships",
-    organization: "Department Of Science And Technology",
-    link: "www.dst.gov.in"
-  },
-  {
-    id: 7,
-    name: "Swarna Jayanti Fellowship",
-    organization: "Ministry Of Science And Technology And Department Of Science And Technology",
-    link: "index.htm"
-  },
-  {
-    id: 8,
-    name: "Vartha Fellowship",
-    organization: "Department Of Information, Government Of Karnataka",
-    link: "http://Karnatakavarthe.org/downloads/"
-  },
-  {
-    id: 9,
-    name: "Margdarshi Fellowship",
-    organization: "Wellcome trust –DBT India Alliance",
-    link: "www.wellcomedbt.org/margdarshi.html"
-  },
-  {
-    id: 10,
-    name: "Intermediate Researcher Fellowship",
-    organization: "Welcome trust-DBT India Alliance",
-    link: "http://www.wellcomedbt.org/intermediate.html"
-  },
-  {
-    id: 11,
-    name: "National Doctoral Fellowship",
-    organization: "All India Council For Technical Educdational, (AICTE)",
-    link: "http://www.aicte-india.org/dipndf.htm"
-  },
-  {
-    id: 12,
-    name: "NCERT Doctoral Fellowships",
-    organization: "National Council Of Educational Research And Training",
-    link: "http://www.ncert.nic.in/departments/nie/der/publication/pdf/guidelinesdoctoralfellowship.pdf"
-  },
-  {
-    id: 13,
-    name: "Fulbright – Nehru Doctoral Research Fellowships",
-    organization: "United States- India Educational Foundation",
-    link: "http://www.usief.org.in/Fulbright-nehru-doctoralresearch-fellowships.aspx"
-  },
-  {
-    id: 14,
-    name: "Prime Minister's Fellowship Scheme For Doctoral Research",
-    organization: "Department Of Science And Technology ,Ministry Of Science And Technology. Government Of India And Confederation Of Indian Industry",
-    link: "www.cii.in/jointfellowshipscheme"
-  },
-  {
-    id: 15,
-    name: "Jawaharlal Nehru Scholarships",
-    organization: "Jawaharlal Nehru Memorial Fund",
-    link: "http://www.jnmf.in"
-  },
-  {
-    id: 16,
-    name: "Intermediate Fellowship For Researchers In India",
-    organization: "Department Of Biotechnology",
-    link: "http://www.wellcomedbt.org/intermediate.html"
-  },
-  {
-    id: 17,
-    name: "ICSSR Doctoral Research Fellowships For Indian Students",
-    organization: "Indian Council Of Social Science Research",
-    link: "http://www.icssr.org"
-  },
-  {
-    id: 18,
-    name: "Maulana Azad National Fellowship For Minority Students",
-    organization: "University Grant Commission (UGC)",
-    link: "http://www.ugc.ac.in/manf/default.aspx"
-  },
-  {
-    id: 19,
-    name: "ICMR International Fellowships",
-    organization: "Indian Council Of Medical Research",
-    link: "http://icmr.nic.in/ifc_research.htm"
-  },
-  {
-    id: 20,
-    name: "Media Fellowship",
-    organization: "Indo- Global Social Service Society",
-    link: "http://www.bidar.nic.in/scholarships/6-26.pdf"
-  },
-  {
-    id: 21,
-    name: "Rajiv Gandhi National Research Fellowship",
-    organization: "University Grant Commission (UGC)",
-    link: "www.ugc.ac.in/rgnf/"
-  },
-  {
-    id: 22,
-    name: "National Solar Science Fellows Program",
-    organization: "Ministry Of New And Renewable Energy Government Of India",
-    link: "proramme-scheme/national-solar-sciencefellowships-programme.pdf"
-  },
-  {
-    id: 23,
-    name: "IUSSTF Indo-US Science And Technology Forum Introduces Indo-Us Research Fellowships For Indian Researchers",
-    organization: "",
-    link: "http://www.indousstf.org/fellowship.htm"
-  },
-  {
-    id: 24,
-    name: "Minister Of Culture Invites Application From Indian Nationals For The Award Of Senior Fellowships",
-    organization: "Ministry Of Culture, Government Of India",
-    link: "http://indiaculture.nic.in/indiaculture/senior-juniorfellowship.html"
-  },
-  {
-    id: 25,
-    name: "Young Fellowship",
-    organization: "International Foundation For Research And Education (IFRE)",
-    link: "http://youngindiafellowship.com/Apply-Now.aspx"
-  },
-  {
-    id: 26,
-    name: "Commonwealth Scholarships And Fellowships",
-    organization: "Ministry Of Human Resource Development, Government Of India",
-    link: "http://www.csfp-online.org/"
-  },
-  {
-    id: 27,
-    name: "Nehru Memorial Museum And Library Fellowships",
-    organization: "Department Of Science And Technology",
-    link: "http://www.nehrumemorial.org/index.php"
-  },
-  {
-    id: 28,
-    name: "The Ravi Sankaran Fellowship Program For Indian Students",
-    organization: "Inlaks Shivdasani Foundation",
-    link: "http://www.ravisankaran.org/index.php"
-  },
-  {
-    id: 29,
-    name: "The Legislative Assistants To Members Of Parliament (LAMP) Fellowship",
-    organization: "PRS Legislative Research, Centre For Policy Research",
-    link: "http://lamp.prsindia.org/about-%20the-fellowship"
-  },
-  {
-    id: 30,
-    name: "Prime Minister's Rural Development Fellows Scheme",
-    organization: "Ministry Of Rural Development, Government Of India",
-    link: "http://rural.nic.in/pmrdfs/"
-  }
+
+
+// const CATEGORIES = ["All", "Science & Technology", "Doctoral Research", "International", "Minority", "Social Sciences", "Rural Development"];
+
+
+export default function NationalFellowshipsPage({data}) {
+
+  const FELLOWSHIPS_DATA = Array.isArray(data) ? data : [];
+
+  const CATEGORIES = [
+  "All",
+  ...new Set(
+    FELLOWSHIPS_DATA
+      .map((item) => item.category)
+      .filter(Boolean)
+  ),
 ];
 
-const CATEGORIES = ["All", "Science & Technology", "Doctoral Research", "International", "Minority", "Social Sciences", "Rural Development"];
 
-export default function NationalFellowshipsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -226,9 +59,11 @@ export default function NationalFellowshipsPage() {
     return "All";
   };
 
-  const categorizedFellowships = filteredFellowships.filter(fellowship => 
-    selectedCategory === "All" || getCategory(fellowship) === selectedCategory
-  );
+const categorizedFellowships = filteredFellowships.filter(
+  (fellowship) =>
+    selectedCategory === "All" ||
+    fellowship.category === selectedCategory
+);
 
   return (
     <>

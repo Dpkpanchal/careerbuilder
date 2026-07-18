@@ -85,48 +85,50 @@ const INSTITUTE_LINKS = [
 // West Bengal spotlight – Agriculture & Veterinary institutes
 // (curated list with official websites)
 // -------------------------------------------------------------
-const WB_AGRI_VET_SPOTLIGHT = [
-  {
-    no: 1,
-    name: "Bidhan Chandra Krishi Viswavidyalaya (BCKV)",
-    city: "Mohanpur (Nadia)",
-    state: "West Bengal",
-    website: "https://www.bckv.edu.in/",
-  },
-  {
-    no: 2,
-    name: "Uttar Banga Krishi Viswavidyalaya (UBKV)",
-    city: "Pundibari (Cooch Behar)",
-    state: "West Bengal",
-    website: "https://www.ubkv.ac.in/",
-  },
-  {
-    no: 3,
-    name: "West Bengal University of Animal & Fishery Sciences (WBUAFS)",
-    city: "Kolkata / Mohanpur",
-    state: "West Bengal",
-    website: "https://www.wbuafsce.org/",
-  },
-  {
-    no: 4,
-    name: "University of Calcutta (Life Science / Allied departments)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.caluniv.ac.in/",
-  },
-  {
-    no: 5,
-    name: "Kazi Nazrul University (Allied / Life Science ecosystem)",
-    city: "Asansol (Paschim Bardhaman)",
-    state: "West Bengal",
-    website: "https://www.knu.ac.in/",
-  },
-];
+// const WB_AGRI_VET_SPOTLIGHT = [
+//   {
+//     no: 1,
+//     name: "Bidhan Chandra Krishi Viswavidyalaya (BCKV)",
+//     city: "Mohanpur (Nadia)",
+//     state: "West Bengal",
+//     website: "https://www.bckv.edu.in/",
+//   },
+//   {
+//     no: 2,
+//     name: "Uttar Banga Krishi Viswavidyalaya (UBKV)",
+//     city: "Pundibari (Cooch Behar)",
+//     state: "West Bengal",
+//     website: "https://www.ubkv.ac.in/",
+//   },
+//   {
+//     no: 3,
+//     name: "West Bengal University of Animal & Fishery Sciences (WBUAFS)",
+//     city: "Kolkata / Mohanpur",
+//     state: "West Bengal",
+//     website: "https://www.wbuafsce.org/",
+//   },
+//   {
+//     no: 4,
+//     name: "University of Calcutta (Life Science / Allied departments)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.caluniv.ac.in/",
+//   },
+//   {
+//     no: 5,
+//     name: "Kazi Nazrul University (Allied / Life Science ecosystem)",
+//     city: "Asansol (Paschim Bardhaman)",
+//     state: "West Bengal",
+//     website: "https://www.knu.ac.in/",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function AgricultureVeterinaryCollegesPage() {
+export default function AgricultureVeterinaryCollegesPage({collegeContents}) {
+  const WB_AGRI_VET_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

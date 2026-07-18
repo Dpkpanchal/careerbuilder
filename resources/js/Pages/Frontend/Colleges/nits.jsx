@@ -45,44 +45,47 @@ const COLLEGE_TABS = [
 // -------------------------------------------------------------
 // NIT LIST – exactly from your data (no additions / removals)
 // -------------------------------------------------------------
-const NIT_LIST = [
-  { no: 1, name: "NIT Allahabad", city: "Allahabad", state: "Uttar Pradesh", website: "www.mnnit.ac.in" },
-  { no: 2, name: "NIT Bhopal", city: "Bhopal", state: "Madhya Pradesh", website: "www.manit.ac.in" },
-  { no: 3, name: "NIT Calicut", city: "Calicut", state: "Kerala", website: "www.nitc.ac.in" },
-  { no: 4, name: "NIT Hamirpur", city: "Hamirpur", state: "Himachal Pradesh", website: "www.nith.ac.in" },
-  { no: 5, name: "NIT Jaipur", city: "Jaipur", state: "Rajasthan", website: "www.mnit.ac.in" },
-  { no: 6, name: "NIT Jalandhar", city: "Jalandhar", state: "Punjab", website: "www.nitj.ac.in" },
-  { no: 7, name: "NIT Jamshedpur", city: "Jamshedpur", state: "Jharkhand", website: "http://www.nitjsr.ac.in" },
-  { no: 8, name: "NIT Kurukshetra", city: "Kurukshetra", state: "Haryana", website: "www.nitkkr.nic.in" },
-  { no: 9, name: "NIT Nagpur", city: "Nagpur", state: "Maharashtra", website: "www.vnit.ac.in" },
-  { no: 10, name: "NIT Rourkela", city: "Rourkela", state: "Odisha", website: "www.nitrkl.ac.in" },
-  { no: 11, name: "NIT Silchar", city: "Silchar", state: "Assam", website: "www.nits.ac.in" },
-  { no: 12, name: "NIT Surathkal", city: "Mangalore", state: "Karnataka", website: "www.nitk.ac.in" },
-  { no: 13, name: "NIT Warangal", city: "Warangal", state: "Telangana", website: "www.nitw.ac.in" },
-  { no: 14, name: "NIT Durgapur", city: "Durgapur", state: "West Bengal", website: "www.nitdgp.ac.in" },
-  { no: 15, name: "NIT Srinagar", city: "Srinagar", state: "Jammu and Kashmir", website: "www.nitsri.net" },
-  { no: 16, name: "NIT Surat", city: "Surat", state: "Gujarat", website: "www.svnit.ac.in" },
-  { no: 17, name: "NIT Trichy", city: "Trichy", state: "Tamil Nadu", website: "www.nitt.edu" },
-  { no: 18, name: "NIT Patna", city: "Patna", state: "Bihar", website: "www.nitp.ac.in" },
-  { no: 19, name: "NIT Raipur", city: "Raipur", state: "Chhattisgarh", website: "www.nitrr.ac.in" },
-  { no: 20, name: "NIT Agartala", city: "Agartala", state: "Tripura", website: "www.tec.nic.in" },
-  { no: 21, name: "NIT Arunachal Pradesh", city: "Yupia", state: "Arunachal Pradesh", website: "www.nitap.in" },
-  { no: 22, name: "NIT Delhi", city: "New Delhi", state: "Delhi", website: "http://nitdelhi.ac.in/" },
-  { no: 23, name: "NIT Goa", city: "Farmagudi", state: "Goa", website: "www.nitgoa.ac.in/" },
-  { no: 24, name: "NIT Manipur", city: "Imphal", state: "Manipur", website: "http://www.nitmanipur.in/" },
-  { no: 25, name: "NIT Meghalaya", city: "Shillong", state: "Meghalaya", website: "http://www.nitm.ac.in/" },
-  { no: 26, name: "NIT Mizoram", city: "Aizawl", state: "Mizoram", website: "http://www.nitmz.ac.in" },
-  { no: 27, name: "NIT Nagaland", city: "Dimapur", state: "Nagaland", website: "http://nitnagaland.ac.in/homenew/" },
-  { no: 28, name: "NIT Puducherry", city: "Karaikal", state: "Puducherry", website: "http://www.nitt.edu/home/nitp/" },
-  { no: 29, name: "NIT Sikkim", city: "Ravangla", state: "Sikkim", website: "www.nitc.ac.in/sikkim/" },
-  { no: 30, name: "NIT Uttarakhand", city: "Srinagar", state: "Uttarakhand", website: "http://nituk.ac.in/" },
-  { no: 31, name: "NIT Andhra Pradesh", city: "Tadepalligudem", state: "Andhra Pradesh", website: "http://nitandhra.ac.in/" },
-];
+// const NIT_LIST = [
+//   { no: 1, name: "NIT Allahabad", city: "Allahabad", state: "Uttar Pradesh", website: "www.mnnit.ac.in" },
+//   { no: 2, name: "NIT Bhopal", city: "Bhopal", state: "Madhya Pradesh", website: "www.manit.ac.in" },
+//   { no: 3, name: "NIT Calicut", city: "Calicut", state: "Kerala", website: "www.nitc.ac.in" },
+//   { no: 4, name: "NIT Hamirpur", city: "Hamirpur", state: "Himachal Pradesh", website: "www.nith.ac.in" },
+//   { no: 5, name: "NIT Jaipur", city: "Jaipur", state: "Rajasthan", website: "www.mnit.ac.in" },
+//   { no: 6, name: "NIT Jalandhar", city: "Jalandhar", state: "Punjab", website: "www.nitj.ac.in" },
+//   { no: 7, name: "NIT Jamshedpur", city: "Jamshedpur", state: "Jharkhand", website: "http://www.nitjsr.ac.in" },
+//   { no: 8, name: "NIT Kurukshetra", city: "Kurukshetra", state: "Haryana", website: "www.nitkkr.nic.in" },
+//   { no: 9, name: "NIT Nagpur", city: "Nagpur", state: "Maharashtra", website: "www.vnit.ac.in" },
+//   { no: 10, name: "NIT Rourkela", city: "Rourkela", state: "Odisha", website: "www.nitrkl.ac.in" },
+//   { no: 11, name: "NIT Silchar", city: "Silchar", state: "Assam", website: "www.nits.ac.in" },
+//   { no: 12, name: "NIT Surathkal", city: "Mangalore", state: "Karnataka", website: "www.nitk.ac.in" },
+//   { no: 13, name: "NIT Warangal", city: "Warangal", state: "Telangana", website: "www.nitw.ac.in" },
+//   { no: 14, name: "NIT Durgapur", city: "Durgapur", state: "West Bengal", website: "www.nitdgp.ac.in" },
+//   { no: 15, name: "NIT Srinagar", city: "Srinagar", state: "Jammu and Kashmir", website: "www.nitsri.net" },
+//   { no: 16, name: "NIT Surat", city: "Surat", state: "Gujarat", website: "www.svnit.ac.in" },
+//   { no: 17, name: "NIT Trichy", city: "Trichy", state: "Tamil Nadu", website: "www.nitt.edu" },
+//   { no: 18, name: "NIT Patna", city: "Patna", state: "Bihar", website: "www.nitp.ac.in" },
+//   { no: 19, name: "NIT Raipur", city: "Raipur", state: "Chhattisgarh", website: "www.nitrr.ac.in" },
+//   { no: 20, name: "NIT Agartala", city: "Agartala", state: "Tripura", website: "www.tec.nic.in" },
+//   { no: 21, name: "NIT Arunachal Pradesh", city: "Yupia", state: "Arunachal Pradesh", website: "www.nitap.in" },
+//   { no: 22, name: "NIT Delhi", city: "New Delhi", state: "Delhi", website: "http://nitdelhi.ac.in/" },
+//   { no: 23, name: "NIT Goa", city: "Farmagudi", state: "Goa", website: "www.nitgoa.ac.in/" },
+//   { no: 24, name: "NIT Manipur", city: "Imphal", state: "Manipur", website: "http://www.nitmanipur.in/" },
+//   { no: 25, name: "NIT Meghalaya", city: "Shillong", state: "Meghalaya", website: "http://www.nitm.ac.in/" },
+//   { no: 26, name: "NIT Mizoram", city: "Aizawl", state: "Mizoram", website: "http://www.nitmz.ac.in" },
+//   { no: 27, name: "NIT Nagaland", city: "Dimapur", state: "Nagaland", website: "http://nitnagaland.ac.in/homenew/" },
+//   { no: 28, name: "NIT Puducherry", city: "Karaikal", state: "Puducherry", website: "http://www.nitt.edu/home/nitp/" },
+//   { no: 29, name: "NIT Sikkim", city: "Ravangla", state: "Sikkim", website: "www.nitc.ac.in/sikkim/" },
+//   { no: 30, name: "NIT Uttarakhand", city: "Srinagar", state: "Uttarakhand", website: "http://nituk.ac.in/" },
+//   { no: 31, name: "NIT Andhra Pradesh", city: "Tadepalligudem", state: "Andhra Pradesh", website: "http://nitandhra.ac.in/" },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function NITsPage() {
+export default function NITsPage({collegeContents}) {
+
+  const NIT_LIST = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

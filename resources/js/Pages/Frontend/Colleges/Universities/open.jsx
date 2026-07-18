@@ -12,7 +12,7 @@ import { Layers3, Network, MapPin, ExternalLink, University, ShieldCheck } from 
 const UNIVERSITY_TABS = [
   { id: "central", label: "Central", href: '/colleges/central-universities' },
   { id: "state", label: "State", href: '/colleges/state-universities' },
-  { id: "private", label: "Private / Deemed", href: '#' },
+  // { id: "private", label: "Private / Deemed", href: '#' },
   { id: "open", label: "Open & Distance", href: '/colleges/open-distance-universities-ignou-nsou' },
 ];
 
@@ -30,22 +30,24 @@ const OFFICIAL_LINKS = {
 // Curated list of major Open / Distance Universities (with official websites)
 // Keep it short + high-quality (the full list should remain on DEB).
 // -------------------------------------------------------------
-const OPEN_DISTANCE_SPOTLIGHT = [
-  { no: 1, name: "Indira Gandhi National Open University (IGNOU)", city: "New Delhi", state: "Delhi", website: "https://www.ignou.ac.in/" }, // :contentReference[oaicite:6]{index=6}
-  { no: 2, name: "Netaji Subhas Open University (NSOU)", city: "Kolkata", state: "West Bengal", website: "https://www.wbnsou.ac.in/" }, // :contentReference[oaicite:7]{index=7}
-  { no: 3, name: "Tamil Nadu Open University (TNOU)", city: "Chennai", state: "Tamil Nadu", website: "https://tnou.ac.in/" }, // :contentReference[oaicite:8]{index=8}
-  { no: 4, name: "Vardhman Mahaveer Open University (VMOU)", city: "Kota", state: "Rajasthan", website: "https://www.vmou.ac.in/home" }, // :contentReference[oaicite:9]{index=9}
-  { no: 5, name: "Madhya Pradesh Bhoj (Open) University (MPBOU)", city: "Bhopal", state: "Madhya Pradesh", website: "https://mpbou.edu.in/" }, // :contentReference[oaicite:10]{index=10}
-  { no: 6, name: "Uttar Pradesh Rajarshi Tandon Open University (UPRTOU)", city: "Prayagraj", state: "Uttar Pradesh", website: "https://www.uprtou.ac.in/" }, // :contentReference[oaicite:11]{index=11}
-  { no: 7, name: "Dr. B. R. Ambedkar Open University (BRAOU)", city: "Hyderabad", state: "Telangana", website: "https://braou.ac.in/" }, // :contentReference[oaicite:12]{index=12}
-  { no: 8, name: "Yashwantrao Chavan Maharashtra Open University (YCMOU)", city: "Nashik", state: "Maharashtra", website: "https://www.ycmou.ac.in/" }, // :contentReference[oaicite:13]{index=13}
-  { no: 9, name: "Karnataka State Open University (KSOU)", city: "Mysuru", state: "Karnataka", website: "https://www.ksoumysuru.ac.in/" }, // :contentReference[oaicite:14]{index=14}
-];
+// const OPEN_DISTANCE_SPOTLIGHT = [
+//   { no: 1, name: "Indira Gandhi National Open University (IGNOU)", city: "New Delhi", state: "Delhi", website: "https://www.ignou.ac.in/" }, // :contentReference[oaicite:6]{index=6}
+//   { no: 2, name: "Netaji Subhas Open University (NSOU)", city: "Kolkata", state: "West Bengal", website: "https://www.wbnsou.ac.in/" }, // :contentReference[oaicite:7]{index=7}
+//   { no: 3, name: "Tamil Nadu Open University (TNOU)", city: "Chennai", state: "Tamil Nadu", website: "https://tnou.ac.in/" }, // :contentReference[oaicite:8]{index=8}
+//   { no: 4, name: "Vardhman Mahaveer Open University (VMOU)", city: "Kota", state: "Rajasthan", website: "https://www.vmou.ac.in/home" }, // :contentReference[oaicite:9]{index=9}
+//   { no: 5, name: "Madhya Pradesh Bhoj (Open) University (MPBOU)", city: "Bhopal", state: "Madhya Pradesh", website: "https://mpbou.edu.in/" }, // :contentReference[oaicite:10]{index=10}
+//   { no: 6, name: "Uttar Pradesh Rajarshi Tandon Open University (UPRTOU)", city: "Prayagraj", state: "Uttar Pradesh", website: "https://www.uprtou.ac.in/" }, // :contentReference[oaicite:11]{index=11}
+//   { no: 7, name: "Dr. B. R. Ambedkar Open University (BRAOU)", city: "Hyderabad", state: "Telangana", website: "https://braou.ac.in/" }, // :contentReference[oaicite:12]{index=12}
+//   { no: 8, name: "Yashwantrao Chavan Maharashtra Open University (YCMOU)", city: "Nashik", state: "Maharashtra", website: "https://www.ycmou.ac.in/" }, // :contentReference[oaicite:13]{index=13}
+//   { no: 9, name: "Karnataka State Open University (KSOU)", city: "Mysuru", state: "Karnataka", website: "https://www.ksoumysuru.ac.in/" }, // :contentReference[oaicite:14]{index=14}
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function OpenDistanceUniversitiesPage() {
+export default function OpenDistanceUniversitiesPage({ collegeContents }) {
+  const OPEN_DISTANCE_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

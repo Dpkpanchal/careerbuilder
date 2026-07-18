@@ -30,16 +30,22 @@ const COLLEGE_TABS = [
 // -------------------------------------------------------------
 const WB_OFFICIAL_POLY_LINKS = [
   {
-    title: "WB Govt Polytechnics Portal (DTET, WB)",
-    url: "https://polytechnic.wbtetsd.gov.in/",
+    name: "WB Govt Polytechnics Portal (DTET, WB)",
+    city: "WB",
+    website: "https://polytechnic.wbtetsd.gov.in/",
+    state: "Official portal for notices, institute listing and academic information.",
   },
   {
-    title: "VOCLET – List of Polytechnic (WBSCT&VE&SD)",
-    url: "https://voclet.webscte.co.in/list-Polytechnic",
+    name: "VOCLET – List of Polytechnic (WBSCT&VE&SD)",
+    city: "WB",
+    website: "https://voclet.webscte.co.in/list-Polytechnic",
+    state: "Official portal for notices, institute listing and academic information.",
   },
   {
-    title: "SCT&VE&SD – Academic: Polytechnic (WB)",
-    url: "https://sctvesd.wb.gov.in/academic/polytechnic",
+    name: "SCT&VE&SD – Academic: Polytechnic (WB)",
+    city: "WB",
+    website: "https://sctvesd.wb.gov.in/academic/polytechnic",
+    state: "Official portal for notices, institute listing and academic information.",
   },
 ];
 
@@ -329,17 +335,17 @@ export default function PolytechnicPage() {
                 <div className="iitCard w-100 d-flex flex-column">
                   <div className="d-flex align-items-center justify-content-between mb-3">
                     <span className="iitRank">#{idx + 1}</span>
-                    <span className="iitCodeBadge">WB</span>
+                    <span className="iitCodeBadge">{item.city}</span>
                   </div>
 
                   <div className="mb-3">
                     <h3 className="h6 fw-semibold mb-2 text-dark d-flex align-items-center gap-2">
                       <Globe size={16} className="text-primary" />
-                      <span>{item.title}</span>
+                      <span>{item.name}</span>
                     </h3>
 
                     <p className="small text-muted mb-0">
-                      Official portal for notices, institute listing and academic information.
+                     {item.state}
                     </p>
                   </div>
 
@@ -348,13 +354,13 @@ export default function PolytechnicPage() {
                   <div className="mt-auto d-flex justify-content-between align-items-center flex-wrap">
                     <span className="small text-muted d-block mb-1">Open</span>
                     <a
-                      href={item.url}
+                      href={item.website}
                       target="_blank"
                       rel="noreferrer"
                       className="iitWebsiteLink d-inline-flex align-items-center gap-1"
-                      title={item.url}
+                      title={item.website}
                     >
-                      <span>{item.url}</span>
+                      <span>{item.website}</span>
                       <ExternalLink size={14} aria-hidden="true" />
                     </a>
                   </div>

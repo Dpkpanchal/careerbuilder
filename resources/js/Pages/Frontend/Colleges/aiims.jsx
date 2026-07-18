@@ -46,132 +46,134 @@ const COLLEGE_TABS = [
 // AIIMS LIST – curated set of AIIMS campuses with websites
 // (you can extend this list further if needed)
 // -------------------------------------------------------------
-const AIIMS_LIST = [
-  {
-    no: 1,
-    name: "AIIMS New Delhi",
-    city: "New Delhi",
-    state: "Delhi",
-    website: "https://www.aiims.edu/en.html",
-  },
-  {
-    no: 2,
-    name: "AIIMS Bhopal",
-    city: "Bhopal",
-    state: "Madhya Pradesh",
-    website: "https://www.aiimsbhopal.edu.in",
-  },
-  {
-    no: 3,
-    name: "AIIMS Bhubaneswar",
-    city: "Bhubaneswar",
-    state: "Odisha",
-    website: "https://aiimsbhubaneswar.nic.in",
-  },
-  {
-    no: 4,
-    name: "AIIMS Jodhpur",
-    city: "Jodhpur",
-    state: "Rajasthan",
-    website: "https://www.aiimsjodhpur.edu.in",
-  },
-  {
-    no: 5,
-    name: "AIIMS Patna",
-    city: "Patna",
-    state: "Bihar",
-    website: "https://aiimspatna.edu.in",
-  },
-  {
-    no: 6,
-    name: "AIIMS Raipur",
-    city: "Raipur",
-    state: "Chhattisgarh",
-    website: "https://www.aiimsraipur.edu.in",
-  },
-  {
-    no: 7,
-    name: "AIIMS Rishikesh",
-    city: "Rishikesh",
-    state: "Uttarakhand",
-    website: "https://aiimsrishikesh.edu.in",
-  },
-  {
-    no: 8,
-    name: "AIIMS Kalyani",
-    city: "Kalyani",
-    state: "West Bengal",
-    website: "https://aiimskalyani.edu.in",
-  },
-  {
-    no: 9,
-    name: "AIIMS Gorakhpur",
-    city: "Gorakhpur",
-    state: "Uttar Pradesh",
-    website: "https://aiimsgorakhpur.edu.in",
-  },
-  {
-    no: 10,
-    name: "AIIMS Bathinda",
-    city: "Bathinda",
-    state: "Punjab",
-    website: "https://aiimsbathinda.edu.in",
-  },
-  {
-    no: 11,
-    name: "AIIMS Bilaspur",
-    city: "Bilaspur",
-    state: "Himachal Pradesh",
-    website: "https://www.aiimsbilaspur.edu.in",
-  },
-  {
-    no: 12,
-    name: "AIIMS Mangalagiri",
-    city: "Mangalagiri",
-    state: "Andhra Pradesh",
-    website: "https://www.aiimsmangalagiri.edu.in",
-  },
-  {
-    no: 13,
-    name: "AIIMS Deoghar",
-    city: "Deoghar",
-    state: "Jharkhand",
-    website: "https://www.aiimsdeoghar.edu.in",
-  },
-  {
-    no: 14,
-    name: "AIIMS Guwahati",
-    city: "Guwahati",
-    state: "Assam",
-    website: "https://aiimsguwahati.ac.in",
-  },
-  {
-    no: 15,
-    name: "AIIMS Nagpur",
-    city: "Nagpur",
-    state: "Maharashtra",
-    website: "https://aiimsnagpur.edu.in",
-  },
-  {
-    no: 16,
-    name: "AIIMS Rae Bareli",
-    city: "Rae Bareli",
-    state: "Uttar Pradesh",
-    website: "https://aiimsrbl.edu.in",
-  },
-  {
-    no: 17,
-    name: "AIIMS Vijaypur, Jammu",
-    city: "Vijaypur",
-    state: "Jammu and Kashmir",
-    website: "https://www.aiimsjammu.edu.in",
-  },
-];
+// const AIIMS_LIST = [
+//   {
+//     no: 1,
+//     name: "AIIMS New Delhi",
+//     city: "New Delhi",
+//     state: "Delhi",
+//     website: "https://www.aiims.edu/en.html",
+//   },
+//   {
+//     no: 2,
+//     name: "AIIMS Bhopal",
+//     city: "Bhopal",
+//     state: "Madhya Pradesh",
+//     website: "https://www.aiimsbhopal.edu.in",
+//   },
+//   {
+//     no: 3,
+//     name: "AIIMS Bhubaneswar",
+//     city: "Bhubaneswar",
+//     state: "Odisha",
+//     website: "https://aiimsbhubaneswar.nic.in",
+//   },
+//   {
+//     no: 4,
+//     name: "AIIMS Jodhpur",
+//     city: "Jodhpur",
+//     state: "Rajasthan",
+//     website: "https://www.aiimsjodhpur.edu.in",
+//   },
+//   {
+//     no: 5,
+//     name: "AIIMS Patna",
+//     city: "Patna",
+//     state: "Bihar",
+//     website: "https://aiimspatna.edu.in",
+//   },
+//   {
+//     no: 6,
+//     name: "AIIMS Raipur",
+//     city: "Raipur",
+//     state: "Chhattisgarh",
+//     website: "https://www.aiimsraipur.edu.in",
+//   },
+//   {
+//     no: 7,
+//     name: "AIIMS Rishikesh",
+//     city: "Rishikesh",
+//     state: "Uttarakhand",
+//     website: "https://aiimsrishikesh.edu.in",
+//   },
+//   {
+//     no: 8,
+//     name: "AIIMS Kalyani",
+//     city: "Kalyani",
+//     state: "West Bengal",
+//     website: "https://aiimskalyani.edu.in",
+//   },
+//   {
+//     no: 9,
+//     name: "AIIMS Gorakhpur",
+//     city: "Gorakhpur",
+//     state: "Uttar Pradesh",
+//     website: "https://aiimsgorakhpur.edu.in",
+//   },
+//   {
+//     no: 10,
+//     name: "AIIMS Bathinda",
+//     city: "Bathinda",
+//     state: "Punjab",
+//     website: "https://aiimsbathinda.edu.in",
+//   },
+//   {
+//     no: 11,
+//     name: "AIIMS Bilaspur",
+//     city: "Bilaspur",
+//     state: "Himachal Pradesh",
+//     website: "https://www.aiimsbilaspur.edu.in",
+//   },
+//   {
+//     no: 12,
+//     name: "AIIMS Mangalagiri",
+//     city: "Mangalagiri",
+//     state: "Andhra Pradesh",
+//     website: "https://www.aiimsmangalagiri.edu.in",
+//   },
+//   {
+//     no: 13,
+//     name: "AIIMS Deoghar",
+//     city: "Deoghar",
+//     state: "Jharkhand",
+//     website: "https://www.aiimsdeoghar.edu.in",
+//   },
+//   {
+//     no: 14,
+//     name: "AIIMS Guwahati",
+//     city: "Guwahati",
+//     state: "Assam",
+//     website: "https://aiimsguwahati.ac.in",
+//   },
+//   {
+//     no: 15,
+//     name: "AIIMS Nagpur",
+//     city: "Nagpur",
+//     state: "Maharashtra",
+//     website: "https://aiimsnagpur.edu.in",
+//   },
+//   {
+//     no: 16,
+//     name: "AIIMS Rae Bareli",
+//     city: "Rae Bareli",
+//     state: "Uttar Pradesh",
+//     website: "https://aiimsrbl.edu.in",
+//   },
+//   {
+//     no: 17,
+//     name: "AIIMS Vijaypur, Jammu",
+//     city: "Vijaypur",
+//     state: "Jammu and Kashmir",
+//     website: "https://www.aiimsjammu.edu.in",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function AIIMSPage() {
+export default function AIIMSPage({collegeContents}) {
+  const AIIMS_LIST = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>  

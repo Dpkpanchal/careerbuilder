@@ -85,62 +85,64 @@ const INSTITUTE_LINKS = [
 // West Bengal spotlight – Management & Business institutes
 // (curated list with official websites)
 // -------------------------------------------------------------
-const WB_MANAGEMENT_SPOTLIGHT = [
-  {
-    no: 1,
-    name: "Indian Institute of Management Calcutta (IIMC)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.iimcal.ac.in/",
-  },
-  {
-    no: 2,
-    name: "Indian Institute of Foreign Trade (IIFT) – Kolkata Campus",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.iift.ac.in/",
-  },
-  {
-    no: 3,
-    name: "Indian Institute of Social Welfare & Business Management (IISWBM)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.iiswbm.edu/",
-  },
-  {
-    no: 4,
-    name: "University of Calcutta – Dept. of Business Management",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.caluniv.ac.in/",
-  },
-  {
-    no: 5,
-    name: "Jadavpur University (Management / related departments)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://jadavpuruniversity.in/",
-  },
-  {
-    no: 6,
-    name: "St. Xavier’s College, Kolkata (Autonomous)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.sxccal.edu/",
-  },
-  {
-    no: 7,
-    name: "MAKAUT, West Bengal (University ecosystem for affiliated colleges)",
-    city: "Haringhata (Nadia)",
-    state: "West Bengal",
-    website: "https://makautwb.ac.in/",
-  },
-];
+// const WB_MANAGEMENT_SPOTLIGHT = [
+//   {
+//     no: 1,
+//     name: "Indian Institute of Management Calcutta (IIMC)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.iimcal.ac.in/",
+//   },
+//   {
+//     no: 2,
+//     name: "Indian Institute of Foreign Trade (IIFT) – Kolkata Campus",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.iift.ac.in/",
+//   },
+//   {
+//     no: 3,
+//     name: "Indian Institute of Social Welfare & Business Management (IISWBM)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.iiswbm.edu/",
+//   },
+//   {
+//     no: 4,
+//     name: "University of Calcutta – Dept. of Business Management",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.caluniv.ac.in/",
+//   },
+//   {
+//     no: 5,
+//     name: "Jadavpur University (Management / related departments)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://jadavpuruniversity.in/",
+//   },
+//   {
+//     no: 6,
+//     name: "St. Xavier’s College, Kolkata (Autonomous)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.sxccal.edu/",
+//   },
+//   {
+//     no: 7,
+//     name: "MAKAUT, West Bengal (University ecosystem for affiliated colleges)",
+//     city: "Haringhata (Nadia)",
+//     state: "West Bengal",
+//     website: "https://makautwb.ac.in/",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function ManagementBusinessCollegesPage() {
+export default function ManagementBusinessCollegesPage({collegeContents}) {
+  const WB_MANAGEMENT_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

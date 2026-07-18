@@ -10,6 +10,7 @@ class ExamContent extends Model
     protected $fillable = [
 
     'menu_id',
+    'master_id',
     'tab_id',
     'section_id',
     'url',
@@ -23,7 +24,7 @@ class ExamContent extends Model
     'route',
     'nature',
     'group',
-
+    'who',
     'purpose',
     'eligibility',
     'apply',
@@ -56,6 +57,11 @@ protected $casts = [
 
 
 
+public function master()
+{
+    return $this->belongsTo(Menu::class, 'master_id');
+}
+
 public function menu()
 {
     return $this->belongsTo(Menu::class,'menu_id');
@@ -70,6 +76,7 @@ public function section()
 {
     return $this->belongsTo(Menu::class,'section_id');
 }
+
 
 
 

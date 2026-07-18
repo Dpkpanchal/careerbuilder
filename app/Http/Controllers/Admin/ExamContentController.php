@@ -10,24 +10,39 @@ use App\Models\ExamContent;
 
 class ExamContentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-   public function index()
-    {
-       $examContents = ExamContent::with([
-            'menu:id,label',
-            'tab:id,label',
-            'section:id,label',
-        ])
+
+public function index(Request $request)
+{
+    $query = ExamContent::with([
+        'master:id,label',
+        'menu:id,label',
+        'tab:id,label',
+        'section:id,label',
+    ]);
+
+    if ($request->filled('link')) {
+        $query->where(function ($q) use ($request) {
+            $q->where('url', 'like', '%' . $request->link . '%')
+              ->orWhere('href', 'like', '%' . $request->link . '%')
+              ->orWhere('source', 'like', '%' . $request->link . '%');
+        });
+    }
+
+    if ($request->filled('status')) {
+        $query->where('is_active', $request->status === 'active');
+    }
+
+    $examContents = $query
         ->orderByDesc('id')
         ->paginate(10)
         ->withQueryString();
 
-        return Inertia::render('Admin/ExamContent/Index', [
-            'examContents' => $examContents,
-        ]);
-    }
+    return Inertia::render('Admin/ExamContent/Index', [
+        'examContents' => $examContents,
+        'filters'      => $request->only(['link', 'status']),
+    ]);
+}
+
 
     /**
      * Show the form for creating a new resource.
@@ -101,8 +116,11 @@ class ExamContentController extends Controller
 
     ]);
 
+    $examsMenu = Menu::where('key', 'exams')->whereNull('parent_id')->first();
+
     ExamContent::create([
 
+        'master_id' => $examsMenu?->id ?? 113,  // Assuming the master_id is the same as menu_id
         'menu_id' => $validated['menu_id'],
         'tab_id' => $validated['tab_id'] ?? null,
         'section_id' => $validated['section_id'] ?? null,

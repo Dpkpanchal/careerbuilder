@@ -36,7 +36,10 @@ const SafeIcon = ({ icon: IconComponent, ...props }) => {
   return <IconComponent {...props} />;
 };
 
-export default function EducationLoansPage() {
+export default function EducationLoansPage({data}) {
+
+
+
   return (
     <>
     <FrontendLayout>
@@ -56,10 +59,10 @@ export default function EducationLoansPage() {
               <div className="sch-card text-center">
                 <div className="loan-hero">
                   <h1 className="display-6 fw-bold text-primary mb-3">
-                    GET EDUCATION LOAN at the lowest Rate of Interest @ 3% p.a.!
+                    {data.title}
                   </h1>
                   <p className="lead mb-0 ">
-                    www.wbmdfc.net
+                    {data.subtitle}
                   </p>
                 
                 </div>
@@ -76,7 +79,7 @@ export default function EducationLoansPage() {
                   <h3 className="h5 mb-0 text-white">ELIGIBILITY</h3>
                 </div>
                 <p className="mb-0 text-white">
-                  Students domiciled in WB and pursuing Technical and Professional courses, Medical/ Engineering/ Law/Nursing/ Diploma/ Management/ BCA/ MCA etc.
+                  {data.eligibility}
                 </p>
               </div>
             </div>
@@ -89,8 +92,8 @@ export default function EducationLoansPage() {
                   <h3 className="h5 mb-0 text-white">APPLICATION</h3>
                 </div>
                 <ul className="loan-list text-white">
-                  <li>Students must apply ONLINE from July to October, every year at www.wbmdfc.net</li>
-                  <li>He / She need to take a print out of the application and get it verified by the institution.</li>
+                  <li> {data.application_process}</li>
+                  {/* <li>He / She need to take a print out of the application and get it verified by the institution.</li> */}
                 </ul>
               </div>
             </div>
@@ -103,7 +106,7 @@ export default function EducationLoansPage() {
                   <h3 className="h5 mb-0 text-white">AGE GROUP</h3>
                 </div>
                 <div className="age-group">
-                  <span className="age-value">within 32 years</span>
+                  <span className="age-value">{data.age_group}</span>
                 </div>
               </div>
             </div>
@@ -134,28 +137,32 @@ export default function EducationLoansPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Both Male & Female</td>
-                        <td className="text-center">Upto ₹81,000</td>
-                        <td className="text-center">Upto ₹1,03,000</td>
-                        <td rowSpan="3" className="interest-cell">
-                          <div className="interest-rate">
-                            <span className="rate">3% p.a.</span>
-                            <small>Lowest Rate of Interest</small>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Male</td>
-                        <td className="text-center">From ₹81,001 to ₹6,00,000</td>
-                        <td className="text-center">From ₹1,03,001 to ₹6,00,000</td>
-                      </tr>
-                      <tr>
-                        <td>Female</td>
-                        <td className="text-center">From ₹81,001 to ₹6,00,000</td>
-                        <td className="text-center">From ₹1,03,001 to ₹6,00,000</td>
-                      </tr>
-                    </tbody>
+                        {data.income_rates?.categories?.map((item, index) => (
+                          <tr key={index}>
+                            <td>{item.category}</td>
+
+                            <td className="text-center">{item.rural}</td>
+
+                            <td className="text-center">{item.urban}</td>
+
+                            {index === 0 && (
+                              <td
+                                rowSpan={data.income_rates.categories.length}
+                                className="interest-cell"
+                              >
+                                <div className="interest-rate">
+                                  <span className="rate">
+                                    {item.interest || "N/A"}
+                                  </span>
+                                  <small>Lowest Rate of Interest</small>
+                                </div>
+                              </td>
+                            )}
+                          </tr>
+                        ))}
+                      </tbody>
+
+
                   </table>
                 </div>
               </div>
@@ -171,7 +178,7 @@ export default function EducationLoansPage() {
                   <h3 className="h4 mb-0">DISBURSEMENT</h3>
                 </div>
                 <p className="mb-0">
-                  Eligible students, if selected for loan, will be required to open a joint account in the name of student and parent or legal guardian.
+                  {data.disbursement_info}
                 </p>
               </div>
             </div>
@@ -189,7 +196,7 @@ export default function EducationLoansPage() {
                   Compare education loan interest rates from top Indian banks
                 </p>
                 <a
-                  href="https://www.myloancare.in/education-loan-interest/"
+                  href={data.loan_care_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="fw-medium btn-primary filled text-secondry shadow-sm text-decoration-none"
@@ -210,7 +217,7 @@ export default function EducationLoansPage() {
                   Vidya Lakshmi Portal is an education Loan Portal managed by NSDL e-Governance Infrastructure Limited, Mumbai
                 </p>
                 <a
-                  href="https://www.vidyalakshmi.co.in/Students/"
+                  href={data.vidya_lakshmi_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="fw-medium btn-primary filled text-secondry shadow-sm text-decoration-none"

@@ -22,6 +22,11 @@ class Menu extends Model
         'is_active'   => 'boolean',
     ];
 
+    public function tabs()
+    {
+        return $this->hasMany(Tab::class, 'menu_id')->orderBy('sort_order');
+    }
+
     public function parent(): BelongsTo
     {
         return $this->belongsTo(Menu::class, 'parent_id');

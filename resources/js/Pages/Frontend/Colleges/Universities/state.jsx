@@ -12,7 +12,7 @@ import { Layers3, Network, MapPin, ExternalLink, University } from "lucide-react
 const UNIVERSITY_TABS = [
   { id: "central", label: "Central", href: '/colleges/central-universities' },
   { id: "state", label: "State", href: '/colleges/state-universities' },
-  { id: "private", label: "Private / Deemed", href: '#' },
+  // { id: "private", label: "Private / Deemed", href: '#' },
   { id: "open", label: "Open & Distance", href: '/colleges/open-distance-universities-ignou-nsou' },
 ];
 
@@ -29,25 +29,27 @@ const OFFICIAL_LINKS = {
 // WEST BENGAL SPOTLIGHT (curated list with official sites)
 // (You can extend this list later as you build dedicated pages)
 // -------------------------------------------------------------
-const WB_STATE_UNIVERSITIES = [
-  { no: 1, name: "University of Calcutta", city: "Kolkata", state: "West Bengal", website: "https://www.caluniv.ac.in/" },
-  { no: 2, name: "Jadavpur University", city: "Kolkata", state: "West Bengal", website: "https://jadavpuruniversity.in/" },
-  { no: 3, name: "Maulana Abul Kalam Azad University of Technology (MAKAUT)", city: "Nadia (Haringhata)", state: "West Bengal", website: "https://makautwb.ac.in/" },
-  { no: 4, name: "University of Kalyani", city: "Kalyani", state: "West Bengal", website: "https://klyuniv.ac.in/" },
-  { no: 5, name: "University of Burdwan", city: "Bardhaman", state: "West Bengal", website: "https://www.buruniv.ac.in/" },
-  { no: 6, name: "University of North Bengal", city: "Siliguri", state: "West Bengal", website: "https://www.nbu.ac.in/" },
-  { no: 7, name: "Vidyasagar University", city: "Midnapore", state: "West Bengal", website: "https://www.vidyasagar.ac.in/" },
-  { no: 8, name: "Presidency University", city: "Kolkata", state: "West Bengal", website: "https://www.presiuniv.ac.in/" },
-  { no: 9, name: "West Bengal State University", city: "Barasat", state: "West Bengal", website: "https://wbsu.ac.in/" },
-  { no: 10, name: "Bankura University", city: "Bankura", state: "West Bengal", website: "https://www.bankurauniv.ac.in/" },
-  { no: 11, name: "Aliah University", city: "Kolkata", state: "West Bengal", website: "https://www.aliah.ac.in/" },
-  { no: 12, name: "Rabindra Bharati University", city: "Kolkata", state: "West Bengal", website: "https://rbu.ac.in/" },
-];
+// const WB_STATE_UNIVERSITIES = [
+//   { no: 1, name: "University of Calcutta", city: "Kolkata", state: "West Bengal", website: "https://www.caluniv.ac.in/" },
+//   { no: 2, name: "Jadavpur University", city: "Kolkata", state: "West Bengal", website: "https://jadavpuruniversity.in/" },
+//   { no: 3, name: "Maulana Abul Kalam Azad University of Technology (MAKAUT)", city: "Nadia (Haringhata)", state: "West Bengal", website: "https://makautwb.ac.in/" },
+//   { no: 4, name: "University of Kalyani", city: "Kalyani", state: "West Bengal", website: "https://klyuniv.ac.in/" },
+//   { no: 5, name: "University of Burdwan", city: "Bardhaman", state: "West Bengal", website: "https://www.buruniv.ac.in/" },
+//   { no: 6, name: "University of North Bengal", city: "Siliguri", state: "West Bengal", website: "https://www.nbu.ac.in/" },
+//   { no: 7, name: "Vidyasagar University", city: "Midnapore", state: "West Bengal", website: "https://www.vidyasagar.ac.in/" },
+//   { no: 8, name: "Presidency University", city: "Kolkata", state: "West Bengal", website: "https://www.presiuniv.ac.in/" },
+//   { no: 9, name: "West Bengal State University", city: "Barasat", state: "West Bengal", website: "https://wbsu.ac.in/" },
+//   { no: 10, name: "Bankura University", city: "Bankura", state: "West Bengal", website: "https://www.bankurauniv.ac.in/" },
+//   { no: 11, name: "Aliah University", city: "Kolkata", state: "West Bengal", website: "https://www.aliah.ac.in/" },
+//   { no: 12, name: "Rabindra Bharati University", city: "Kolkata", state: "West Bengal", website: "https://rbu.ac.in/" },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function StateUniversitiesPage() {
+export default function StateUniversitiesPage({collegeContents}) {
+  const WB_STATE_UNIVERSITIES = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

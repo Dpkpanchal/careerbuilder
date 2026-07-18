@@ -46,197 +46,197 @@ const COLLEGE_TABS = [
 // NIFT LIST – EXACTLY from your Career Book (names + addresses + contacts + websites)
 // I’ve normalised spacing a bit but not added/removed any campuses.
 // -------------------------------------------------------------
-const NIFT_LIST = [
-  {
-    no: 1,
-    name: "NIFT Delhi",
-    city: "New Delhi",
-    state: "Delhi",
-    address:
-      "NIFT Campus, Hauz Khas, Near Gulmohar Park, New Delhi – 110016",
-    contact: "011-26542100, campusdirectordelhi@gmail.com",
-    website: "www.nift.ac.in/delhi",
-  },
-  {
-    no: 2,
-    name: "NIFT Mumbai",
-    city: "Navi Mumbai",
-    state: "Maharashtra",
-    address:
-      "NIFT Campus, Plot No. 15, Sector 4, Kharghar, Navi Mumbai – 410210 (Maharastra)",
-    contact: "022-27747000, nift.mumbai@nift.ac.in",
-    website: "www.nift.ac.in/mumbai",
-  },
-  {
-    no: 3,
-    name: "NIFT Bengaluru",
-    city: "Bangalore",
-    state: "Karnataka",
-    address:
-      "NIFT Campus, C.A. Site #21, Sector-1, 27th Main, HSR Layout, Bangalore – 560102, Karnataka",
-    contact: "080-22552550-56, director.bengaluru@nift.ac.in",
-    website: "www.nift.ac.in/bengaluru",
-  },
-  {
-    no: 4,
-    name: "NIFT Gandhinagar",
-    city: "Gandhinagar",
-    state: "Gujarat",
-    address: "GH-0 Circle, Gandhinagar – 382007, Gujarat",
-    contact: "079-23240832, nift.gandhinagar@nift.ac.in",
-    website: "www.nift.ac.in/gandhinagar",
-  },
-  {
-    no: 5,
-    name: "NIFT Hyderabad",
-    city: "Hyderabad",
-    state: "Telangana",
-    address: "Opp. Hitech City, Madhapur, Hyderabad – 500081",
-    contact: "040-23114537, nift.hyderabad@nift.ac.in",
-    website: "www.nift.ac.in/hyderabad",
-  },
-  {
-    no: 6,
-    name: "NIFT Chennai",
-    city: "Chennai",
-    state: "Tamil Nadu",
-    address:
-      "NIFT Campus, (near Tidel Park and Software Technology Park of India), Rajiv Gandhi Salai, Taramani, Chennai – 600113, Tamil Nadu",
-    contact:
-      "044-22542755 / 22542756, nift.chennai@nift.ac.in, director.chennai@nift.ac.in",
-    website: "www.nift.ac.in/chennai",
-  },
-  {
-    no: 7,
-    name: "NIFT Kolkata",
-    city: "Kolkata",
-    state: "West Bengal",
-    address:
-      "Plot – 3B, Block-LA, Near 16 No. Water Tank, Sector III, Salt Lake City, Kolkata – 700098, West Bengal",
-    contact: "+91-33-23358872, nift.kolkata@nift.ac.in",
-    website: "www.nift.ac.in/kolkata",
-  },
-  {
-    no: 8,
-    name: "NIFT Bhopal",
-    city: "Bhopal",
-    state: "Madhya Pradesh",
-    address:
-      "NIFT Block, MP Bhoj (Open) University Campus, Kolar Road, Bhopal – 462016 (Madhya Pradesh)",
-    contact:
-      "0755-2493636, nift.bhopal@nift.ac.in, director.bhopal@nift.ac.in",
-    website: "www.nift.ac.in/bhopal",
-  },
-  {
-    no: 9,
-    name: "NIFT Patna",
-    city: "Patna",
-    state: "Bihar",
-    address:
-      "NIFT Patna Campus, Near Jakkanpur Police Station, Mithapur, Patna – 800001, Bihar",
-    contact: "0612-2675087, nift.patna@nift.ac.in",
-    website: "www.nift.ac.in/patna",
-  },
-  {
-    no: 10,
-    name: "NIFT Kangra",
-    city: "Kangra",
-    state: "Himachal Pradesh",
-    address: "Chheb, Kangra – 176001, Himachal Pradesh",
-    contact: "01892-260874, nift.kangra@nift.ac.in",
-    website: "www.nift.ac.in/kangra",
-  },
-  {
-    no: 11,
-    name: "NIFT Shillong",
-    city: "Shillong",
-    state: "Meghalaya",
-    address:
-      "NIFT Campus, North Eastern Indira Gandhi Regional Institute of Health & Medical Sciences (Old NEIGRIHMS Campus), 'C' Block, Pasteur Hills, Lawmali, Shillong – 793012, Meghalaya",
-    contact: "0364-2590240, nift.shillong@nift.ac.in",
-    website: "www.nift.ac.in/shillong",
-  },
-  {
-    no: 12,
-    name: "NIFT Bhubaneswar",
-    city: "Bhubaneswar",
-    state: "Odissa",
-    address:
-      "IDCO Plot No. 24, Opp. KIIT School of Management, Chandaka Industrial Estate, Bhubaneswar – 751024 (Odissa)",
-    contact: "0674-2305700, nift.bhubneswar@nift.ac.in",
-    website: "www.nift.ac.in/bhubaneswar",
-  },
-  {
-    no: 13,
-    name: "NIFT Rae Bareli",
-    city: "Rae Bareli",
-    state: "Uttar Pradesh",
-    address:
-      "NIFT Campus, Doorbhash Nagar, Rae Bareli – 229010, Uttar Pradesh",
-    contact: "0535-2702426, nift.raebareli@nift.ac.in",
-    website: "www.nift.ac.in/raebareli",
-  },
-  {
-    no: 14,
-    name: "NIFT Jodhpur",
-    city: "Jodhpur",
-    state: "Rajasthan",
-    address: "Inside Sojati Gate, Jodhpur – 342001, Rajasthan",
-    contact: "0291-3246310, director.niftjodhpur@gmail.com",
-    website: "www.nift.ac.in/jodhpur",
-  },
-  {
-    no: 15,
-    name: "NIFT Kannur",
-    city: "Kannur",
-    state: "Kerala",
-    address:
-      "NIFT Campus, Dharmasala, Mangattuparamba, Kannur – 670562, Kerala",
-    contact: "0497-2784780–84, nift.kannur@nift.ac.in",
-    website: "www.nift.ac.in/kannur",
-  },
-];
+// const NIFT_LIST = [
+//   {
+//     no: 1,
+//     name: "NIFT Delhi",
+//     city: "New Delhi",
+//     state: "Delhi",
+//     address:
+//       "NIFT Campus, Hauz Khas, Near Gulmohar Park, New Delhi – 110016",
+//     contact: "011-26542100, campusdirectordelhi@gmail.com",
+//     website: "www.nift.ac.in/delhi",
+//   },
+//   {
+//     no: 2,
+//     name: "NIFT Mumbai",
+//     city: "Navi Mumbai",
+//     state: "Maharashtra",
+//     address:
+//       "NIFT Campus, Plot No. 15, Sector 4, Kharghar, Navi Mumbai – 410210 (Maharastra)",
+//     contact: "022-27747000, nift.mumbai@nift.ac.in",
+//     website: "www.nift.ac.in/mumbai",
+//   },
+//   {
+//     no: 3,
+//     name: "NIFT Bengaluru",
+//     city: "Bangalore",
+//     state: "Karnataka",
+//     address:
+//       "NIFT Campus, C.A. Site #21, Sector-1, 27th Main, HSR Layout, Bangalore – 560102, Karnataka",
+//     contact: "080-22552550-56, director.bengaluru@nift.ac.in",
+//     website: "www.nift.ac.in/bengaluru",
+//   },
+//   {
+//     no: 4,
+//     name: "NIFT Gandhinagar",
+//     city: "Gandhinagar",
+//     state: "Gujarat",
+//     address: "GH-0 Circle, Gandhinagar – 382007, Gujarat",
+//     contact: "079-23240832, nift.gandhinagar@nift.ac.in",
+//     website: "www.nift.ac.in/gandhinagar",
+//   },
+//   {
+//     no: 5,
+//     name: "NIFT Hyderabad",
+//     city: "Hyderabad",
+//     state: "Telangana",
+//     address: "Opp. Hitech City, Madhapur, Hyderabad – 500081",
+//     contact: "040-23114537, nift.hyderabad@nift.ac.in",
+//     website: "www.nift.ac.in/hyderabad",
+//   },
+//   {
+//     no: 6,
+//     name: "NIFT Chennai",
+//     city: "Chennai",
+//     state: "Tamil Nadu",
+//     address:
+//       "NIFT Campus, (near Tidel Park and Software Technology Park of India), Rajiv Gandhi Salai, Taramani, Chennai – 600113, Tamil Nadu",
+//     contact:
+//       "044-22542755 / 22542756, nift.chennai@nift.ac.in, director.chennai@nift.ac.in",
+//     website: "www.nift.ac.in/chennai",
+//   },
+//   {
+//     no: 7,
+//     name: "NIFT Kolkata",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     address:
+//       "Plot – 3B, Block-LA, Near 16 No. Water Tank, Sector III, Salt Lake City, Kolkata – 700098, West Bengal",
+//     contact: "+91-33-23358872, nift.kolkata@nift.ac.in",
+//     website: "www.nift.ac.in/kolkata",
+//   },
+//   {
+//     no: 8,
+//     name: "NIFT Bhopal",
+//     city: "Bhopal",
+//     state: "Madhya Pradesh",
+//     address:
+//       "NIFT Block, MP Bhoj (Open) University Campus, Kolar Road, Bhopal – 462016 (Madhya Pradesh)",
+//     contact:
+//       "0755-2493636, nift.bhopal@nift.ac.in, director.bhopal@nift.ac.in",
+//     website: "www.nift.ac.in/bhopal",
+//   },
+//   {
+//     no: 9,
+//     name: "NIFT Patna",
+//     city: "Patna",
+//     state: "Bihar",
+//     address:
+//       "NIFT Patna Campus, Near Jakkanpur Police Station, Mithapur, Patna – 800001, Bihar",
+//     contact: "0612-2675087, nift.patna@nift.ac.in",
+//     website: "www.nift.ac.in/patna",
+//   },
+//   {
+//     no: 10,
+//     name: "NIFT Kangra",
+//     city: "Kangra",
+//     state: "Himachal Pradesh",
+//     address: "Chheb, Kangra – 176001, Himachal Pradesh",
+//     contact: "01892-260874, nift.kangra@nift.ac.in",
+//     website: "www.nift.ac.in/kangra",
+//   },
+//   {
+//     no: 11,
+//     name: "NIFT Shillong",
+//     city: "Shillong",
+//     state: "Meghalaya",
+//     address:
+//       "NIFT Campus, North Eastern Indira Gandhi Regional Institute of Health & Medical Sciences (Old NEIGRIHMS Campus), 'C' Block, Pasteur Hills, Lawmali, Shillong – 793012, Meghalaya",
+//     contact: "0364-2590240, nift.shillong@nift.ac.in",
+//     website: "www.nift.ac.in/shillong",
+//   },
+//   {
+//     no: 12,
+//     name: "NIFT Bhubaneswar",
+//     city: "Bhubaneswar",
+//     state: "Odissa",
+//     address:
+//       "IDCO Plot No. 24, Opp. KIIT School of Management, Chandaka Industrial Estate, Bhubaneswar – 751024 (Odissa)",
+//     contact: "0674-2305700, nift.bhubneswar@nift.ac.in",
+//     website: "www.nift.ac.in/bhubaneswar",
+//   },
+//   {
+//     no: 13,
+//     name: "NIFT Rae Bareli",
+//     city: "Rae Bareli",
+//     state: "Uttar Pradesh",
+//     address:
+//       "NIFT Campus, Doorbhash Nagar, Rae Bareli – 229010, Uttar Pradesh",
+//     contact: "0535-2702426, nift.raebareli@nift.ac.in",
+//     website: "www.nift.ac.in/raebareli",
+//   },
+//   {
+//     no: 14,
+//     name: "NIFT Jodhpur",
+//     city: "Jodhpur",
+//     state: "Rajasthan",
+//     address: "Inside Sojati Gate, Jodhpur – 342001, Rajasthan",
+//     contact: "0291-3246310, director.niftjodhpur@gmail.com",
+//     website: "www.nift.ac.in/jodhpur",
+//   },
+//   {
+//     no: 15,
+//     name: "NIFT Kannur",
+//     city: "Kannur",
+//     state: "Kerala",
+//     address:
+//       "NIFT Campus, Dharmasala, Mangattuparamba, Kannur – 670562, Kerala",
+//     contact: "0497-2784780–84, nift.kannur@nift.ac.in",
+//     website: "www.nift.ac.in/kannur",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // NID LIST – external (you allowed this in Option B)
 // -------------------------------------------------------------
-const NID_LIST = [
-  {
-    no: 1,
-    name: "NID Ahmedabad",
-    city: "Ahmedabad",
-    state: "Gujarat",
-    website: "www.nid.edu",
-  },
-  {
-    no: 2,
-    name: "NID Bengaluru",
-    city: "Bengaluru",
-    state: "Karnataka",
-    website: "www.nid.edu/campus/bengaluru",
-  },
-  {
-    no: 3,
-    name: "NID Gandhinagar",
-    city: "Gandhinagar",
-    state: "Gujarat",
-    website: "www.nid.edu/campus/gandhinagar",
-  },
-  {
-    no: 4,
-    name: "NID Andhra Pradesh",
-    city: "Amaravati",
-    state: "Andhra Pradesh",
-    website: "nid.ac.in",
-  },
-  {
-    no: 5,
-    name: "NID Assam",
-    city: "Jorhat",
-    state: "Assam",
-    website: "nidj.ac.in",
-  },
-];
+// const NID_LIST = [
+//   {
+//     no: 1,
+//     name: "NID Ahmedabad",
+//     city: "Ahmedabad",
+//     state: "Gujarat",
+//     website: "www.nid.edu",
+//   },
+//   {
+//     no: 2,
+//     name: "NID Bengaluru",
+//     city: "Bengaluru",
+//     state: "Karnataka",
+//     website: "www.nid.edu/campus/bengaluru",
+//   },
+//   {
+//     no: 3,
+//     name: "NID Gandhinagar",
+//     city: "Gandhinagar",
+//     state: "Gujarat",
+//     website: "www.nid.edu/campus/gandhinagar",
+//   },
+//   {
+//     no: 4,
+//     name: "NID Andhra Pradesh",
+//     city: "Amaravati",
+//     state: "Andhra Pradesh",
+//     website: "nid.ac.in",
+//   },
+//   {
+//     no: 5,
+//     name: "NID Assam",
+//     city: "Jorhat",
+//     state: "Assam",
+//     website: "nidj.ac.in",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // Helper: URL normaliser (keeps display text same as book)
@@ -315,7 +315,10 @@ function NiftCard({ campus }) {
 // -------------------------------------------------------------
 // Main Page
 // -------------------------------------------------------------
-export default function DesignCollegesPage() {
+export default function DesignCollegesPage({collegeContents}) { 
+  const NIFT_LIST = Array.isArray(collegeContents) ? collegeContents.filter(campus => campus.code === "NIFT") : [];
+  const NID_LIST = Array.isArray(collegeContents) ? collegeContents.filter(campus => campus.code === "NID") : [];
+
   return (
     <>
       <FrontendLayout>

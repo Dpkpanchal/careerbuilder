@@ -88,48 +88,50 @@ const INSTITUTE_LINKS = [
 // West Bengal spotlight – Teacher Education / B.Ed ecosystem
 // (curated list with official websites)
 // -------------------------------------------------------------
-const WB_BED_SPOTLIGHT = [
-  {
-    no: 1,
-    name: "West Bengal University of Teachers' Training, Education Planning and Administration (WBUTTEPA)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://wbuttepa.ac.in/",
-  },
-  {
-    no: 2,
-    name: "University of Calcutta (Education / Teacher Education ecosystem)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://www.caluniv.ac.in/",
-  },
-  {
-    no: 3,
-    name: "Jadavpur University (Education / allied departments)",
-    city: "Kolkata",
-    state: "West Bengal",
-    website: "https://jadavpuruniversity.in/",
-  },
-  {
-    no: 4,
-    name: "University of North Bengal (Education / affiliated ecosystem)",
-    city: "Siliguri (Darjeeling)",
-    state: "West Bengal",
-    website: "https://www.nbu.ac.in/",
-  },
-  {
-    no: 5,
-    name: "Burdwan University (Education / affiliated ecosystem)",
-    city: "Purba Bardhaman",
-    state: "West Bengal",
-    website: "https://www.buruniv.ac.in/",
-  },
-];
+// const WB_BED_SPOTLIGHT = [
+//   {
+//     no: 1,
+//     name: "West Bengal University of Teachers' Training, Education Planning and Administration (WBUTTEPA)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://wbuttepa.ac.in/",
+//   },
+//   {
+//     no: 2,
+//     name: "University of Calcutta (Education / Teacher Education ecosystem)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://www.caluniv.ac.in/",
+//   },
+//   {
+//     no: 3,
+//     name: "Jadavpur University (Education / allied departments)",
+//     city: "Kolkata",
+//     state: "West Bengal",
+//     website: "https://jadavpuruniversity.in/",
+//   },
+//   {
+//     no: 4,
+//     name: "University of North Bengal (Education / affiliated ecosystem)",
+//     city: "Siliguri (Darjeeling)",
+//     state: "West Bengal",
+//     website: "https://www.nbu.ac.in/",
+//   },
+//   {
+//     no: 5,
+//     name: "Burdwan University (Education / affiliated ecosystem)",
+//     city: "Purba Bardhaman",
+//     state: "West Bengal",
+//     website: "https://www.buruniv.ac.in/",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function TeacherTrainingBEdCollegesPage() {
+export default function TeacherTrainingBEdCollegesPage({collegeContents}) {
+  const WB_BED_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

@@ -49,152 +49,155 @@ const COLLEGE_TABS = [
 // EXACT IIT DATA YOU PASTED (NOTHING ADDED / REMOVED)
 // -------------------------------------------------------------
 
-const IIT_LIST = [
-  {
-    name: "IIT Kharagpur",
-    code: "IITKGP",
-    state: "West Bengal",
-    website: "http://www.iitkgp.ac.in",
-  },
-  {
-    name: "IIT Bombay",
-    code: "IITB",
-    state: "Maharashtra",
-    website: "http://www.iitb.ac.in",
-  },
-  {
-    name: "IIT Kanpur",
-    code: "IITK",
-    state: "Uttar Pradesh",
-    website: "http://www.iitk.ac.in",
-  },
-  {
-    name: "IIT Madras",
-    code: "IITM",
-    state: "Tamil Nadu",
-    website: "http://www.iitm.ac.in/",
-  },
-  {
-    name: "IIT Delhi",
-    code: "IITD",
-    state: "Delhi",
-    website: "http://www.iitd.ac.in",
-  },
-  {
-    name: "IIT Guwahati",
-    code: "IITG",
-    state: "Assam",
-    website: "http://www.iitg.ernet.in",
-  },
-  {
-    name: "IIT Roorkee",
-    code: "IITR",
-    state: "Uttarakhand",
-    website: "http://www.iitr.ernet.in",
-  },
-  {
-    name: "IIT Ropar",
-    code: "IITRPR",
-    state: "Punjab",
-    website: "http://www.iitrpr.ac.in",
-  },
-  {
-    name: "IIT Bhubaneswar",
-    code: "IITBBS",
-    state: "Odisha",
-    website: "http://www.iitbbs.ac.in",
-  },
-  {
-    name: "IIT Gandhinagar",
-    code: "IITGN",
-    state: "Gujarat",
-    website: "https://www.iitgn.ac.in/",
-  },
-  {
-    name: "IIT Hyderabad",
-    code: "IITH",
-    state: "Telangana",
-    website: "http://www.iith.ac.in",
-  },
-  {
-    name: "IIT Jodhpur",
-    code: "IITJ",
-    state: "Rajasthan",
-    website: "http://www.iitj.ac.in",
-  },
-  {
-    name: "IIT Patna",
-    code: "IITP",
-    state: "Bihar",
-    website: "http://www.iitp.ac.in",
-  },
-  {
-    name: "IIT Indore",
-    code: "IITI",
-    state: "Madhya Pradesh",
-    website: "http://www.iiti.ac.in",
-  },
-  {
-    name: "IIT Mandi",
-    code: "IITMandi",
-    state: "Himachal Pradesh",
-    website: "http://www.iitmandi.ac.in",
-  },
-  {
-    name: "IIT (BHU) Varanasi",
-    code: "IIT (BHU)",
-    state: "Uttar Pradesh",
-    website: "http://iitbhu.ac.in",
-  },
-  {
-    name: "IIT Palakkad",
-    code: "IITPKD",
-    state: "Kerala",
-    website: "http://iitpkd.ac.in",
-  },
-  {
-    name: "IIT Tirupati",
-    code: "IITTP",
-    state: "Andhra Pradesh",
-    website: "http://iittp.ac.in",
-  },
-  {
-    name: "IIT Dhanbad",
-    code: "IIT (ISM)",
-    state: "Jharkhand",
-    website: "http://iitism.ac.in",
-  },
-  {
-    name: "IIT Bhilai",
-    code: "IITBH",
-    state: "Chhattisgarh",
-    website: "https://www.iitbhilai.ac.in",
-  },
-  {
-    name: "IIT Goa",
-    code: "IITGOA",
-    state: "Goa",
-    website: "http://www.iitgoa.ac.in",
-  },
-  {
-    name: "IIT Jammu",
-    code: "IITJMU",
-    state: "Jammu and Kashmir",
-    website: "http://iitjammu.ac.in",
-  },
-  {
-    name: "IIT Dharwad",
-    code: "IITDH",
-    state: "Karnataka",
-    website: "http://www.iitdh.ac.in",
-  },
-];
+// const IIT_LIST = [
+//   {
+//     name: "IIT Kharagpur",
+//     code: "IITKGP",
+//     state: "West Bengal",
+//     website: "http://www.iitkgp.ac.in",
+//   },
+//   {
+//     name: "IIT Bombay",
+//     code: "IITB",
+//     state: "Maharashtra",
+//     website: "http://www.iitb.ac.in",
+//   },
+//   {
+//     name: "IIT Kanpur",
+//     code: "IITK",
+//     state: "Uttar Pradesh",
+//     website: "http://www.iitk.ac.in",
+//   },
+//   {
+//     name: "IIT Madras",
+//     code: "IITM",
+//     state: "Tamil Nadu",
+//     website: "http://www.iitm.ac.in/",
+//   },
+//   {
+//     name: "IIT Delhi",
+//     code: "IITD",
+//     state: "Delhi",
+//     website: "http://www.iitd.ac.in",
+//   },
+//   {
+//     name: "IIT Guwahati",
+//     code: "IITG",
+//     state: "Assam",
+//     website: "http://www.iitg.ernet.in",
+//   },
+//   {
+//     name: "IIT Roorkee",
+//     code: "IITR",
+//     state: "Uttarakhand",
+//     website: "http://www.iitr.ernet.in",
+//   },
+//   {
+//     name: "IIT Ropar",
+//     code: "IITRPR",
+//     state: "Punjab",
+//     website: "http://www.iitrpr.ac.in",
+//   },
+//   {
+//     name: "IIT Bhubaneswar",
+//     code: "IITBBS",
+//     state: "Odisha",
+//     website: "http://www.iitbbs.ac.in",
+//   },
+//   {
+//     name: "IIT Gandhinagar",
+//     code: "IITGN",
+//     state: "Gujarat",
+//     website: "https://www.iitgn.ac.in/",
+//   },
+//   {
+//     name: "IIT Hyderabad",
+//     code: "IITH",
+//     state: "Telangana",
+//     website: "http://www.iith.ac.in",
+//   },
+//   {
+//     name: "IIT Jodhpur",
+//     code: "IITJ",
+//     state: "Rajasthan",
+//     website: "http://www.iitj.ac.in",
+//   },
+//   {
+//     name: "IIT Patna",
+//     code: "IITP",
+//     state: "Bihar",
+//     website: "http://www.iitp.ac.in",
+//   },
+//   {
+//     name: "IIT Indore",
+//     code: "IITI",
+//     state: "Madhya Pradesh",
+//     website: "http://www.iiti.ac.in",
+//   },
+//   {
+//     name: "IIT Mandi",
+//     code: "IITMandi",
+//     state: "Himachal Pradesh",
+//     website: "http://www.iitmandi.ac.in",
+//   },
+//   {
+//     name: "IIT (BHU) Varanasi",
+//     code: "IIT (BHU)",
+//     state: "Uttar Pradesh",
+//     website: "http://iitbhu.ac.in",
+//   },
+//   {
+//     name: "IIT Palakkad",
+//     code: "IITPKD",
+//     state: "Kerala",
+//     website: "http://iitpkd.ac.in",
+//   },
+//   {
+//     name: "IIT Tirupati",
+//     code: "IITTP",
+//     state: "Andhra Pradesh",
+//     website: "http://iittp.ac.in",
+//   },
+//   {
+//     name: "IIT Dhanbad",
+//     code: "IIT (ISM)",
+//     state: "Jharkhand",
+//     website: "http://iitism.ac.in",
+//   },
+//   {
+//     name: "IIT Bhilai",
+//     code: "IITBH",
+//     state: "Chhattisgarh",
+//     website: "https://www.iitbhilai.ac.in",
+//   },
+//   {
+//     name: "IIT Goa",
+//     code: "IITGOA",
+//     state: "Goa",
+//     website: "http://www.iitgoa.ac.in",
+//   },
+//   {
+//     name: "IIT Jammu",
+//     code: "IITJMU",
+//     state: "Jammu and Kashmir",
+//     website: "http://iitjammu.ac.in",
+//   },
+//   {
+//     name: "IIT Dharwad",
+//     code: "IITDH",
+//     state: "Karnataka",
+//     website: "http://www.iitdh.ac.in",
+//   },
+// ];
 
 // -------------------------------------------------------------
 // MAIN PAGE
 // -------------------------------------------------------------
 
-export default function IITsPage() {
+export default function IITsPage({collegeContents}) {
+
+  const IIT_LIST = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>

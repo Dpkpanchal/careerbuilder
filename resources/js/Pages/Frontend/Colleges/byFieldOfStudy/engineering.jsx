@@ -68,36 +68,38 @@ const INSTITUTE_LINKS = [
 // -------------------------------------------------------------
 // West Bengal spotlight – expanded (official websites)
 // -------------------------------------------------------------
-const WB_ENGINEERING_SPOTLIGHT = [
-  // University / INI / Govt
-  { no: 1, name: "Jadavpur University – Faculty of Engineering & Technology", city: "Kolkata", state: "West Bengal", website: "https://jadavpuruniversity.in/" },
-  { no: 2, name: "IIEST, Shibpur", city: "Howrah", state: "West Bengal", website: "https://www.iiests.ac.in/" },
-  { no: 3, name: "Jalpaiguri Government Engineering College (JGEC)", city: "Jalpaiguri", state: "West Bengal", website: "https://jgec.ac.in/" },
-  { no: 4, name: "Kalyani Government Engineering College (KGEC)", city: "Kalyani", state: "West Bengal", website: "https://www.kgec.edu.in/" },
-  { no: 5, name: "Cooch Behar Government Engineering College (CGEC)", city: "Cooch Behar", state: "West Bengal", website: "https://cgec.org.in/" },
-  { no: 6, name: "Ramkrishna Mahato Government Engineering College (RKMGEC)", city: "Purulia", state: "West Bengal", website: "https://rkmgec.ac.in/" },
-  { no: 7, name: "Government College of Engineering & Textile Technology, Berhampore (GCETTB)", city: "Berhampore", state: "West Bengal", website: "https://www.gcettb.ac.in/" },
-  { no: 8, name: "Government College of Engineering & Textile Technology, Serampore (GCETTS)", city: "Serampore", state: "West Bengal", website: "https://www.gcetts.ac.in/" },
-  { no: 9, name: "Government College of Engineering & Leather Technology (GCELT)", city: "Kolkata (Salt Lake)", state: "West Bengal", website: "https://gcelt.gov.in/" },
+// const WB_ENGINEERING_SPOTLIGHT = [
+//   // University / INI / Govt
+//   { no: 1, name: "Jadavpur University – Faculty of Engineering & Technology", city: "Kolkata", state: "West Bengal", website: "https://jadavpuruniversity.in/" },
+//   { no: 2, name: "IIEST, Shibpur", city: "Howrah", state: "West Bengal", website: "https://www.iiests.ac.in/" },
+//   { no: 3, name: "Jalpaiguri Government Engineering College (JGEC)", city: "Jalpaiguri", state: "West Bengal", website: "https://jgec.ac.in/" },
+//   { no: 4, name: "Kalyani Government Engineering College (KGEC)", city: "Kalyani", state: "West Bengal", website: "https://www.kgec.edu.in/" },
+//   { no: 5, name: "Cooch Behar Government Engineering College (CGEC)", city: "Cooch Behar", state: "West Bengal", website: "https://cgec.org.in/" },
+//   { no: 6, name: "Ramkrishna Mahato Government Engineering College (RKMGEC)", city: "Purulia", state: "West Bengal", website: "https://rkmgec.ac.in/" },
+//   { no: 7, name: "Government College of Engineering & Textile Technology, Berhampore (GCETTB)", city: "Berhampore", state: "West Bengal", website: "https://www.gcettb.ac.in/" },
+//   { no: 8, name: "Government College of Engineering & Textile Technology, Serampore (GCETTS)", city: "Serampore", state: "West Bengal", website: "https://www.gcetts.ac.in/" },
+//   { no: 9, name: "Government College of Engineering & Leather Technology (GCELT)", city: "Kolkata (Salt Lake)", state: "West Bengal", website: "https://gcelt.gov.in/" },
 
-  // Private (popular)
-  { no: 10, name: "Heritage Institute of Technology, Kolkata (HITK)", city: "Kolkata", state: "West Bengal", website: "https://www.heritageit.edu/" },
-  { no: 11, name: "Haldia Institute of Technology (HIT Haldia)", city: "Haldia", state: "West Bengal", website: "https://hithaldia.ac.in/" },
-  { no: 12, name: "Institute of Engineering & Management (IEM), Kolkata", city: "Kolkata", state: "West Bengal", website: "https://iem.edu.in/" },
-  { no: 13, name: "Techno Main Salt Lake", city: "Kolkata (Salt Lake)", state: "West Bengal", website: "https://www.ticollege.ac.in/" },
-  { no: 14, name: "Narula Institute of Technology", city: "Kolkata (Agarpara)", state: "West Bengal", website: "https://www.nit.ac.in/" },
-  { no: 15, name: "RCC Institute of Information Technology (RCCIIT)", city: "Kolkata", state: "West Bengal", website: "https://rcciit.edu.in/" },
-  { no: 16, name: "Meghnad Saha Institute of Technology (MSIT)", city: "Kolkata", state: "West Bengal", website: "https://msit.edu.in/" },
-  { no: 17, name: "Netaji Subhash Engineering College (NSEC)", city: "Kolkata", state: "West Bengal", website: "https://www.nsec.ac.in/" },
-  { no: 18, name: "Techno International New Town", city: "Kolkata (New Town)", state: "West Bengal", website: "https://tint.edu.in/" },
-  { no: 19, name: "Bengal Institute of Technology (BIT)", city: "Kolkata", state: "West Bengal", website: "https://bitcollege.in/" },
-  { no: 20, name: "Future Institute of Engineering & Management (FIEM)", city: "Kolkata (Sonarpur)", state: "West Bengal", website: "https://futureengineering.in/" },
-];
+//   // Private (popular)
+//   { no: 10, name: "Heritage Institute of Technology, Kolkata (HITK)", city: "Kolkata", state: "West Bengal", website: "https://www.heritageit.edu/" },
+//   { no: 11, name: "Haldia Institute of Technology (HIT Haldia)", city: "Haldia", state: "West Bengal", website: "https://hithaldia.ac.in/" },
+//   { no: 12, name: "Institute of Engineering & Management (IEM), Kolkata", city: "Kolkata", state: "West Bengal", website: "https://iem.edu.in/" },
+//   { no: 13, name: "Techno Main Salt Lake", city: "Kolkata (Salt Lake)", state: "West Bengal", website: "https://www.ticollege.ac.in/" },
+//   { no: 14, name: "Narula Institute of Technology", city: "Kolkata (Agarpara)", state: "West Bengal", website: "https://www.nit.ac.in/" },
+//   { no: 15, name: "RCC Institute of Information Technology (RCCIIT)", city: "Kolkata", state: "West Bengal", website: "https://rcciit.edu.in/" },
+//   { no: 16, name: "Meghnad Saha Institute of Technology (MSIT)", city: "Kolkata", state: "West Bengal", website: "https://msit.edu.in/" },
+//   { no: 17, name: "Netaji Subhash Engineering College (NSEC)", city: "Kolkata", state: "West Bengal", website: "https://www.nsec.ac.in/" },
+//   { no: 18, name: "Techno International New Town", city: "Kolkata (New Town)", state: "West Bengal", website: "https://tint.edu.in/" },
+//   { no: 19, name: "Bengal Institute of Technology (BIT)", city: "Kolkata", state: "West Bengal", website: "https://bitcollege.in/" },
+//   { no: 20, name: "Future Institute of Engineering & Management (FIEM)", city: "Kolkata (Sonarpur)", state: "West Bengal", website: "https://futureengineering.in/" },
+// ];
 
 // -------------------------------------------------------------
 // PAGE
 // -------------------------------------------------------------
-export default function EngineeringCollegesPage() {
+export default function EngineeringCollegesPage({collegeContents}) {
+  const WB_ENGINEERING_SPOTLIGHT = Array.isArray(collegeContents) ? collegeContents : [];
+
   return (
     <>
     <FrontendLayout>
