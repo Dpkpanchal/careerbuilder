@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminLayout from '@/Layouts/AdminLayout';
-import { Head, Link, useForm, router } from '@inertiajs/react';
+import { Head, Link, useForm, router, usePage } from '@inertiajs/react';
 
 const UsersIndex = ({ users, filters }) => {
+
+    const { flash } = usePage().props;
+    const [bannerMessage, setBannerMessage] = useState(null);
+
+    useEffect(() => {
+        if (flash?.success) {
+            setBannerMessage({ type: 'success', text: flash.success });
+        } else if (flash?.error) {
+            setBannerMessage({ type: 'error', text: flash.error });
+        }
+    }, [flash]);
 
     const { data, setData } = useForm({
         search: filters.search || '',
         role: filters.role || '',
-        status: filters.status || '', // ✅ NEW
+        status: filters.status || '',
         sort_field: filters.sort_field || 'created_at',
         sort_direction: filters.sort_direction || 'desc',
     });
@@ -23,6 +34,14 @@ const UsersIndex = ({ users, filters }) => {
     };
 
     const resetFilters = () => {
+        setData({
+            search: '',
+            role: '',
+            status: '',
+            sort_field: 'created_at',
+            sort_direction: 'desc',
+        });
+
         router.get('/admin/users', {}, {
             preserveState: true,
             replace: true,
@@ -35,6 +54,38 @@ const UsersIndex = ({ users, filters }) => {
         });
     };
 
+    const verifyUser = (id) => {
+        if (!confirm('Mark this user as verified?')) return;
+
+        router.post(route('admin.users.verify', id), {}, {
+            preserveScroll: true,
+            onError: (errors) => {
+                console.error('Verify failed:', errors);
+                alert('Failed to verify user. Check console / network tab for details.');
+            },
+        });
+    };
+
+    const softDeleteUser = (id) => {
+        if (!confirm('Move this user to trash (soft delete)? You can restore it later.')) return;
+
+        router.delete(`/admin/users/${id}`, {
+            preserveScroll: true,
+        });
+    };
+
+    const hardDeleteUser = (id) => {
+        if (!confirm('This will PERMANENTLY delete this user and cannot be undone. Continue?')) return;
+
+        router.delete(route('admin.users.force-delete', id), {
+            preserveScroll: true,
+            onError: (errors) => {
+                console.error('Force delete failed:', errors);
+                alert('Failed to permanently delete user. Check console / network tab for details.');
+            },
+        });
+    };
+
     const formatRole = (role) =>
         role.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
 
@@ -43,6 +94,23 @@ const UsersIndex = ({ users, filters }) => {
             <Head title="Users Management" />
 
             <div className="container-fluid">
+
+                {/* ✅ Flash message banner */}
+                {/* {bannerMessage && (
+                    <div
+                        className={`alert ${bannerMessage.type === 'success' ? 'alert-success' : 'alert-danger'} alert-dismissible fade show`}
+                        role="alert"
+                    >
+                        {bannerMessage.text}
+                        <button
+                            type="button"
+                            className="close"
+                            onClick={() => setBannerMessage(null)}
+                        >
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                )} */}
 
                 {/* FILTERS */}
                 <div className="card">
@@ -61,13 +129,28 @@ const UsersIndex = ({ users, filters }) => {
                     {showFilters && (
                         <div className="card-body">
                             <div className="row">
-                                <div className="col-md-4">
+                                <div className="col-md-3">
                                     <input
                                         className="form-control"
                                         placeholder="Search by name or email"
                                         value={data.search}
                                         onChange={e => setData('search', e.target.value)}
                                     />
+                                </div>
+
+                                {/* ✅ NEW: Role filter */}
+                                <div className="col-md-2">
+                                    <select
+                                        className="form-control"
+                                        value={data.role}
+                                        onChange={e => setData('role', e.target.value)}
+                                    >
+                                        <option value="">All Roles</option>
+                                        <option value="student">Student</option>
+                                        <option value="teacher">Teacher</option>
+                                        <option value="parent">Parent</option>
+                                        <option value="super_admin">Super Admin</option>
+                                    </select>
                                 </div>
 
                                 <div className="col-md-3">
@@ -84,18 +167,6 @@ const UsersIndex = ({ users, filters }) => {
                                     </select>
                                 </div>
 
-                                {/* <div className="col-md-3">
-                                  <select
-                                        className="form-control"
-                                        value={data.deleted}
-                                        onChange={e => setData('deleted', e.target.value)}
-                                    >
-                                        <option value="">All Users</option>
-                                        <option value="active">Active</option>
-                                        <option value="blocked">Blocked</option>
-                                        <option value="deleted">Deleted</option>
-                                    </select>
-                                </div> */}
 
                                 <div className="col-md-2 d-flex">
                                     <button className="btn btn-primary mr-2" onClick={applyFilters}>
@@ -122,15 +193,25 @@ const UsersIndex = ({ users, filters }) => {
                     </div>
 
                     <div className="card-body table-responsive">
-                        <table className="table table-bordered table-hover">
-                            <thead>
+
+                          <style>{`
+                                .users-table thead th,
+                                .users-table thead tr:hover th,
+                                .users-table thead th:hover {
+                                    background-color: #0d6efd !important;
+                                    color: #fff !important;
+                                }
+                            `}</style>
+                            <table className="table table-bordered table-hover users-table">
+                                <thead style={{ backgroundColor: "#0d6efd", color: "#fff" }}>
+
                                 <tr>
                                     <th style={{ width: 60 }}>#</th>
                                     <th>Name</th>
                                     <th>Role</th>
                                     <th>Email</th>
                                     <th>Status</th>
-                                    <th style={{ width: 160 }}>Actions</th>
+                                    <th style={{ width: 260 }}>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -169,18 +250,6 @@ const UsersIndex = ({ users, filters }) => {
 
                                         <td>{user.email}</td>
 
-                                        {/* <td>
-                                            {user.is_blocked ? (
-                                                <span className="badge badge-danger">
-                                                    <i className="fas fa-ban mr-1" /> Blocked
-                                                </span>
-                                            ) : (
-                                                <span className="badge badge-success">
-                                                    <i className="fas fa-check mr-1" /> Active
-                                                </span>
-                                            )}
-                                        </td> */}
-
                                       <td>
                                         {user.deleted_at ? (
                                             <span className="badge badge-secondary">Deleted</span>
@@ -193,49 +262,42 @@ const UsersIndex = ({ users, filters }) => {
                                         )}
                                         </td>
 
-
-                                        {/* <td>
-                                            <div className="btn-group">
-                                                <button
-                                                    onClick={() => toggleBlock(user.id)}
-                                                    className={`btn btn-sm ${user.is_blocked ? 'btn-success' : 'btn-warning'}`}
-                                                    title={user.is_blocked ? 'Unblock User' : 'Block User'}
-                                                >
-                                                    <i className={`fas ${user.is_blocked ? 'fa-unlock' : 'fa-ban'}`} />
-                                                </button>
-
-                            
-
-                                                <Link
-                                                    href={`/admin/users/${user.id}`}
-                                                    method="delete"
-                                                    as="button"
-                                                    className="btn btn-danger btn-sm"
-                                                    onClick={(e) => {
-                                                        if (!confirm('Are you sure you want to delete this user?')) {
-                                                            e.preventDefault();
-                                                        }
-                                                    }}
-                                                >
-                                                    <i className="fas fa-trash" />
-                                                </Link>
-                                            </div>
-                                        </td> */}
-
                                         <td>
                                             <div className="btn-group">
 
-                                                {/* ✅ If user is DELETED */}
+                                                {/* ✅ If user is DELETED (soft-deleted) */}
                                                 {user.deleted_at ? (
-                                                    <button
-                                                        onClick={() => router.post(route('admin.users.restore', user.id))}
-                                                        className="btn btn-success btn-sm"
-                                                        title="Restore User"
-                                                    >
-                                                        <i className="fas fa-undo" />
-                                                    </button>
+                                                    <>
+                                                        <button
+                                                            onClick={() => router.post(route('admin.users.restore', user.id))}
+                                                            className="btn btn-success btn-sm"
+                                                            title="Restore User"
+                                                        >
+                                                            <i className="fas fa-undo" />
+                                                        </button>
+
+                                                        {/* ✅ NEW: Hard delete */}
+                                                        <button
+                                                            onClick={() => hardDeleteUser(user.id)}
+                                                            className="btn btn-dark btn-sm"
+                                                            title="Delete Permanently"
+                                                        >
+                                                            <i className="fas fa-trash-alt" />
+                                                        </button>
+                                                    </>
                                                 ) : (
                                                     <>
+                                                        {/* ✅ NEW: Verify by Admin (only if not yet verified) */}
+                                                        {!user.email_verified_at && (
+                                                            <button
+                                                                onClick={() => verifyUser(user.id)}
+                                                                className="btn btn-info btn-sm"
+                                                                title="Verify User"
+                                                            >
+                                                                <i className="fas fa-check-circle" />
+                                                            </button>
+                                                        )}
+
                                                         {/* ✅ Block / Unblock */}
                                                         <button
                                                             onClick={() => toggleBlock(user.id)}
@@ -245,28 +307,28 @@ const UsersIndex = ({ users, filters }) => {
                                                             <i className={`fas ${user.is_blocked ? 'fa-unlock' : 'fa-ban'}`} />
                                                         </button>
 
-                                                        {/* ✅ Delete (Soft Delete) */}
-                                                        <Link
-                                                            href={`/admin/users/${user.id}`}
-                                                            method="delete"
-                                                            as="button"
+                                                        {/* ✅ Soft Delete */}
+                                                        <button
+                                                            onClick={() => softDeleteUser(user.id)}
                                                             className="btn btn-danger btn-sm"
-                                                            onClick={(e) => {
-                                                                if (!confirm('Are you sure you want to delete this user?')) {
-                                                                    e.preventDefault();
-                                                                }
-                                                            }}
+                                                            title="Soft Delete (can be restored)"
                                                         >
                                                             <i className="fas fa-trash" />
-                                                        </Link>
+                                                        </button>
+
+                                                        {/* ✅ Hard Delete */}
+                                                        <button
+                                                            onClick={() => hardDeleteUser(user.id)}
+                                                            className="btn btn-dark btn-sm"
+                                                            title="Delete Permanently"
+                                                        >
+                                                            <i className="fas fa-trash-alt" />
+                                                        </button>
                                                     </>
                                                 )}
 
                                             </div>
                                         </td>
-
-
-
 
                                     </tr>
                                 )) : (
@@ -320,3 +382,4 @@ const UsersIndex = ({ users, filters }) => {
 };
 
 export default UsersIndex;
+

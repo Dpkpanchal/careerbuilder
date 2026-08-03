@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\CustomVerifyEmail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -33,7 +34,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'is_blocked',  
         'blocked_at', 
         'is_online',
-        'last_activity'
+        'last_activity',
+        'email_verified_at',
     ];
 
     /**
@@ -113,6 +115,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(CounselorDetail::class);
     }
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new CustomVerifyEmail);
+    }
+
 
     
 }

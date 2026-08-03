@@ -10,175 +10,175 @@ import { MapPin, ExternalLink, ArrowUpRight } from "lucide-react";
  * - Indicative (non-ranking, non-exhaustive)
  */
 
-const SECTIONS = [
-  {
-    key: "central",
-    title: "Central Universities & National Institutions",
-    description:
-      "Central universities and national institutions offering Commerce, Economics, Management and related programmes.",
-    items: [
-      {
-        name: "University of Delhi (DU)",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.du.ac.in",
-      },
-      {
-        name: "Jawaharlal Nehru University (JNU)",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.jnu.ac.in",
-      },
-      {
-        name: "Banaras Hindu University (BHU)",
-        city: "Varanasi",
-        state: "Uttar Pradesh",
-        website: "https://www.bhu.ac.in",
-      },
-      {
-        name: "University of Hyderabad",
-        city: "Hyderabad",
-        state: "Telangana",
-        website: "https://uohyd.ac.in",
-      },
-      {
-        name: "Jamia Millia Islamia",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.jmi.ac.in",
-      },
-      {
-        name: "Aligarh Muslim University (AMU)",
-        city: "Aligarh",
-        state: "Uttar Pradesh",
-        website: "https://www.amu.ac.in",
-      },
-    ],
-  },
+// const SECTIONS = [
+//   {
+//     key: "central",
+//     title: "Central Universities & National Institutions",
+//     description:
+//       "Central universities and national institutions offering Commerce, Economics, Management and related programmes.",
+//     items: [
+//       {
+//         name: "University of Delhi (DU)",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.du.ac.in",
+//       },
+//       {
+//         name: "Jawaharlal Nehru University (JNU)",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.jnu.ac.in",
+//       },
+//       {
+//         name: "Banaras Hindu University (BHU)",
+//         city: "Varanasi",
+//         state: "Uttar Pradesh",
+//         website: "https://www.bhu.ac.in",
+//       },
+//       {
+//         name: "University of Hyderabad",
+//         city: "Hyderabad",
+//         state: "Telangana",
+//         website: "https://uohyd.ac.in",
+//       },
+//       {
+//         name: "Jamia Millia Islamia",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.jmi.ac.in",
+//       },
+//       {
+//         name: "Aligarh Muslim University (AMU)",
+//         city: "Aligarh",
+//         state: "Uttar Pradesh",
+//         website: "https://www.amu.ac.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "state-wb",
-    title: "State Universities – West Bengal",
-    description:
-      "Major state universities in West Bengal with strong Commerce, Economics and Management education ecosystem.",
-    items: [
-      {
-        name: "University of Calcutta",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.caluniv.ac.in",
-      },
-      {
-        name: "Jadavpur University",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.jaduniv.edu.in",
-      },
-      {
-        name: "Presidency University",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.presiuniv.ac.in",
-      },
-      {
-        name: "University of Kalyani",
-        city: "Nadia",
-        state: "West Bengal",
-        website: "https://klyuniv.ac.in",
-      },
-      {
-        name: "Vidyasagar University",
-        city: "Midnapore",
-        state: "West Bengal",
-        website: "https://vidyasagar.ac.in",
-      },
-      {
-        name: "University of Burdwan",
-        city: "Purba Bardhaman",
-        state: "West Bengal",
-        website: "https://www.buruniv.ac.in",
-      },
-      {
-        name: "University of North Bengal",
-        city: "Darjeeling",
-        state: "West Bengal",
-        website: "https://www.nbu.ac.in",
-      },
-    ],
-  },
+//   {
+//     key: "state-wb",
+//     title: "State Universities – West Bengal",
+//     description:
+//       "Major state universities in West Bengal with strong Commerce, Economics and Management education ecosystem.",
+//     items: [
+//       {
+//         name: "University of Calcutta",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.caluniv.ac.in",
+//       },
+//       {
+//         name: "Jadavpur University",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.jaduniv.edu.in",
+//       },
+//       {
+//         name: "Presidency University",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.presiuniv.ac.in",
+//       },
+//       {
+//         name: "University of Kalyani",
+//         city: "Nadia",
+//         state: "West Bengal",
+//         website: "https://klyuniv.ac.in",
+//       },
+//       {
+//         name: "Vidyasagar University",
+//         city: "Midnapore",
+//         state: "West Bengal",
+//         website: "https://vidyasagar.ac.in",
+//       },
+//       {
+//         name: "University of Burdwan",
+//         city: "Purba Bardhaman",
+//         state: "West Bengal",
+//         website: "https://www.buruniv.ac.in",
+//       },
+//       {
+//         name: "University of North Bengal",
+//         city: "Darjeeling",
+//         state: "West Bengal",
+//         website: "https://www.nbu.ac.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "specialized",
-    title: "Management & Business-focused Institutions",
-    description:
-      "Institutions known for business, management and commerce-oriented programmes (UG/PG), including MBA pathways.",
-    items: [
-      {
-        name: "Indian Institute of Management Calcutta (IIMC)",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.iimcal.ac.in",
-      },
-      {
-        name: "Indian Institute of Management Ahmedabad (IIMA)",
-        city: "Ahmedabad",
-        state: "Gujarat",
-        website: "https://www.iima.ac.in",
-      },
-      {
-        name: "Indian Institute of Management Bangalore (IIMB)",
-        city: "Bengaluru",
-        state: "Karnataka",
-        website: "https://www.iimb.ac.in",
-      },
-      {
-        name: "Faculty of Management Studies (FMS), University of Delhi",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://fms.edu",
-      },
-      {
-        name: "XLRI – Xavier School of Management",
-        city: "Jamshedpur",
-        state: "Jharkhand",
-        website: "https://xlri.ac.in",
-      },
-    ],
-  },
+//   {
+//     key: "specialized",
+//     title: "Management & Business-focused Institutions",
+//     description:
+//       "Institutions known for business, management and commerce-oriented programmes (UG/PG), including MBA pathways.",
+//     items: [
+//       {
+//         name: "Indian Institute of Management Calcutta (IIMC)",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.iimcal.ac.in",
+//       },
+//       {
+//         name: "Indian Institute of Management Ahmedabad (IIMA)",
+//         city: "Ahmedabad",
+//         state: "Gujarat",
+//         website: "https://www.iima.ac.in",
+//       },
+//       {
+//         name: "Indian Institute of Management Bangalore (IIMB)",
+//         city: "Bengaluru",
+//         state: "Karnataka",
+//         website: "https://www.iimb.ac.in",
+//       },
+//       {
+//         name: "Faculty of Management Studies (FMS), University of Delhi",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://fms.edu",
+//       },
+//       {
+//         name: "XLRI – Xavier School of Management",
+//         city: "Jamshedpur",
+//         state: "Jharkhand",
+//         website: "https://xlri.ac.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "deemed",
-    title: "Deemed & Autonomous Universities",
-    description:
-      "UGC-recognised deemed/autonomous universities offering commerce, finance, accounting and management programmes.",
-    items: [
-      {
-        name: "Christ University",
-        city: "Bengaluru",
-        state: "Karnataka",
-        website: "https://www.christuniversity.in",
-      },
-      {
-        name: "Symbiosis International (Deemed University)",
-        city: "Pune",
-        state: "Maharashtra",
-        website: "https://www.siu.edu.in",
-      },
-      {
-        name: "NMIMS (Deemed-to-be University)",
-        city: "Mumbai",
-        state: "Maharashtra",
-        website: "https://www.nmims.edu",
-      },
-      {
-        name: "Xavier University, Bhubaneswar",
-        city: "Bhubaneswar",
-        state: "Odisha",
-        website: "https://xub.edu.in",
-      },
-    ],
-  },
-];
+//   {
+//     key: "deemed",
+//     title: "Deemed & Autonomous Universities",
+//     description:
+//       "UGC-recognised deemed/autonomous universities offering commerce, finance, accounting and management programmes.",
+//     items: [
+//       {
+//         name: "Christ University",
+//         city: "Bengaluru",
+//         state: "Karnataka",
+//         website: "https://www.christuniversity.in",
+//       },
+//       {
+//         name: "Symbiosis International (Deemed University)",
+//         city: "Pune",
+//         state: "Maharashtra",
+//         website: "https://www.siu.edu.in",
+//       },
+//       {
+//         name: "NMIMS (Deemed-to-be University)",
+//         city: "Mumbai",
+//         state: "Maharashtra",
+//         website: "https://www.nmims.edu",
+//       },
+//       {
+//         name: "Xavier University, Bhubaneswar",
+//         city: "Bhubaneswar",
+//         state: "Odisha",
+//         website: "https://xub.edu.in",
+//       },
+//     ],
+//   },
+// ];
 
 function CollegeCard({ inst }) {
   return (
@@ -257,7 +257,9 @@ function UGCReferenceBlock() {
   );
 }
 
-export default function TopCollegesUniversitiesCommerceTab() {
+export default function TopCollegesUniversitiesCommerceTab({top_colleges_and_universities}) {
+
+const SECTIONS = top_colleges_and_universities;
   return (
     <section className="py-4 py-md-5">
       <div className="container">

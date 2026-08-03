@@ -1,96 +1,49 @@
 import React from 'react';
 import styles from './VocationalCourses.module.css';
 
-const VocationalCoursesDisplay = () => {
-  const coursesData = {
-    engineering: {
-      title: "ENGINEERING & TECHNOLOGY (ET)",
-      duration: "VIII + / X+ (STC Level 6 months / 1 year duration)",
-      courses: [
-        "Amin Survey",
-        "Electrical House Wiring & Motor Winding",
-        "Servicing of Domestic Electronics Products",
-        "2/3 Wheeler Mechanic",
-        "Auto Electrician",
-        "Automobile Maintenance",
-        "Diesel Pump-set Repairing",
-        "Rural Sanitation & Sanitary Plumbing",
-        "Rural Electrician",
-        "Photography",
-        "Videography",
-        "Manufacture of Jute Products",
-        "Plumbing",
-        "Wooden Furniture Making",
-        "Telephone & Mobile Set Repairing",
-        "Footwear (Open type)",
-        "Welding",
-        "Repair & Maintenance of Agriculture"
-      ]
-    },
-    agriculture: {
-      title: "AGRICULTURE (AG)",
-      duration: "VIII + / X+ (STC Level 6 months / 1 year duration)",
-      courses: [
-        "Marine Fisheries",
-        "Ornamental Fish Culture",
-        "Mushroom Cultivation",
-        "Composting",
-        "Dairy Farming",
-        "Poultry Farming",
-        "Bee Keeping",
-        "Seed Production Technology (Basic/Adv module) (X+ level course)"
-      ]
-    },
-    homeScience: {
-      title: "HOME SCIENCE (HS)",
-      duration: "VIII + / X+ (STC Level 6 months / 1 year duration)",
-      courses: [
-        "Tailoring",
-        "Commercial Art",
-        "Manufacture of Jam, Jelly, & Pickles",
-        "Silk Screen Printing",
-        "Creche Management",
-        "Jari Work & Kantha Embroidery",
-        "Toy Making (Soft)",
-        "Interior Decoration",
-        "Beautician",
-        "Boutique Work",
-        "Glass Painting & Production of Ceramic & Candle Item",
-        "Garment Manufacturing",
-        "Machine Embroidery with CAD"
-      ]
-    },
-    business: {
-      title: "BUSINESS & COMMERCE (BC)",
-      duration: "VIII + / X+ (STC Level 6 months / 1 year duration)",
-      courses: [
-        "Rural Marketing",
-        "Marketing"
-      ]
-    },
-    paramedical: {
-      title: "PARAMEDICAL (PM)",
-      duration: "VIII + / X+ (STC Level 6 months / 1 year duration)",
-      courses: [
-        "Blood Collection Assistant",
-        "Health Worker"
-      ]
+const VocationalCoursesDisplay = ({ vocationalCourses }) => {
+  // Normalize the data
+  const normalizeData = () => {
+    if (!vocationalCourses) return [];
+    
+    // If it's already an array, return it
+    if (Array.isArray(vocationalCourses)) {
+      return vocationalCourses;
     }
+    
+    // If it's an object, convert to array
+    if (typeof vocationalCourses === 'object') {
+      return Object.values(vocationalCourses);
+    }
+    
+    return [];
   };
 
-  const getCategoryIcon = (category) => {
-    switch(category) {
-      case 'engineering': return '🔧';
-      case 'agriculture': return '🌱';
-      case 'homeScience': return '🏠';
-      case 'business': return '💼';
-      case 'paramedical': return '🏥';
-      default: return '📚';
-    }
+  const coursesData = normalizeData();
+
+  const getCategoryIcon = (title) => {
+    const lowerTitle = (title || '').toLowerCase();
+    if (lowerTitle.includes('engineering') || lowerTitle.includes('technology')) return '🔧';
+    if (lowerTitle.includes('agriculture')) return '🌱';
+    if (lowerTitle.includes('home science')) return '🏠';
+    if (lowerTitle.includes('business') || lowerTitle.includes('commerce')) return '💼';
+    if (lowerTitle.includes('paramedical')) return '🏥';
+    return '📚';
   };
+
+  if (!coursesData.length) {
+    return (
+      <div className="container py-5">
+        <div className="text-center">
+          <h3>No Vocational Courses Available</h3>
+          <p className="text-muted">Please check back later for updated course information.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className='container'>
+    <div className="container">
       {/* Header */}
       <div className={styles.header}>
         <h2 className={styles.title}>Vocational Courses</h2>
@@ -115,22 +68,33 @@ const VocationalCoursesDisplay = () => {
 
       {/* Courses Grid */}
       <div className={styles.coursesGrid}>
-        {Object.entries(coursesData).map(([category, data]) => (
-          <div key={category} className={styles.categoryCard}>
+        {coursesData.map((data, index) => (
+          <div key={index} className={styles.categoryCard}>
             <div className={styles.categoryHeader}>
               <span className={styles.categoryIcon}>
-                {getCategoryIcon(category)}
+                {getCategoryIcon(data.title)}
               </span>
-              <h3 className={styles.categoryTitle}>{data.title}</h3>
+              <h3 className={styles.categoryTitle}>{data.title || 'Course Category'}</h3>
             </div>
             
             <div className={styles.coursesList}>
-              {data.courses.map((course, index) => (
-                <div key={index} className={styles.courseItem}>
-                  <span className={styles.courseNumber}>{index + 1}.</span>
-                  <span className={styles.courseName}>{course}</span>
-                </div>
-              ))}
+              {data.institutes && data.institutes.length > 0 ? (
+                data.institutes.map((course, idx) => (
+                  <div key={idx} className={styles.courseItem}>
+                    <span className={styles.courseNumber}>{idx + 1}.</span>
+                    <span className={styles.courseName}>{course}</span>
+                  </div>
+                ))
+              ) : data.courses && data.courses.length > 0 ? (
+                data.courses.map((course, idx) => (
+                  <div key={idx} className={styles.courseItem}>
+                    <span className={styles.courseNumber}>{idx + 1}.</span>
+                    <span className={styles.courseName}>{course}</span>
+                  </div>
+                ))
+              ) : (
+                <p className="text-muted">No courses listed</p>
+              )}
             </div>
           </div>
         ))}

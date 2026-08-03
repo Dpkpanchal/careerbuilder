@@ -28,145 +28,145 @@ export const metadata = {
    DATA
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Nursing (GNM / B.Sc Nursing)",
-    points: [
-      "Patient care, clinical support, critical care, ward management",
-      "Strong demand in hospitals + community health",
-      "Best for: empathy + discipline + patient interaction",
-    ],
-  },
-  {
-    title: "Diagnostics (Lab / Imaging)",
-    points: [
-      "Medical Lab Technology, Radiology/Imaging, Pathology support",
-      "Work in labs, diagnostic centers, hospitals",
-      "Best for: accuracy + procedures + technical workflow",
-    ],
-  },
-  {
-    title: "Therapy & Rehabilitation",
-    points: [
-      "Physiotherapy, Occupational Therapy, Speech & Audiology",
-      "Rehab, recovery, mobility and therapy programs",
-      "Best for: hands-on care + long-term patient support",
-    ],
-  },
-  {
-    title: "Emergency & Critical Care Allied Roles",
-    points: [
-      "OT/ICU tech support, anesthesia support roles (program-specific)",
-      "High-pressure environments with strong protocols",
-      "Best for: calm mindset + attention to detail",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Nursing (GNM / B.Sc Nursing)",
+//     points: [
+//       "Patient care, clinical support, critical care, ward management",
+//       "Strong demand in hospitals + community health",
+//       "Best for: empathy + discipline + patient interaction",
+//     ],
+//   },
+//   {
+//     title: "Diagnostics (Lab / Imaging)",
+//     points: [
+//       "Medical Lab Technology, Radiology/Imaging, Pathology support",
+//       "Work in labs, diagnostic centers, hospitals",
+//       "Best for: accuracy + procedures + technical workflow",
+//     ],
+//   },
+//   {
+//     title: "Therapy & Rehabilitation",
+//     points: [
+//       "Physiotherapy, Occupational Therapy, Speech & Audiology",
+//       "Rehab, recovery, mobility and therapy programs",
+//       "Best for: hands-on care + long-term patient support",
+//     ],
+//   },
+//   {
+//     title: "Emergency & Critical Care Allied Roles",
+//     points: [
+//       "OT/ICU tech support, anesthesia support roles (program-specific)",
+//       "High-pressure environments with strong protocols",
+//       "Best for: calm mindset + attention to detail",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "ANM / entry-level nursing routes (where applicable)",
-      "Allied/paramedical certificate or diploma options",
-      "Early entry into healthcare support roles",
-    ],
-  },
-  {
-    title: "After Class 12 (Science)",
-    steps: [
-      "GNM / B.Sc Nursing / Allied Health UG routes",
-      "Admissions via counselling or institute selection (varies)",
-      "Clinical training + internships build experience",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "M.Sc Nursing / specialization tracks",
-      "Advanced clinical, teaching, research and admin roles",
-      "Better roles with domain depth + experience",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "ANM / entry-level nursing routes (where applicable)",
+//       "Allied/paramedical certificate or diploma options",
+//       "Early entry into healthcare support roles",
+//     ],
+//   },
+//   {
+//     title: "After Class 12 (Science)",
+//     steps: [
+//       "GNM / B.Sc Nursing / Allied Health UG routes",
+//       "Admissions via counselling or institute selection (varies)",
+//       "Clinical training + internships build experience",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "M.Sc Nursing / specialization tracks",
+//       "Advanced clinical, teaching, research and admin roles",
+//       "Better roles with domain depth + experience",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "ANM / Entry-level Nursing Routes",
-    text:
-      "Early-entry healthcare route focused on basic nursing and community support (availability and rules depend on program/state).",
-    url: '/courses/nursing-anm-gnm-bsc-nursing',
-    cta: "Explore ANM",
-  },
-  {
-    title: "GNM / B.Sc Nursing",
-    text:
-      "Core nursing pathways leading to strong hospital and community health careers with clinical training.",
-    url: '/courses/nursing-anm-gnm-bsc-nursing',
-    cta: "Explore Nursing Courses",
-  },
-  {
-    title: "Allied Health (Diagnostics / Therapy)",
-    text:
-      "Allied health degrees/diplomas such as lab tech, radiology, physiotherapy and other clinical support roles.",
-    url: '/courses/medical/allied-health',
-    cta: "Explore Allied Health",
-  },
-  {
-    title: "Postgraduate & Specialization",
-    text:
-      "M.Sc Nursing and specialization options for advanced practice, teaching, administration and research.",
-    url: '/courses/medical/pg',
-    cta: "Explore Higher Studies",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "ANM / Entry-level Nursing Routes",
+//     text:
+//       "Early-entry healthcare route focused on basic nursing and community support (availability and rules depend on program/state).",
+//     url: '/courses/nursing-anm-gnm-bsc-nursing',
+//     cta: "Explore ANM",
+//   },
+//   {
+//     title: "GNM / B.Sc Nursing",
+//     text:
+//       "Core nursing pathways leading to strong hospital and community health careers with clinical training.",
+//     url: '/courses/nursing-anm-gnm-bsc-nursing',
+//     cta: "Explore Nursing Courses",
+//   },
+//   {
+//     title: "Allied Health (Diagnostics / Therapy)",
+//     text:
+//       "Allied health degrees/diplomas such as lab tech, radiology, physiotherapy and other clinical support roles.",
+//     url: '/courses/medical/allied-health',
+//     cta: "Explore Allied Health",
+//   },
+//   {
+//     title: "Postgraduate & Specialization",
+//     text:
+//       "M.Sc Nursing and specialization options for advanced practice, teaching, administration and research.",
+//     url: '/courses/medical/pg',
+//     cta: "Explore Higher Studies",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Exams / Screening",
-    text:
-      "Some nursing/allied admissions use national-level tests or centralized counselling depending on course/institute.",
-    url: '/exams/national-level-eg-neet-ug',
-  },
-  {
-    title: "State-level Admissions / Counselling",
-    text:
-      "Many nursing and allied seats are filled via state boards/counselling processes (varies by state).",
-    url: '/exams/state-level-medical-exams',
-  },
-  {
-    title: "University / Institute-level Admissions",
-    text:
-      "Some universities and institutes conduct their own admissions tests or merit-based selection.",
-    url: '/exams/university-level-medical-exams',
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Exams / Screening",
+//     text:
+//       "Some nursing/allied admissions use national-level tests or centralized counselling depending on course/institute.",
+//     url: '/exams/national-level-eg-neet-ug',
+//   },
+//   {
+//     title: "State-level Admissions / Counselling",
+//     text:
+//       "Many nursing and allied seats are filled via state boards/counselling processes (varies by state).",
+//     url: '/exams/state-level-medical-exams',
+//   },
+//   {
+//     title: "University / Institute-level Admissions",
+//     text:
+//       "Some universities and institutes conduct their own admissions tests or merit-based selection.",
+//     url: '/exams/university-level-medical-exams',
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "Government Nursing Colleges", url: '/colleges/nursing-colleges' },
-  { title: "State Nursing Institutes", url: '/colleges/nursing-colleges' },
-  { title: "Private Nursing Colleges", url: '/colleges/nursing-colleges' },
-  // { title: "Allied Health Institutes", url: '/colleges/nursing-colleges' },
-  // { title: "Open & Distance (Selected Options)", url: '/colleges/nursing-colleges' },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "Government Nursing Colleges", url: '/colleges/nursing-colleges' },
+//   { title: "State Nursing Institutes", url: '/colleges/nursing-colleges' },
+//   { title: "Private Nursing Colleges", url: '/colleges/nursing-colleges' },
+//   // { title: "Allied Health Institutes", url: '/colleges/nursing-colleges' },
+//   // { title: "Open & Distance (Selected Options)", url: '/colleges/nursing-colleges' },
+// ];
 
-const INDUSTRIES = [
-  "Hospitals & Clinics",
-  "Nursing Homes & Care Centers",
-  "Diagnostics Labs & Imaging Centers",
-  "Rehabilitation & Therapy Centers",
-  "Community Health & NGOs",
-  "Government Health Programs",
-];
+// const INDUSTRIES = [
+//   "Hospitals & Clinics",
+//   "Nursing Homes & Care Centers",
+//   "Diagnostics Labs & Imaging Centers",
+//   "Rehabilitation & Therapy Centers",
+//   "Community Health & NGOs",
+//   "Government Health Programs",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Staff Nurse / Clinical Nurse",
-  "ICU / OT / Emergency Nurse (with training)",
-  "Lab Technician / Diagnostic Assistant",
-  "Radiology / Imaging Technician",
-  "Physiotherapist / Rehab Assistant",
-  "Community Health Worker / Program Support",
-];
+// const ROLE_EXAMPLES = [
+//   "Staff Nurse / Clinical Nurse",
+//   "ICU / OT / Emergency Nurse (with training)",
+//   "Lab Technician / Diagnostic Assistant",
+//   "Radiology / Imaging Technician",
+//   "Physiotherapist / Rehab Assistant",
+//   "Community Health Worker / Program Support",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -204,7 +204,26 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function NursingByProfessionPage() {
+export default function NursingByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
   return (
     <FrontendLayout>
       <main>

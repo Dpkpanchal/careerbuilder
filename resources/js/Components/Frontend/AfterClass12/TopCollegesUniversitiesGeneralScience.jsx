@@ -10,175 +10,175 @@ import { MapPin, ExternalLink, ArrowUpRight } from "lucide-react";
  * Indicative (non-ranking, non-exhaustive)
  */
 
-const SECTIONS = [
-  {
-    key: "central",
-    title: "Central Universities & National Institutions",
-    description:
-      "Central universities and national institutions offering undergraduate and postgraduate programmes in pure and applied sciences.",
-    items: [
-      {
-        name: "University of Delhi (DU)",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.du.ac.in",
-      },
-      {
-        name: "Jawaharlal Nehru University (JNU)",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.jnu.ac.in",
-      },
-      {
-        name: "Banaras Hindu University (BHU)",
-        city: "Varanasi",
-        state: "Uttar Pradesh",
-        website: "https://www.bhu.ac.in",
-      },
-      {
-        name: "University of Hyderabad",
-        city: "Hyderabad",
-        state: "Telangana",
-        website: "https://uohyd.ac.in",
-      },
-      {
-        name: "Aligarh Muslim University (AMU)",
-        city: "Aligarh",
-        state: "Uttar Pradesh",
-        website: "https://www.amu.ac.in",
-      },
-      {
-        name: "Jamia Millia Islamia",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.jmi.ac.in",
-      },
-    ],
-  },
+// const SECTIONS = [
+//   {
+//     key: "central",
+//     title: "Central Universities & National Institutions",
+//     description:
+//       "Central universities and national institutions offering undergraduate and postgraduate programmes in pure and applied sciences.",
+//     items: [
+//       {
+//         name: "University of Delhi (DU)",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.du.ac.in",
+//       },
+//       {
+//         name: "Jawaharlal Nehru University (JNU)",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.jnu.ac.in",
+//       },
+//       {
+//         name: "Banaras Hindu University (BHU)",
+//         city: "Varanasi",
+//         state: "Uttar Pradesh",
+//         website: "https://www.bhu.ac.in",
+//       },
+//       {
+//         name: "University of Hyderabad",
+//         city: "Hyderabad",
+//         state: "Telangana",
+//         website: "https://uohyd.ac.in",
+//       },
+//       {
+//         name: "Aligarh Muslim University (AMU)",
+//         city: "Aligarh",
+//         state: "Uttar Pradesh",
+//         website: "https://www.amu.ac.in",
+//       },
+//       {
+//         name: "Jamia Millia Islamia",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.jmi.ac.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "state-wb",
-    title: "State Universities – West Bengal",
-    description:
-      "Major state universities in West Bengal offering B.Sc and M.Sc programmes across core science disciplines.",
-    items: [
-      {
-        name: "University of Calcutta",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.caluniv.ac.in",
-      },
-      {
-        name: "Jadavpur University",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.jaduniv.edu.in",
-      },
-      {
-        name: "Presidency University",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.presiuniv.ac.in",
-      },
-      {
-        name: "University of Kalyani",
-        city: "Nadia",
-        state: "West Bengal",
-        website: "https://klyuniv.ac.in",
-      },
-      {
-        name: "Vidyasagar University",
-        city: "Midnapore",
-        state: "West Bengal",
-        website: "https://vidyasagar.ac.in",
-      },
-      {
-        name: "University of Burdwan",
-        city: "Purba Bardhaman",
-        state: "West Bengal",
-        website: "https://www.buruniv.ac.in",
-      },
-      {
-        name: "University of North Bengal",
-        city: "Darjeeling",
-        state: "West Bengal",
-        website: "https://www.nbu.ac.in",
-      },
-      {
-        name: "Sidho-Kanho-Birsha University",
-        city: "Purulia",
-        state: "West Bengal",
-        website: "https://skbu.ac.in",
-      },
-    ],
-  },
+//   {
+//     key: "state-wb",
+//     title: "State Universities – West Bengal",
+//     description:
+//       "Major state universities in West Bengal offering B.Sc and M.Sc programmes across core science disciplines.",
+//     items: [
+//       {
+//         name: "University of Calcutta",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.caluniv.ac.in",
+//       },
+//       {
+//         name: "Jadavpur University",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.jaduniv.edu.in",
+//       },
+//       {
+//         name: "Presidency University",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.presiuniv.ac.in",
+//       },
+//       {
+//         name: "University of Kalyani",
+//         city: "Nadia",
+//         state: "West Bengal",
+//         website: "https://klyuniv.ac.in",
+//       },
+//       {
+//         name: "Vidyasagar University",
+//         city: "Midnapore",
+//         state: "West Bengal",
+//         website: "https://vidyasagar.ac.in",
+//       },
+//       {
+//         name: "University of Burdwan",
+//         city: "Purba Bardhaman",
+//         state: "West Bengal",
+//         website: "https://www.buruniv.ac.in",
+//       },
+//       {
+//         name: "University of North Bengal",
+//         city: "Darjeeling",
+//         state: "West Bengal",
+//         website: "https://www.nbu.ac.in",
+//       },
+//       {
+//         name: "Sidho-Kanho-Birsha University",
+//         city: "Purulia",
+//         state: "West Bengal",
+//         website: "https://skbu.ac.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "institutes",
-    title: "Institutes of Science & Research",
-    description:
-      "Institutes known for scientific research, interdisciplinary science education and advanced laboratories.",
-    items: [
-      {
-        name: "Indian Institute of Science (IISc)",
-        city: "Bengaluru",
-        state: "Karnataka",
-        website: "https://iisc.ac.in",
-      },
-      {
-        name: "Indian Institutes of Science Education and Research (IISERs)",
-        city: "Multiple Locations",
-        state: "India",
-        website: "https://www.iiseradmission.in",
-      },
-      {
-        name: "Homi Bhabha National Institute (HBNI)",
-        city: "Mumbai",
-        state: "Maharashtra",
-        website: "https://www.hbni.ac.in",
-      },
-      {
-        name: "National Institute of Science Education and Research (NISER)",
-        city: "Bhubaneswar",
-        state: "Odisha",
-        website: "https://www.niser.ac.in",
-      },
-    ],
-  },
+//   {
+//     key: "institutes",
+//     title: "Institutes of Science & Research",
+//     description:
+//       "Institutes known for scientific research, interdisciplinary science education and advanced laboratories.",
+//     items: [
+//       {
+//         name: "Indian Institute of Science (IISc)",
+//         city: "Bengaluru",
+//         state: "Karnataka",
+//         website: "https://iisc.ac.in",
+//       },
+//       {
+//         name: "Indian Institutes of Science Education and Research (IISERs)",
+//         city: "Multiple Locations",
+//         state: "India",
+//         website: "https://www.iiseradmission.in",
+//       },
+//       {
+//         name: "Homi Bhabha National Institute (HBNI)",
+//         city: "Mumbai",
+//         state: "Maharashtra",
+//         website: "https://www.hbni.ac.in",
+//       },
+//       {
+//         name: "National Institute of Science Education and Research (NISER)",
+//         city: "Bhubaneswar",
+//         state: "Odisha",
+//         website: "https://www.niser.ac.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "deemed",
-    title: "Deemed & Autonomous Universities",
-    description:
-      "UGC-recognised deemed and autonomous universities offering science and interdisciplinary programmes.",
-    items: [
-      {
-        name: "BITS Pilani",
-        city: "Pilani",
-        state: "Rajasthan",
-        website: "https://www.bits-pilani.ac.in",
-      },
-      {
-        name: "Christ University",
-        city: "Bengaluru",
-        state: "Karnataka",
-        website: "https://www.christuniversity.in",
-      },
-      {
-        name: "Amity University",
-        city: "Noida",
-        state: "Uttar Pradesh",
-        website: "https://www.amity.edu",
-      },
-      {
-        name: "Vellore Institute of Technology (VIT)",
-        city: "Vellore",
-        state: "Tamil Nadu",
-        website: "https://vit.ac.in",
-      },
-    ],
-  },
-];
+//   {
+//     key: "deemed",
+//     title: "Deemed & Autonomous Universities",
+//     description:
+//       "UGC-recognised deemed and autonomous universities offering science and interdisciplinary programmes.",
+//     items: [
+//       {
+//         name: "BITS Pilani",
+//         city: "Pilani",
+//         state: "Rajasthan",
+//         website: "https://www.bits-pilani.ac.in",
+//       },
+//       {
+//         name: "Christ University",
+//         city: "Bengaluru",
+//         state: "Karnataka",
+//         website: "https://www.christuniversity.in",
+//       },
+//       {
+//         name: "Amity University",
+//         city: "Noida",
+//         state: "Uttar Pradesh",
+//         website: "https://www.amity.edu",
+//       },
+//       {
+//         name: "Vellore Institute of Technology (VIT)",
+//         city: "Vellore",
+//         state: "Tamil Nadu",
+//         website: "https://vit.ac.in",
+//       },
+//     ],
+//   },
+// ];
 
 function CollegeCard({ inst }) {
   return (
@@ -255,7 +255,9 @@ function UGCReferenceBlock() {
   );
 }
 
-export default function TopCollegesUniversitiesScienceGeneralTab() {
+export default function TopCollegesUniversitiesScienceGeneralTab({top_colleges_and_universities}) {
+
+const SECTIONS =top_colleges_and_universities;
   return (
     <section className="py-4 py-md-5">
       <div className="container">

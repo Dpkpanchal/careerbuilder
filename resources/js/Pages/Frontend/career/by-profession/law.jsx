@@ -28,145 +28,145 @@ export const metadata = {
    DATA
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Litigation & Court Practice",
-    points: [
-      "Practice in courts: drafting, arguments, case strategy",
-      "Learning grows with experience and mentorship",
-      "Best for: strong communication + resilience",
-    ],
-  },
-  {
-    title: "Corporate / Business Law",
-    points: [
-      "Contracts, compliance, mergers, company law, startups",
-      "Work with corporates, law firms, in-house legal teams",
-      "Best for: structured thinking + documentation",
-    ],
-  },
-  {
-    title: "Criminal Law & Public Justice",
-    points: [
-      "Criminal cases, public prosecution, investigation support",
-      "Includes advocacy, legal aid and public interest roles",
-      "Best for: courage + ethics + strong case reasoning",
-    ],
-  },
-  {
-    title: "Civil, Family & Property Law",
-    points: [
-      "Property, family disputes, consumer, civil litigation",
-      "High demand in local practice and advisory work",
-      "Best for: practical problem solving + negotiation",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Litigation & Court Practice",
+//     points: [
+//       "Practice in courts: drafting, arguments, case strategy",
+//       "Learning grows with experience and mentorship",
+//       "Best for: strong communication + resilience",
+//     ],
+//   },
+//   {
+//     title: "Corporate / Business Law",
+//     points: [
+//       "Contracts, compliance, mergers, company law, startups",
+//       "Work with corporates, law firms, in-house legal teams",
+//       "Best for: structured thinking + documentation",
+//     ],
+//   },
+//   {
+//     title: "Criminal Law & Public Justice",
+//     points: [
+//       "Criminal cases, public prosecution, investigation support",
+//       "Includes advocacy, legal aid and public interest roles",
+//       "Best for: courage + ethics + strong case reasoning",
+//     ],
+//   },
+//   {
+//     title: "Civil, Family & Property Law",
+//     points: [
+//       "Property, family disputes, consumer, civil litigation",
+//       "High demand in local practice and advisory work",
+//       "Best for: practical problem solving + negotiation",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 12",
-    steps: [
-      "Integrated Law: BA LLB / BBA LLB / B.Com LLB (5 years)",
-      "Entrance exams + counselling decide college admission",
-      "Internships and moot courts build profile early",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "LLB (3 years) after completing any bachelor degree",
-      "Good option for graduates changing to law",
-      "Internships + specialization decide career direction",
-    ],
-  },
-  {
-    title: "After Law Degree",
-    steps: [
-      "Enroll with State Bar Council (as per rules)",
-      "Court practice / jobs / higher studies",
-      "Build expertise through internships + practical exposure",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "Integrated Law: BA LLB / BBA LLB / B.Com LLB (5 years)",
+//       "Entrance exams + counselling decide college admission",
+//       "Internships and moot courts build profile early",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "LLB (3 years) after completing any bachelor degree",
+//       "Good option for graduates changing to law",
+//       "Internships + specialization decide career direction",
+//     ],
+//   },
+//   {
+//     title: "After Law Degree",
+//     steps: [
+//       "Enroll with State Bar Council (as per rules)",
+//       "Court practice / jobs / higher studies",
+//       "Build expertise through internships + practical exposure",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "Integrated Law (5 years)",
-    text:
-      "BA LLB / BBA LLB / B.Com LLB after Class 12. Strong route for students who decide early.",
-    url: "/courses/law/integrated",
-    cta: "Explore Integrated Law",
-  },
-  {
-    title: "LLB (3 years)",
-    text:
-      "3-year law degree after graduation. Common path for graduates switching to legal careers.",
-    url: "/courses/law/llb",
-    cta: "Explore LLB",
-  },
-  {
-    title: "LLM (Postgraduate)",
-    text:
-      "Specialize in constitutional law, corporate law, criminal law, international law and more.",
-    url: "/courses/law/llm",
-    cta: "Explore LLM",
-  },
-  {
-    title: "Judiciary / Legal Exams Prep",
-    text:
-      "Paths like judiciary, public prosecution and competitive legal roles require structured preparation.",
-    url: "/courses/law/judiciary",
-    cta: "Explore Judiciary Path",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "Integrated Law (5 years)",
+//     text:
+//       "BA LLB / BBA LLB / B.Com LLB after Class 12. Strong route for students who decide early.",
+//     url: "/courses/law/integrated",
+//     cta: "Explore Integrated Law",
+//   },
+//   {
+//     title: "LLB (3 years)",
+//     text:
+//       "3-year law degree after graduation. Common path for graduates switching to legal careers.",
+//     url: "/courses/law/llb",
+//     cta: "Explore LLB",
+//   },
+//   {
+//     title: "LLM (Postgraduate)",
+//     text:
+//       "Specialize in constitutional law, corporate law, criminal law, international law and more.",
+//     url: "/courses/law/llm",
+//     cta: "Explore LLM",
+//   },
+//   {
+//     title: "Judiciary / Legal Exams Prep",
+//     text:
+//       "Paths like judiciary, public prosecution and competitive legal roles require structured preparation.",
+//     url: "/courses/law/judiciary",
+//     cta: "Explore Judiciary Path",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Entrance Exams",
-    text:
-      "National law admissions and competitive exams for top institutes (e.g., national-level law entrances).",
-    url: "/exams/law/national",
-  },
-  {
-    title: "State-level Entrance Exams",
-    text:
-      "State-level entrances and admissions processes for state universities and colleges (varies by state).",
-    url: "/exams/law/state",
-  },
-  {
-    title: "University-level Entrance Exams",
-    text:
-      "Some universities conduct their own entrance tests for law programs.",
-    url: "/exams/law/university",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Entrance Exams",
+//     text:
+//       "National law admissions and competitive exams for top institutes (e.g., national-level law entrances).",
+//     url: "/exams/law/national",
+//   },
+//   {
+//     title: "State-level Entrance Exams",
+//     text:
+//       "State-level entrances and admissions processes for state universities and colleges (varies by state).",
+//     url: "/exams/law/state",
+//   },
+//   {
+//     title: "University-level Entrance Exams",
+//     text:
+//       "Some universities conduct their own entrance tests for law programs.",
+//     url: "/exams/law/university",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "NLUs (National Law Universities)", url: "/colleges/law/nlus" },
-  { title: "Central Universities", url: "/colleges/law/central" },
-  { title: "State Universities", url: "/colleges/law/state" },
-  { title: "Private & Deemed Universities", url: "/colleges/law/private" },
-  { title: "Open & Distance (Selected Options)", url: "/colleges/law/open" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "NLUs (National Law Universities)", url: "/colleges/law/nlus" },
+//   { title: "Central Universities", url: "/colleges/law/central" },
+//   { title: "State Universities", url: "/colleges/law/state" },
+//   { title: "Private & Deemed Universities", url: "/colleges/law/private" },
+//   { title: "Open & Distance (Selected Options)", url: "/colleges/law/open" },
+// ];
 
-const INDUSTRIES = [
-  "Courts & Litigation Practice",
-  "Corporate Legal / In-house Counsel",
-  "Law Firms & Advisory",
-  "Government Legal Services",
-  "Compliance & Risk",
-  "NGOs & Public Interest",
-];
+// const INDUSTRIES = [
+//   "Courts & Litigation Practice",
+//   "Corporate Legal / In-house Counsel",
+//   "Law Firms & Advisory",
+//   "Government Legal Services",
+//   "Compliance & Risk",
+//   "NGOs & Public Interest",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Advocate / Litigator",
-  "Legal Associate (Law firm)",
-  "In-house Legal Counsel",
-  "Compliance / Risk Associate",
-  "Legal Researcher / Policy Support",
-  "Judiciary / Prosecution (through exams)",
-];
+// const ROLE_EXAMPLES = [
+//   "Advocate / Litigator",
+//   "Legal Associate (Law firm)",
+//   "In-house Legal Counsel",
+//   "Compliance / Risk Associate",
+//   "Legal Researcher / Policy Support",
+//   "Judiciary / Prosecution (through exams)",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -204,7 +204,29 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function LawByProfessionPage() {
+export default function LawByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
+
   return (
     <FrontendLayout>
     <main>

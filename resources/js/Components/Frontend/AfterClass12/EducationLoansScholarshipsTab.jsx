@@ -17,7 +17,21 @@ import {
 
 const MotionDiv = motion.div;
 
-function FactCard({ icon, title, text }) {
+// Map DB icon string → actual component
+const ICON_MAP = {
+  Award,
+  BadgeCheck,
+  ShieldCheck,
+  GraduationCap,
+  BadgeIndianRupee,
+  CalendarClock,
+  UserCheck,
+  Landmark,
+};
+
+function FactCard({ icon, title, content }) {
+  const IconComponent = ICON_MAP[icon] || Award;
+
   return (
     <div
       className="fact-card-wrapper"
@@ -31,10 +45,15 @@ function FactCard({ icon, title, text }) {
       }}
     >
       <div className="fact-card-inner">
-        <div className="fact-card-icon">{icon}</div>
+        <div className="fact-card-icon">
+          <IconComponent size={22} />
+        </div>
         <div style={{ flex: 1 }}>
           <h5 className="fact-card-title">{title}</h5>
-          <div className="fact-card-text">{text}</div>
+          <div
+            className="fact-card-text"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </div>
       </div>
     </div>
@@ -46,20 +65,20 @@ function SchemeStrip({ schemes = [] }) {
 
   return (
     <div className="d-flex flex-wrap justify-content-between align-items-center gap-4 py-4 w-100 mt-lg-5 border-top border-bottom">
-      {schemes.map(({ full, short, href }, idx) => (
+      {schemes.map((scheme, idx) => (
         <motion.a
-          key={idx}
-          href={href}
+          key={scheme.id}
+          href={scheme.href}
           target="_blank"
           rel="noreferrer noopener"
-          title={full}
+          title={scheme.full_name}
           className="scheme-logo fill-effect"
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: idx * 0.12 + 0.1, duration: 0.4 }}
         >
-          {short.split("\n").map((word, widx) => (
+          {scheme.short_name.split("\n").map((word, widx) => (
             <span key={widx} style={{ display: "block" }}>
               {word}
             </span>
@@ -70,249 +89,95 @@ function SchemeStrip({ schemes = [] }) {
   );
 }
 
-export default function EducationLoansScholarshipsTab({
-  stageLabel = "After Class 12 ",
-  parentClassName = "",
-}) {
-  // =========================
-  // SECTION: Scholarships
-  // =========================
-  const scholarshipFactCards = [
-    {
-        icon: <Award size={22} />,
-        title: "Scholarships at a glance",
-        text: (
-        <div className="small">
-            <div className="d-flex justify-content-between gap-2">
-            <b>Pre-Matric</b> <span className="text-muted">School level support</span>
-            </div>
-            <div className="d-flex justify-content-between gap-2">
-            <b>Post-Matric</b> <span className="text-muted">UG/PG and above</span>
-            </div>
-            <div className="d-flex justify-content-between gap-2">
-            <b>Merit-based</b> <span className="text-muted">Rewards academic effort</span>
-            </div>
-            <div className="d-flex justify-content-between gap-2">
-            <b>Means-based</b> <span className="text-muted">Supports financial need</span>
-            </div>
-        </div>
-        ),
-    },
-    {
-        icon: <GraduationCap size={22} />,
-        title: "What scholarships usually support",
-        text: (
-        <ul className="mb-0" style={{ paddingLeft: "1.1rem" }}>
-            <li>Tuition / course fees (full or partial)</li>
-            <li>Maintenance support for study continuity</li>
-            <li>Special support for professional / technical pathways</li>
-            <li>Renewal-based help across years (where applicable)</li>
-        </ul>
-        ),
-    },
-    {
-        icon: <ShieldCheck size={22} />,
-        title: "Why this matters after this stage",
-        text: (
-        <div className="small text-muted">
-            <b>{stageLabel}</b>, costs rise (course fees, coaching, travel, hostel, books).
-            Scholarships reduce drop-out risk and help students focus on learning instead of financial stress.
-        </div>
-        ),
-    },
-    ];
+function FundSection({ section }) {
+  const bgClass = section.bg_style === "white" ? "bg-white" : "bg-light";
 
-
-  const scholarshipSchemes = [
-    {
-      full: "National Scholarship Portal (NSP)",
-      short: "NSP\nScholarships",
-      href: "https://scholarships.gov.in",
-    },
-    {
-      full: "WBMDFC Talent Support Program Portal",
-      short: "WBMDFC\nTSP Portal",
-      href: "https://tsp.wbmdfc.co.in",
-    },
-  ];
-
-  // =========================
-  // SECTION: Education Loans
-  // =========================
- const loanFactCards = [
-  {
-    icon: <BadgeIndianRupee size={22} />,
-    title: "WBMDFC Education Loan — a bridge to higher studies",
-    text: (
-      <div className="small text-muted">
-        Designed to support eligible minority students in West Bengal when course costs are higher than what scholarships can cover.
-        A trusted state initiative that enables serious higher education journeys.
-      </div>
-    ),
-  },
-  {
-    icon: <UserCheck size={22} />,
-    title: "Best fit for career-building courses",
-    text: (
-      <ul className="mb-0" style={{ paddingLeft: "1.1rem" }}>
-        <li>Professional / technical programmes</li>
-        <li>High-fee UG/PG courses where family support is limited</li>
-        <li>Students who want to invest in long-term career outcomes</li>
-      </ul>
-    ),
-  },
-  {
-    icon: <Landmark size={22} />,
-    title: "Why WBMDFC loan matters",
-    text: (
-      <ul className="mb-0" style={{ paddingLeft: "1.1rem" }}>
-        <li>Connects deserving students to structured financial support</li>
-        <li>Helps continue education without compromising the course choice</li>
-        <li>Complements scholarships (use both smartly)</li>
-      </ul>
-    ),
-  },
-];
-
-  
-
-  // =========================
-  // Render
-  // =========================
   return (
-    <div className={parentClassName}>
-      {/* ===================== Scholarships Section ===================== */}
-      <section className="overflow-hidden py-5 bg-light">
-        <div className="container py-lg-5 py-md-6">
-          <div className="row align-items-center justify-content-between gy-5 gx-md-6">
-            {/* LEFT */}
-            <div className="col-lg-5">
-              <MotionDiv
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-               
+    <section className={`overflow-hidden py-5 ${bgClass}`}>
+      <div className="container py-lg-5 py-md-6">
+        <div className="row align-items-center justify-content-between gy-5 gx-md-6">
+          {/* LEFT */}
+          <div className="col-lg-5">
+            <MotionDiv
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="section-heading mb-3">
+                {section.heading_prefix}
+                <br />
+                <span className="gradient-text">{section.heading_highlight}</span>
+              </h2>
 
-                <h2 className="section-heading mb-3">
-                  Scholarships that
-                  <br />
-                  <span className="gradient-text">reduce your burden</span>
-                </h2>
+              <p className="text-muted mb-4" style={{ fontSize: "1.06rem" }}>
+                {section.description}
+              </p>
 
-                <p className="text-muted mb-4" style={{ fontSize: "1.06rem" }}>
-                  Scholarships are the first funding layer — they can cover fees, maintenance,
-                  and study support based on category, merit, income, and course type. Apply early,
-                  keep documents ready, and track renewal timelines.
-                </p>
+              {section.extra_note && (
+                <div
+                  className="small text-muted mb-3"
+                  dangerouslySetInnerHTML={{ __html: section.extra_note }}
+                />
+              )}
 
-                {/* ✅ Only 1 CTA for this section */}
-                <Link href="/scholarship/overview" className="btn btn-primary mt-lg-4">
-                  Explore Scholarships <ArrowRight size={18} className="ms-1" />
-                </Link>
-
-              </MotionDiv>
-            </div>
-
-            {/* RIGHT */}
-            <div className="col-lg-6">
-              <div className="row g-3">
-                {scholarshipFactCards.map((card, idx) => (
-                  <MotionDiv
-                    key={idx}
-                    className="col-12"
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 * idx }}
-                  >
-                    <FactCard {...card} />
-                  </MotionDiv>
-                ))}
-              </div>
-            </div>
+              {/* ✅ Only 1 CTA for this section */}
+              <Link href={section.cta_link} className="btn btn-primary mt-lg-3">
+                {section.cta_label} <ArrowRight size={18} className="ms-1" />
+              </Link>
+            </MotionDiv>
           </div>
 
-  
+          {/* RIGHT */}
+          <div className="col-lg-6">
+            <div className="row g-3">
+              {section.cards.map((card, idx) => (
+                <MotionDiv
+                  key={card.id}
+                  className="col-12"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * idx }}
+                >
+                  <FactCard icon={card.icon} title={card.title} content={card.content} />
+                </MotionDiv>
+              ))}
+            </div>
+          </div>
+        </div>
 
-          {/* WB Govt support note */}
+        {/* Scheme logos (only shows if section has schemes, e.g. Scholarships) */}
+        <SchemeStrip schemes={section.schemes} />
+
+        {/* Info note box (only shows if note_title is set, e.g. WB Govt support note) */}
+        {section.note_title && (
           <div className="mt-4">
             <div className="p-4 rounded-4 border bg-white d-flex align-items-start gap-3">
               <div className="icon-wrapper" style={{ width: 44, height: 44 }}>
                 <Landmark size={22} />
               </div>
               <div>
-                <h5 className="mb-1">How West Bengal supports students</h5>
-                <div className="text-muted">
-                  Through scholarship portals, minority-focused assistance, institutional support,
-                  and verified information — the goal is to ensure students can continue studies
-                  without financial stress.
-                </div>
+                <h5 className="mb-1">{section.note_title}</h5>
+                <div className="text-muted">{section.note_text}</div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        )}
+      </div>
+    </section>
+  );
+}
 
-      {/* ===================== Loans Section ===================== */}
-      <section className="overflow-hidden py-5 bg-white">
-        <div className="container py-lg-5 py-md-6">
-          <div className="row align-items-center justify-content-between gy-5 gx-md-6">
-            {/* LEFT */}
-            <div className="col-lg-5">
-              <MotionDiv
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="section-heading mb-3">
-                  Education Loans that
-                  <br />
-                  <span className="gradient-text">unlock opportunity</span>
-                </h2>
-
-                <p className="text-muted mb-4" style={{ fontSize: "1.06rem" }}>
-                  When course cost is higher than scholarship coverage, education loans become the
-                  bridge. For eligible students in West Bengal, WBMDFC provides an education loan
-                  support option with special interest slabs (as per income/category).
-                </p>
-
-                <div className="small text-muted mb-3">
-                  <b>Best for:</b> Professional/technical courses where total fees are high.
-                  <br />
-                  <b>Smart strategy:</b> Combine scholarships + loan (only when needed).
-                </div>
-
-                {/* ✅ Only 1 CTA for this section */}
-                <Link href="/scholarship/education-loans" className="btn btn-primary mt-lg-3">
-                  Explore Education Loans <ArrowRight size={18} className="ms-1" />
-                </Link>
-              </MotionDiv>
-            </div>
-
-            {/* RIGHT */}
-            <div className="col-lg-6">
-              <div className="row g-3">
-                {loanFactCards.map((card, idx) => (
-                  <MotionDiv
-                    key={idx}
-                    className="col-12"
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 * idx }}
-                  >
-                    <FactCard {...card} />
-                  </MotionDiv>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
+export default function EducationLoansScholarshipsTab({
+  sections = [],
+  parentClassName = "",
+}) {
+  return (
+    <div className={parentClassName}>
+      {sections.map((section) => (
+        <FundSection key={section.id} section={section} />
+      ))}
     </div>
   );
 }

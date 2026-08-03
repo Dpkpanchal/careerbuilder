@@ -33,124 +33,6 @@ const TABS = [
 ];
 
 /* -------------------------------------------------------------
-   DATA – M.Tech (Career Book aligned)
-------------------------------------------------------------- */
-
-const MTECH_LADDER = [
-  {
-    title: "M.Tech / M.E (Postgraduate Engineering)",
-    duration: "2 Years",
-    focus:
-      "Advanced specialisation in a chosen branch with deeper theory, labs and project/research work.",
-  },
-  {
-    title: "Dissertation / Major Project",
-    duration: "During the programme",
-    focus:
-      "A core part of M.Tech—project work defines your niche, portfolio and job readiness.",
-  },
-  {
-    title: "Higher Technical Roles / R&D / Teaching track",
-    duration: "After M.Tech",
-    focus:
-      "R&D roles, product engineering, senior technical jobs, academic pathway (as per norms).",
-  },
-  {
-    title: "PhD / Research (optional)",
-    duration: "Long-term",
-    focus:
-      "Research-focused track for innovation, advanced R&D and academic careers.",
-  },
-];
-
-const WHO_SHOULD_DO = [
-  {
-    title: "For deeper specialisation",
-    desc: "You want advanced knowledge in your branch and higher responsibility roles.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "For R&D / product engineering",
-    desc: "You want research-oriented roles, innovation projects and technical depth.",
-    icon: FlaskConical,
-  },
-  {
-    title: "For teaching/academic track (as per norms)",
-    desc: "M.Tech strengthens eligibility for academic roles along with required regulations.",
-    icon: GraduationCap,
-  },
-  {
-    title: "For better career switching (domain upgrade)",
-    desc: "You want to shift into a better domain (e.g., core → software) via specialisation.",
-    icon: Briefcase,
-  },
-];
-
-const POPULAR_MTECH_AREAS = [
-  "Computer Science (AI/ML, Data Science, Cyber Security, Networks)",
-  "VLSI / Embedded Systems / Communication (ECE)",
-  "Power Systems / Power Electronics (EE)",
-  "Thermal / Design / Manufacturing (Mechanical)",
-  "Structural / Geotechnical / Transportation (Civil)",
-  "Environmental / Water Resources (Civil/Allied)",
-  "Robotics / Automation / Mechatronics (as offered)",
-  "Construction Management / Urban Planning (aligned areas, as offered)",
-];
-
-const ELIGIBILITY_NOTES = [
-  "Usually after B.Tech/B.E or equivalent in a relevant branch (rules vary by institute).",
-  "Admission often through GATE and/or institute/state entrance processes.",
-  "Some programmes accept sponsored/working candidates (as per institute norms).",
-  "Branch alignment and minimum marks criteria vary—verify official notifications.",
-];
-
-const WORK_SETTINGS = [
-  {
-    title: "R&D / Product Companies",
-    desc: "Core engineering R&D, advanced product roles, research and development teams.",
-    icon: FlaskConical,
-  },
-  {
-    title: "IT / Software (for CS and domain-shifters)",
-    desc: "Backend, systems, AI/ML, security, data engineering (depends on skill + projects).",
-    icon: Cpu,
-  },
-  {
-    title: "Core Industries",
-    desc: "Power, manufacturing, automotive, construction, telecom—higher technical roles.",
-    icon: Factory,
-  },
-  {
-    title: "Academics / Training (as per norms)",
-    desc: "Teaching/research assistant roles, labs, institutions (depends on eligibility rules).",
-    icon: GraduationCap,
-  },
-];
-
-const ADMISSION_NOTES = [
-  "Pick M.Tech specialisation based on your target job role, not just branch name.",
-  "Your dissertation/project should match the kind of job you want after M.Tech.",
-  "Choose institutes with strong labs, research culture and real placement outcomes.",
-];
-
-const COMMON_DOCS = [
-  "UG marksheets + degree/provisional certificate",
-  "GATE scorecard / entrance score (if applicable)",
-  "ID proof (Aadhaar etc.)",
-  "Photo + signature",
-  "Category/EWS/Income certificate (if applicable)",
-  "Domicile (if required)",
-];
-
-const BUILD_PROFILE = [
-  "Choose a niche and build deep expertise (avoid being generalist at PG level)",
-  "Strong major project/dissertation with real problem statement",
-  "Research reading habit (papers, standards, tools)",
-  "Internships in labs/industry if possible",
-  "Strong documentation + presentation skills (reports, papers, demos)",
-];
-
-/* -------------------------------------------------------------
    UI Helpers
 ------------------------------------------------------------- */
 
@@ -189,20 +71,53 @@ function MiniDL({ items }) {
    PAGE
 ------------------------------------------------------------- */
 
-export default function MTechPage() {
-  const snapshot = useMemo(
-    () => [
-      { k: "Degree type", v: "Postgraduate Engineering Degree" },
-      { k: "Duration", v: "2 Years" },
-      { k: "Eligibility", v: "B.Tech/B.E (relevant branch)" },
-      { k: "Entry", v: "GATE / institute entrance (as applicable)" },
-      { k: "Best for", v: "Specialisation • R&D • senior roles • teaching track" },
-    ],
-    []
-  );
+export default function MTechPage({ courseContent }) {
+  // Debug log
+  console.log('=== MTechPage Data ===');
+  console.log('Course Content:', courseContent);
+
+  // Extract data from courseContent
+  const mtechLadder = courseContent?.mtech_ladder || [];
+  const whoShouldDo = courseContent?.who_should_do || [];
+  const popularAreas = courseContent?.core_areas || courseContent?.specialisation_tracks || [];
+  const workSettings = courseContent?.work_settings || [];
+  const eligibilityNotes = courseContent?.eligibility_notes || [];
+  const admissionNotes = courseContent?.admission_notes || [];
+  const commonDocs = courseContent?.common_docs || [];
+  const buildProfile = courseContent?.build_profile || [];
+  const snapshot = courseContent?.snapshot || [];
+  const introHeading = courseContent?.intro_heading || "About M.Tech";
+  const introDescription = courseContent?.intro_description || "M.Tech (Master of Technology) is a postgraduate engineering programme designed for deep specialisation in a chosen area. It focuses on advanced concepts, laboratory work, tools and strong project/research output.";
+  const introDescriptionSecondary = courseContent?.intro_description_secondary || "The biggest differentiator in M.Tech is your dissertation/project work — it becomes your portfolio and often decides your placement and long-term career direction.";
+
+  // Create snapshot items
+  const snapshotItems = snapshot.length > 0 
+    ? snapshot.map(item => ({ k: item.key, v: item.value }))
+    : [
+        { k: "Degree type", v: "Postgraduate Engineering Degree" },
+        { k: "Duration", v: "2 Years" },
+        { k: "Eligibility", v: "B.Tech/B.E (relevant branch)" },
+        { k: "Entry", v: "GATE / institute entrance (as applicable)" },
+        { k: "Best for", v: "Specialisation • R&D • senior roles • teaching track" },
+      ];
+
+  // If no data found, show message
+  if (mtechLadder.length === 0 && popularAreas.length === 0) {
+    return (
+      <FrontendLayout>
+        <HeroInner title="M.Tech (Master of Technology)" breadcrumb="Engineering, Technology & IT → M.Tech" />
+        <CoursesTabsBar tabs={TABS} activeId="mtech" />
+        <div className="container py-5">
+          <div className="alert alert-warning">
+            <h4>No courses available</h4>
+            <p>We're currently updating our course listings. Please check back later.</p>
+          </div>
+        </div>
+      </FrontendLayout>
+    );
+  }
 
   return (
-    <>
     <FrontendLayout>
       <HeroInner title="M.Tech (Master of Technology)" breadcrumb="Engineering, Technology & IT → M.Tech" />
 
@@ -216,18 +131,14 @@ export default function MTechPage() {
             <div className="col-12 col-lg-7">
               <h2 className="sectionHeading mb-3 d-flex align-items-center gap-2">
                 <ShieldCheck size={18} className="text-primary" />
-                <span>About M.Tech</span>
+                <span>{introHeading}</span>
               </h2>
 
-              <p className="sectionSub">
-                M.Tech (Master of Technology) is a postgraduate engineering programme designed for deep specialisation in
-                a chosen area. It focuses on advanced concepts, laboratory work, tools and strong project/research output.
-              </p>
+              <p className="sectionSub">{introDescription}</p>
 
-              <p className="sectionSub mb-0">
-                The biggest differentiator in M.Tech is your dissertation/project work — it becomes your portfolio and
-                often decides your placement and long-term career direction.
-              </p>
+              {introDescriptionSecondary && (
+                <p className="sectionSub mb-0">{introDescriptionSecondary}</p>
+              )}
             </div>
 
             <div className="col-12 col-lg-5">
@@ -236,7 +147,7 @@ export default function MTechPage() {
                   <Layers3 size={18} className="text-primary" />
                   <span>Quick Snapshot</span>
                 </h3>
-                <MiniDL items={snapshot} />
+                <MiniDL items={snapshotItems} />
               </div>
 
               <div className="sectionCard bg-light border mt-3">
@@ -254,108 +165,138 @@ export default function MTechPage() {
       </section>
 
       {/* 2) M.TECH LADDER */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="M.Tech ladder (how growth happens)"
-            subtitle="M.Tech builds depth. Your dissertation + skills decide senior opportunities."
-          />
+      {mtechLadder.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={GraduationCap}
+              title="M.Tech ladder (how growth happens)"
+              subtitle="M.Tech builds depth. Your dissertation + skills decide senior opportunities."
+            />
 
-          <div className="row g-3">
-            {MTECH_LADDER.map((c) => (
-              <div key={c.title} className="col-12 col-md-6">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{c.title}</h3>
-                  <p className="small text-muted mb-1">{c.duration}</p>
-                  <p className="small text-muted mb-0">{c.focus}</p>
+            <div className="row g-3">
+              {mtechLadder.map((step, index) => (
+                <div key={index} className="col-12 col-md-6">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">{step.title}</h3>
+                    {step.duration && (
+                      <p className="small text-muted mb-1">{step.duration}</p>
+                    )}
+                    {step.focus && (
+                      <p className="small text-muted mb-0">{step.focus}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Tip: Choose your dissertation topic like a job strategy — it should match the domain you want to work in.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Tip: Choose your dissertation topic like a job strategy — it should match the domain you want to work in.
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 3) WHO SHOULD DO M.TECH */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={ShieldCheck}
-            title="Who should do M.Tech"
-            subtitle="M.Tech is most valuable when you have a clear goal."
-          />
+      {whoShouldDo.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={ShieldCheck}
+              title="Who should do M.Tech"
+              subtitle="M.Tech is most valuable when you have a clear goal."
+            />
 
-          <div className="row g-3">
-            {WHO_SHOULD_DO.map((x) => {
-              const Icon = x.icon;
-              return (
-                <div key={x.title} className="col-12 col-md-6">
-                  <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{x.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-0">{x.desc}</p>
+            <div className="row g-3">
+              {whoShouldDo.map((item, index) => {
+                // Get icon based on title or use default
+                const getIcon = (title) => {
+                  if (title.includes("specialisation") || title.includes("Specialisation")) return ShieldCheck;
+                  if (title.includes("R&D") || title.includes("research")) return FlaskConical;
+                  if (title.includes("teaching") || title.includes("Teaching") || title.includes("academic")) return GraduationCap;
+                  if (title.includes("switching") || title.includes("Switching") || title.includes("domain")) return Briefcase;
+                  return ShieldCheck;
+                };
+                const Icon = item.icon || getIcon(item.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-6">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{item.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-0">{item.desc || item.description}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 4) POPULAR SPECIALISATIONS */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={FlaskConical}
-            title="Popular M.Tech specialisations"
-            subtitle="Options differ by institute. Use this list to understand the typical directions."
-          />
+      {popularAreas.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={FlaskConical}
+              title="Popular M.Tech specialisations"
+              subtitle="Options differ by institute. Use this list to understand the typical directions."
+            />
 
-          <div className="row g-3">
-            {POPULAR_MTECH_AREAS.map((s) => (
-              <div key={s} className="col-12 col-md-6 col-lg-4">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{s}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5) WHERE YOU WORK */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={Factory}
-            title="Where M.Tech graduates work"
-            subtitle="Work depends on your niche, project output and skills."
-          />
-
-          <div className="row g-3">
-            {WORK_SETTINGS.map((w) => {
-              const Icon = w.icon;
-              return (
-                <div key={w.title} className="col-12 col-md-6 col-lg-3">
+            <div className="row g-3">
+              {popularAreas.map((area, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-4">
                   <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{w.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-0">{w.desc}</p>
+                    <h3 className="h6 mb-1">{area}</h3>
                   </div>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* 5) WHERE YOU WORK */}
+      {workSettings.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={Factory}
+              title="Where M.Tech graduates work"
+              subtitle="Work depends on your niche, project output and skills."
+            />
+
+            <div className="row g-3">
+              {workSettings.map((work, index) => {
+                // Get icon based on title
+                const getIcon = (title) => {
+                  if (title.includes("R&D") || title.includes("Product")) return FlaskConical;
+                  if (title.includes("IT") || title.includes("Software") || title.includes("CS")) return Cpu;
+                  if (title.includes("Core") || title.includes("Manufacturing") || title.includes("Power")) return Factory;
+                  if (title.includes("Academics") || title.includes("Teaching") || title.includes("Training")) return GraduationCap;
+                  return Briefcase;
+                };
+                const Icon = work.icon || getIcon(work.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-6 col-lg-3">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{work.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-0">{work.desc || work.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 6) ADMISSION & DOCUMENTS */}
       <section className="py-4 py-md-5 nitLightGradient">
@@ -370,8 +311,13 @@ export default function MTechPage() {
             <div className="col-12 col-lg-7 d-flex">
               <div className="nitDarkGlassBox w-100">
                 <ul className="nitDarkList mb-0">
-                  {ELIGIBILITY_NOTES.map((x) => (
-                    <li key={x}>{x}</li>
+                  {(eligibilityNotes.length > 0 ? eligibilityNotes : [
+                    "Usually after B.Tech/B.E or equivalent in a relevant branch (rules vary by institute).",
+                    "Admission often through GATE and/or institute/state entrance processes.",
+                    "Some programmes accept sponsored/working candidates (as per institute norms).",
+                    "Branch alignment and minimum marks criteria vary—verify official notifications."
+                  ]).map((note, index) => (
+                    <li key={index}>{note}</li>
                   ))}
                 </ul>
 
@@ -389,10 +335,17 @@ export default function MTechPage() {
                 </h3>
 
                 <ul className="list-unstyled small mb-0">
-                  {COMMON_DOCS.map((d) => (
-                    <li key={d} className="mb-2 d-flex">
+                  {(commonDocs.length > 0 ? commonDocs : [
+                    "UG marksheets + degree/provisional certificate",
+                    "GATE scorecard / entrance score (if applicable)",
+                    "ID proof (Aadhaar etc.)",
+                    "Photo + signature",
+                    "Category/EWS/Income certificate (if applicable)",
+                    "Domicile (if required)"
+                  ]).map((doc, index) => (
+                    <li key={index} className="mb-2 d-flex">
                       <span className="me-2">•</span>
-                      <span>{d}</span>
+                      <span>{doc}</span>
                     </li>
                   ))}
                 </ul>
@@ -403,31 +356,32 @@ export default function MTechPage() {
       </section>
 
       {/* 7) BUILD YOUR PROFILE */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={Users}
-            title="Build your profile during M.Tech"
-            subtitle="M.Tech success is about depth, research attitude and strong project output."
-          />
+      {buildProfile.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={Users}
+              title="Build your profile during M.Tech"
+              subtitle="M.Tech success is about depth, research attitude and strong project output."
+            />
 
-          <div className="row g-3">
-            {BUILD_PROFILE.map((t) => (
-              <div key={t} className="col-12 col-md-6 col-lg-4">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">Key focus</h3>
-                  <p className="small text-muted mb-0">{t}</p>
+            <div className="row g-3">
+              {buildProfile.map((item, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-4">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">Key focus</h3>
+                    <p className="small text-muted mb-0">{item}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Sensible shortcut: select a niche, build a strong dissertation, and align every semester project toward your target job domain.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Sensible shortcut: select a niche, build a strong dissertation, and align every semester project toward your target job domain.
+            </div>
           </div>
-        </div>
-      </section>
-      </FrontendLayout>
-    </>
+        </section>
+      )}
+    </FrontendLayout>
   );
 }

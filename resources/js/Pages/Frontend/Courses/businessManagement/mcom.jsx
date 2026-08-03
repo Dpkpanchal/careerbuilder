@@ -27,139 +27,8 @@ const TABS = [
   { id: "mcom", label: "M.Com", href: '/courses/mcom' },
   { id: "bba", label: "BBA", href: '/courses/bba' },
   { id: "mba", label: "MBA / PGDM", href: '/courses/mba-pgdm' },
-  { id: "finance", label: "Finance / Taxation / Accounting", href: '/courses/finance-taxation-accounting' },
-  { id: "pro", label: "CA / CS / CMA", href: '#' },
-];
-/* -------------------------------------------------------------
-   DATA – M.Com (Career Book aligned)
-------------------------------------------------------------- */
-
-const MCOM_LADDER = [
-  {
-    title: "M.Com (Master of Commerce)",
-    duration: "2 Years (varies by university)",
-    focus:
-      "Postgraduate commerce degree focused on advanced accounting, finance, economics, taxation and research orientation.",
-  },
-  {
-    title: "Teaching / Academia (as per norms)",
-    duration: "After PG + eligibility",
-    focus:
-      "Teaching track typically requires additional eligibility (e.g., NET/SET) as per rules.",
-  },
-  {
-    title: "Corporate / Finance Roles",
-    duration: "After M.Com",
-    focus:
-      "Accounts, finance operations, compliance support, banking, analysis support roles (skills matter).",
-  },
-  {
-    title: "Research / PhD (optional)",
-    duration: "Long-term",
-    focus:
-      "Research track for academic careers and higher-level specialisation.",
-  },
-];
-
-const WHO_SHOULD_DO = [
-  {
-    title: "Students who want deeper commerce knowledge",
-    desc: "M.Com is ideal if you like accounting/finance/economics and want advanced concepts.",
-    icon: BookOpen,
-  },
-  {
-    title: "Students planning teaching/research path",
-    desc: "M.Com supports academic direction; eligibility rules apply (NET/SET etc.).",
-    icon: GraduationCap,
-  },
-  {
-    title: "Students aiming for better finance/account roles",
-    desc: "M.Com can strengthen profile when paired with Excel + tools + practical exposure.",
-    icon: Calculator,
-  },
-  {
-    title: "Students preparing for competitive exams",
-    desc: "Many students combine M.Com with govt exams/banking exams preparation.",
-    icon: ShieldCheck,
-  },
-];
-
-const CORE_AREAS = [
-  "Advanced Financial Accounting / Corporate Accounting",
-  "Financial Management & Corporate Finance",
-  "Business Economics / Managerial Economics",
-  "Taxation & GST concepts (varies)",
-  "Auditing & Assurance (varies)",
-  "Research methodology (common in many universities)",
-  "Statistics / Quantitative techniques (varies)",
-];
-
-const WORK_SETTINGS = [
-  {
-    title: "Corporate Accounts & Finance",
-    desc: "Accounting, finance ops, reporting, documentation and MIS roles.",
-    icon: Calculator,
-  },
-  {
-    title: "Banks & Financial Services",
-    desc: "Banking operations, finance support, documentation roles.",
-    icon: Landmark,
-  },
-  {
-    title: "Compliance / Tax Support",
-    desc: "GST/tax documentation, compliance support and audit support roles.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Teaching / Research (as per norms)",
-    desc: "College/university teaching path with required eligibility and exams.",
-    icon: GraduationCap,
-  },
-];
-
-const NEXT_STEP_OPTIONS = [
-  {
-    title: "NET/SET + Teaching Track (as per norms)",
-    desc: "For college/university teaching eligibility, follow latest rules and notifications.",
-  },
-  {
-    title: "PhD / Research",
-    desc: "If you want long-term academic/research growth.",
-  },
-  {
-    title: "Professional Commerce (CA/CS/CMA)",
-    desc: "M.Com can be combined, but professional courses need disciplined preparation.",
-  },
-  {
-    title: "Skill Certifications",
-    desc: "Advanced Excel, Tally/ERP basics, GST/tax basics, Power BI, accounting tools.",
-  },
-];
-
-const ELIGIBILITY_NOTES = [
-  "Usually after B.Com or equivalent UG commerce degree (criteria varies by university).",
-  "Some universities accept allied degrees with conditions—verify official notifications.",
-  "Admission can be merit-based or entrance-based depending on institute/state/university.",
-  "Specialisation/electives vary by college and university.",
-];
-
-const COMMON_DOCS = [
-  "UG marksheets + degree/provisional certificate",
-  "Class 10 & 12 marksheets (sometimes required)",
-  "Entrance scorecard (if applicable)",
-  "ID proof (Aadhaar etc.)",
-  "Photo + signature",
-  "Category/EWS/Income certificate (if applicable)",
-  "Domicile (if required)",
-];
-
-const BUILD_PROFILE = [
-  "Advanced Excel + reporting skills (must-have)",
-  "Accounting practice + real statements understanding",
-  "Basics of taxation/GST documentation (practical exposure)",
-  "Clear communication + professional writing",
-  "Internship/part-time exposure in accounts/finance",
-  "If targeting teaching: research reading habit + methodology basics",
+  { id: "finance", label: "Finance / Taxation / Accounting", href: '/courses/finance' },
+  { id: "pro", label: "CA / CS / CMA", href: '/courses/finance-taxation-accounting' },
 ];
 
 /* -------------------------------------------------------------
@@ -199,23 +68,55 @@ function MiniDL({ items }) {
 
 /* -------------------------------------------------------------
    PAGE
-   Route: /courses/mcom
 ------------------------------------------------------------- */
 
-export default function MComPage() {
-  const snapshot = useMemo(
-    () => [
-      { k: "Degree type", v: "PG Commerce Degree" },
-      { k: "Duration", v: "2 Years (varies)" },
-      { k: "Eligibility", v: "B.Com / equivalent (criteria varies)" },
-      { k: "Best for", v: "Advanced commerce • teaching/research • finance roles" },
-      { k: "Reality check", v: "Skills + exposure decide jobs" },
-    ],
-    []
-  );
+export default function MComPage({ courseContent }) {
+  // Debug log
+  console.log('=== MComPage Data ===');
+  console.log('Course Content:', courseContent);
+
+  // Extract data from courseContent
+  const mcomLadder = courseContent?.mcom_ladder || [];
+  const whoShouldDo = courseContent?.who_should_do || [];
+  const coreAreas = courseContent?.core_areas || [];
+  const workSettings = courseContent?.work_settings || [];
+  const nextStepOptions = courseContent?.next_step_options || [];
+  const eligibilityNotes = courseContent?.eligibility_notes || [];
+  const commonDocs = courseContent?.common_docs || [];
+  const buildProfile = courseContent?.build_profile || [];
+  const snapshot = courseContent?.snapshot || [];
+  const introHeading = courseContent?.intro_heading || "About M.Com";
+  const introDescription = courseContent?.intro_description || "M.Com (Master of Commerce) is a postgraduate degree that strengthens your knowledge in accounting, finance, economics, taxation and commerce-related research areas (as per university syllabus).";
+  const introDescriptionSecondary = courseContent?.intro_description_secondary || "M.Com is a strong choice for students who want deeper commerce understanding, plan for teaching/research tracks (with required eligibility), or want stronger grounding for finance/account roles.";
+
+  // Create snapshot items
+  const snapshotItems = snapshot.length > 0 
+    ? snapshot.map(item => ({ k: item.key, v: item.value }))
+    : [
+        { k: "Degree type", v: "PG Commerce Degree" },
+        { k: "Duration", v: "2 Years (varies)" },
+        { k: "Eligibility", v: "B.Com / equivalent (criteria varies)" },
+        { k: "Best for", v: "Advanced commerce • teaching/research • finance roles" },
+        { k: "Reality check", v: "Skills + exposure decide jobs" },
+      ];
+
+  // If no data found, show message
+  if (mcomLadder.length === 0 && coreAreas.length === 0 && whoShouldDo.length === 0) {
+    return (
+      <FrontendLayout>
+        <HeroInner title="M.Com (Master of Commerce)" breadcrumb="Business & Management → M.Com" />
+        <CoursesTabsBar tabs={TABS} activeId="mcom" />
+        <div className="container py-5">
+          <div className="alert alert-warning">
+            <h4>No courses available</h4>
+            <p>We're currently updating our course listings. Please check back later.</p>
+          </div>
+        </div>
+      </FrontendLayout>
+    );
+  }
 
   return (
-    <>
     <FrontendLayout>
       <HeroInner title="M.Com (Master of Commerce)" breadcrumb="Business & Management → M.Com" />
       <CoursesTabsBar tabs={TABS} activeId="mcom" />
@@ -227,18 +128,14 @@ export default function MComPage() {
             <div className="col-12 col-lg-7">
               <h2 className="sectionHeading mb-3 d-flex align-items-center gap-2">
                 <BookOpen size={18} className="text-primary" />
-                <span>About M.Com</span>
+                <span>{introHeading}</span>
               </h2>
 
-              <p className="sectionSub">
-                M.Com (Master of Commerce) is a postgraduate degree that strengthens your knowledge in accounting,
-                finance, economics, taxation and commerce-related research areas (as per university syllabus).
-              </p>
+              <p className="sectionSub">{introDescription}</p>
 
-              <p className="sectionSub mb-0">
-                M.Com is a strong choice for students who want deeper commerce understanding, plan for teaching/research
-                tracks (with required eligibility), or want stronger grounding for finance/account roles.
-              </p>
+              {introDescriptionSecondary && (
+                <p className="sectionSub mb-0">{introDescriptionSecondary}</p>
+              )}
             </div>
 
             <div className="col-12 col-lg-5">
@@ -247,7 +144,7 @@ export default function MComPage() {
                   <Layers3 size={18} className="text-primary" />
                   <span>Quick Snapshot</span>
                 </h3>
-                <MiniDL items={snapshot} />
+                <MiniDL items={snapshotItems} />
               </div>
 
               <div className="sectionCard bg-light border mt-3">
@@ -265,134 +162,166 @@ export default function MComPage() {
       </section>
 
       {/* 2) M.COM LADDER */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="M.Com career ladder"
-            subtitle="M.Com supports both industry and academic pathways depending on your plan."
-          />
+      {mcomLadder.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={GraduationCap}
+              title="M.Com career ladder"
+              subtitle="M.Com supports both industry and academic pathways depending on your plan."
+            />
 
-          <div className="row g-3">
-            {MCOM_LADDER.map((c) => (
-              <div key={c.title} className="col-12 col-md-6">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{c.title}</h3>
-                  <p className="small text-muted mb-1">{c.duration}</p>
-                  <p className="small text-muted mb-0">{c.focus}</p>
+            <div className="row g-3">
+              {mcomLadder.map((step, index) => (
+                <div key={index} className="col-12 col-md-6">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">{step.title}</h3>
+                    {step.duration && (
+                      <p className="small text-muted mb-1">{step.duration}</p>
+                    )}
+                    {step.focus && (
+                      <p className="small text-muted mb-0">{step.focus}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Tip: Decide early — are you aiming for teaching/research or corporate roles? Build your profile accordingly.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Tip: Decide early — are you aiming for teaching/research or corporate roles? Build your profile accordingly.
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 3) WHO SHOULD DO M.COM */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={ShieldCheck}
-            title="Who should do M.Com"
-            subtitle="M.Com is best when you want deeper commerce knowledge or academic direction."
-          />
+      {whoShouldDo.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={ShieldCheck}
+              title="Who should do M.Com"
+              subtitle="M.Com is best when you want deeper commerce knowledge or academic direction."
+            />
 
-          <div className="row g-3">
-            {WHO_SHOULD_DO.map((x) => {
-              const Icon = x.icon;
-              return (
-                <div key={x.title} className="col-12 col-md-6">
-                  <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{x.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-0">{x.desc}</p>
+            <div className="row g-3">
+              {whoShouldDo.map((item, index) => {
+                // Get icon based on title
+                const getIcon = (title) => {
+                  if (title.includes("deeper") || title.includes("knowledge") || title.includes("advanced")) return BookOpen;
+                  if (title.includes("teaching") || title.includes("research") || title.includes("academic")) return GraduationCap;
+                  if (title.includes("finance") || title.includes("account")) return Calculator;
+                  if (title.includes("competitive") || title.includes("exam") || title.includes("banking")) return ShieldCheck;
+                  return BookOpen;
+                };
+                const Icon = item.icon || getIcon(item.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-6">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{item.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-0">{item.desc || item.description}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 4) CORE AREAS */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={ClipboardList}
-            title="Core subjects (common)"
-            subtitle="Exact syllabus varies by university, but these are commonly seen in M.Com."
-          />
+      {coreAreas.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={ClipboardList}
+              title="Core subjects (common)"
+              subtitle="Exact syllabus varies by university, but these are commonly seen in M.Com."
+            />
 
-          <div className="row g-3">
-            {CORE_AREAS.map((s) => (
-              <div key={s} className="col-12 col-md-6 col-lg-4">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{s}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5) WHERE YOU WORK */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={Briefcase}
-            title="Where M.Com graduates work"
-            subtitle="Work depends on your skills, tools knowledge and experience."
-          />
-
-          <div className="row g-3">
-            {WORK_SETTINGS.map((w) => {
-              const Icon = w.icon;
-              return (
-                <div key={w.title} className="col-12 col-md-6 col-lg-3">
+            <div className="row g-3">
+              {coreAreas.map((area, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-4">
                   <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{w.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-0">{w.desc}</p>
+                    <h3 className="h6 mb-1">{area}</h3>
                   </div>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* 5) WHERE YOU WORK */}
+      {workSettings.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={Briefcase}
+              title="Where M.Com graduates work"
+              subtitle="Work depends on your skills, tools knowledge and experience."
+            />
+
+            <div className="row g-3">
+              {workSettings.map((work, index) => {
+                // Get icon based on title
+                const getIcon = (title) => {
+                  if (title.includes("Accounts") || title.includes("Finance") || title.includes("Corporate")) return Calculator;
+                  if (title.includes("Bank") || title.includes("Financial Services")) return Landmark;
+                  if (title.includes("Compliance") || title.includes("Tax")) return ShieldCheck;
+                  if (title.includes("Teaching") || title.includes("Research")) return GraduationCap;
+                  return Briefcase;
+                };
+                const Icon = work.icon || getIcon(work.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-6 col-lg-3">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{work.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-0">{work.desc || work.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 6) BEST NEXT STEPS */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="Best next steps after M.Com"
-            subtitle="Choose based on your target career: industry, teaching, research, or professional commerce."
-          />
+      {nextStepOptions.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={GraduationCap}
+              title="Best next steps after M.Com"
+              subtitle="Choose based on your target career: industry, teaching, research, or professional commerce."
+            />
 
-          <div className="row g-3">
-            {NEXT_STEP_OPTIONS.map((x) => (
-              <div key={x.title} className="col-12 col-md-6">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{x.title}</h3>
-                  <p className="small text-muted mb-0">{x.desc}</p>
+            <div className="row g-3">
+              {nextStepOptions.map((step, index) => (
+                <div key={index} className="col-12 col-md-6">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">{step.title}</h3>
+                    <p className="small text-muted mb-0">{step.desc || step.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Shortcut: for corporate roles, add advanced Excel + tools + internship. For teaching, follow NET/SET pathway rules.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Shortcut: for corporate roles, add advanced Excel + tools + internship. For teaching, follow NET/SET pathway rules.
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 7) ADMISSION & DOCUMENTS + BUILD PROFILE */}
       <section className="py-4 py-md-5">
@@ -412,8 +341,13 @@ export default function MComPage() {
                 </span>
 
                 <ul className="nitDarkList mb-0">
-                  {ELIGIBILITY_NOTES.map((x) => (
-                    <li key={x}>{x}</li>
+                  {(eligibilityNotes.length > 0 ? eligibilityNotes : [
+                    "Usually after B.Com or equivalent UG commerce degree (criteria varies by university).",
+                    "Some universities accept allied degrees with conditions—verify official notifications.",
+                    "Admission can be merit-based or entrance-based depending on institute/state/university.",
+                    "Specialisation/electives vary by college and university."
+                  ]).map((note, index) => (
+                    <li key={index}>{note}</li>
                   ))}
                 </ul>
 
@@ -431,43 +365,52 @@ export default function MComPage() {
                 </h3>
 
                 <ul className="list-unstyled small mb-0">
-                  {COMMON_DOCS.map((d) => (
-                    <li key={d} className="mb-2 d-flex">
+                  {(commonDocs.length > 0 ? commonDocs : [
+                    "UG marksheets + degree/provisional certificate",
+                    "Class 10 & 12 marksheets (sometimes required)",
+                    "Entrance scorecard (if applicable)",
+                    "ID proof (Aadhaar etc.)",
+                    "Photo + signature",
+                    "Category/EWS/Income certificate (if applicable)",
+                    "Domicile (if required)"
+                  ]).map((doc, index) => (
+                    <li key={index} className="mb-2 d-flex">
                       <span className="me-2">•</span>
-                      <span>{d}</span>
+                      <span>{doc}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="col-12">
-              <div className="sectionCard">
-                <h3 className="h6 mb-3 d-flex align-items-center gap-2">
-                  <Users size={18} className="text-primary" />
-                  <span>Build your profile during M.Com</span>
-                </h3>
+            {buildProfile.length > 0 && (
+              <div className="col-12">
+                <div className="sectionCard">
+                  <h3 className="h6 mb-3 d-flex align-items-center gap-2">
+                    <Users size={18} className="text-primary" />
+                    <span>Build your profile during M.Com</span>
+                  </h3>
 
-                <div className="row g-3">
-                  {BUILD_PROFILE.map((t) => (
-                    <div key={t} className="col-12 col-md-6 col-lg-4">
-                      <div className="sectionCard bg-light border h-100">
-                        <h4 className="h6 mb-1">Key focus</h4>
-                        <p className="small text-muted mb-0">{t}</p>
+                  <div className="row g-3">
+                    {buildProfile.map((item, index) => (
+                      <div key={index} className="col-12 col-md-6 col-lg-4">
+                        <div className="sectionCard bg-light border h-100">
+                          <h4 className="h6 mb-1">Key focus</h4>
+                          <p className="small text-muted mb-0">{item}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                <div className="text-muted small mt-3" style={{ maxWidth: "95ch" }}>
-                  Sensible shortcut: M.Com + advanced Excel + internship = stronger roles in accounts/finance.
+                  <div className="text-muted small mt-3" style={{ maxWidth: "95ch" }}>
+                    Sensible shortcut: M.Com + advanced Excel + internship = stronger roles in accounts/finance.
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
-      </FrontendLayout>
-    </>
+    </FrontendLayout>
   );
 }

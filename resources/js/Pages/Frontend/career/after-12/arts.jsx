@@ -1,17 +1,3 @@
-
-// import React, { useState, useRef, useEffect } from "react";
-// import { motion } from "framer-motion";
-// import * as Lucide from "lucide-react";
-// import VocationCourses8and10th from '@/Components/Frontend/VocationalCourses/VocationCourses8and10th';
-// import HeroInner from '@/Components/Frontend/Hero/HeroInner';
-// import ITIInstitutes from '@/Components/Frontend/Itiitcandjrpolytechnic/ITIInstitutes';
-// import Scholership from '@/Components/Frontend/Scholership/Scholership';
-// import CounsellorsDirectory from '@/Components/Frontend/Counselor/CounsellorsDirectory';
-// import Overview from "@/Components/Frontend/AfterClass12/ArtsOverviewTab";
-// import StreamSelection from "@/Components/Frontend/AfterClass10thOverview/StreamSelection";
-// import FrontendLayout from '@/Layouts/FrontendLayout';
-// import styles from './AfterClass8.module.css';
-
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -41,7 +27,27 @@ const TABS = [
   { id: "support", label: "Student Support" },
 ];
 
-export default function AfterClass12ArtsPage() {
+export default function AfterClass12ArtsPage({careerData, studentSupportItems = [], eduFundSections = []}) {
+
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+
+  const overview_tree = career?.overview_tree || [];
+  const related_exams = career?.related_exams || [];
+  const top_colleges_and_universities = career.top_colleges_and_universities || [];
+  
+
+
   const [activeTab, setActiveTab] = useState("overview");
   const [explorerFocus, setExplorerFocus] = useState(null);
 
@@ -146,15 +152,15 @@ export default function AfterClass12ArtsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {activeTab === "overview" && <ArtsOverviewTab />}
-           {activeTab === "relatedexams" && <RelatedExamArts />}
+          {activeTab === "overview" && <ArtsOverviewTab overview_tree={overview_tree}/>}
+           {activeTab === "relatedexams" && <RelatedExamArts related_exams={related_exams}/>}
 
-          {activeTab === "college" && <TopCollegesUniversitiesArts />}
+          {activeTab === "college" && <TopCollegesUniversitiesArts top_colleges_and_universities={top_colleges_and_universities}/>}
 
-          {activeTab === "loan-scholarship" && <EducationLoansScholarshipsTab />}
+          {activeTab === "loan-scholarship" && <EducationLoansScholarshipsTab sections={eduFundSections}/>}
 
           {activeTab === "exams" && <ArtsExamsNextStepsTab />}
-          {activeTab === "support" && <StudentSupportTab />}
+          {activeTab === "support" && <StudentSupportTab items={studentSupportItems}/>}
         </motion.div>
       </main>
     </div>

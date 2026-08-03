@@ -10,145 +10,145 @@ import { MapPin, ExternalLink, ArrowUpRight } from "lucide-react";
  * Indicative (non-ranking, non-exhaustive)
  */
 
-const SECTIONS = [
-  {
-    key: "iit-nit",
-    title: "IITs, NITs & Institutes of National Importance",
-    description:
-      "Institutes of National Importance established by Act of Parliament, offering undergraduate and postgraduate engineering programmes.",
-    items: [
-      {
-        name: "Indian Institute of Technology Kharagpur (IIT KGP)",
-        city: "Kharagpur",
-        state: "West Bengal",
-        website: "https://www.iitkgp.ac.in",
-      },
-      {
-        name: "Indian Institute of Technology Delhi (IIT Delhi)",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://home.iitd.ac.in",
-      },
-      {
-        name: "Indian Institute of Technology Bombay (IIT Bombay)",
-        city: "Mumbai",
-        state: "Maharashtra",
-        website: "https://www.iitb.ac.in",
-      },
-      {
-        name: "National Institute of Technology Durgapur (NIT DGP)",
-        city: "Durgapur",
-        state: "West Bengal",
-        website: "https://nitdgp.ac.in",
-      },
-      {
-        name: "National Institute of Technology Trichy (NIT Trichy)",
-        city: "Tiruchirappalli",
-        state: "Tamil Nadu",
-        website: "https://www.nitt.edu",
-      },
-    ],
-  },
+// const SECTIONS = [
+//   {
+//     key: "iit-nit",
+//     title: "IITs, NITs & Institutes of National Importance",
+//     description:
+//       "Institutes of National Importance established by Act of Parliament, offering undergraduate and postgraduate engineering programmes.",
+//     items: [
+//       {
+//         name: "Indian Institute of Technology Kharagpur (IIT KGP)",
+//         city: "Kharagpur",
+//         state: "West Bengal",
+//         website: "https://www.iitkgp.ac.in",
+//       },
+//       {
+//         name: "Indian Institute of Technology Delhi (IIT Delhi)",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://home.iitd.ac.in",
+//       },
+//       {
+//         name: "Indian Institute of Technology Bombay (IIT Bombay)",
+//         city: "Mumbai",
+//         state: "Maharashtra",
+//         website: "https://www.iitb.ac.in",
+//       },
+//       {
+//         name: "National Institute of Technology Durgapur (NIT DGP)",
+//         city: "Durgapur",
+//         state: "West Bengal",
+//         website: "https://nitdgp.ac.in",
+//       },
+//       {
+//         name: "National Institute of Technology Trichy (NIT Trichy)",
+//         city: "Tiruchirappalli",
+//         state: "Tamil Nadu",
+//         website: "https://www.nitt.edu",
+//       },
+//     ],
+//   },
 
-  {
-    key: "central",
-    title: "Central Universities & Technical Universities",
-    description:
-      "Central and technical universities offering B.Tech / M.Tech programmes across engineering disciplines.",
-    items: [
-      {
-        name: "Jamia Millia Islamia",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.jmi.ac.in",
-      },
-      {
-        name: "Aligarh Muslim University (AMU)",
-        city: "Aligarh",
-        state: "Uttar Pradesh",
-        website: "https://www.amu.ac.in",
-      },
-      {
-        name: "Delhi Technological University (DTU)",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://dtu.ac.in",
-      },
-      {
-        name: "Jawaharlal Nehru University (Engineering Schools)",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.jnu.ac.in",
-      },
-    ],
-  },
+//   {
+//     key: "central",
+//     title: "Central Universities & Technical Universities",
+//     description:
+//       "Central and technical universities offering B.Tech / M.Tech programmes across engineering disciplines.",
+//     items: [
+//       {
+//         name: "Jamia Millia Islamia",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.jmi.ac.in",
+//       },
+//       {
+//         name: "Aligarh Muslim University (AMU)",
+//         city: "Aligarh",
+//         state: "Uttar Pradesh",
+//         website: "https://www.amu.ac.in",
+//       },
+//       {
+//         name: "Delhi Technological University (DTU)",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://dtu.ac.in",
+//       },
+//       {
+//         name: "Jawaharlal Nehru University (Engineering Schools)",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.jnu.ac.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "state-wb",
-    title: "State Universities – West Bengal",
-    description:
-      "Major state universities and government engineering universities in West Bengal.",
-    items: [
-      {
-        name: "Jadavpur University",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.jaduniv.edu.in",
-      },
-      {
-        name: "University of Calcutta (Engineering & Technology)",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.caluniv.ac.in",
-      },
-      {
-        name: "Maulana Abul Kalam Azad University of Technology (MAKAUT)",
-        city: "Haringhata",
-        state: "West Bengal",
-        website: "https://makautwb.ac.in",
-      },
-      {
-        name: "Kalyani Government Engineering College",
-        city: "Kalyani",
-        state: "West Bengal",
-        website: "https://kgec.edu.in",
-      },
-    ],
-  },
+//   {
+//     key: "state-wb",
+//     title: "State Universities – West Bengal",
+//     description:
+//       "Major state universities and government engineering universities in West Bengal.",
+//     items: [
+//       {
+//         name: "Jadavpur University",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.jaduniv.edu.in",
+//       },
+//       {
+//         name: "University of Calcutta (Engineering & Technology)",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.caluniv.ac.in",
+//       },
+//       {
+//         name: "Maulana Abul Kalam Azad University of Technology (MAKAUT)",
+//         city: "Haringhata",
+//         state: "West Bengal",
+//         website: "https://makautwb.ac.in",
+//       },
+//       {
+//         name: "Kalyani Government Engineering College",
+//         city: "Kalyani",
+//         state: "West Bengal",
+//         website: "https://kgec.edu.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "deemed-private",
-    title: "Deemed & Autonomous Engineering Universities",
-    description:
-      "UGC-recognised deemed and autonomous universities offering engineering and technology programmes.",
-    items: [
-      {
-        name: "Birla Institute of Technology & Science (BITS Pilani)",
-        city: "Pilani",
-        state: "Rajasthan",
-        website: "https://www.bits-pilani.ac.in",
-      },
-      {
-        name: "Vellore Institute of Technology (VIT)",
-        city: "Vellore",
-        state: "Tamil Nadu",
-        website: "https://vit.ac.in",
-      },
-      {
-        name: "SRM Institute of Science and Technology",
-        city: "Chennai",
-        state: "Tamil Nadu",
-        website: "https://www.srmist.edu.in",
-      },
-      {
-        name: "Amity University",
-        city: "Noida",
-        state: "Uttar Pradesh",
-        website: "https://www.amity.edu",
-      },
-    ],
-  },
-];
+//   {
+//     key: "deemed-private",
+//     title: "Deemed & Autonomous Engineering Universities",
+//     description:
+//       "UGC-recognised deemed and autonomous universities offering engineering and technology programmes.",
+//     items: [
+//       {
+//         name: "Birla Institute of Technology & Science (BITS Pilani)",
+//         city: "Pilani",
+//         state: "Rajasthan",
+//         website: "https://www.bits-pilani.ac.in",
+//       },
+//       {
+//         name: "Vellore Institute of Technology (VIT)",
+//         city: "Vellore",
+//         state: "Tamil Nadu",
+//         website: "https://vit.ac.in",
+//       },
+//       {
+//         name: "SRM Institute of Science and Technology",
+//         city: "Chennai",
+//         state: "Tamil Nadu",
+//         website: "https://www.srmist.edu.in",
+//       },
+//       {
+//         name: "Amity University",
+//         city: "Noida",
+//         state: "Uttar Pradesh",
+//         website: "https://www.amity.edu",
+//       },
+//     ],
+//   },
+// ];
 
 function CollegeCard({ inst }) {
   return (
@@ -226,7 +226,9 @@ function UGCReferenceBlock() {
   );
 }
 
-export default function TopCollegesUniversitiesEngineeringTab() {
+export default function TopCollegesUniversitiesEngineeringTab({top_colleges_and_universities}) {
+
+  const SECTIONS = top_colleges_and_universities;
   return (
     <section className="py-4 py-md-5">
       <div className="container">

@@ -1,168 +1,84 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  BookOpen,
-  Award,
-  Layers,
-  Wrench,
-  GraduationCap,
-  Clipboard,
-} from "lucide-react";
+import * as LucideIcons from "lucide-react";
 import styles from "./Overview.module.css";
 
-/**
- * CareerOptionsAfter10
- * - Presents six distinct paths as separate panels (no accordion)
- * - Content is the literal extracted text for each path
- */
-export default function CareerOptionsAfter10() {
-  const panels = [
-    {
-      id: "school",
-      title: "School Exam",
-      subtitle: "Class XI / Class XII (Sc / Arts / Com)",
-      icon: BookOpen,
-      colorClass: styles.red,
-      content: [
-        "School Exam → Class XI (Sc/Arts/Com) → School Exam → Class XII (Sc/Arts/Com)",
-        
-      ],
-    },
+// Color class mapping - map string keys to actual CSS module classes
+const colorClassMap = {
+  red: styles.red,
+  pink: styles.pink,
+  orange: styles.orange,
+  blue: styles.blue,
+  teal: styles.teal,
+  violet: styles.violet,
+  green: styles.green,
+  yellow: styles.yellow,
+  purple: styles.purple,
+  indigo: styles.indigo,
+  cyan: styles.cyan,
+  gray: styles.gray,
+};
 
-    {
-      id: "jhmat",
-      title: "JHMAT Exam",
-      subtitle: "(Reqd 50% in Cl X)",
-      icon: Award,
-      colorClass: styles.pink,
-      content: [
-        "JHMAT Exam (Reqd 50% in Cl X)",
-        "Diploma in Hotel Management (3 yrs) → Bachelor in Hotel Management (3 yrs) → Master in Hotel Management (2 yrs) → MBA in Hotel Management (2 yrs)",
-      ],
-    },
+export default function CareerOptionsAfter10({ overview }) {
+  // If no data, return null or loading state
+  if (!overview || !Array.isArray(overview) || overview.length === 0) {
+    return (
+      <section className={styles.section}>
+        <div className="container text-center py-5">
+          <h3>No Overview Data Available</h3>
+        </div>
+      </section>
+    );
+  }
 
-    {
-      id: "classx_girls",
-      title: "Class X Marks Basis",
-      subtitle: "(Girls only)",
-      icon: GraduationCap,
-      colorClass: styles.orange,
-      content: [
-        "Class X Marks Basis (Girls only) → Auxiliary Nursing & Midwifery (ANM) 18 months",
-      ],
-    },
+  // Map string icon names to actual components
+  const getIcon = (iconName) => {
+    if (!iconName) return LucideIcons.BookOpen;
+    const Icon = LucideIcons[iconName];
+    return Icon || LucideIcons.BookOpen;
+  };
 
-    {
-      id: "jexpo",
-      title: "JEXPO Exam",
-      subtitle: "POLYTECHNIC DIPLOMA",
-      icon: Layers,
-      colorClass: styles.blue,
-      content: [
-        "JEXPO Exam → POLYTECHNIC DIPLOMA",
-        "AMIE → GATE EXAM → M.Tec → Ph.D.",
-        "B.E. → GATE EXAM → M.Tec → Ph.D.",
-        "Part Time B.E. → GATE EXAM → M.Tec → Ph.D.",
-        "Post Diploma",
-        "VOCLET Exam → POLYTECHNIC DIPLOMA → JELET Exam (2 yrs lat entry)",
-        "AT IGNOU → B.Tech in Construction Management / B.Tech in Water Resource Engg",
-        "Part Time B.E. (Jadavpur University & B.E. (5 yrs evening)) → GATE Exam → M.Tec → Ph.D.",
-      ],
-    },
+  // Get the actual CSS module class from the string
+  // The database stores "styles.red" but we need to extract "red" and map it
+  const getColorClass = (colorClassString) => {
+    if (!colorClassString) return styles.default;
+    
+    // Extract the color name from "styles.red" -> "red"
+    const colorName = colorClassString.replace('styles.', '');
+    
+    // Return the mapped CSS module class or default
+    return colorClassMap[colorName] || styles.default;
+  };
 
-    {
-      id: "vocational",
-      title: "VOCATIONAL COURSE",
-      subtitle: "Equivalent to Cl XII (2 yrs) Course",
-      icon: BookOpen,
-      colorClass: styles.teal,
-      content: [
-        "Vocational Course at (X+2) Level",
-        "Business & Commerce (BC) 2 yrs:",
-        "  1. Marketing & Salesmanship",
-        "  2. Modern office practice",
-        "  3. Library & Information Science",
-        "  4. Travel & Tourism",
-        "",
-        "Engineering & Technology (E) 2 yrs:",
-        "  1. Civil Construction & Maintenance Technology",
-        "  2. Automobile Mechanics",
-        "  3. Air-Conditioner & Refrigerator mechanic",
-        "  4. Computer Assembly & Maintenance",
-        "  5. Pump Operator & Maintenance",
-        "  6. IT Enabled Services",
-        "  7. Maintenance & repair of Elec. Domestic Appliances",
-        "  8. Consumer & Industrial Electronics Mechanics",
-        "",
-        "Agriculture (AG) 2 yrs:",
-        "  1. Pisciculture",
-        "  2. Dairy Farming",
-        "  3. Preservation & Processing of Fruits & Vegetables",
-        "  4. Horticulture nursery management",
-        "  5. Compost & vermicompost",
-        "  6. Plantation worker",
-        "",
-        "Home Science (HS) 2 yrs:",
-        "  1. Health Care",
-        "  2. Food preservation & processing",
-        "  3. Mother and child care",
-        "  4. Interior Decoration",
-        "",
-        "For details please visit Website — www.wbscvet.org",
-      ],
-    },
+  // Get color value for the icon
+  const getColorValue = (colorClassString) => {
+    if (!colorClassString) return '#6c757d';
+    
+    const colorName = colorClassString.replace('styles.', '');
+    const colorMap = {
+      red: '#dc3545',
+      pink: '#e83e8c',
+      orange: '#fd7e14',
+      blue: '#0d6efd',
+      teal: '#20c997',
+      violet: '#6f42c1',
+      green: '#198754',
+      yellow: '#ffc107',
+      purple: '#6f42c1',
+      indigo: '#6610f2',
+      cyan: '#0dcaf0',
+      gray: '#6c757d',
+    };
+    return colorMap[colorName] || '#6c757d';
+  };
 
-    {
-      id: "iti",
-      title: "ITI / ITC / JR POLYTECHNIC",
-      subtitle: "(Equivalent to Cl XI & XII (2 yrs) Course)",
-      icon: Wrench,
-      colorClass: styles.violet,
-      content: [
-        "ITI After Class X (M & B Category)",
-        "M-Category (examples):",
-        "  Tool & Die maker — 3 yrs",
-        "  Draftsman mechanical — 2 yrs",
-        "  Draftsman civil — 2 yrs",
-        "  Electrician — 2 yrs",
-        "  Fitter — 2 yrs",
-        "  Electronic mechanic — 2 yrs",
-        "  Grinder — 2 yrs",
-        "  Instrument mechanic — 2 yrs",
-        "  Machinist — 2 yrs",
-        "  Radio & TV Mechanic — 2 yrs",
-        "  Refrigeration & Air Cond. Mechanic — 2 yrs",
-        "  Surveyor — 2 yrs",
-        "  Turner — 2 yrs",
-        "  Motor vehicle Mechanic — 2 yrs",
-        "  Information Technology & Electronic System Maintenance — 2 yrs",
-        "  Plastic Processing Operator — 1 yrs",
-        "  Desk Making — 1 yrs",
-        "  Hair & skin care — 1 yrs",
-        "  Diesel Mechanic — 1 yrs",
-        "",
-        "B-Category (examples):",
-        "  Automobile — 1 yrs",
-        "  Production & manufacturing — 1 yrs",
-        "  Instrumentation — 1 yrs",
-        "  Chemical — 1 yrs",
-        "  Electrical — 1 yrs",
-        "  Construction & Wood working — 1 yrs",
-        "  Information Technology — 1 yrs",
-        "  Apparel — 1 yrs",
-        "  Agricultural Machinery — 1 yrs",
-        "  Food Processing — 1 yrs",
-        "  Hospitality — 1 yrs",
-        "  Electronic — 1 yrs",
-        "  Fabrication – Fitting & Welding — 1 yrs",
-        "",
-        "For details please visit Website — www.ctwb.org",
-        "10% seat reserved for NCVT students",
-        "60% in Class X (Polytechnic Diploma)",
-      ],
-    },
-  ];
+  const panels = overview.map((item) => ({
+    ...item,
+    icon: getIcon(item.icon),
+    colorClass: getColorClass(item.colorClass),
+    colorValue: getColorValue(item.colorClass),
+  }));
 
   return (
     <section className={styles.section}>
@@ -178,19 +94,19 @@ export default function CareerOptionsAfter10() {
         <p className={styles.lead}>Six distinct entry paths — exact options listed below.</p>
 
         <div className="row gx-4 gy-4">
-          {panels.map((p) => {
+          {panels.map((p, index) => {
             const Icon = p.icon;
             return (
-              <div key={p.id} className="col-12 ">
+              <div key={p.id} className="col-12">
                 <motion.article
                   className={`${styles.panel} ${p.colorClass} card h-100`}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: 0.06 * panels.indexOf(p) }}
+                  transition={{ duration: 0.45, delay: 0.06 * index }}
                 >
                   <div className={styles.head}>
                     <div className={styles.iconWrap}>
-                      <Icon size={20} />
+                      <Icon size={20} color={p.colorValue} strokeWidth={2} />
                     </div>
                     <div className={styles.titleWrap}>
                       <div className={styles.titleText}>{p.title}</div>
@@ -199,7 +115,7 @@ export default function CareerOptionsAfter10() {
                   </div>
 
                   <div className={styles.body}>
-                    {p.content.map((line, i) => (
+                    {p.content && p.content.map((line, i) => (
                       <p key={i} className={styles.line}>
                         {line}
                       </p>

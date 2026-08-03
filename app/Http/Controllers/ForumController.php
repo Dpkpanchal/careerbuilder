@@ -19,6 +19,21 @@ use App\Models\User;
 
 class ForumController extends Controller
 {
+
+    private function withAnswers($query)
+        {
+            return $query->with([
+                'user',
+                'answers' => function ($q) {
+                    $q->with(['user', 'replies.user'])
+                        ->orderBy('is_verified_by_counselor', 'desc')
+                        ->orderBy('created_at', 'asc');
+                },
+                'answers.reports',
+                'reports',
+            ]);
+        }
+
     public function forum(Request $request)
     {
        $categorySlug = $request->query('category');
@@ -322,6 +337,8 @@ class ForumController extends Controller
         ])->whereHas('answers', function ($query) use ($user_id) {
             $query->where('user_id', $user_id);
         })->get();
+
+     
         //print("<pre>"); print_r($questions->toArray()); exit;
         $forumCategory = ForumCategory::orderBy('name', 'asc')->get();
 

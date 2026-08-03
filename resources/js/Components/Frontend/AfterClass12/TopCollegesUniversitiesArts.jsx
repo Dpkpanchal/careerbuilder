@@ -10,53 +10,53 @@ import { MapPin, ExternalLink, ArrowUpRight } from "lucide-react";
  * Indicative (non-ranking, non-exhaustive)
  */
 
-const SECTIONS = [
-  {
-    key: "central",
-    title: "Central Universities & National Institutions",
-    description:
-      "Central universities and national institutions recognised by the Government of India, offering Arts, Humanities and Social Science programmes.",
-    items: [
-      { name: "University of Delhi", city: "New Delhi", state: "Delhi", website: "https://www.du.ac.in" },
-      { name: "Jawaharlal Nehru University", city: "New Delhi", state: "Delhi", website: "https://www.jnu.ac.in" },
-      { name: "Banaras Hindu University", city: "Varanasi", state: "Uttar Pradesh", website: "https://www.bhu.ac.in" },
-      { name: "Aligarh Muslim University", city: "Aligarh", state: "Uttar Pradesh", website: "https://www.amu.ac.in" },
-      { name: "Jamia Millia Islamia", city: "New Delhi", state: "Delhi", website: "https://www.jmi.ac.in" },
-      { name: "University of Hyderabad", city: "Hyderabad", state: "Telangana", website: "https://uohyd.ac.in" },
-      { name: "Central University of Rajasthan", city: "Ajmer", state: "Rajasthan", website: "https://curaj.ac.in" },
-    ],
-  },
+// const SECTIONS = [
+//   {
+//     key: "central",
+//     title: "Central Universities & National Institutions",
+//     description:
+//       "Central universities and national institutions recognised by the Government of India, offering Arts, Humanities and Social Science programmes.",
+//     items: [
+//       { name: "University of Delhi", city: "New Delhi", state: "Delhi", website: "https://www.du.ac.in" },
+//       { name: "Jawaharlal Nehru University", city: "New Delhi", state: "Delhi", website: "https://www.jnu.ac.in" },
+//       { name: "Banaras Hindu University", city: "Varanasi", state: "Uttar Pradesh", website: "https://www.bhu.ac.in" },
+//       { name: "Aligarh Muslim University", city: "Aligarh", state: "Uttar Pradesh", website: "https://www.amu.ac.in" },
+//       { name: "Jamia Millia Islamia", city: "New Delhi", state: "Delhi", website: "https://www.jmi.ac.in" },
+//       { name: "University of Hyderabad", city: "Hyderabad", state: "Telangana", website: "https://uohyd.ac.in" },
+//       { name: "Central University of Rajasthan", city: "Ajmer", state: "Rajasthan", website: "https://curaj.ac.in" },
+//     ],
+//   },
 
-  {
-    key: "state-wb",
-    title: "State Universities – West Bengal",
-    description:
-      "Major state universities in West Bengal offering undergraduate and postgraduate Arts and Humanities programmes.",
-    items: [
-      { name: "University of Calcutta", city: "Kolkata", state: "West Bengal", website: "https://www.caluniv.ac.in" },
-      { name: "Jadavpur University", city: "Kolkata", state: "West Bengal", website: "https://www.jaduniv.edu.in" },
-      { name: "Presidency University", city: "Kolkata", state: "West Bengal", website: "https://www.presiuniv.ac.in" },
-      { name: "University of Kalyani", city: "Nadia", state: "West Bengal", website: "https://klyuniv.ac.in" },
-      { name: "Vidyasagar University", city: "Midnapore", state: "West Bengal", website: "https://vidyasagar.ac.in" },
-      { name: "University of Burdwan", city: "Purba Bardhaman", state: "West Bengal", website: "https://www.buruniv.ac.in" },
-      { name: "University of North Bengal", city: "Darjeeling", state: "West Bengal", website: "https://www.nbu.ac.in" },
-      { name: "Sidho-Kanho-Birsha University", city: "Purulia", state: "West Bengal", website: "https://skbu.ac.in" },
-    ],
-  },
+//   {
+//     key: "state-wb",
+//     title: "State Universities – West Bengal",
+//     description:
+//       "Major state universities in West Bengal offering undergraduate and postgraduate Arts and Humanities programmes.",
+//     items: [
+//       { name: "University of Calcutta", city: "Kolkata", state: "West Bengal", website: "https://www.caluniv.ac.in" },
+//       { name: "Jadavpur University", city: "Kolkata", state: "West Bengal", website: "https://www.jaduniv.edu.in" },
+//       { name: "Presidency University", city: "Kolkata", state: "West Bengal", website: "https://www.presiuniv.ac.in" },
+//       { name: "University of Kalyani", city: "Nadia", state: "West Bengal", website: "https://klyuniv.ac.in" },
+//       { name: "Vidyasagar University", city: "Midnapore", state: "West Bengal", website: "https://vidyasagar.ac.in" },
+//       { name: "University of Burdwan", city: "Purba Bardhaman", state: "West Bengal", website: "https://www.buruniv.ac.in" },
+//       { name: "University of North Bengal", city: "Darjeeling", state: "West Bengal", website: "https://www.nbu.ac.in" },
+//       { name: "Sidho-Kanho-Birsha University", city: "Purulia", state: "West Bengal", website: "https://skbu.ac.in" },
+//     ],
+//   },
 
-  {
-    key: "deemed",
-    title: "Deemed & Autonomous Universities",
-    description:
-      "UGC-recognised deemed and autonomous universities known for Arts, Social Sciences and Humanities.",
-    items: [
-      { name: "Tata Institute of Social Sciences (TISS)", city: "Mumbai", state: "Maharashtra", website: "https://www.tiss.edu" },
-      { name: "Azim Premji University", city: "Bengaluru", state: "Karnataka", website: "https://azimpremjiuniversity.edu.in" },
-      { name: "Christ University", city: "Bengaluru", state: "Karnataka", website: "https://www.christuniversity.in" },
-      { name: "Jamia Hamdard", city: "New Delhi", state: "Delhi", website: "https://jamiahamdard.edu" },
-    ],
-  },
-];
+//   {
+//     key: "deemed",
+//     title: "Deemed & Autonomous Universities",
+//     description:
+//       "UGC-recognised deemed and autonomous universities known for Arts, Social Sciences and Humanities.",
+//     items: [
+//       { name: "Tata Institute of Social Sciences (TISS)", city: "Mumbai", state: "Maharashtra", website: "https://www.tiss.edu" },
+//       { name: "Azim Premji University", city: "Bengaluru", state: "Karnataka", website: "https://azimpremjiuniversity.edu.in" },
+//       { name: "Christ University", city: "Bengaluru", state: "Karnataka", website: "https://www.christuniversity.in" },
+//       { name: "Jamia Hamdard", city: "New Delhi", state: "Delhi", website: "https://jamiahamdard.edu" },
+//     ],
+//   },
+// ];
 
 function CollegeCard({ inst }) {
   return (
@@ -125,7 +125,9 @@ function UGCReferenceBlock() {
   );
 }
 
-export default function TopCollegesUniversitiesArtsTab() {
+export default function TopCollegesUniversitiesArtsTab({top_colleges_and_universities}) {
+const SECTIONS = top_colleges_and_universities;
+
   return (
     <section className="py-4 py-md-5">
       <div className="container">

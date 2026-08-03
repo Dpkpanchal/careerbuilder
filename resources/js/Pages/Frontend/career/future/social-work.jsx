@@ -33,145 +33,145 @@ export const metadata = {
    DATA (Career-book style)
 ========================= */
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Build empathy + communication + discipline through small initiatives",
-      "Volunteer locally: community events, tutoring, awareness drives (safe & supervised)",
-      "Choose Class 11–12 stream based on interest (any stream can enter social work)",
-    ],
-  },
-  {
-    title: "After Class 12",
-    steps: [
-      "Start volunteering with credible organizations or community projects",
-      "Choose UG options like BSW / BA / BSc (based on interest area)",
-      "Build skills: communication, documentation, teamwork, basic data handling",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "MSW / MA specialization for stronger professional roles",
-      "Work in NGOs, CSR, social programs, research, policy support",
-      "Grow with field experience, project ownership and leadership roles",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Build empathy + communication + discipline through small initiatives",
+//       "Volunteer locally: community events, tutoring, awareness drives (safe & supervised)",
+//       "Choose Class 11–12 stream based on interest (any stream can enter social work)",
+//     ],
+//   },
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "Start volunteering with credible organizations or community projects",
+//       "Choose UG options like BSW / BA / BSc (based on interest area)",
+//       "Build skills: communication, documentation, teamwork, basic data handling",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "MSW / MA specialization for stronger professional roles",
+//       "Work in NGOs, CSR, social programs, research, policy support",
+//       "Grow with field experience, project ownership and leadership roles",
+//     ],
+//   },
+// ];
 
-const DOMAINS = [
-  {
-    title: "Community Development",
-    points: [
-      "Rural/urban development, community mobilization, livelihoods",
-      "Best for: field work + people interaction + program execution",
-      "Focus: long-term improvement and participation",
-    ],
-  },
-  {
-    title: "Education & Child Welfare",
-    points: [
-      "Child protection, education programs, school outreach, counseling support",
-      "Best for: patience + mentorship mindset + structured work",
-      "Focus: learning outcomes, safety and support systems",
-    ],
-  },
-  {
-    title: "Health & Public Welfare",
-    points: [
-      "Public health awareness, nutrition, disability support, mental health programs",
-      "Best for: care mindset + coordination + community trust building",
-      "Focus: awareness, access and service delivery",
-    ],
-  },
-  {
-    title: "Environment & Social Impact",
-    points: [
-      "Climate, sustainability, conservation, disaster response support",
-      "Best for: mission-driven + operations + coordination",
-      "Focus: impact measurement and long-term change",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Community Development",
+//     points: [
+//       "Rural/urban development, community mobilization, livelihoods",
+//       "Best for: field work + people interaction + program execution",
+//       "Focus: long-term improvement and participation",
+//     ],
+//   },
+//   {
+//     title: "Education & Child Welfare",
+//     points: [
+//       "Child protection, education programs, school outreach, counseling support",
+//       "Best for: patience + mentorship mindset + structured work",
+//       "Focus: learning outcomes, safety and support systems",
+//     ],
+//   },
+//   {
+//     title: "Health & Public Welfare",
+//     points: [
+//       "Public health awareness, nutrition, disability support, mental health programs",
+//       "Best for: care mindset + coordination + community trust building",
+//       "Focus: awareness, access and service delivery",
+//     ],
+//   },
+//   {
+//     title: "Environment & Social Impact",
+//     points: [
+//       "Climate, sustainability, conservation, disaster response support",
+//       "Best for: mission-driven + operations + coordination",
+//       "Focus: impact measurement and long-term change",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "BSW (Bachelor of Social Work)",
-    text:
-      "A strong entry-level professional degree for social work careers. Builds field exposure, community practice, and program understanding.",
-    url: "/courses/social-work/bsw",
-    cta: "Explore BSW",
-  },
-  {
-    title: "MSW (Master of Social Work)",
-    text:
-      "Advanced specialization for leadership roles in NGOs, CSR, counseling support, program design and management.",
-    url: "/courses/social-work/msw",
-    cta: "Explore MSW",
-  },
-  {
-    title: "Short Courses & Certifications (Impact Skills)",
-    text:
-      "Useful add-ons: project management, monitoring & evaluation, communication, counseling basics, fundraising and documentation.",
-    url: "/courses/social-work/certifications",
-    cta: "Explore Certifications",
-  },
-  {
-    title: "Research / Policy / Development Studies (Optional)",
-    text:
-      "For students interested in policy research, development economics, public policy or social impact strategy roles.",
-    url: "/courses/social-work/policy",
-    cta: "Explore Policy Path",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "BSW (Bachelor of Social Work)",
+//     text:
+//       "A strong entry-level professional degree for social work careers. Builds field exposure, community practice, and program understanding.",
+//     url: "/courses/social-work/bsw",
+//     cta: "Explore BSW",
+//   },
+//   {
+//     title: "MSW (Master of Social Work)",
+//     text:
+//       "Advanced specialization for leadership roles in NGOs, CSR, counseling support, program design and management.",
+//     url: "/courses/social-work/msw",
+//     cta: "Explore MSW",
+//   },
+//   {
+//     title: "Short Courses & Certifications (Impact Skills)",
+//     text:
+//       "Useful add-ons: project management, monitoring & evaluation, communication, counseling basics, fundraising and documentation.",
+//     url: "/courses/social-work/certifications",
+//     cta: "Explore Certifications",
+//   },
+//   {
+//     title: "Research / Policy / Development Studies (Optional)",
+//     text:
+//       "For students interested in policy research, development economics, public policy or social impact strategy roles.",
+//     url: "/courses/social-work/policy",
+//     cta: "Explore Policy Path",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "Mostly admission-based (no single exam)",
-    text:
-      "Many social work programs are admission-based (merit or university-level selection). Some institutes may conduct entrance tests.",
-    url: "/exams/social-work/overview",
-  },
-  {
-    title: "University-level entrances (where applicable)",
-    text:
-      "Some universities and institutes conduct their own entrances/interviews for BSW/MSW programs.",
-    url: "/exams/social-work/university",
-  },
-  {
-    title: "Government / PSU / CSR allied routes",
-    text:
-      "Some allied roles come via general competitive exams and program recruitments (role-based).",
-    url: "/exams/social-work/allied",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "Mostly admission-based (no single exam)",
+//     text:
+//       "Many social work programs are admission-based (merit or university-level selection). Some institutes may conduct entrance tests.",
+//     url: "/exams/social-work/overview",
+//   },
+//   {
+//     title: "University-level entrances (where applicable)",
+//     text:
+//       "Some universities and institutes conduct their own entrances/interviews for BSW/MSW programs.",
+//     url: "/exams/social-work/university",
+//   },
+//   {
+//     title: "Government / PSU / CSR allied routes",
+//     text:
+//       "Some allied roles come via general competitive exams and program recruitments (role-based).",
+//     url: "/exams/social-work/allied",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "Social Work Colleges (BSW/MSW)", url: "/colleges/social-work" },
-  { title: "Universities (Social Sciences / Development)", url: "/colleges/social-work/universities" },
-  { title: "NGO Training & Volunteer Programs", url: "/colleges/social-work/ngos" },
-  { title: "CSR & Corporate Social Impact Programs", url: "/colleges/social-work/csr" },
-  { title: "Online Learning Platforms", url: "/colleges/social-work/online" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "Social Work Colleges (BSW/MSW)", url: "/colleges/social-work" },
+//   { title: "Universities (Social Sciences / Development)", url: "/colleges/social-work/universities" },
+//   { title: "NGO Training & Volunteer Programs", url: "/colleges/social-work/ngos" },
+//   { title: "CSR & Corporate Social Impact Programs", url: "/colleges/social-work/csr" },
+//   { title: "Online Learning Platforms", url: "/colleges/social-work/online" },
+// ];
 
-const INDUSTRIES = [
-  "NGOs & Foundations",
-  "CSR (Corporate Social Responsibility)",
-  "Government Social Programs (role-based)",
-  "International organizations / Development sector",
-  "Education & Child welfare organizations",
-  "Healthcare & Public welfare programs",
-];
+// const INDUSTRIES = [
+//   "NGOs & Foundations",
+//   "CSR (Corporate Social Responsibility)",
+//   "Government Social Programs (role-based)",
+//   "International organizations / Development sector",
+//   "Education & Child welfare organizations",
+//   "Healthcare & Public welfare programs",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Social Worker / Community Worker",
-  "Program Coordinator / Field Coordinator",
-  "Project Manager (Social sector)",
-  "Counseling / Support roles (training dependent)",
-  "Monitoring & Evaluation (M&E) Associate",
-  "Fundraising / Partnerships Associate",
-];
+// const ROLE_EXAMPLES = [
+//   "Social Worker / Community Worker",
+//   "Program Coordinator / Field Coordinator",
+//   "Project Manager (Social sector)",
+//   "Counseling / Support roles (training dependent)",
+//   "Monitoring & Evaluation (M&E) Associate",
+//   "Fundraising / Partnerships Associate",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -210,7 +210,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function SocialWorkNgoFuturePathPage() {
+export default function SocialWorkNgoFuturePathPage({careerData}) {
+
+    const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
     <main>

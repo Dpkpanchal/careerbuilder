@@ -6,284 +6,284 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X, Route, Map as MapIcon } from "lucide-react";
 
 
-export const AFTER_12_ARTS_PATHWAY_MAP = {
-  key: "after-12-arts",
-  title: "Graduate Level Courses After Class 12 (Arts Students)",
-  type: "root",
-  entries: [
-    // =========================
-    // TOP ROW (direct after class 12 options)
-    // =========================
+// export const AFTER_12_ARTS_PATHWAY_MAP = {
+//   key: "after-12-arts",
+//   title: "Graduate Level Courses After Class 12 (Arts Students)",
+//   type: "root",
+//   entries: [
+//     // =========================
+//     // TOP ROW (direct after class 12 options)
+//     // =========================
    
 
-    {
-      key: "ba-3yrs",
-      label: "B.A. (3 Yrs)",
-      type: "course",
-      children: [
-        // =========================================================
-        // LOWER HORIZONTAL BRANCHES FROM B.A. (as per diagram)
-        // =========================================================
+//     {
+//       key: "ba-3yrs",
+//       label: "B.A. (3 Yrs)",
+//       type: "course",
+//       children: [
+//         // =========================================================
+//         // LOWER HORIZONTAL BRANCHES FROM B.A. (as per diagram)
+//         // =========================================================
 
-        // 1) M.A branch (NET/SET/CSC-PSC → Asst. Prof / PhD / MPhil)
-        {
-          key: "ma",
-          label: "M.A.",
-          type: "course",
-          children: [
-            {
-              key: "net-set",
-              label: "NET / SET",
-              type: "exam",
-              children: [
-                {
-                  key: "asst-prof",
-                  label: "Asst. Prof",
-                  type: "outcome",
-                  notes: ["Through CSC/PSC "],
-                  children: [],
-                },
-                {
-                  key: "phd-from-ma",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [
-                    {
-                      key: "post-doc",
-                      label: "Post Doc",
-                      type: "outcome",
-                      children: [],
-                    },
-                  ],
-                },
-                {
-                  key: "mphil",
-                  label: "M.Phil",
-                  type: "course",
-                  children: [
-                    {
-                      key: "phd-from-mphil",
-                      label: "Ph.D",
-                      type: "course",
-                      children: [],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
+//         // 1) M.A branch (NET/SET/CSC-PSC → Asst. Prof / PhD / MPhil)
+//         {
+//           key: "ma",
+//           label: "M.A.",
+//           type: "course",
+//           children: [
+//             {
+//               key: "net-set",
+//               label: "NET / SET",
+//               type: "exam",
+//               children: [
+//                 {
+//                   key: "asst-prof",
+//                   label: "Asst. Prof",
+//                   type: "outcome",
+//                   notes: ["Through CSC/PSC "],
+//                   children: [],
+//                 },
+//                 {
+//                   key: "phd-from-ma",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [
+//                     {
+//                       key: "post-doc",
+//                       label: "Post Doc",
+//                       type: "outcome",
+//                       children: [],
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   key: "mphil",
+//                   label: "M.Phil",
+//                   type: "course",
+//                   children: [
+//                     {
+//                       key: "phd-from-mphil",
+//                       label: "Ph.D",
+//                       type: "course",
+//                       children: [],
+//                     },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
 
-        // 2) B.Ed branch (50% in Graduation + SSC/MSC → Secondary Teacher)
-        {
-          key: "bed",
-          label: "B.Ed",
-          type: "course",
-          notes: ["50% in Graduation"],
-          children: [
-            {
-              key: "med-from-bed",
-              label: "M.Ed",
-              type: "course",
-              children: [
-                {
-                  key: "phd-from-med",
-                  label: "Ph. D",
-                  type: "course",
-                  children: [],
-                },
-              ],
-            },
+//         // 2) B.Ed branch (50% in Graduation + SSC/MSC → Secondary Teacher)
+//         {
+//           key: "bed",
+//           label: "B.Ed",
+//           type: "course",
+//           notes: ["50% in Graduation"],
+//           children: [
+//             {
+//               key: "med-from-bed",
+//               label: "M.Ed",
+//               type: "course",
+//               children: [
+//                 {
+//                   key: "phd-from-med",
+//                   label: "Ph. D",
+//                   type: "course",
+//                   children: [],
+//                 },
+//               ],
+//             },
 
-            // Side output shown near B.Ed
-            {
-              key: "secondary-teacher",
-              label: "Secondary Teacher",
-              type: "outcome",
-              notes: ["SSC", "MSC (as shown near the B.Ed branch)"],
-              children: [],
-            },
-          ],
-        },
+//             // Side output shown near B.Ed
+//             {
+//               key: "secondary-teacher",
+//               label: "Secondary Teacher",
+//               type: "outcome",
+//               notes: ["SSC", "MSC (as shown near the B.Ed branch)"],
+//               children: [],
+//             },
+//           ],
+//         },
 
-        // 3) B.Ed (Spl Education) branch with specializations → M.Ed
-        {
-          key: "bed-spl",
-          label: "B.Ed (Spl Education)",
-          type: "course",
-          notes: [
-            "Hearing Impairment",
-            "Visual Impairment",
-            "Mental Retardation",
-            "Learning Disability",
-          ],
-          children: [
-            {
-              key: "med-from-spl",
-              label: "M.Ed",
-              type: "course",
-              children: [],
-            },
-          ],
-        },
+//         // 3) B.Ed (Spl Education) branch with specializations → M.Ed
+//         {
+//           key: "bed-spl",
+//           label: "B.Ed (Spl Education)",
+//           type: "course",
+//           notes: [
+//             "Hearing Impairment",
+//             "Visual Impairment",
+//             "Mental Retardation",
+//             "Learning Disability",
+//           ],
+//           children: [
+//             {
+//               key: "med-from-spl",
+//               label: "M.Ed",
+//               type: "course",
+//               children: [],
+//             },
+//           ],
+//         },
 
-        // 4) LLB branch (separate from BA LLB 5 yrs) → LLM → PhD → Judicial Exam (also LLM → Judicial Exam)
-        {
-          key: "llb",
-          label: "LLB",
-          type: "course",
-          children: [
-            {
-              key: "llm-from-llb",
-              label: "LLM",
-              type: "course",
-              children: [
-                {
-                  key: "phd-from-llm-llb",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [
-                    {
-                      key: "judicial-exam-from-phd-llb",
-                      label: "Judicial Exam",
-                      type: "exam",
-                      children: [],
-                    },
-                  ],
-                },
-                {
-                  key: "judicial-exam-from-llm-llb",
-                  label: "Judicial Exam",
-                  type: "exam",
-                  children: [],
-                },
-              ],
-            },
-          ],
-        },
+//         // 4) LLB branch (separate from BA LLB 5 yrs) → LLM → PhD → Judicial Exam (also LLM → Judicial Exam)
+//         {
+//           key: "llb",
+//           label: "LLB",
+//           type: "course",
+//           children: [
+//             {
+//               key: "llm-from-llb",
+//               label: "LLM",
+//               type: "course",
+//               children: [
+//                 {
+//                   key: "phd-from-llm-llb",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [
+//                     {
+//                       key: "judicial-exam-from-phd-llb",
+//                       label: "Judicial Exam",
+//                       type: "exam",
+//                       children: [],
+//                     },
+//                   ],
+//                 },
+//                 {
+//                   key: "judicial-exam-from-llm-llb",
+//                   label: "Judicial Exam",
+//                   type: "exam",
+//                   children: [],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
 
-        // 5) Competitive exams block (as a terminal group)
-        {
-          key: "competitive-exams",
-          label: "WBCS / WBFS / IAS / IPS / IFS / IRS, IES Misc etc",
-          type: "exam_group",
-          children: [],
-        },
-      ],
-    },
+//         // 5) Competitive exams block (as a terminal group)
+//         {
+//           key: "competitive-exams",
+//           label: "WBCS / WBFS / IAS / IPS / IFS / IRS, IES Misc etc",
+//           type: "exam_group",
+//           children: [],
+//         },
+//       ],
+//     },
 
-    {
-      key: "ba-public-admin",
-      label: "B.A. Public Administration",
-      type: "course",
-      children: [
-        {
-          key: "ma-public-admin",
-          label: "M.A. Public Administration",
-          type: "course",
-          children: [],
-        },
-      ],
-    },
+//     {
+//       key: "ba-public-admin",
+//       label: "B.A. Public Administration",
+//       type: "course",
+//       children: [
+//         {
+//           key: "ma-public-admin",
+//           label: "M.A. Public Administration",
+//           type: "course",
+//           children: [],
+//         },
+//       ],
+//     },
 
-    // BA LLB (5 yrs) branch → LLM (2 yrs) → PhD → Judicial Exam + LLM → Judicial Exam
-    {
-      key: "ba-llb-5yrs",
-      label: "B.A. LLB (5 Yrs)",
-      type: "course",
-      children: [
-        {
-          key: "llm-2yrs",
-          label: "LLM (2 Yrs)",
-          type: "course",
-          children: [
-            {
-              key: "phd-from-llm-2yrs",
-              label: "Ph.D",
-              type: "course",
-              children: [
-                {
-                  key: "judicial-exam-from-phd-5yrs",
-                  label: "Judicial Exam",
-                  type: "exam",
-                  children: [],
-                },
-              ],
-            },
-            {
-              key: "judicial-exam-from-llm-2yrs",
-              label: "Judicial Exam",
-              type: "exam",
-              children: [],
-            },
-          ],
-        },
-      ],
-    },
+//     // BA LLB (5 yrs) branch → LLM (2 yrs) → PhD → Judicial Exam + LLM → Judicial Exam
+//     {
+//       key: "ba-llb-5yrs",
+//       label: "B.A. LLB (5 Yrs)",
+//       type: "course",
+//       children: [
+//         {
+//           key: "llm-2yrs",
+//           label: "LLM (2 Yrs)",
+//           type: "course",
+//           children: [
+//             {
+//               key: "phd-from-llm-2yrs",
+//               label: "Ph.D",
+//               type: "course",
+//               children: [
+//                 {
+//                   key: "judicial-exam-from-phd-5yrs",
+//                   label: "Judicial Exam",
+//                   type: "exam",
+//                   children: [],
+//                 },
+//               ],
+//             },
+//             {
+//               key: "judicial-exam-from-llm-2yrs",
+//               label: "Judicial Exam",
+//               type: "exam",
+//               children: [],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    {
-      key: "bsw",
-      label: "B.S.W.",
-      type: "course",
-      children: [
-        {
-          key: "msw",
-          label: "M.S.W.",
-          type: "course",
-          children: [
-            {
-              key: "phd-from-msw",
-              label: "Ph.D",
-              type: "course",
-              children: [],
-            },
-          ],
-        },
-      ],
-    },
+//     {
+//       key: "bsw",
+//       label: "B.S.W.",
+//       type: "course",
+//       children: [
+//         {
+//           key: "msw",
+//           label: "M.S.W.",
+//           type: "course",
+//           children: [
+//             {
+//               key: "phd-from-msw",
+//               label: "Ph.D",
+//               type: "course",
+//               children: [],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    {
-      key: "bba",
-      label: "BBA",
-      type: "course",
-      children: [
-        {
-          key: "mba",
-          label: "MBA",
-          type: "course",
-          children: [
-            {
-              key: "phd-from-mba",
-              label: "Ph.D",
-              type: "course",
-              children: [],
-            },
-          ],
-        },
-      ],
-    },
-     {
-      key: "journalism",
-      label: "Journalism",
-      type: "course",
-      children: [],
-    },
+//     {
+//       key: "bba",
+//       label: "BBA",
+//       type: "course",
+//       children: [
+//         {
+//           key: "mba",
+//           label: "MBA",
+//           type: "course",
+//           children: [
+//             {
+//               key: "phd-from-mba",
+//               label: "Ph.D",
+//               type: "course",
+//               children: [],
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//      {
+//       key: "journalism",
+//       label: "Journalism",
+//       type: "course",
+//       children: [],
+//     },
 
-    {
-      key: "blib",
-      label: "B.Lib",
-      type: "course",
-      children: [
-        {
-          key: "mlib",
-          label: "M.Lib",
-          type: "course",
-          children: [],
-        },
-      ],
-    },
-  ],
-};
+//     {
+//       key: "blib",
+//       label: "B.Lib",
+//       type: "course",
+//       children: [
+//         {
+//           key: "mlib",
+//           label: "M.Lib",
+//           type: "course",
+//           children: [],
+//         },
+//       ],
+//     },
+//   ],
+// };
 
 function DiagramSection() {
   const [open, setOpen] = useState(false);
@@ -416,9 +416,12 @@ function PathCard({ path, index }) {
   );
 }
 
-export default function ArtsOverviewTab() {
+export default function ArtsOverviewTab({overview_tree}) {
+
+
+
   const reduceMotion = useReducedMotion();
-  const entries = AFTER_12_ARTS_PATHWAY_MAP.entries;
+  const entries = overview_tree.entries;
 
   const [activeEntry, setActiveEntry] = useState(null);
 

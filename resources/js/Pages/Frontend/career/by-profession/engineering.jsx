@@ -14,152 +14,150 @@ export const metadata = {
     "A complete engineering career guide: what engineering is, who it suits, pathways after Class 10/12, branches, entrance exams, top colleges, career opportunities, scholarships & education loan support.",
 };
 
-const BRANCH_GROUPS = [
-  {
-    title: "Core Engineering",
-    points: [
-      "Civil, Mechanical, Electrical, Chemical",
-      "Focus: infrastructure, machines, power systems, industrial processes",
-      "Best for: hands-on problem-solving and real-world systems",
-    ],
-  },
-  {
-    title: "Computer & Technology",
-    points: [
-      "Computer Science, IT, AI/ML, Data Science, Cyber Security",
-      "Focus: software systems, automation, data, platforms",
-      "Best for: logic + coding + continuous tech learning",
-    ],
-  },
-  {
-    title: "Electronics & Communication",
-    points: [
-      "ECE, EEE, Instrumentation",
-      "Focus: communication, embedded systems, electronics, control systems",
-      "Best for: interest in hardware + signals + electronics",
-    ],
-  },
-  {
-    title: "Emerging & Interdisciplinary",
-    points: [
-      "Robotics, Renewable Energy, Biomedical, Materials/Nano",
-      "Focus: innovation at the intersection of disciplines",
-      "Best for: curiosity + future-facing tech interests",
-    ],
-  },
-];
+// const BRANCH_GROUPS = [
+//   {
+//     title: "Core Engineering",
+//     points: [
+//       "Civil, Mechanical, Electrical, Chemical",
+//       "Focus: infrastructure, machines, power systems, industrial processes",
+//       "Best for: hands-on problem-solving and real-world systems",
+//     ],
+//   },
+//   {
+//     title: "Computer & Technology",
+//     points: [
+//       "Computer Science, IT, AI/ML, Data Science, Cyber Security",
+//       "Focus: software systems, automation, data, platforms",
+//       "Best for: logic + coding + continuous tech learning",
+//     ],
+//   },
+//   {
+//     title: "Electronics & Communication",
+//     points: [
+//       "ECE, EEE, Instrumentation",
+//       "Focus: communication, embedded systems, electronics, control systems",
+//       "Best for: interest in hardware + signals + electronics",
+//     ],
+//   },
+//   {
+//     title: "Emerging & Interdisciplinary",
+//     points: [
+//       "Robotics, Renewable Energy, Biomedical, Materials/Nano",
+//       "Focus: innovation at the intersection of disciplines",
+//       "Best for: curiosity + future-facing tech interests",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Diploma / Polytechnic in Engineering",
-      "Skill-first learning + early technical exposure",
-      "Lateral entry option to Degree (where applicable)",
-    ],
-  },
-  {
-    title: "After Class 12 (Science)",
-    steps: [
-      "B.Tech / B.E (most common route)",
-      "Internships + projects build your profile",
-      "Jobs / Higher studies / specialization",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "M.Tech / MS / specialization track",
-      "Research roles, teaching, advanced technical pathways",
-      "Better roles with domain depth",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Diploma / Polytechnic in Engineering",
+//       "Skill-first learning + early technical exposure",
+//       "Lateral entry option to Degree (where applicable)",
+//     ],
+//   },
+//   {
+//     title: "After Class 12 (Science)",
+//     steps: [
+//       "B.Tech / B.E (most common route)",
+//       "Internships + projects build your profile",
+//       "Jobs / Higher studies / specialization",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "M.Tech / MS / specialization track",
+//       "Research roles, teaching, advanced technical pathways",
+//       "Better roles with domain depth",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "Diploma in Engineering",
-    text:
-      "A practical, skill-focused technical qualification often chosen after Class 10. Useful for early employment and for continuing to degree via lateral entry (where applicable).",
-    url: '/courses/diploma-in-engineering-polytechnic',
-    cta: "Explore Diploma Courses",
-  },
-  {
-    title: "B.Tech / B.E (Bachelor’s)",
-    text:
-      "The standard undergraduate engineering degree that builds a strong foundation in technical concepts, problem-solving, design, and project work.",
-    url: '/courses/btech-be-programs',
-    cta: "Explore UG Engineering",
-  },
-  {
-    title: "M.Tech / MS (Postgraduate)",
-    text:
-      "Advanced specialization for students aiming at high-skill roles, research, teaching, or deeper domain expertise.",
-    url: '/courses/mtech',
-    cta: "Explore PG Engineering",
-  },
-  {
-    title: "Research / PhD",
-    text:
-      "For students interested in innovation, R&D, advanced research, and academic careers.",
-    url: '/careers/research-phd',
-    cta: "Explore Research Path",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "Diploma in Engineering",
+//     text:
+//       "A practical, skill-focused technical qualification often chosen after Class 10. Useful for early employment and for continuing to degree via lateral entry (where applicable).",
+//     url: '/courses/diploma-in-engineering-polytechnic',
+//     cta: "Explore Diploma Courses",
+//   },
+//   {
+//     title: "B.Tech / B.E (Bachelor’s)",
+//     text:
+//       "The standard undergraduate engineering degree that builds a strong foundation in technical concepts, problem-solving, design, and project work.",
+//     url: '/courses/btech-be-programs',
+//     cta: "Explore UG Engineering",
+//   },
+//   {
+//     title: "M.Tech / MS (Postgraduate)",
+//     text:
+//       "Advanced specialization for students aiming at high-skill roles, research, teaching, or deeper domain expertise.",
+//     url: '/courses/mtech',
+//     cta: "Explore PG Engineering",
+//   },
+//   {
+//     title: "Research / PhD",
+//     text:
+//       "For students interested in innovation, R&D, advanced research, and academic careers.",
+//     url: '/careers/research-phd',
+//     cta: "Explore Research Path",
+//   },
+// ];
 
-
-
-const EXAMS = [
-  {
-    title: "National-level Entrance Exams",
-    text:
-      "Centralized exams used for admission to premier engineering institutes and national universities across India.",
-    url: '/exams/national-level-eg-jee-main-jee-advanced',
-  },
-  {
-    title: "State-level Entrance Exams",
-    text:
-      "Conducted by state authorities for admission to government and private engineering colleges within a state.",
-    url: '/exams/state-level-wbjee-etc',
-  },
-  {
-    title: "University-level Entrance Exams",
-    text:
-      "Some universities and deemed institutions conduct their own entrance tests for engineering programs.",
-    url: '/exams/university-level-exams',
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Entrance Exams",
+//     text:
+//       "Centralized exams used for admission to premier engineering institutes and national universities across India.",
+//     url: '/exams/national-level-eg-jee-main-jee-advanced',
+//   },
+//   {
+//     title: "State-level Entrance Exams",
+//     text:
+//       "Conducted by state authorities for admission to government and private engineering colleges within a state.",
+//     url: '/exams/state-level-wbjee-etc',
+//   },
+//   {
+//     title: "University-level Entrance Exams",
+//     text:
+//       "Some universities and deemed institutions conduct their own entrance tests for engineering programs.",
+//     url: '/exams/university-level-exams',
+//   },
+// ];
 
 
-const INSTITUTE_LINKS = [
-  { title: "IITs (Indian Institutes of Technology)", url: '/colleges/iits-indian-institutes-of-technology' },
-  { title: "NITs (National Institutes of Technology)", url: '/colleges/nits-national-institutes-of-technology' },
-  { title: "Central Universities", url: '/colleges/central-universities' },
-  { title: "State Universities", url: '/colleges/state-universities' },
-  { title: "Private & Deemed Universities", url: '#' },
-  { title: "Open & Distance (Selected Options)", url: '/colleges/open-distance-universities-ignou-nsou' },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "IITs (Indian Institutes of Technology)", url: '/colleges/iits-indian-institutes-of-technology' },
+//   { title: "NITs (National Institutes of Technology)", url: '/colleges/nits-national-institutes-of-technology' },
+//   { title: "Central Universities", url: '/colleges/central-universities' },
+//   { title: "State Universities", url: '/colleges/state-universities' },
+//   { title: "Private & Deemed Universities", url: '#' },
+//   { title: "Open & Distance (Selected Options)", url: '/colleges/open-distance-universities-ignou-nsou' },
+// ];
 
 
-const INDUSTRIES = [
-  "IT & Software",
-  "Infrastructure & Construction",
-  "Manufacturing & Automotive",
-  "Power & Energy",
-  "Electronics & Telecom",
-  "Government / PSU & Public Sector",
-  "Startups & Innovation",
-];
+// const INDUSTRIES = [
+//   "IT & Software",
+//   "Infrastructure & Construction",
+//   "Manufacturing & Automotive",
+//   "Power & Energy",
+//   "Electronics & Telecom",
+//   "Government / PSU & Public Sector",
+//   "Startups & Innovation",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Software / Systems Engineer",
-  "Design Engineer",
-  "Project Engineer",
-  "Quality / Testing Engineer",
-  "Data / AI Engineer (for computing branches)",
-  "Network / Electronics Engineer (for ECE/EEE)",
-  "Site / Structural Engineer (for Civil)",
-];
+// const ROLE_EXAMPLES = [
+//   "Software / Systems Engineer",
+//   "Design Engineer",
+//   "Project Engineer",
+//   "Quality / Testing Engineer",
+//   "Data / AI Engineer (for computing branches)",
+//   "Network / Electronics Engineer (for ECE/EEE)",
+//   "Site / Structural Engineer (for Civil)",
+// ];
 
 function Section({ id, title, subtitle, children }) {
   return (
@@ -189,7 +187,29 @@ function Section({ id, title, subtitle, children }) {
   );
 }
 
-export default function EngineeringByProfessionPage() {
+export default function EngineeringByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const BRANCH_GROUPS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
+
   return (
     <FrontendLayout>
       <main>

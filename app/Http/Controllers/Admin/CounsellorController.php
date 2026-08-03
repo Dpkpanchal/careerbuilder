@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class CounsellorController extends Controller
 {
@@ -26,14 +27,32 @@ class CounsellorController extends Controller
             });
         }
 
-        // 🔥 STATUS FILTER (FIXED)
-        if ($request->status === 'deleted') {
-            $query->onlyTrashed(); // ✅ NOT reassigned
-        } elseif ($request->status === 'active') {
-            $query->whereNull('deleted_at');
-        } else {
-            $query->withTrashed(); // ✅ NOT reassigned
+
+        if ($request->filled('status')) {
+            match ($request->status) {
+                'active'   => $query->whereNull('deleted_at')->where('is_active', true),
+                'inactive' => $query->whereNull('deleted_at')->where('is_active', false),
+                'deleted'  => $query->onlyTrashed(),
+                default    => null,
+            };
         }
+
+
+        $query->with('counselorDetails');
+
+        // b) Filter using whereHas() instead of a plain where()
+        if ($request->filled('subject')) {
+            $query->whereHas('counselorDetails', function ($q) use ($request) {
+                $q->where('subject', 'ILIKE', "%{$request->subject}%");
+            });
+        }
+
+        if ($request->filled('qualification')) {
+            $query->whereHas('counselorDetails', function ($q) use ($request) {
+                $q->where('qualification', 'ILIKE', "%{$request->qualification}%");
+            });
+        }
+
 
         // Sorting
         $sortField = $request->sort_field ?? 'created_at';
@@ -294,4 +313,49 @@ class CounsellorController extends Controller
 
         return back()->with('success', 'Counsellor restored successfully');
     }
+
+    public function forceDelete($id)
+    {
+        $counsellor = User::withTrashed()->findOrFail($id);
+
+        try {
+            DB::transaction(function () use ($counsellor) {
+                $counsellor->counselorDetails()->delete();
+                $counsellor->answers()->delete();
+                $counsellor->replies()->delete();
+                $counsellor->reports()->delete();
+
+                foreach ($counsellor->questions()->get() as $question) {
+                    $question->answers()->delete();
+                    $question->delete();
+                }
+
+                $counsellor->forceDelete();
+            });
+        } catch (QueryException $e) {
+            Log::error('Force delete counsellor failed: ' . $e->getMessage());
+
+            if ($e->getCode() === '23503') {
+                return back()->with(
+                    'error',
+                    'This counsellor cannot be permanently deleted because other records (forum posts, answers, etc.) still reference them. Please remove or reassign those first.'
+                );
+            }
+
+            return back()->with('error', 'Failed to permanently delete this counsellor. Please try again.');
+        }
+
+        return back()->with('success', 'Counsellor permanently deleted.');
+    }
+
+
+    public function toggleActive($id)
+    {
+        $counsellor = User::findOrFail($id);
+        $counsellor->is_active = ! $counsellor->is_active;
+        $counsellor->save();
+
+        return back()->with('success', 'Counsellor status updated.');
+    }
+
 }

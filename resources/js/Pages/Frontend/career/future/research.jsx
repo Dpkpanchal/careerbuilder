@@ -32,146 +32,146 @@ export const metadata = {
    DATA (Career-book style)
 ========================= */
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Build strong basics: reading, writing, curiosity and discipline",
-      "Choose Class 11–12 stream based on interest (Science/Arts/Commerce)",
-      "Start habits: notes, projects, competitions, learning by exploring",
-    ],
-  },
-  {
-    title: "After Class 12",
-    steps: [
-      "Choose a strong UG foundation in your interest area",
-      "Develop skills: research reading, analysis, communication",
-      "Start small portfolio: mini projects, reports, presentations",
-    ],
-  },
-  {
-    title: "After Graduation / PG",
-    steps: [
-      "Most PhD pathways begin after PG (MA/MSc/MTech/MD/MS etc.)",
-      "Prepare for admissions/fellowships (exam + interview + research proposal where needed)",
-      "Research work + publications + thesis → PhD completion",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Build strong basics: reading, writing, curiosity and discipline",
+//       "Choose Class 11–12 stream based on interest (Science/Arts/Commerce)",
+//       "Start habits: notes, projects, competitions, learning by exploring",
+//     ],
+//   },
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "Choose a strong UG foundation in your interest area",
+//       "Develop skills: research reading, analysis, communication",
+//       "Start small portfolio: mini projects, reports, presentations",
+//     ],
+//   },
+//   {
+//     title: "After Graduation / PG",
+//     steps: [
+//       "Most PhD pathways begin after PG (MA/MSc/MTech/MD/MS etc.)",
+//       "Prepare for admissions/fellowships (exam + interview + research proposal where needed)",
+//       "Research work + publications + thesis → PhD completion",
+//     ],
+//   },
+// ];
 
-const DOMAINS = [
-  {
-    title: "Science & Basic Research",
-    points: [
-      "Physics, Chemistry, Biology, Mathematics, Environmental science",
-      "Focus: discovery, experiments, theory and deeper understanding",
-      "Best for: curiosity + patience + strong fundamentals",
-    ],
-  },
-  {
-    title: "Engineering & Technology Research",
-    points: [
-      "AI/ML, robotics, electronics, materials, energy, computing, civil systems",
-      "Focus: innovation, prototypes, systems, advanced engineering problems",
-      "Best for: problem-solving + projects + technical depth",
-    ],
-  },
-  {
-    title: "Medical & Clinical Research",
-    points: [
-      "Clinical research, public health research, biomedical research (route-dependent)",
-      "Focus: evidence-based studies, outcomes, health impact",
-      "Best for: discipline + ethics + data understanding",
-    ],
-  },
-  {
-    title: "Social Sciences, Policy & Humanities",
-    points: [
-      "Economics, sociology, political science, education, languages, history, culture",
-      "Focus: society, policy, people, behavior, research writing and analysis",
-      "Best for: reading + critical thinking + writing",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Science & Basic Research",
+//     points: [
+//       "Physics, Chemistry, Biology, Mathematics, Environmental science",
+//       "Focus: discovery, experiments, theory and deeper understanding",
+//       "Best for: curiosity + patience + strong fundamentals",
+//     ],
+//   },
+//   {
+//     title: "Engineering & Technology Research",
+//     points: [
+//       "AI/ML, robotics, electronics, materials, energy, computing, civil systems",
+//       "Focus: innovation, prototypes, systems, advanced engineering problems",
+//       "Best for: problem-solving + projects + technical depth",
+//     ],
+//   },
+//   {
+//     title: "Medical & Clinical Research",
+//     points: [
+//       "Clinical research, public health research, biomedical research (route-dependent)",
+//       "Focus: evidence-based studies, outcomes, health impact",
+//       "Best for: discipline + ethics + data understanding",
+//     ],
+//   },
+//   {
+//     title: "Social Sciences, Policy & Humanities",
+//     points: [
+//       "Economics, sociology, political science, education, languages, history, culture",
+//       "Focus: society, policy, people, behavior, research writing and analysis",
+//       "Best for: reading + critical thinking + writing",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "UG Foundation (BA / BSc / BTech etc.)",
-    text:
-      "A strong undergraduate foundation builds your subject base. Choose an area you enjoy learning deeply and can maintain strong performance in.",
-    url: "/courses/research/ug",
-    cta: "Explore UG Foundations",
-  },
-  {
-    title: "PG Specialization (MA / MSc / MTech / MD/MS etc.)",
-    text:
-      "Postgraduate study strengthens domain depth and research readiness. Many PhD routes prefer or require PG specialization.",
-    url: "/courses/research/pg",
-    cta: "Explore PG Options",
-  },
-  {
-    title: "Integrated / Direct Research Pathways",
-    text:
-      "Some institutes offer integrated research programs (Integrated MSc-PhD / Integrated PhD) depending on eligibility and discipline.",
-    url: "/courses/research/integrated",
-    cta: "Explore Integrated Paths",
-  },
-  {
-    title: "PhD (Full-time / Part-time)",
-    text:
-      "PhD is a long-term research degree (often 4–6 years). Work includes research, publications, thesis writing and final defense.",
-    url: "/courses/research/phd",
-    cta: "Explore PhD Overview",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "UG Foundation (BA / BSc / BTech etc.)",
+//     text:
+//       "A strong undergraduate foundation builds your subject base. Choose an area you enjoy learning deeply and can maintain strong performance in.",
+//     url: "/courses/research/ug",
+//     cta: "Explore UG Foundations",
+//   },
+//   {
+//     title: "PG Specialization (MA / MSc / MTech / MD/MS etc.)",
+//     text:
+//       "Postgraduate study strengthens domain depth and research readiness. Many PhD routes prefer or require PG specialization.",
+//     url: "/courses/research/pg",
+//     cta: "Explore PG Options",
+//   },
+//   {
+//     title: "Integrated / Direct Research Pathways",
+//     text:
+//       "Some institutes offer integrated research programs (Integrated MSc-PhD / Integrated PhD) depending on eligibility and discipline.",
+//     url: "/courses/research/integrated",
+//     cta: "Explore Integrated Paths",
+//   },
+//   {
+//     title: "PhD (Full-time / Part-time)",
+//     text:
+//       "PhD is a long-term research degree (often 4–6 years). Work includes research, publications, thesis writing and final defense.",
+//     url: "/courses/research/phd",
+//     cta: "Explore PhD Overview",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Eligibility / Fellowships",
-    text:
-      "Some exams determine eligibility for research fellowships and admissions (discipline-wise requirements vary).",
-    url: "/exams/research/national",
-  },
-  {
-    title: "Institute / University PhD Entrance",
-    text:
-      "Many universities conduct PhD entrance tests + interviews and may ask for a research proposal (varies by institute).",
-    url: "/exams/research/university",
-  },
-  {
-    title: "Discipline-specific Routes",
-    text:
-      "Technical/medical/social science pathways often have different exam + selection patterns (route dependent).",
-    url: "/exams/research/discipline",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Eligibility / Fellowships",
+//     text:
+//       "Some exams determine eligibility for research fellowships and admissions (discipline-wise requirements vary).",
+//     url: "/exams/research/national",
+//   },
+//   {
+//     title: "Institute / University PhD Entrance",
+//     text:
+//       "Many universities conduct PhD entrance tests + interviews and may ask for a research proposal (varies by institute).",
+//     url: "/exams/research/university",
+//   },
+//   {
+//     title: "Discipline-specific Routes",
+//     text:
+//       "Technical/medical/social science pathways often have different exam + selection patterns (route dependent).",
+//     url: "/exams/research/discipline",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "IITs / IISERs / Research Institutes", url: "/colleges/research/institutes" },
-  { title: "Central Universities", url: "/colleges/research/central" },
-  { title: "State Universities", url: "/colleges/research/state" },
-  { title: "Medical / Health Research Institutes", url: "/colleges/research/medical" },
-  { title: "Private & Deemed Universities (Selected)", url: "/colleges/research/private" },
-  { title: "Open & Distance (Selected Options)", url: "/colleges/research/open" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "IITs / IISERs / Research Institutes", url: "/colleges/research/institutes" },
+//   { title: "Central Universities", url: "/colleges/research/central" },
+//   { title: "State Universities", url: "/colleges/research/state" },
+//   { title: "Medical / Health Research Institutes", url: "/colleges/research/medical" },
+//   { title: "Private & Deemed Universities (Selected)", url: "/colleges/research/private" },
+//   { title: "Open & Distance (Selected Options)", url: "/colleges/research/open" },
+// ];
 
-const INDUSTRIES = [
-  "Universities & Colleges (Teaching + Research)",
-  "Government Research Labs / Institutions",
-  "Corporate R&D / Product Innovation",
-  "Think Tanks / Policy & Development",
-  "Healthcare / Clinical Research (route-based)",
-  "Data / Research Analytics roles (path-based)",
-];
+// const INDUSTRIES = [
+//   "Universities & Colleges (Teaching + Research)",
+//   "Government Research Labs / Institutions",
+//   "Corporate R&D / Product Innovation",
+//   "Think Tanks / Policy & Development",
+//   "Healthcare / Clinical Research (route-based)",
+//   "Data / Research Analytics roles (path-based)",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Research Scholar / PhD Candidate",
-  "Research Associate / Research Fellow",
-  "Scientist / Researcher (Govt/Private)",
-  "Assistant Professor / Faculty (route-based)",
-  "Policy / Social Researcher",
-  "R&D Engineer / Innovation roles (tech domains)",
-];
+// const ROLE_EXAMPLES = [
+//   "Research Scholar / PhD Candidate",
+//   "Research Associate / Research Fellow",
+//   "Scientist / Researcher (Govt/Private)",
+//   "Assistant Professor / Faculty (route-based)",
+//   "Policy / Social Researcher",
+//   "R&D Engineer / Innovation roles (tech domains)",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -210,7 +210,29 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function ResearchPhdFuturePathPage() {
+export default function ResearchPhdFuturePathPage({careerData}) {
+
+const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
+
   return (
     <FrontendLayout>
     <main>

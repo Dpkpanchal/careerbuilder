@@ -3,82 +3,67 @@ import { motion } from 'framer-motion';
 import { BookOpen, Languages, Star, Lightbulb, Users } from 'lucide-react';
 import styles from './StreamSelection.module.css';
 
-const StreamSelection = () => {
-  const streams = [
-    {
-      id: 'science-medical',
-      name: 'SCIENCE (MEDICAL)',
-      code: 'PCB',
-      colorClass: styles.scienceMedical,
-      languageGroups: {
-        groupA: ['Bengali A', 'Hindi A', 'English A'],
-        groupB: ['English B', 'Bengali B', 'Hindi B', 'Alternative English']
-      },
-      mainSubjects: ['PHYSICS', 'CHEMISTRY', 'BIOLOGY'],
-      optionalSubjects: [
-        'MATHS', 'PHYSICAL EDUCATION', 'HOME SCIENCE', 'ECONOMICS', 
-        'FINE ARTS', 'FASHION STUDIES', 'PSYCHOLOGY', 'DANCE', 
-        'BIOTECHNOLOGY', 'NUTRITION', 'EVS', 'MODERN COMPUTER APPLICATION', 
-        'COMPUTER SCIENCE', 'EDUCATION', 'GEOGRAPHY', 'STATISTICS'
-      ],
-      instruction: 'Students Should Opt For Two Different Languages One From Group-A And One From Group-B'
-    },
-    {
-      id: 'science-non-medical',
-      name: 'SCIENCE (NON MEDICAL)',
-      code: 'PCM',
-      colorClass: styles.scienceNonMedical,
-      languageGroups: {
-        groupA: ['Bengali A', 'Hindi A', 'English A'],
-        groupB: ['English B', 'Bengali B', 'Hindi B', 'Alternative English']
-      },
-      mainSubjects: ['PHYSICS', 'CHEMISTRY', 'MATH'],
-      optionalSubjects: [
-        'BIOLOGY', 'PHYSICAL EDUCATION', 'HOME SCIENCE', 'ECONOMICS', 
-        'FINE ARTS', 'FASHION STUDIES', 'PSYCHOLOGY', 'DANCE', 
-        'BIOTECHNOLOGY', 'NUTRITION', 'EVS', 'MODERN COMPUTER APPLICATION', 
-        'COMPUTER SCIENCE', 'DANCE', 'EDUCATION', 'STATISTICS'
-      ],
-      instruction: 'Students Should Opt For Two Different Languages One From Group-A And One From Group-B'
-    },
-    {
-      id: 'arts',
-      name: 'ARTS',
-      colorClass: styles.arts,
-      languageGroups: {
-        groupA: ['Bengali A', 'Hindi A', 'English A'],
-        groupB: ['English B', 'Bengali B', 'Hindi B', 'Alternative English']
-      },
-      mainSubjects: [
-        'POLITICAL SCIENCE', 'HISTORY', 'GEOGRAPHY', 
-        'ECONOMICS', 'SOCIOLOGY', 'PSYCHOLOGY'
-      ],
-      optionalSubjects: [
-        'MATHS', 'PHYSICAL EDUCATION', 'HOME SCIENCE', 'ECONOMICS', 
-        'FINE ARTS', 'FASHION STUDIES', 'PSYCHOLOGY', 'DANCE', 
-        'BIOTECH', 'NUTRITION', 'EVS', 'MODERN COMPUTER APPLICATION', 
-        'COMPUTER SCIENCE', 'EDUCATION'
-      ],
-      instruction: 'Students Should Opt For Two Different Languages One From Group-A And One From Group-B'
-    },
-    {
-      id: 'commerce',
-      name: 'COMMERCE',
-      colorClass: styles.commerce,
-      languageGroups: {
-        groupA: ['Bengali A', 'Hindi A', 'English A'],
-        groupB: ['English B', 'Bengali B', 'Hindi B', 'Alternative English']
-      },
-      mainSubjects: [
-        'ACCOUNTANCY', 'BUSINESS STUDIES', 'ECONOMICS', 'ENTREPRENEURSHIP'
-      ],
-      optionalSubjects: [
-        'MATHS', 'COMPUTER APPLICATION', 'COSTING AND TAXATION', 
-        'COMMERCIAL LAW AND PRELIMINARIES OF AUDITING (CLPA)'
-      ],
-      instruction: 'Students Should Opt For Two Different Languages One From Group-A And One From Group-B'
-    }
-  ];
+// Color class mapping - map string keys to actual CSS module classes
+const colorClassMap = {
+  scienceMedical: styles.scienceMedical,
+  scienceNonMedical: styles.scienceNonMedical,
+  arts: styles.arts,
+  commerce: styles.commerce,
+  // Add more as needed
+  red: styles.red,
+  pink: styles.pink,
+  orange: styles.orange,
+  blue: styles.blue,
+  teal: styles.teal,
+  violet: styles.violet,
+  green: styles.green,
+  yellow: styles.yellow,
+  purple: styles.purple,
+  indigo: styles.indigo,
+  cyan: styles.cyan,
+  gray: styles.gray,
+};
+
+const StreamSelection = ({ stream_selection }) => {
+  // If no data, return null or loading state
+  if (!stream_selection || !Array.isArray(stream_selection) || stream_selection.length === 0) {
+    return (
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <h1 className={styles.title}>Stream Selection After Class 10</h1>
+          <p className={styles.subtitle}>
+            No stream data available. Please check back later.
+          </p>
+        </header>
+      </div>
+    );
+  }
+
+  // Get the actual CSS module class from the string
+  const getColorClass = (colorClassString) => {
+    if (!colorClassString) return styles.default;
+    
+    // If it's already a valid CSS module class, return it
+    if (typeof colorClassString === 'object') return colorClassString;
+    
+    // Extract the color name from "styles.scienceMedical" -> "scienceMedical"
+    const colorName = colorClassString.replace('styles.', '');
+    
+    // Return the mapped CSS module class or default
+    return colorClassMap[colorName] || styles.default;
+  };
+
+  // Process streams data
+  const streams = stream_selection.map((stream) => ({
+    ...stream,
+    colorClass: getColorClass(stream.colorClass),
+    // Ensure languageGroups exists with default values
+    languageGroups: stream.languageGroups || { groupA: [], groupB: [] },
+    // Ensure arrays exist
+    mainSubjects: stream.mainSubjects || [],
+    optionalSubjects: stream.optionalSubjects || [],
+    instruction: stream.instruction || '',
+  }));
 
   return (
     <div className={styles.container}>
@@ -94,7 +79,7 @@ const StreamSelection = () => {
       <div className={styles.streamsGrid}>
         {streams.map((stream, index) => (
           <motion.div
-            key={stream.id}
+            key={stream.id || index}
             className={`${styles.streamCard} ${stream.colorClass} ${styles.fadeInUp}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +87,7 @@ const StreamSelection = () => {
           >
             {/* Stream Header */}
             <div className={styles.streamHeader}>
-              <h2 className={styles.streamTitle}>{stream.name}</h2>
+              <h2 className={styles.streamTitle}>{stream.name || `Stream ${index + 1}`}</h2>
               {stream.code && (
                 <span className={styles.streamBadge}>{stream.code}</span>
               )}
@@ -115,61 +100,71 @@ const StreamSelection = () => {
                 Language Groups
               </h3>
               <div className={styles.subjectsGrid}>
-                <div>
-                  <strong>Group A:</strong>
-                  <div className={styles.subjectList}>
-                    {stream.languageGroups.groupA.map((lang, idx) => (
-                      <span key={idx} className={`${styles.subjectItem} ${styles.languageSubject}`}>
-                        {lang}
-                      </span>
-                    ))}
+                {stream.languageGroups.groupA && stream.languageGroups.groupA.length > 0 && (
+                  <div>
+                    <strong>Group A:</strong>
+                    <div className={styles.subjectList}>
+                      {stream.languageGroups.groupA.map((lang, idx) => (
+                        <span key={idx} className={`${styles.subjectItem} ${styles.languageSubject}`}>
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <strong>Group B:</strong>
-                  <div className={styles.subjectList}>
-                    {stream.languageGroups.groupB.map((lang, idx) => (
-                      <span key={idx} className={`${styles.subjectItem} ${styles.languageSubject}`}>
-                        {lang}
-                      </span>
-                    ))}
+                )}
+                {stream.languageGroups.groupB && stream.languageGroups.groupB.length > 0 && (
+                  <div>
+                    <strong>Group B:</strong>
+                    <div className={styles.subjectList}>
+                      {stream.languageGroups.groupB.map((lang, idx) => (
+                        <span key={idx} className={`${styles.subjectItem} ${styles.languageSubject}`}>
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <p style={{ fontSize: '0.85rem', color: '#6b7280', fontStyle: 'italic', marginTop: '0.5rem' }}>
-                  {stream.instruction}
-                </p>
+                )}
+                {stream.instruction && (
+                  <p style={{ fontSize: '0.85rem', color: '#6b7280', fontStyle: 'italic', marginTop: '0.5rem' }}>
+                    {stream.instruction}
+                  </p>
+                )}
               </div>
             </div>
 
             {/* Main Subjects */}
-            <div className={styles.section}>
-              <h3 className={styles.sectionTitle}>
-                <Star size={18} />
-                Main Subjects
-              </h3>
-              <div className={styles.subjectList}>
-                {stream.mainSubjects.map((subject, idx) => (
-                  <span key={idx} className={`${styles.subjectItem} ${styles.mainSubject}`}>
-                    {subject}
-                  </span>
-                ))}
+            {stream.mainSubjects && stream.mainSubjects.length > 0 && (
+              <div className={styles.section}>
+                <h3 className={styles.sectionTitle}>
+                  <Star size={18} />
+                  Main Subjects
+                </h3>
+                <div className={styles.subjectList}>
+                  {stream.mainSubjects.map((subject, idx) => (
+                    <span key={idx} className={`${styles.subjectItem} ${styles.mainSubject}`}>
+                      {subject}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Optional Subjects */}
-            <div className={styles.section}>
-              <h3 className={styles.sectionTitle}>
-                <BookOpen size={18} />
-                Additional / Optional Subjects
-              </h3>
-              <div className={styles.subjectList}>
-                {stream.optionalSubjects.map((subject, idx) => (
-                  <span key={idx} className={`${styles.subjectItem} ${styles.optionalSubject}`}>
-                    {subject}
-                  </span>
-                ))}
+            {stream.optionalSubjects && stream.optionalSubjects.length > 0 && (
+              <div className={styles.section}>
+                <h3 className={styles.sectionTitle}>
+                  <BookOpen size={18} />
+                  Additional / Optional Subjects
+                </h3>
+                <div className={styles.subjectList}>
+                  {stream.optionalSubjects.map((subject, idx) => (
+                    <span key={idx} className={`${styles.subjectItem} ${styles.optionalSubject}`}>
+                      {subject}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </motion.div>
         ))}
       </div>

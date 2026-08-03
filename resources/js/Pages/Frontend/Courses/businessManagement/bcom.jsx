@@ -20,7 +20,6 @@ import {
 
 /* -------------------------------------------------------------
    Tabs (Business & Management)
-   (Use same pattern like Engineering tabs)
 ------------------------------------------------------------- */
 
 const TABS = [
@@ -28,140 +27,8 @@ const TABS = [
   { id: "mcom", label: "M.Com", href: '/courses/mcom' },
   { id: "bba", label: "BBA", href: '/courses/bba' },
   { id: "mba", label: "MBA / PGDM", href: '/courses/mba-pgdm' },
-  { id: "finance", label: "Finance / Taxation / Accounting", href: '/courses/finance-taxation-accounting' },
-  { id: "pro", label: "CA / CS / CMA", href: '#' },
-];
-
-/* -------------------------------------------------------------
-   DATA – B.Com (Career Book aligned)
-------------------------------------------------------------- */
-
-const BCOM_LADDER = [
-  {
-    title: "B.Com (General / Honours)",
-    duration: "3 Years",
-    focus:
-      "Commerce foundation: accounting, finance, business laws, economics, taxation basics (varies by university).",
-  },
-  {
-    title: "Job after Graduation",
-    duration: "After B.Com",
-    focus:
-      "Entry roles in accounts, banking support, business operations, admin, sales operations (skills matter).",
-  },
-  {
-    title: "Higher Studies / Professional Routes",
-    duration: "After UG",
-    focus:
-      "M.Com / MBA / professional courses (CA/CS/CMA) / certifications aligned to your target career.",
-  },
-  {
-    title: "Specialisation + Growth",
-    duration: "Continuous",
-    focus:
-      "Choose one direction (accounts/tax/finance/banking/analytics) and build job-ready skills + experience.",
-  },
-];
-
-const BCOM_TYPES = [
-  {
-    title: "B.Com (General)",
-    desc: "Broad commerce base; good for flexibility, jobs + higher studies.",
-    icon: Layers3,
-  },
-  {
-    title: "B.Com (Honours)",
-    desc: "Deeper focus in a core area (Accountancy/Finance etc.) depending on university.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "B.Com with Specialisation (where offered)",
-    desc: "Some colleges offer Banking/Tax/Finance tracks; exact structure varies.",
-    icon: Banknote,
-  },
-];
-
-const CORE_SUBJECTS = [
-  "Financial Accounting / Corporate Accounting",
-  "Business Economics",
-  "Business Law",
-  "Cost Accounting / Management Accounting (varies)",
-  "Income Tax / GST basics (varies)",
-  "Business Mathematics / Statistics (varies)",
-  "Auditing fundamentals (varies)",
-];
-
-const TYPICAL_ROLES = [
-  "Accounts Assistant / Junior Accountant",
-  "Billing Executive / Accounts Support",
-  "Banking operations / customer support roles",
-  "Office / Admin / Back-office executive",
-  "Sales operations / MIS support (with Excel skills)",
-  "Tax/Compliance support roles (entry level)",
-];
-
-const WORK_SETTINGS = [
-  {
-    title: "Accounts & Finance Teams",
-    desc: "Accounting support, billing, payments, reconciliation, MIS.",
-    icon: Calculator,
-  },
-  {
-    title: "Banks & Financial Services",
-    desc: "Operations, customer roles, documentation, support functions.",
-    icon: Landmark,
-  },
-  {
-    title: "Corporate / SMEs",
-    desc: "Back-office, admin, operations, documentation and reporting.",
-    icon: Briefcase,
-  },
-  {
-    title: "Tax / Compliance Offices",
-    desc: "Entry support roles in tax filing, documentation, compliance work.",
-    icon: ShieldCheck,
-  },
-];
-
-const NEXT_STEP_OPTIONS = [
-  {
-    title: "M.Com",
-    desc: "Stronger academics + eligibility for teaching/research path (as per norms).",
-  },
-  {
-    title: "MBA / PGDM",
-    desc: "Management route for business roles: marketing, finance, HR, operations.",
-  },
-  {
-    title: "CA / CS / CMA",
-    desc: "Professional commerce route (high value; requires disciplined preparation).",
-  },
-  {
-    title: "Skill Certifications",
-    desc: "Tally/Accounting software, GST basics, Excel/Power BI, banking certifications, etc.",
-  },
-];
-
-const ELIGIBILITY_NOTES = [
-  "Usually after Class 12 (any stream) — commerce background is helpful but not always mandatory.",
-  "Admission is mostly merit-based; some universities may have their own criteria.",
-  "Subject combinations, syllabus and honours options vary by university/college.",
-];
-
-const COMMON_DOCS = [
-  "Class 10 & 12 marksheets",
-  "ID proof (Aadhaar etc.)",
-  "Photo + signature",
-  "Category/EWS/Income certificate (if applicable)",
-  "Domicile (if required)",
-];
-
-const BUILD_PROFILE = [
-  "Excel (must-have): formulas, pivot, basic charts",
-  "Accounting basics + practice with real entries",
-  "Clear communication + professional email/office etiquette",
-  "Basic computer skills + documentation discipline",
-  "Internship/part-time exposure in accounts/admin (even small)",
+  { id: "finance", label: "Finance / Taxation / Accounting", href: '/courses/finance' },
+  { id: "pro", label: "CA / CS / CMA", href: '/courses/finance-taxation-accounting' },
 ];
 
 /* -------------------------------------------------------------
@@ -199,23 +66,56 @@ function MiniDL({ items }) {
 
 /* -------------------------------------------------------------
    PAGE
-   Route: /courses/bcom
 ------------------------------------------------------------- */
 
-export default function BComPage() {
-  const snapshot = useMemo(
-    () => [
-      { k: "Course type", v: "UG Commerce Degree (General/Honours)" },
-      { k: "Duration", v: "3 Years" },
-      { k: "Eligibility", v: "Class 12 (criteria varies)" },
-      { k: "Best for", v: "Accounts • Banking • Business roles • Higher studies" },
-      { k: "Strong ladders", v: "B.Com → M.Com / MBA / CA-CS-CMA" },
-    ],
-    []
-  );
+export default function BComPage({ courseContent }) {
+  // Debug log
+  console.log('=== BComPage Data ===');
+  console.log('Course Content:', courseContent);
+
+  // Extract data from courseContent
+  const bcomLadder = courseContent?.bcom_ladder || [];
+  const bcomTypes = courseContent?.business_types || [];
+  const coreSubjects = courseContent?.core_areas || [];
+  const typicalRoles = courseContent?.typical_roles || [];
+  const workSettings = courseContent?.work_settings || [];
+  const nextStepOptions = courseContent?.next_step_options || [];
+  const eligibilityNotes = courseContent?.eligibility_notes || [];
+  const commonDocs = courseContent?.common_docs || [];
+  const buildProfile = courseContent?.build_profile || [];
+  const snapshot = courseContent?.snapshot || [];
+  const introHeading = courseContent?.intro_heading || "About B.Com";
+  const introDescription = courseContent?.intro_description || "B.Com (Bachelor of Commerce) is a popular undergraduate degree that builds a foundation in accounting, finance, business laws, economics and taxation basics (as per university syllabus).";
+  const introDescriptionSecondary = courseContent?.intro_description_secondary || "B.Com works best when you combine the degree with practical skills like Excel, basic accounting tools and real work exposure (internships/office experience).";
+
+  // Create snapshot items
+  const snapshotItems = snapshot.length > 0 
+    ? snapshot.map(item => ({ k: item.key, v: item.value }))
+    : [
+        { k: "Course type", v: "UG Commerce Degree (General/Honours)" },
+        { k: "Duration", v: "3 Years" },
+        { k: "Eligibility", v: "Class 12 (criteria varies)" },
+        { k: "Best for", v: "Accounts • Banking • Business roles • Higher studies" },
+        { k: "Strong ladders", v: "B.Com → M.Com / MBA / CA-CS-CMA" },
+      ];
+
+  // If no data found, show message
+  if (bcomLadder.length === 0 && coreSubjects.length === 0 && bcomTypes.length === 0) {
+    return (
+      <FrontendLayout>
+        <HeroInner title="B.Com & Allied Programs" breadcrumb="Business & Management → B.Com" />
+        <CoursesTabsBar tabs={TABS} activeId="bcom" />
+        <div className="container py-5">
+          <div className="alert alert-warning">
+            <h4>No courses available</h4>
+            <p>We're currently updating our course listings. Please check back later.</p>
+          </div>
+        </div>
+      </FrontendLayout>
+    );
+  }
 
   return (
-    <>
     <FrontendLayout>
       <HeroInner title="B.Com & Allied Programs" breadcrumb="Business & Management → B.Com" />
       <CoursesTabsBar tabs={TABS} activeId="bcom" />
@@ -227,18 +127,14 @@ export default function BComPage() {
             <div className="col-12 col-lg-7">
               <h2 className="sectionHeading mb-3 d-flex align-items-center gap-2">
                 <Calculator size={18} className="text-primary" />
-                <span>About B.Com</span>
+                <span>{introHeading}</span>
               </h2>
 
-              <p className="sectionSub">
-                B.Com (Bachelor of Commerce) is a popular undergraduate degree that builds a foundation in accounting,
-                finance, business laws, economics and taxation basics (as per university syllabus).
-              </p>
+              <p className="sectionSub">{introDescription}</p>
 
-              <p className="sectionSub mb-0">
-                B.Com works best when you combine the degree with practical skills like Excel, basic accounting tools and
-                real work exposure (internships/office experience).
-              </p>
+              {introDescriptionSecondary && (
+                <p className="sectionSub mb-0">{introDescriptionSecondary}</p>
+              )}
             </div>
 
             <div className="col-12 col-lg-5">
@@ -247,7 +143,7 @@ export default function BComPage() {
                   <Layers3 size={18} className="text-primary" />
                   <span>Quick Snapshot</span>
                 </h3>
-                <MiniDL items={snapshot} />
+                <MiniDL items={snapshotItems} />
               </div>
 
               <div className="sectionCard bg-light border mt-3">
@@ -265,155 +161,190 @@ export default function BComPage() {
       </section>
 
       {/* 2) COURSE LADDER */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="B.Com career ladder"
-            subtitle="B.Com gives a flexible base. Your next step depends on your goal."
-          />
+      {bcomLadder.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={GraduationCap}
+              title="B.Com career ladder"
+              subtitle="B.Com gives a flexible base. Your next step depends on your goal."
+            />
 
-          <div className="row g-3">
-            {BCOM_LADDER.map((c) => (
-              <div key={c.title} className="col-12 col-md-6">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{c.title}</h3>
-                  <p className="small text-muted mb-1">{c.duration}</p>
-                  <p className="small text-muted mb-0">{c.focus}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Tip: If you want faster job readiness, build Excel + accounting practice early and do at least 1 internship.
-          </div>
-        </div>
-      </section>
-
-      {/* 3) B.Com TYPES */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={ShieldCheck}
-            title="Types of B.Com"
-            subtitle="Different colleges offer different versions. Choose based on your goal."
-          />
-
-          <div className="row g-3">
-            {BCOM_TYPES.map((x) => {
-              const Icon = x.icon;
-              return (
-                <div key={x.title} className="col-12 col-md-4">
+            <div className="row g-3">
+              {bcomLadder.map((step, index) => (
+                <div key={index} className="col-12 col-md-6">
                   <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{x.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-0">{x.desc}</p>
+                    <h3 className="h6 mb-1">{step.title}</h3>
+                    {step.duration && (
+                      <p className="small text-muted mb-1">{step.duration}</p>
+                    )}
+                    {step.focus && (
+                      <p className="small text-muted mb-0">{step.focus}</p>
+                    )}
                   </div>
                 </div>
-              );
-            })}
+              ))}
+            </div>
+
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Tip: If you want faster job readiness, build Excel + accounting practice early and do at least 1 internship.
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* 3) B.COM TYPES */}
+      {bcomTypes.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={ShieldCheck}
+              title="Types of B.Com"
+              subtitle="Different colleges offer different versions. Choose based on your goal."
+            />
+
+            <div className="row g-3">
+              {bcomTypes.map((type, index) => {
+                // Get icon based on title
+                const getIcon = (title) => {
+                  if (title.includes("General")) return Layers3;
+                  if (title.includes("Honours")) return ShieldCheck;
+                  if (title.includes("Specialisation")) return Banknote;
+                  return Layers3;
+                };
+                const Icon = type.icon || getIcon(type.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-4">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{type.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-0">{type.desc || type.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 4) CORE SUBJECTS + ROLES */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={ClipboardList}
-            title="Core subjects & typical roles"
-            subtitle="Syllabus varies, but these subjects and entry roles are common."
-          />
+      {(coreSubjects.length > 0 || typicalRoles.length > 0) && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={ClipboardList}
+              title="Core subjects & typical roles"
+              subtitle="Syllabus varies, but these subjects and entry roles are common."
+            />
 
-          <div className="row g-4 align-items-stretch">
-            <div className="col-12 col-lg-6 d-flex">
-              <div className="sectionCard h-100">
-                <h3 className="h6 mb-3">Core subjects (common)</h3>
-                <ul className="list-unstyled small mb-0">
-                  {CORE_SUBJECTS.map((s) => (
-                    <li key={s} className="mb-2 d-flex">
-                      <span className="me-2">•</span>
-                      <span>{s}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-12 col-lg-6 d-flex">
-              <div className="sectionCard h-100">
-                <h3 className="h6 mb-3">Typical entry roles</h3>
-                <ul className="list-unstyled small mb-0">
-                  {TYPICAL_ROLES.map((r) => (
-                    <li key={r} className="mb-2 d-flex">
-                      <span className="me-2">•</span>
-                      <span>{r}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5) WHERE YOU WORK */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={Briefcase}
-            title="Where B.Com graduates work"
-            subtitle="Work settings depend on your skills, internship exposure and interest area."
-          />
-
-          <div className="row g-3">
-            {WORK_SETTINGS.map((w) => {
-              const Icon = w.icon;
-              return (
-                <div key={w.title} className="col-12 col-md-6 col-lg-3">
+            <div className="row g-4 align-items-stretch">
+              {coreSubjects.length > 0 && (
+                <div className="col-12 col-lg-6 d-flex">
                   <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{w.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-0">{w.desc}</p>
+                    <h3 className="h6 mb-3">Core subjects (common)</h3>
+                    <ul className="list-unstyled small mb-0">
+                      {coreSubjects.map((subject, index) => (
+                        <li key={index} className="mb-2 d-flex">
+                          <span className="me-2">•</span>
+                          <span>{subject}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+              )}
 
-      {/* 6) NEXT STEPS (M.Com / MBA / CA-CS-CMA / Skills) */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="Best next steps after B.Com"
-            subtitle="Pick the next step based on your career target."
-          />
-
-          <div className="row g-3">
-            {NEXT_STEP_OPTIONS.map((x) => (
-              <div key={x.title} className="col-12 col-md-6">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{x.title}</h3>
-                  <p className="small text-muted mb-0">{x.desc}</p>
+              {typicalRoles.length > 0 && (
+                <div className="col-12 col-lg-6 d-flex">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-3">Typical entry roles</h3>
+                    <ul className="list-unstyled small mb-0">
+                      {typicalRoles.map((role, index) => (
+                        <li key={index} className="mb-2 d-flex">
+                          <span className="me-2">•</span>
+                          <span>{role}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )}
+            </div>
           </div>
+        </section>
+      )}
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Shortcut: if your goal is corporate job, combine B.Com with Excel + accounting tools + internship.
-            If your goal is professional commerce, start CA/CS/CMA preparation early.
+      {/* 5) WHERE YOU WORK */}
+      {workSettings.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={Briefcase}
+              title="Where B.Com graduates work"
+              subtitle="Work settings depend on your skills, internship exposure and interest area."
+            />
+
+            <div className="row g-3">
+              {workSettings.map((work, index) => {
+                // Get icon based on title
+                const getIcon = (title) => {
+                  if (title.includes("Accounts") || title.includes("Finance")) return Calculator;
+                  if (title.includes("Bank") || title.includes("Financial")) return Landmark;
+                  if (title.includes("Corporate") || title.includes("SME")) return Briefcase;
+                  if (title.includes("Tax") || title.includes("Compliance")) return ShieldCheck;
+                  return Briefcase;
+                };
+                const Icon = work.icon || getIcon(work.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-6 col-lg-3">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{work.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-0">{work.desc || work.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* 6) NEXT STEPS */}
+      {nextStepOptions.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={GraduationCap}
+              title="Best next steps after B.Com"
+              subtitle="Pick the next step based on your career target."
+            />
+
+            <div className="row g-3">
+              {nextStepOptions.map((step, index) => (
+                <div key={index} className="col-12 col-md-6">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">{step.title}</h3>
+                    <p className="small text-muted mb-0">{step.desc || step.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Shortcut: if your goal is corporate job, combine B.Com with Excel + accounting tools + internship.
+              If your goal is professional commerce, start CA/CS/CMA preparation early.
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 7) ADMISSION & DOCUMENTS + BUILD PROFILE */}
       <section className="py-4 py-md-5">
@@ -433,8 +364,12 @@ export default function BComPage() {
                 </span>
 
                 <ul className="nitDarkList mb-0">
-                  {ELIGIBILITY_NOTES.map((x) => (
-                    <li key={x}>{x}</li>
+                  {(eligibilityNotes.length > 0 ? eligibilityNotes : [
+                    "Usually after Class 12 (any stream) — commerce background is helpful but not always mandatory.",
+                    "Admission is mostly merit-based; some universities may have their own criteria.",
+                    "Subject combinations, syllabus and honours options vary by university/college."
+                  ]).map((note, index) => (
+                    <li key={index}>{note}</li>
                   ))}
                 </ul>
 
@@ -452,43 +387,50 @@ export default function BComPage() {
                 </h3>
 
                 <ul className="list-unstyled small mb-0">
-                  {COMMON_DOCS.map((d) => (
-                    <li key={d} className="mb-2 d-flex">
+                  {(commonDocs.length > 0 ? commonDocs : [
+                    "Class 10 & 12 marksheets",
+                    "ID proof (Aadhaar etc.)",
+                    "Photo + signature",
+                    "Category/EWS/Income certificate (if applicable)",
+                    "Domicile (if required)"
+                  ]).map((doc, index) => (
+                    <li key={index} className="mb-2 d-flex">
                       <span className="me-2">•</span>
-                      <span>{d}</span>
+                      <span>{doc}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="col-12">
-              <div className="sectionCard">
-                <h3 className="h6 mb-3 d-flex align-items-center gap-2">
-                  <Users size={18} className="text-primary" />
-                  <span>Build your profile during B.Com</span>
-                </h3>
+            {buildProfile.length > 0 && (
+              <div className="col-12">
+                <div className="sectionCard">
+                  <h3 className="h6 mb-3 d-flex align-items-center gap-2">
+                    <Users size={18} className="text-primary" />
+                    <span>Build your profile during B.Com</span>
+                  </h3>
 
-                <div className="row g-3">
-                  {BUILD_PROFILE.map((t) => (
-                    <div key={t} className="col-12 col-md-6 col-lg-4">
-                      <div className="sectionCard bg-light border h-100">
-                        <h4 className="h6 mb-1">Key focus</h4>
-                        <p className="small text-muted mb-0">{t}</p>
+                  <div className="row g-3">
+                    {buildProfile.map((item, index) => (
+                      <div key={index} className="col-12 col-md-6 col-lg-4">
+                        <div className="sectionCard bg-light border h-100">
+                          <h4 className="h6 mb-1">Key focus</h4>
+                          <p className="small text-muted mb-0">{item}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                <div className="text-muted small mt-3" style={{ maxWidth: "95ch" }}>
-                  Sensible shortcut: Excel + internship + basic accounting tools = faster job readiness after B.Com.
+                  <div className="text-muted small mt-3" style={{ maxWidth: "95ch" }}>
+                    Sensible shortcut: Excel + internship + basic accounting tools = faster job readiness after B.Com.
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
-      </FrontendLayout>
-    </>
+    </FrontendLayout>
   );
 }

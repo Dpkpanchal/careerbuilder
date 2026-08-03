@@ -32,143 +32,143 @@ export const metadata = {
    DATA (Career-book style)
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Officer Entry (Leadership Track)",
-    points: [
-      "Commissioned officer roles: leadership, operations, administration (service-wise)",
-      "Entry routes include NDA, CDS and other service pathways (exam-wise)",
-      "Best for: leadership + discipline + decision making",
-    ],
-  },
-  {
-    title: "Technical & Engineering Roles",
-    points: [
-      "Technical branches in Army/Navy/Air Force (entry route dependent)",
-      "Suited for STEM background and technical aptitude",
-      "Best for: problem-solving + technical interest + discipline",
-    ],
-  },
-  {
-    title: "Soldier / Sailor / Airman (Non-Officer Track)",
-    points: [
-      "Operational and trade roles based on eligibility and recruitment",
-      "Training is intensive and skill-based",
-      "Best for: fitness + resilience + commitment",
-    ],
-  },
-  {
-    title: "Support Services (Role-based)",
-    points: [
-      "Medical, nursing, logistics, education, administration, allied services",
-      "Entry depends on dedicated exams/selection routes",
-      "Best for: service mindset + specialized skills",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Officer Entry (Leadership Track)",
+//     points: [
+//       "Commissioned officer roles: leadership, operations, administration (service-wise)",
+//       "Entry routes include NDA, CDS and other service pathways (exam-wise)",
+//       "Best for: leadership + discipline + decision making",
+//     ],
+//   },
+//   {
+//     title: "Technical & Engineering Roles",
+//     points: [
+//       "Technical branches in Army/Navy/Air Force (entry route dependent)",
+//       "Suited for STEM background and technical aptitude",
+//       "Best for: problem-solving + technical interest + discipline",
+//     ],
+//   },
+//   {
+//     title: "Soldier / Sailor / Airman (Non-Officer Track)",
+//     points: [
+//       "Operational and trade roles based on eligibility and recruitment",
+//       "Training is intensive and skill-based",
+//       "Best for: fitness + resilience + commitment",
+//     ],
+//   },
+//   {
+//     title: "Support Services (Role-based)",
+//     points: [
+//       "Medical, nursing, logistics, education, administration, allied services",
+//       "Entry depends on dedicated exams/selection routes",
+//       "Best for: service mindset + specialized skills",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Build fitness + discipline + strong basics",
-      "Explore defence-friendly skill routes (sports, NCC, leadership habits)",
-      "Plan Class 11–12 carefully (Science helps for technical entries)",
-    ],
-  },
-  {
-    title: "After Class 12",
-    steps: [
-      "Officer entry routes (e.g., NDA-type pathways) for eligible candidates",
-      "Non-officer recruitment routes (service-wise)",
-      "Focus on: fitness + written exam + SSB/selection preparation",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "Officer entry routes via graduation-level exams (e.g., CDS-type pathways) and service selections",
-      "Technical entries for engineering graduates (route dependent)",
-      "SSB + interview + medical fitness remain critical",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Build fitness + discipline + strong basics",
+//       "Explore defence-friendly skill routes (sports, NCC, leadership habits)",
+//       "Plan Class 11–12 carefully (Science helps for technical entries)",
+//     ],
+//   },
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "Officer entry routes (e.g., NDA-type pathways) for eligible candidates",
+//       "Non-officer recruitment routes (service-wise)",
+//       "Focus on: fitness + written exam + SSB/selection preparation",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "Officer entry routes via graduation-level exams (e.g., CDS-type pathways) and service selections",
+//       "Technical entries for engineering graduates (route dependent)",
+//       "SSB + interview + medical fitness remain critical",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "Fitness & Readiness (Foundation Track)",
-    text:
-      "Defence careers require top physical fitness, discipline and mental toughness. Start with daily routine, sports, and consistent training.",
-    url: "/courses/defence/fitness",
-    cta: "Explore Fitness Track",
-  },
-  {
-    title: "Defence Exam Preparation (Written)",
-    text:
-      "Structured preparation for written exams: aptitude, math (route-wise), English, GK/current affairs and reasoning.",
-    url: "/courses/defence/prep",
-    cta: "Explore Exam Prep",
-  },
-  {
-    title: "SSB / Interview Preparation",
-    text:
-      "SSB focuses on personality, leadership, decision making and communication—requires practice and self-improvement.",
-    url: "/courses/defence/ssb",
-    cta: "Explore SSB Prep",
-  },
-  {
-    title: "Technical / Specialized Path",
-    text:
-      "If you aim for technical branches, build strong STEM fundamentals and choose the right graduation route (entry dependent).",
-    url: "/courses/defence/technical",
-    cta: "Explore Technical Path",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "Fitness & Readiness (Foundation Track)",
+//     text:
+//       "Defence careers require top physical fitness, discipline and mental toughness. Start with daily routine, sports, and consistent training.",
+//     url: "/courses/defence/fitness",
+//     cta: "Explore Fitness Track",
+//   },
+//   {
+//     title: "Defence Exam Preparation (Written)",
+//     text:
+//       "Structured preparation for written exams: aptitude, math (route-wise), English, GK/current affairs and reasoning.",
+//     url: "/courses/defence/prep",
+//     cta: "Explore Exam Prep",
+//   },
+//   {
+//     title: "SSB / Interview Preparation",
+//     text:
+//       "SSB focuses on personality, leadership, decision making and communication—requires practice and self-improvement.",
+//     url: "/courses/defence/ssb",
+//     cta: "Explore SSB Prep",
+//   },
+//   {
+//     title: "Technical / Specialized Path",
+//     text:
+//       "If you aim for technical branches, build strong STEM fundamentals and choose the right graduation route (entry dependent).",
+//     url: "/courses/defence/technical",
+//     cta: "Explore Technical Path",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Officer Entry Exams",
-    text:
-      "Officer entry routes are primarily national-level exams and selection processes (exam-wise details inside).",
-    url: "/exams/defence/national",
-  },
-  {
-    title: "Recruitment & Trade Entries",
-    text:
-      "Non-officer recruitment/trade entries are service-wise and notification-based (eligibility varies).",
-    url: "/exams/defence/recruitment",
-  },
-  {
-    title: "Service-specific Selections",
-    text:
-      "Some entries depend on direct selections, interviews and medical/fitness standards (route dependent).",
-    url: "/exams/defence/service",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Officer Entry Exams",
+//     text:
+//       "Officer entry routes are primarily national-level exams and selection processes (exam-wise details inside).",
+//     url: "/exams/defence/national",
+//   },
+//   {
+//     title: "Recruitment & Trade Entries",
+//     text:
+//       "Non-officer recruitment/trade entries are service-wise and notification-based (eligibility varies).",
+//     url: "/exams/defence/recruitment",
+//   },
+//   {
+//     title: "Service-specific Selections",
+//     text:
+//       "Some entries depend on direct selections, interviews and medical/fitness standards (route dependent).",
+//     url: "/exams/defence/service",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "NDA / Officer Training Prep", url: "/colleges/defence/nda" },
-  { title: "CDS / Graduation-level Prep", url: "/colleges/defence/cds" },
-  { title: "SSB Guidance & Training", url: "/colleges/defence/ssb" },
-  { title: "NCC & Defence Activities", url: "/colleges/defence/ncc" },
-  { title: "Online Preparation Platforms", url: "/colleges/defence/online" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "NDA / Officer Training Prep", url: "/colleges/defence/nda" },
+//   { title: "CDS / Graduation-level Prep", url: "/colleges/defence/cds" },
+//   { title: "SSB Guidance & Training", url: "/colleges/defence/ssb" },
+//   { title: "NCC & Defence Activities", url: "/colleges/defence/ncc" },
+//   { title: "Online Preparation Platforms", url: "/colleges/defence/online" },
+// ];
 
-const INDUSTRIES = [
-  "Indian Army (Service-wise roles)",
-  "Indian Navy (Service-wise roles)",
-  "Indian Air Force (Service-wise roles)",
-  "Defence Support Services (Medical/Logistics/Tech – route dependent)",
-  "Allied Security & Government Services (path-based)",
-];
+// const INDUSTRIES = [
+//   "Indian Army (Service-wise roles)",
+//   "Indian Navy (Service-wise roles)",
+//   "Indian Air Force (Service-wise roles)",
+//   "Defence Support Services (Medical/Logistics/Tech – route dependent)",
+//   "Allied Security & Government Services (path-based)",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Commissioned Officer (Army/Navy/Air Force – route dependent)",
-  "Technical Officer / Engineer (entry dependent)",
-  "Soldier / Sailor / Airman (recruitment-based)",
-  "Logistics / Administration support roles",
-  "Medical / Nursing / Allied roles (route dependent)",
-];
+// const ROLE_EXAMPLES = [
+//   "Commissioned Officer (Army/Navy/Air Force – route dependent)",
+//   "Technical Officer / Engineer (entry dependent)",
+//   "Soldier / Sailor / Airman (recruitment-based)",
+//   "Logistics / Administration support roles",
+//   "Medical / Nursing / Allied roles (route dependent)",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -206,7 +206,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function DefenceForcesByProfessionPage() {
+export default function DefenceForcesByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
     <main>

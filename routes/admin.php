@@ -41,6 +41,14 @@ use App\Http\Controllers\Admin\ScholarshipOverviewTableController;
 use App\Http\Controllers\Admin\ScholarshipRateController;
 use App\Http\Controllers\Admin\ScholarshipController;
 use App\Http\Controllers\Admin\EducationLoanController;
+use App\Http\Controllers\Admin\CareerContentController;
+use App\Http\Controllers\Admin\CourseContentController;
+use App\Http\Controllers\Admin\StudentSupportController;
+use App\Http\Controllers\Admin\EduFundSectionController;
+
+use App\Http\Controllers\Admin\LandingPageController;
+use App\Http\Controllers\Admin\ScholarshipOverviewController;
+
 
 
 Route::middleware('guest:admin')
@@ -81,12 +89,21 @@ Route::middleware(['admin.session', 'auth:admin'])
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('users', UserController::class);
         Route::post('/users/{user}/toggle-block', [UserController::class, 'toggleBlock']);
+
+        Route::post('/users/{id}/verify', [UserController::class, 'verify'])->name('users.verify');
+
+        Route::delete('/users/{id}/force-delete', [UserController::class, 'forceDelete'])->name('users.force-delete');
+      
         Route::resource('categories', CategoryController::class);
         Route::resource('subcategories', SubCategoryController::class);
         Route::resource('menuitems', MenuItemController::class);
         Route::resource('itemtabs', MenuItemTabController::class);
         Route::resource('tabcontents', MenuItemTabContentController::class);
         Route::resource('counsellors', CounsellorController::class);
+        Route::delete('/counsellors/{id}/force-delete', [CounsellorController::class, 'forceDelete'])->name('counsellors.force-delete');
+        Route::post('/counsellors/{id}/toggle-active', [CounsellorController::class, 'toggleActive'])->name('counsellors.toggle-active');
+   
+    
         Route::resource('forum-categories', ForumCategoryController::class);
         Route::resource('iti-colleges', ItiCollegeController::class);
 
@@ -111,8 +128,13 @@ Route::middleware(['admin.session', 'auth:admin'])
        
         Route::resource('central-universities', CentralUniversityController::class);
 
-        Route::resource('exam-content', ExamContentController::class);
+       
+       
+        Route::resource('career-content', CareerContentController::class);
+        Route::resource('course-content', CourseContentController::class);
         Route::resource('college-content', CollegeContentController::class);
+        Route::resource('exam-content', ExamContentController::class);
+
         Route::resource('job-groups', \App\Http\Controllers\Admin\JobGroupController::class);
 
         Route::resource('scholarship-overview-table', ScholarshipOverviewTableController::class);
@@ -126,19 +148,40 @@ Route::middleware(['admin.session', 'auth:admin'])
         Route::put('national-fellowships/{national_fellowship}/status', [\App\Http\Controllers\Admin\NationalFellowshipController::class, 'status'])
             ->name('national-fellowships.status');
 
+        Route::resource('student-support', StudentSupportController::class)
+        ->parameters(['student-support' => 'studentSupport'])
+        ->names('studentSupport');
+
+        Route::get('edu-fund', [EduFundSectionController::class, 'index'])->name('eduFund.index');
+        Route::get('edu-fund/{section}/edit', [EduFundSectionController::class, 'edit'])->name('eduFund.edit');
+        Route::put('edu-fund/{section}', [EduFundSectionController::class, 'update'])->name('eduFund.update');
+
+
 
 
        
 
-        Route::delete(
-                'college-content/{collegeContent}',
-                [CollegeContentController::class, 'destroy']
-            )->name('college-content.destroy');
+        // Route::delete(
+        //         'college-content/{collegeContent}',
+        //         [CollegeContentController::class, 'destroy']
+        //     )->name('college-content.destroy');
 
          Route::put(
             'college-content/{collegeContent}/status',
             [CollegeContentController::class,'status']
         )->name('college-content.status');
+
+        Route::patch(
+        'career-content/{careerContent}/toggle-status',
+            [CareerContentController::class, 'toggleStatus']
+        )->name('career-content.toggle-status');
+
+         Route::patch(
+        'course-content/{courseContent}/toggle-status',
+            [CourseContentController::class, 'toggleStatus']
+        )->name('course-content.toggle-status');
+
+
 
 
 
@@ -178,6 +221,24 @@ Route::middleware(['admin.session', 'auth:admin'])
 
     Route::post('/counsellors/{id}/restore', [CounsellorController::class, 'restore'])
     ->name('admin.counsellors.restore');
+
+
+
+     Route::get('/landing-pages', [LandingPageController::class, 'index'])
+        ->name('admin.landing-pages.index');
+    Route::get('/landing-pages/{slug}/edit', [LandingPageController::class, 'edit'])
+        ->name('admin.landing-pages.edit');
+   Route::put('/landing-pages/{slug}', [LandingPageController::class, 'update'])->name('landing-pages.update');
+        Route::get('/landing-pages/{slug}', [App\Http\Controllers\Admin\LandingPageController::class, 'show'])
+    ->name('landing-pages.show');
+
+
+
+    Route::prefix('scholarship-overview')->name('scholarship-overview.')->group(function () {
+        Route::get('/', [ScholarshipOverviewController::class, 'index'])->name('index');
+        Route::get('/edit', [ScholarshipOverviewController::class, 'edit'])->name('edit');
+        Route::put('/', [ScholarshipOverviewController::class, 'update'])->name('update');
+    }); 
 
        
 

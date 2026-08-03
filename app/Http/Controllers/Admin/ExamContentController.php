@@ -11,6 +11,7 @@ use App\Models\ExamContent;
 class ExamContentController extends Controller
 {
 
+
 public function index(Request $request)
 {
     $query = ExamContent::with([
@@ -20,11 +21,17 @@ public function index(Request $request)
         'section:id,label',
     ]);
 
-    if ($request->filled('link')) {
-        $query->where(function ($q) use ($request) {
-            $q->where('url', 'like', '%' . $request->link . '%')
-              ->orWhere('href', 'like', '%' . $request->link . '%')
-              ->orWhere('source', 'like', '%' . $request->link . '%');
+     if ($request->filled('link')) {
+        $searchTerm = $request->link;
+        
+        $query->where(function ($q) use ($searchTerm) {
+            $q->where('url', 'like', '%' . $searchTerm . '%')
+              ->orWhere('href', 'like', '%' . $searchTerm . '%')
+              ->orWhere('source', 'like', '%' . $searchTerm . '%')
+              ->orWhere('exam', 'like', '%' . $searchTerm . '%')
+              ->orWhere('name', 'like', '%' . $searchTerm . '%')
+              ->orWhere('title', 'like', '%' . $searchTerm . '%')
+              ->orWhere('tag', 'like', '%' . $searchTerm . '%');
         });
     }
 
@@ -32,16 +39,57 @@ public function index(Request $request)
         $query->where('is_active', $request->status === 'active');
     }
 
+    // Get all records ordered by section_id
     $examContents = $query
+        ->orderBy('section_id')
         ->orderByDesc('id')
-        ->paginate(10)
-        ->withQueryString();
+        ->get();
+
+    // Group by section_id with proper structure
+    $groupedData = $examContents->groupBy('section_id')->map(function($items, $sectionId) {
+        $firstItem = $items->first();
+        return [
+            'section_id' => $sectionId,
+            'section_label' => $firstItem->section->label ?? 'Unknown Section',
+            'section' => $firstItem->section ?? null,
+            'count' => $items->count(),
+            'items' => $items->map(function($item) {
+                return [
+                    'id' => $item->id,
+                    'url' => $item->url,
+                    'exam' => $item->exam ?? $item->name ?? $item->title ?? null,
+                    'tag' => $item->tag ?? null,
+                    'is_active' => $item->is_active,
+                    'master' => $item->master,
+                    'menu' => $item->menu,
+                    'tab' => $item->tab,
+                    'section' => $item->section,
+                ];
+            }),
+        ];
+    })->values();
+
+    // Paginate the grouped data
+    $perPage = 10;
+    $currentPage = $request->input('page', 1);
+    $paginatedData = $groupedData->slice(($currentPage - 1) * $perPage, $perPage)->values();
+
+    // Create custom paginator
+    $paginator = new \Illuminate\Pagination\LengthAwarePaginator(
+        $paginatedData,
+        $groupedData->count(),
+        $perPage,
+        $currentPage,
+        ['path' => $request->url(), 'query' => $request->query()]
+    );
 
     return Inertia::render('Admin/ExamContent/Index', [
-        'examContents' => $examContents,
-        'filters'      => $request->only(['link', 'status']),
+        'examContents' => $paginator,
+        'filters' => $request->only(['link', 'status']),
     ]);
 }
+
+
 
 
     /**
@@ -362,6 +410,5 @@ public function update(Request $request, ExamContent $examContent)
             'Deleted Successfully'
         );
     }
-
 
 }

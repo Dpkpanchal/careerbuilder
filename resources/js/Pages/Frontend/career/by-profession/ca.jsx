@@ -28,145 +28,145 @@ export const metadata = {
    DATA
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Audit & Assurance",
-    points: [
-      "Statutory audit, internal audit, risk and compliance",
-      "Work with firms, corporates, banks and large organizations",
-      "Best for: detail-oriented and process-driven mindset",
-    ],
-  },
-  {
-    title: "Taxation (Direct & Indirect)",
-    points: [
-      "Income tax, GST, tax planning, advisory and compliance",
-      "High demand in businesses and professional practice",
-      "Best for: analytical thinking + rules interpretation",
-    ],
-  },
-  {
-    title: "Corporate Finance & Advisory",
-    points: [
-      "Financial planning, MIS, budgeting, valuation, due diligence",
-      "Strong scope in corporates, startups and consulting",
-      "Best for: numbers + business understanding",
-    ],
-  },
-  {
-    title: "Practice / Entrepreneurship",
-    points: [
-      "Independent practice: audit, tax, compliance and advisory",
-      "Build your own client base over time",
-      "Best for: communication + business development",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Audit & Assurance",
+//     points: [
+//       "Statutory audit, internal audit, risk and compliance",
+//       "Work with firms, corporates, banks and large organizations",
+//       "Best for: detail-oriented and process-driven mindset",
+//     ],
+//   },
+//   {
+//     title: "Taxation (Direct & Indirect)",
+//     points: [
+//       "Income tax, GST, tax planning, advisory and compliance",
+//       "High demand in businesses and professional practice",
+//       "Best for: analytical thinking + rules interpretation",
+//     ],
+//   },
+//   {
+//     title: "Corporate Finance & Advisory",
+//     points: [
+//       "Financial planning, MIS, budgeting, valuation, due diligence",
+//       "Strong scope in corporates, startups and consulting",
+//       "Best for: numbers + business understanding",
+//     ],
+//   },
+//   {
+//     title: "Practice / Entrepreneurship",
+//     points: [
+//       "Independent practice: audit, tax, compliance and advisory",
+//       "Build your own client base over time",
+//       "Best for: communication + business development",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 12",
-    steps: [
-      "Register for CA Foundation",
-      "Clear Foundation → then CA Intermediate",
-      "Start Articleship after Intermediate eligibility (as per ICAI rules)",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "Some graduates may be eligible for direct entry to Intermediate (as per ICAI rules)",
-      "Then Articleship + CA Final",
-      "Good option for commerce/finance graduates",
-    ],
-  },
-  {
-    title: "Qualification (Final)",
-    steps: [
-      "Complete Articleship + clear CA Final",
-      "Become a Chartered Accountant",
-      "Choose job, practice, specialization or higher certifications",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "Register for CA Foundation",
+//       "Clear Foundation → then CA Intermediate",
+//       "Start Articleship after Intermediate eligibility (as per ICAI rules)",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "Some graduates may be eligible for direct entry to Intermediate (as per ICAI rules)",
+//       "Then Articleship + CA Final",
+//       "Good option for commerce/finance graduates",
+//     ],
+//   },
+//   {
+//     title: "Qualification (Final)",
+//     steps: [
+//       "Complete Articleship + clear CA Final",
+//       "Become a Chartered Accountant",
+//       "Choose job, practice, specialization or higher certifications",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "CA Foundation",
-    text:
-      "Entry-level stage for Class 12 pass students. Builds base in accounting, law and quantitative aptitude.",
-    url: '/courses/finance-taxation-accounting',
-    cta: "Explore Foundation",
-  },
-  {
-    title: "CA Intermediate",
-    text:
-      "Core CA stage with deeper subjects: accounting, tax, auditing, corporate law and finance.",
-    url: '/courses/finance-taxation-accounting',
-    cta: "Explore Intermediate",
-  },
-  {
-    title: "Articleship (Practical Training)",
-    text:
-      "Mandatory on-the-job training under a practicing CA/firm. Builds real-world experience and skills.",
-    url: '/courses/finance-taxation-accounting',
-    cta: "Explore Articleship",
-  },
-  {
-    title: "CA Final",
-    text:
-      "Final stage for becoming a Chartered Accountant. Focuses on advanced auditing, taxation, finance and strategic management.",
-    url: '/courses/finance-taxation-accounting',
-    cta: "Explore CA Final",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "CA Foundation",
+//     text:
+//       "Entry-level stage for Class 12 pass students. Builds base in accounting, law and quantitative aptitude.",
+//     url: '/courses/finance-taxation-accounting',
+//     cta: "Explore Foundation",
+//   },
+//   {
+//     title: "CA Intermediate",
+//     text:
+//       "Core CA stage with deeper subjects: accounting, tax, auditing, corporate law and finance.",
+//     url: '/courses/finance-taxation-accounting',
+//     cta: "Explore Intermediate",
+//   },
+//   {
+//     title: "Articleship (Practical Training)",
+//     text:
+//       "Mandatory on-the-job training under a practicing CA/firm. Builds real-world experience and skills.",
+//     url: '/courses/finance-taxation-accounting',
+//     cta: "Explore Articleship",
+//   },
+//   {
+//     title: "CA Final",
+//     text:
+//       "Final stage for becoming a Chartered Accountant. Focuses on advanced auditing, taxation, finance and strategic management.",
+//     url: '/courses/finance-taxation-accounting',
+//     cta: "Explore CA Final",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "CA Foundation Exam",
-    text:
-      "First exam stage for CA aspirants. Required for entry into the CA course after Class 12 (unless direct entry applies).",
-    url: '/exams/law/finance-accounts',
-  },
-  {
-    title: "CA Intermediate Exam",
-    text:
-      "Second stage exam covering core CA subjects. Clearing this enables practical training and progress toward Final.",
-    url: '/exams/law/finance-accounts',
-  },
-  {
-    title: "CA Final Exam",
-    text:
-      "Final exam stage to qualify as a Chartered Accountant (with required training completion).",
-    url: '/exams/law/finance-accounts',
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "CA Foundation Exam",
+//     text:
+//       "First exam stage for CA aspirants. Required for entry into the CA course after Class 12 (unless direct entry applies).",
+//     url: '/exams/law/finance-accounts',
+//   },
+//   {
+//     title: "CA Intermediate Exam",
+//     text:
+//       "Second stage exam covering core CA subjects. Clearing this enables practical training and progress toward Final.",
+//     url: '/exams/law/finance-accounts',
+//   },
+//   {
+//     title: "CA Final Exam",
+//     text:
+//       "Final exam stage to qualify as a Chartered Accountant (with required training completion).",
+//     url: '/exams/law/finance-accounts',
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "CA Course & Registration (ICAI)", url: "#" },
-  { title: "Coaching / Training Institutes", url: "#" },
-  { title: "Commerce Colleges (Support Path)", url: "#" },
-  { title: "Online Learning Options", url: "#" },
-  { title: "Open & Distance (Support Path)", url: "#" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "CA Course & Registration (ICAI)", url: "#" },
+//   { title: "Coaching / Training Institutes", url: "#" },
+//   { title: "Commerce Colleges (Support Path)", url: "#" },
+//   { title: "Online Learning Options", url: "#" },
+//   { title: "Open & Distance (Support Path)", url: "#" },
+// ];
 
-const INDUSTRIES = [
-  "CA Firms & Audit Practice",
-  "Corporate Finance & Accounts",
-  "Taxation & Compliance",
-  "Banks & Financial Institutions",
-  "Consulting & Advisory",
-  "Startups & Entrepreneurship",
-];
+// const INDUSTRIES = [
+//   "CA Firms & Audit Practice",
+//   "Corporate Finance & Accounts",
+//   "Taxation & Compliance",
+//   "Banks & Financial Institutions",
+//   "Consulting & Advisory",
+//   "Startups & Entrepreneurship",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Chartered Accountant (Practice / Job)",
-  "Audit Associate / Audit Manager",
-  "Tax Consultant / GST Specialist",
-  "Finance Analyst / FP&A",
-  "Internal Auditor / Risk & Compliance",
-  "Corporate Finance / Valuation (with skills)",
-];
+// const ROLE_EXAMPLES = [
+//   "Chartered Accountant (Practice / Job)",
+//   "Audit Associate / Audit Manager",
+//   "Tax Consultant / GST Specialist",
+//   "Finance Analyst / FP&A",
+//   "Internal Auditor / Risk & Compliance",
+//   "Corporate Finance / Valuation (with skills)",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -204,7 +204,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function CAByProfessionPage() {
+export default function CAByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
       <main>

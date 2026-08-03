@@ -526,7 +526,7 @@ const user = auth?.user;
 
                   {user && (
                              <div className="user-dropdown">
-                               <div className={`user-wrap ${!user?.avatar ? 'no-avatar' : ''}`}>
+                               {/* <div className={`user-wrap ${!user?.avatar ? 'no-avatar' : ''}`}>
                                        <img
                                          src={
                                            user?.avatar
@@ -537,7 +537,28 @@ const user = auth?.user;
                                          }
                                          alt="User profile"
                                        />
-                                     </div>
+                                     </div> */}
+
+                                     <div className={`user-wrap ${!user?.avatar ? 'no-avatar' : ''}`}>
+                                        <img
+                                            src={
+                                                user?.avatar
+                                                    ? user.avatar.startsWith("http") || user.avatar.startsWith("https")
+                                                        ? user.avatar
+                                                        : user.avatar.startsWith("/storage/")
+                                                            ? user.avatar
+                                                            : `/storage/${user.avatar}`
+                                                    : "/images/user.png"
+                                            }
+                                            alt="User profile"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "/images/user.png";
+                                            }}
+                                        />
+                                    </div>
+
+
                
                                <div className="user-menu">
                                  <a href="/forum/profile" className="user-menu-item">

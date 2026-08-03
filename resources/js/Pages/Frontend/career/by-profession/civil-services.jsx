@@ -31,145 +31,145 @@ export const metadata = {
    DATA (Career-book style)
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Administrative Services",
-    points: [
-      "Policy implementation, governance, development programs, administration",
-      "Roles span district/state/central administration (service-wise)",
-      "Best for: leadership + decision-making + responsibility",
-    ],
-  },
-  {
-    title: "Police & Protective Services",
-    points: [
-      "Law & order, public safety, administration, investigation support (role-wise)",
-      "State police services and allied roles (exam/service dependent)",
-      "Best for: discipline + resilience + field readiness",
-    ],
-  },
-  {
-    title: "Revenue, Finance & Allied Services",
-    points: [
-      "Revenue administration, taxation, finance oversight, compliance (role-wise)",
-      "Strong scope in state/central departments (service dependent)",
-      "Best for: analytical thinking + administration mindset",
-    ],
-  },
-  {
-    title: "Specialized Services (Role-based)",
-    points: [
-      "Labour, transport, social welfare, rural development, education admin, etc.",
-      "Depends on state/central service allocation and vacancies",
-      "Best for: domain interest + public impact mindset",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Administrative Services",
+//     points: [
+//       "Policy implementation, governance, development programs, administration",
+//       "Roles span district/state/central administration (service-wise)",
+//       "Best for: leadership + decision-making + responsibility",
+//     ],
+//   },
+//   {
+//     title: "Police & Protective Services",
+//     points: [
+//       "Law & order, public safety, administration, investigation support (role-wise)",
+//       "State police services and allied roles (exam/service dependent)",
+//       "Best for: discipline + resilience + field readiness",
+//     ],
+//   },
+//   {
+//     title: "Revenue, Finance & Allied Services",
+//     points: [
+//       "Revenue administration, taxation, finance oversight, compliance (role-wise)",
+//       "Strong scope in state/central departments (service dependent)",
+//       "Best for: analytical thinking + administration mindset",
+//     ],
+//   },
+//   {
+//     title: "Specialized Services (Role-based)",
+//     points: [
+//       "Labour, transport, social welfare, rural development, education admin, etc.",
+//       "Depends on state/central service allocation and vacancies",
+//       "Best for: domain interest + public impact mindset",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Build strong basics: reading habit, writing, current affairs awareness",
-      "Choose any stream based on strengths (Arts/Science/Commerce)",
-      "Focus on communication + discipline + long-term consistency",
-    ],
-  },
-  {
-    title: "After Class 12",
-    steps: [
-      "Choose graduation subject you can score well in + enjoy learning",
-      "Start foundation habits: newspapers, notes, basic polity/history/geography",
-      "Don’t rush—Civil Services is typically planned with graduation timeline",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "Main preparation phase for UPSC/WBCS and other state services",
-      "Optional subject selection (where applicable), test series, answer writing",
-      "Interview preparation + personality development",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Build strong basics: reading habit, writing, current affairs awareness",
+//       "Choose any stream based on strengths (Arts/Science/Commerce)",
+//       "Focus on communication + discipline + long-term consistency",
+//     ],
+//   },
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "Choose graduation subject you can score well in + enjoy learning",
+//       "Start foundation habits: newspapers, notes, basic polity/history/geography",
+//       "Don’t rush—Civil Services is typically planned with graduation timeline",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "Main preparation phase for UPSC/WBCS and other state services",
+//       "Optional subject selection (where applicable), test series, answer writing",
+//       "Interview preparation + personality development",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "Graduation (Any Stream) + Foundation Building",
-    text:
-      "Civil Services typically requires graduation. Choose a subject you can study deeply and score well in—your base matters for preparation quality.",
-    url: "/courses/civil-services/graduation",
-    cta: "Explore Graduation Path",
-  },
-  {
-    title: "Civil Services Foundation Course",
-    text:
-      "Structured foundation for basics: polity, history, geography, economy, environment and current affairs—aligned to exam pattern.",
-    url: "/courses/civil-services/foundation",
-    cta: "Explore Foundation",
-  },
-  {
-    title: "Optional / Specialized Preparation (Exam-wise)",
-    text:
-      "Optional subjects (where applicable) and advanced topics need structured planning and answer-writing practice.",
-    url: "/courses/civil-services/optional",
-    cta: "Explore Optional Prep",
-  },
-  {
-    title: "Interview / Personality Test Prep",
-    text:
-      "Communication, decision-making, awareness and personality development for the final stage selection (where applicable).",
-    url: "/courses/civil-services/interview",
-    cta: "Explore Interview Prep",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "Graduation (Any Stream) + Foundation Building",
+//     text:
+//       "Civil Services typically requires graduation. Choose a subject you can study deeply and score well in—your base matters for preparation quality.",
+//     url: "/courses/civil-services/graduation",
+//     cta: "Explore Graduation Path",
+//   },
+//   {
+//     title: "Civil Services Foundation Course",
+//     text:
+//       "Structured foundation for basics: polity, history, geography, economy, environment and current affairs—aligned to exam pattern.",
+//     url: "/courses/civil-services/foundation",
+//     cta: "Explore Foundation",
+//   },
+//   {
+//     title: "Optional / Specialized Preparation (Exam-wise)",
+//     text:
+//       "Optional subjects (where applicable) and advanced topics need structured planning and answer-writing practice.",
+//     url: "/courses/civil-services/optional",
+//     cta: "Explore Optional Prep",
+//   },
+//   {
+//     title: "Interview / Personality Test Prep",
+//     text:
+//       "Communication, decision-making, awareness and personality development for the final stage selection (where applicable).",
+//     url: "/courses/civil-services/interview",
+//     cta: "Explore Interview Prep",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Civil Services",
-    text:
-      "UPSC Civil Services and other national exams for central services (exam-wise details in dedicated section).",
-    url: "/exams/civil-services/national",
-  },
-  {
-    title: "State-level Civil Services",
-    text:
-      "State Public Service Commission exams like WBCS and other state services (state-wise variation).",
-    url: "/exams/civil-services/state",
-  },
-  {
-    title: "Departmental / Allied Competitive Exams",
-    text:
-      "Other government recruitment routes: SSC, railways, banking, departmental roles (path-based).",
-    url: "/exams/civil-services/allied",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Civil Services",
+//     text:
+//       "UPSC Civil Services and other national exams for central services (exam-wise details in dedicated section).",
+//     url: "/exams/civil-services/national",
+//   },
+//   {
+//     title: "State-level Civil Services",
+//     text:
+//       "State Public Service Commission exams like WBCS and other state services (state-wise variation).",
+//     url: "/exams/civil-services/state",
+//   },
+//   {
+//     title: "Departmental / Allied Competitive Exams",
+//     text:
+//       "Other government recruitment routes: SSC, railways, banking, departmental roles (path-based).",
+//     url: "/exams/civil-services/allied",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "UPSC Preparation Institutes", url: "/colleges/civil-services/upsc" },
-  { title: "State PSC (WBCS) Coaching", url: "/colleges/civil-services/state-psc" },
-  { title: "Universities (Strong Graduation Base)", url: "/colleges/civil-services/universities" },
-  { title: "Online Preparation Platforms", url: "/colleges/civil-services/online" },
-  { title: "Open & Distance (Graduation Support)", url: "/colleges/civil-services/open" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "UPSC Preparation Institutes", url: "/colleges/civil-services/upsc" },
+//   { title: "State PSC (WBCS) Coaching", url: "/colleges/civil-services/state-psc" },
+//   { title: "Universities (Strong Graduation Base)", url: "/colleges/civil-services/universities" },
+//   { title: "Online Preparation Platforms", url: "/colleges/civil-services/online" },
+//   { title: "Open & Distance (Graduation Support)", url: "/colleges/civil-services/open" },
+// ];
 
-const INDUSTRIES = [
-  "Government Administration",
-  "Police & Protective Services",
-  "Revenue & Finance Departments",
-  "Social Welfare & Development",
-  "Public Policy & Governance",
-  "Allied Government Services",
-];
+// const INDUSTRIES = [
+//   "Government Administration",
+//   "Police & Protective Services",
+//   "Revenue & Finance Departments",
+//   "Social Welfare & Development",
+//   "Public Policy & Governance",
+//   "Allied Government Services",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Administrative Officer (service-wise)",
-  "Revenue Officer / Administrative roles",
-  "Police Service roles (service-wise)",
-  "Block / District level administration roles",
-  "Policy / Governance support roles",
-  "Allied services via state/central exams",
-];
+// const ROLE_EXAMPLES = [
+//   "Administrative Officer (service-wise)",
+//   "Revenue Officer / Administrative roles",
+//   "Police Service roles (service-wise)",
+//   "Block / District level administration roles",
+//   "Policy / Governance support roles",
+//   "Allied services via state/central exams",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -207,7 +207,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function CivilServicesByProfessionPage() {
+export default function CivilServicesByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
     <main>

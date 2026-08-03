@@ -8,7 +8,8 @@ import ArtsOverviewTab from "@/Components/Frontend/AfterClass12/GeneralScienceTa
 
 import RelatedExamGeneralScience from "@/Components/Frontend/AfterClass12/RelatedExamGeneralScience";
 import TopCollegesUniversitiesGeneralScience from "@/Components/Frontend/AfterClass12/TopCollegesUniversitiesGeneralScience";
-import EducationLoansScholarshipsTab from "@/Components/Frontend/AfterClass12/EducationLoansScholarshipsTab";
+import EducationLoansScholarshipsTab from "@/components/Frontend/AfterClass12/EducationLoansScholarshipsTab";
+import StudentSupportTab from "@/components/Frontend/StudentSupportTab";
 import FrontendLayout from '@/Layouts/FrontendLayout'; 
 import styles from "../AfterClass8.module.css"; 
 
@@ -17,13 +18,32 @@ const { ChevronLeft, ChevronRight, GraduationCap, Map, BookOpen, Award, HelpCirc
 
 const TABS = [
   { id: "overview", label: "Overview" },
-
   { id: "related-exams", label: "Related Exams" },
   { id: "college", label: "Top Colleges & Universities" },
   { id: "loan-scholarship", label: "Education Loans & Scholarships" },
+  { id: "support", label: "Student Support" },
 ];
 
-export default function AfterClass12GeneralSciencePage() {
+export default function AfterClass12GeneralSciencePage({careerData, studentSupportItems = [], eduFundSections = []}) {
+
+
+ const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+
+  const overview_tree = career?.overview_tree || [];
+  const related_exams = career?.related_exams || [];
+  const top_colleges_and_universities = career.top_colleges_and_universities || [];
+
+
   const [activeTab, setActiveTab] = useState("overview");
   const [explorerFocus, setExplorerFocus] = useState(null);
 
@@ -128,12 +148,13 @@ export default function AfterClass12GeneralSciencePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {activeTab === "overview" && <ArtsOverviewTab />}
+            {activeTab === "overview" && <ArtsOverviewTab overview_tree={overview_tree}/>}
 
-            {activeTab === "related-exams" && <RelatedExamGeneralScience />}
+            {activeTab === "related-exams" && <RelatedExamGeneralScience related_exams={related_exams}/>}
 
-            {activeTab === "college" && <TopCollegesUniversitiesGeneralScience />}
-            {activeTab === "loan-scholarship" && <EducationLoansScholarshipsTab />}
+            {activeTab === "college" && <TopCollegesUniversitiesGeneralScience top_colleges_and_universities={top_colleges_and_universities}/>}
+            {activeTab === "loan-scholarship" && <EducationLoansScholarshipsTab sections={eduFundSections}/>}
+            {activeTab === "support" && <StudentSupportTab items={studentSupportItems}/>}
           </motion.div>
         </main>
       </div>

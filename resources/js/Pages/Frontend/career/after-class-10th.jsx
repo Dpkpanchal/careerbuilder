@@ -30,122 +30,122 @@ const {
 } = Lucide;
 
 // Dummy Data
-const DUMMY_DATA = {
-  educationPathways: [
-    {
-      type: "School Education",
-      title: "Continue Regular Schooling",
-      description: "Continue with class 9 in your current school or switch to a different school",
-      options: [
-        "State Board (WBBSE)",
-        "CBSE Board", 
-        "ICSE Board",
-        "Madrasa Education"
-      ],
-      features: ["Regular curriculum", "Extracurricular activities", "Guidance from teachers"],
-      icon: BookOpen
-    },
-    {
-      type: "NIOS",
-      title: "National Institute of Open Schooling",
-      description: "Flexible schooling option for students who need alternative education",
-      options: [
-        "Secondary Course (Class 9-10)",
-        "Flexible exam schedule",
-        "Multiple admission cycles"
-      ],
-      features: ["Distance learning", "Self-paced study", "Recognized by Govt. of India"],
-      contact: "nios.gov.in | 011-408-8888"
-    }
-  ],
+// const DUMMY_DATA = {
+//   educationPathways: [
+//     {
+//       type: "School Education",
+//       title: "Continue Regular Schooling",
+//       description: "Continue with class 9 in your current school or switch to a different school",
+//       options: [
+//         "State Board (WBBSE)",
+//         "CBSE Board", 
+//         "ICSE Board",
+//         "Madrasa Education"
+//       ],
+//       features: ["Regular curriculum", "Extracurricular activities", "Guidance from teachers"],
+//       icon: BookOpen
+//     },
+//     {
+//       type: "NIOS",
+//       title: "National Institute of Open Schooling",
+//       description: "Flexible schooling option for students who need alternative education",
+//       options: [
+//         "Secondary Course (Class 9-10)",
+//         "Flexible exam schedule",
+//         "Multiple admission cycles"
+//       ],
+//       features: ["Distance learning", "Self-paced study", "Recognized by Govt. of India"],
+//       contact: "nios.gov.in | 011-408-8888"
+//     }
+//   ],
   
-  vocationalCourses: [
-    {
-      title: "Basic Computer Skills",
-      duration: "3 months",
-      eligibility: "Class 8 passed",
-      institutes: ["Govt. ITI Centers", "Private Computer Centers"],
-      scope: "Office Assistant, Data Entry Operator"
-    },
-    {
-      title: "Tailoring & Fashion Design",
-      duration: "6 months", 
-      eligibility: "Class 8 passed",
-      institutes: ["Women Polytechnic", "Private Tailoring Centers"],
-      scope: "Fashion Designer, Tailor"
-    },
-    {
-      title: "Electrician Course",
-      duration: "1 year",
-      eligibility: "Class 8 passed", 
-      institutes: ["Govt. ITI", "Private Training Centers"],
-      scope: "Electrician, Maintenance Technician"
-    }
-  ],
+//   vocationalCourses: [
+//     {
+//       title: "Basic Computer Skills",
+//       duration: "3 months",
+//       eligibility: "Class 8 passed",
+//       institutes: ["Govt. ITI Centers", "Private Computer Centers"],
+//       scope: "Office Assistant, Data Entry Operator"
+//     },
+//     {
+//       title: "Tailoring & Fashion Design",
+//       duration: "6 months", 
+//       eligibility: "Class 8 passed",
+//       institutes: ["Women Polytechnic", "Private Tailoring Centers"],
+//       scope: "Fashion Designer, Tailor"
+//     },
+//     {
+//       title: "Electrician Course",
+//       duration: "1 year",
+//       eligibility: "Class 8 passed", 
+//       institutes: ["Govt. ITI", "Private Training Centers"],
+//       scope: "Electrician, Maintenance Technician"
+//     }
+//   ],
 
-  itiCourses: [
-    {
-      name: "Kolkata ITI - Central",
-      address: "Salt Lake, Kolkata",
-      courses: ["Electrician", "Fitter", "Welder"],
-      contact: "033-1234-5678"
-    },
-    {
-      name: "Howrah ITI",
-      address: "Howrah Main Road", 
-      courses: ["Mechanic", "Plumber", "Carpenter"],
-      contact: "033-2345-6789"
-    },
-    {
-      name: "Burdwan ITI",
-      address: "Burdwan Station Road",
-      courses: ["Electrician", "Turner", "Machinist"],
-      contact: "0342-123-4567"
-    }
-  ],
+//   itiCourses: [
+//     {
+//       name: "Kolkata ITI - Central",
+//       address: "Salt Lake, Kolkata",
+//       courses: ["Electrician", "Fitter", "Welder"],
+//       contact: "033-1234-5678"
+//     },
+//     {
+//       name: "Howrah ITI",
+//       address: "Howrah Main Road", 
+//       courses: ["Mechanic", "Plumber", "Carpenter"],
+//       contact: "033-2345-6789"
+//     },
+//     {
+//       name: "Burdwan ITI",
+//       address: "Burdwan Station Road",
+//       courses: ["Electrician", "Turner", "Machinist"],
+//       contact: "0342-123-4567"
+//     }
+//   ],
 
-  scholarships: [
-    {
-      name: "WBMDFC Merit Scholarship",
-      amount: "₹5,000 per year",
-      eligibility: "75% marks in Class 8, Family income < ₹2.5L",
-      deadline: "31st August 2024"
-    },
-    {
-      name: "National Means Cum Merit Scholarship",
-      amount: "₹12,000 per year", 
-      eligibility: "55% marks in Class 8, Family income < ₹1.5L",
-      deadline: "30th September 2024"
-    },
-    {
-      name: "Pre-Matric Scholarship for Minorities",
-      amount: "₹10,000 per year",
-      eligibility: "50% marks, Minority community",
-      deadline: "15th October 2024"
-    }
-  ],
+//   scholarships: [
+//     {
+//       name: "WBMDFC Merit Scholarship",
+//       amount: "₹5,000 per year",
+//       eligibility: "75% marks in Class 8, Family income < ₹2.5L",
+//       deadline: "31st August 2024"
+//     },
+//     {
+//       name: "National Means Cum Merit Scholarship",
+//       amount: "₹12,000 per year", 
+//       eligibility: "55% marks in Class 8, Family income < ₹1.5L",
+//       deadline: "30th September 2024"
+//     },
+//     {
+//       name: "Pre-Matric Scholarship for Minorities",
+//       amount: "₹10,000 per year",
+//       eligibility: "50% marks, Minority community",
+//       deadline: "15th October 2024"
+//     }
+//   ],
 
-  counselors: [
-    {
-      name: "Dr. Ananya Sharma",
-      specialization: "Career Guidance for School Students",
-      contact: "98765-43210",
-      email: "ananya.sharma@careerguide.com"
-    },
-    {
-      name: "Prof. Rajiv Mehta", 
-      specialization: "Vocational Training Expert",
-      contact: "98765-43211",
-      email: "rajiv.mehta@careerguide.com"
-    },
-    {
-      name: "Ms. Priya Singh",
-      specialization: "Scholarship & Financial Aid",
-      contact: "98765-43212", 
-      email: "priya.singh@careerguide.com"
-    }
-  ]
-};
+//   counselors: [
+//     {
+//       name: "Dr. Ananya Sharma",
+//       specialization: "Career Guidance for School Students",
+//       contact: "98765-43210",
+//       email: "ananya.sharma@careerguide.com"
+//     },
+//     {
+//       name: "Prof. Rajiv Mehta", 
+//       specialization: "Vocational Training Expert",
+//       contact: "98765-43211",
+//       email: "rajiv.mehta@careerguide.com"
+//     },
+//     {
+//       name: "Ms. Priya Singh",
+//       specialization: "Scholarship & Financial Aid",
+//       contact: "98765-43212", 
+//       email: "priya.singh@careerguide.com"
+//     }
+//   ]
+// };
 
 const TABS = [
   { id: "education", label: "Overview", Icon: GraduationCap },
@@ -155,7 +155,41 @@ const TABS = [
   { id: "scholarship", label: "Scholarships", Icon: Award },
   { id: "counselor", label: "Career Counseling", Icon: HelpCircle },
 ];
-export default function AfterClass8Page() {
+export default function AfterClass8Page({itis, careerData,counsellors , scholarshipSchemes, scholarshipRates, key_instructions_eligibility}) {
+
+   if (!counsellors || counsellors.length === 0) {
+        return null;
+    }
+
+    if (!scholarshipSchemes || scholarshipSchemes.length === 0) {
+        return null;
+    }
+
+    if (!scholarshipRates || scholarshipRates.length === 0) {
+        return null;
+    }
+    
+    if (!key_instructions_eligibility || key_instructions_eligibility.length === 0) {
+          return null;
+    }
+
+    const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+
+  const overview = career?.overview || [];
+  const stream_selection = career?.stream_selection || [];
+  const vocationalCourses = career?.vocational_courses || [];
+
+
   const [activeTab, setActiveTab] = useState("education");
   const tabRef = useRef(null);
   const [showLeftChevron, setShowLeftChevron] = useState(false);
@@ -264,11 +298,11 @@ export default function AfterClass8Page() {
           >
             {/* Education Pathways */}
             {activeTab === "education" && (
-              <Overview />
+              <Overview overview={overview}/>
             )}
 
             {activeTab === "stream" && (
-              <StreamSelection />
+              <StreamSelection stream_selection={stream_selection}/>
             )}
 
             {/* Vocational Courses */}
@@ -276,7 +310,7 @@ export default function AfterClass8Page() {
               <section>
                 <div className="row g-3">
                   <div className="col-12">
-                    <VocationCourses8and10th />
+                    <VocationCourses8and10th vocationalCourses={vocationalCourses}/>
                   </div>
                 </div>
               </section>
@@ -372,7 +406,7 @@ export default function AfterClass8Page() {
                   </div>
 
                   <div>
-                    <ITIInstitutes />
+                   <ITIInstitutes data={itis}/>
                   </div>
                 </section>
               )}
@@ -380,13 +414,13 @@ export default function AfterClass8Page() {
             {/* Scholarships */}
             {activeTab === "scholarship" && (
               <div>
-                <Scholership />
+                <Scholership scholarshipSchemes={scholarshipSchemes} scholarshipRates={scholarshipRates} key_instructions_eligibility={key_instructions_eligibility}/>
               </div>
             )}
 
             {/* Career Counseling */}
             {activeTab === "counselor" && (
-              <CounsellorsDirectory />
+              <CounsellorsDirectory counsellorsData={counsellors}/>
             )}
           </motion.div>
         </main>

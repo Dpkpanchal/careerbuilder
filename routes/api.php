@@ -7,6 +7,15 @@ use App\Http\Controllers\Api\CollegeController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ForumApiController;
 
+
+use App\Http\Controllers\Api\ForumController;
+use App\Http\Controllers\Api\QuestionsController;
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Auth\OTPController;
+use App\Http\Controllers\Auth\PasswordResetController;
+
+
 // Public APIs
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
@@ -14,10 +23,16 @@ Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 
 
+
+Route::post('/otp/send', [OTPController::class, 'send'])->name('api.otp.send');
+Route::post('/otp/verify', [OTPController::class, 'verify'])->name('api.otp.verify');
+Route::post('/password/reset-direct', [PasswordResetController::class, 'resetDirect'])->name('api.password.reset.direct');
+
 Route::get('/get-menus', [APIController::class, 'menus']);
+Route::post('/get-career-content', [APIController::class, 'careerContent']);
+Route::post('/get-course-content', [APIController::class, 'courseContent']);
 Route::post('/get-exam-content', [ExamController::class, 'examContent']);
 Route::post('/get-college-content', [CollegeController::class, 'collegeContent']); 
-
 Route::get('/get-counsellors', [UserController::class, 'counsellors']);
 Route::get('/get-minority-schemes', [APIController::class, 'minoritySchemes']);
 Route::get('/get-waqf-run-hostels', [APIController::class, 'waqfRunHostel']);
@@ -26,16 +41,17 @@ Route::get('/get-coaching-support', [APIController::class, 'coachingSupport']);
 Route::get('/get-important-web-links', [APIController::class, 'importantWebLinks']);
 Route::get('/home', [APIController::class, 'home']);
 Route::get('/news-updates', [APIController::class, 'newsUpdates']);
-
-
 Route::get('/get-jobs-opportunities', [APIController::class, 'jobOpportunity']);
-
 Route::get('/scholarship-overview-table', [ApiController::class, 'scholarshipOverviewTable']);
 Route::get('/scholarship-rates', [ApiController::class, 'scholarshipRates']);
 Route::get('/more-scholarship', [ApiController::class, 'moreScholarship']);
 Route::get('/education-loan', [ApiController::class, 'educationLoan']);
 Route::get('/national-fellowships', [ApiController::class, 'nationalFellowships']);
 Route::get('/national-fellowships/{nationalFellowship}', [ApiController::class, 'nationalFellowship']);
+Route::get('/student-support', [ApiController::class, 'studentSupport']);
+Route::get('/edu-fund', [ApiController::class, 'eduFund']);
+Route::get('/landing-pages/{slug}', [ApiController::class, 'landingPages']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
 
@@ -46,33 +62,37 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 
+// Forum API Routes
+
 Route::prefix('forum')->group(function () {
 
-    // Public
-    Route::get('/', [ForumApiController::class, 'forum']);
-    Route::get('/question/{id}', [ForumApiController::class, 'questionDetails']);
-
-    // Login Required
+    Route::get('/', [ForumController::class, 'index']); // GET /api/forum
+    
+    // ---------- Auth required ----------
     Route::middleware('auth:sanctum')->group(function () {
+        Route::get('/my-questions', [ForumController::class, 'myQuestions']);
+        Route::get('/bookmarked', [ForumController::class, 'bookmarked']);
+        
+        Route::get('/profile', [ForumController::class, 'profile']);
 
-        Route::get('/my-questions', [ForumApiController::class, 'myQuestions']);
-        Route::get('/replies', [ForumApiController::class, 'replies']);
-        Route::get('/bookmarked', [ForumApiController::class, 'bookmarked']);
-        Route::get('/profile', [ForumApiController::class, 'profile']);
+        // Questions
+        Route::post('/questions', [QuestionsController::class, 'store']);
+        Route::delete('/questions/{question}', [QuestionsController::class, 'destroy']);
+        Route::post('/questions/{question}/bookmark', [ForumController::class, 'toggleBookmark']);
 
-        Route::post('/{threadId}/reply', [ForumApiController::class, 'storeQuestionReply']);
-        Route::post('/{threadId}/nested-reply', [ForumApiController::class, 'storeNestedReply']);
+        // Answers
+        Route::post('/{threadId}/reply', [ForumController::class, 'storeQuestionReply']);
+        Route::delete('/answers/{answerId}', [ForumController::class, 'destroyAnswer']);
+        Route::post('/answers/{answer}/helpful', [ForumController::class, 'toggleAnswerHelpful']);
 
-        Route::patch('/questions/{question}/bookmark', [ForumApiController::class, 'toggleBookmark']);
-        Route::patch('/answers/{answer}/helpful', [ForumApiController::class, 'toggleAnswerHelpful']);
-        Route::patch('/replies/{reply}/helpful', [ForumApiController::class, 'toggleReplyHelpful']);
+        // Nested replies
+        Route::post('/{threadId}/nested-reply', [ForumController::class, 'storeNestedReply']);
+        Route::delete('/replies/{id}', [ForumController::class, 'destroyNestedReplies']);
+        Route::post('/replies/{reply}/helpful', [ForumController::class, 'toggleReplyHelpful']);
 
-        Route::delete('/answers/{answerId}', [ForumApiController::class, 'destroyAnswer']);
-        Route::delete('/nested-replies/{id}', [ForumApiController::class, 'destroyNestedReplies']);
-        Route::delete('/replies/{reply}', [ForumApiController::class, 'replyDestroy']);
+        Route::get('/replies', [ForumController::class, 'replies']);
 
-        Route::post('/report-thread', [ForumApiController::class, 'store']);
-        Route::post('/report', [ForumApiController::class, 'saveReport']);
-        Route::post('/report-question', [ForumApiController::class, 'reportQuestion']);
+        // Reporting
+        Route::post('/report', [ForumController::class, 'saveReport']);
     });
 });

@@ -31,146 +31,146 @@ export const metadata = {
    DATA
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Graphic Design & Visual Communication",
-    points: [
-      "Branding, posters, ads, layouts, typography, content design",
-      "Tools: Photoshop, Illustrator, InDesign (plus modern tools)",
-      "Best for: creativity + visual storytelling",
-    ],
-  },
-  {
-    title: "UI/UX & Product Design",
-    points: [
-      "App/website design, user research, wireframes, prototypes",
-      "Tools: Figma, prototyping, usability testing",
-      "Best for: creativity + logic + problem-solving",
-    ],
-  },
-  {
-    title: "Fashion & Textile Design",
-    points: [
-      "Garment design, styling, textiles, fashion communication",
-      "Strong scope in brands, boutiques and entrepreneurship",
-      "Best for: trends + aesthetics + craft sense",
-    ],
-  },
-  {
-    title: "Interior / Architecture / Spatial Design",
-    points: [
-      "Space planning, interiors, furniture, architecture pathways (course-specific)",
-      "Work in studios, real estate, construction design support",
-      "Best for: space sense + planning + technical learning",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Graphic Design & Visual Communication",
+//     points: [
+//       "Branding, posters, ads, layouts, typography, content design",
+//       "Tools: Photoshop, Illustrator, InDesign (plus modern tools)",
+//       "Best for: creativity + visual storytelling",
+//     ],
+//   },
+//   {
+//     title: "UI/UX & Product Design",
+//     points: [
+//       "App/website design, user research, wireframes, prototypes",
+//       "Tools: Figma, prototyping, usability testing",
+//       "Best for: creativity + logic + problem-solving",
+//     ],
+//   },
+//   {
+//     title: "Fashion & Textile Design",
+//     points: [
+//       "Garment design, styling, textiles, fashion communication",
+//       "Strong scope in brands, boutiques and entrepreneurship",
+//       "Best for: trends + aesthetics + craft sense",
+//     ],
+//   },
+//   {
+//     title: "Interior / Architecture / Spatial Design",
+//     points: [
+//       "Space planning, interiors, furniture, architecture pathways (course-specific)",
+//       "Work in studios, real estate, construction design support",
+//       "Best for: space sense + planning + technical learning",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Basic art/design skills + portfolio building",
-      "Vocational/skill courses (graphics, illustration, basic fashion, etc.)",
-      "Choose relevant stream after 10 (Arts/Science/Commerce depending on course needs)",
-    ],
-  },
-  {
-    title: "After Class 12",
-    steps: [
-      "UG design degrees/diplomas: B.Des / BA Design / Fashion / Graphics / Interior etc.",
-      "Entrance exams + portfolio + interview (for many institutes)",
-      "Projects + internships build strong portfolio",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "M.Des / specialization track",
-      "Advanced roles: product design, brand strategy, design leadership",
-      "Better opportunities with deep portfolio + skills",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Basic art/design skills + portfolio building",
+//       "Vocational/skill courses (graphics, illustration, basic fashion, etc.)",
+//       "Choose relevant stream after 10 (Arts/Science/Commerce depending on course needs)",
+//     ],
+//   },
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "UG design degrees/diplomas: B.Des / BA Design / Fashion / Graphics / Interior etc.",
+//       "Entrance exams + portfolio + interview (for many institutes)",
+//       "Projects + internships build strong portfolio",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "M.Des / specialization track",
+//       "Advanced roles: product design, brand strategy, design leadership",
+//       "Better opportunities with deep portfolio + skills",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "Design Diplomas (Skill-first)",
-    text:
-      "Shorter practical courses in graphic design, UI basics, fashion basics, interior fundamentals and software tools—good for early entry and portfolio building.",
-    url: "/courses/design/diploma",
-    cta: "Explore Diplomas",
-  },
-  {
-    title: "B.Des / UG Design Degrees",
-    text:
-      "Undergraduate design programs focused on core design thinking, projects, studios and portfolio development across multiple domains.",
-    url: "/courses/design/ug",
-    cta: "Explore UG Design",
-  },
-  {
-    title: "Specializations (UI/UX, Fashion, Interior, etc.)",
-    text:
-      "Pick a specialization based on interest: UI/UX, graphic, fashion, interior, product, animation and more (course-wise).",
-    url: "/courses/design/specializations",
-    cta: "Explore Specializations",
-  },
-  {
-    title: "M.Des / Advanced Design Studies",
-    text:
-      "Postgraduate programs for deeper design strategy, leadership and advanced project-based learning.",
-    url: "/courses/design/pg",
-    cta: "Explore PG Design",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "Design Diplomas (Skill-first)",
+//     text:
+//       "Shorter practical courses in graphic design, UI basics, fashion basics, interior fundamentals and software tools—good for early entry and portfolio building.",
+//     url: "/courses/design/diploma",
+//     cta: "Explore Diplomas",
+//   },
+//   {
+//     title: "B.Des / UG Design Degrees",
+//     text:
+//       "Undergraduate design programs focused on core design thinking, projects, studios and portfolio development across multiple domains.",
+//     url: "/courses/design/ug",
+//     cta: "Explore UG Design",
+//   },
+//   {
+//     title: "Specializations (UI/UX, Fashion, Interior, etc.)",
+//     text:
+//       "Pick a specialization based on interest: UI/UX, graphic, fashion, interior, product, animation and more (course-wise).",
+//     url: "/courses/design/specializations",
+//     cta: "Explore Specializations",
+//   },
+//   {
+//     title: "M.Des / Advanced Design Studies",
+//     text:
+//       "Postgraduate programs for deeper design strategy, leadership and advanced project-based learning.",
+//     url: "/courses/design/pg",
+//     cta: "Explore PG Design",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Design Entrances",
-    text:
-      "Common national-level exams used for admission to top design institutes (often includes aptitude + creative tests).",
-    url: "/exams/design/national",
-  },
-  {
-    title: "State-level / Regional Entrances",
-    text:
-      "Some states/institutes run regional admission processes depending on course type and institute.",
-    url: "/exams/design/state",
-  },
-  {
-    title: "University / Institute-level Tests",
-    text:
-      "Many private/university design schools conduct their own tests + portfolio reviews + interviews.",
-    url: "/exams/design/university",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Design Entrances",
+//     text:
+//       "Common national-level exams used for admission to top design institutes (often includes aptitude + creative tests).",
+//     url: "/exams/design/national",
+//   },
+//   {
+//     title: "State-level / Regional Entrances",
+//     text:
+//       "Some states/institutes run regional admission processes depending on course type and institute.",
+//     url: "/exams/design/state",
+//   },
+//   {
+//     title: "University / Institute-level Tests",
+//     text:
+//       "Many private/university design schools conduct their own tests + portfolio reviews + interviews.",
+//     url: "/exams/design/university",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "NIDs (National Institute of Design)", url: "/colleges/design/nid" },
-  { title: "NIFTs (Fashion Design Institutes)", url: "/colleges/design/nift" },
-  { title: "IIT Design / UCEED Institutes", url: "/colleges/design/iit" },
-  { title: "Central / State Universities", url: "/colleges/design/universities" },
-  { title: "Private & Deemed Universities", url: "/colleges/design/private" },
-  { title: "Open & Distance (Selected Options)", url: "/colleges/design/open" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "NIDs (National Institute of Design)", url: "/colleges/design/nid" },
+//   { title: "NIFTs (Fashion Design Institutes)", url: "/colleges/design/nift" },
+//   { title: "IIT Design / UCEED Institutes", url: "/colleges/design/iit" },
+//   { title: "Central / State Universities", url: "/colleges/design/universities" },
+//   { title: "Private & Deemed Universities", url: "/colleges/design/private" },
+//   { title: "Open & Distance (Selected Options)", url: "/colleges/design/open" },
+// ];
 
-const INDUSTRIES = [
-  "Branding & Advertising",
-  "Digital Products (Apps/Web)",
-  "Media, Content & Publishing",
-  "Fashion & Lifestyle",
-  "Interior, Architecture & Space Design",
-  "Startups & Freelancing",
-];
+// const INDUSTRIES = [
+//   "Branding & Advertising",
+//   "Digital Products (Apps/Web)",
+//   "Media, Content & Publishing",
+//   "Fashion & Lifestyle",
+//   "Interior, Architecture & Space Design",
+//   "Startups & Freelancing",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Graphic Designer / Visual Designer",
-  "UI Designer / UX Designer",
-  "Product Designer (Digital)",
-  "Fashion Designer / Stylist (role-based)",
-  "Interior Designer (role-based)",
-  "Illustrator / Motion Designer (skill-based)",
-];
+// const ROLE_EXAMPLES = [
+//   "Graphic Designer / Visual Designer",
+//   "UI Designer / UX Designer",
+//   "Product Designer (Digital)",
+//   "Fashion Designer / Stylist (role-based)",
+//   "Interior Designer (role-based)",
+//   "Illustrator / Motion Designer (skill-based)",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -208,7 +208,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function DesignByProfessionPage() {
+export default function DesignByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
     <main>

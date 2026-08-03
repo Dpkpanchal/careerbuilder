@@ -28,145 +28,145 @@ export const metadata = {
    DATA
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Clinical Medicine (MBBS → MD/MS)",
-    points: [
-      "Direct patient care: diagnosis, treatment, procedures",
-      "Long-term study + internship + residency",
-      "Best for: strong interest in biology + patient responsibility",
-    ],
-  },
-  {
-    title: "Dental (BDS → MDS)",
-    points: [
-      "Oral health, dental surgery, orthodontics, prosthetics",
-      "Strong private practice opportunities",
-      "Best for: precision work + clinical practice",
-    ],
-  },
-  {
-    title: "AYUSH (BAMS / BHMS / BUMS etc.)",
-    points: [
-      "Traditional & integrative systems of medicine",
-      "Govt + private sector opportunities",
-      "Best for: interest in alternative medicine pathways",
-    ],
-  },
-  {
-    title: "Nursing & Allied Health",
-    points: [
-      "B.Sc Nursing, paramedical, diagnostics, therapy roles",
-      "High demand in hospitals + global opportunities",
-      "Best for: patient care + practical healthcare careers",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Clinical Medicine (MBBS → MD/MS)",
+//     points: [
+//       "Direct patient care: diagnosis, treatment, procedures",
+//       "Long-term study + internship + residency",
+//       "Best for: strong interest in biology + patient responsibility",
+//     ],
+//   },
+//   {
+//     title: "Dental (BDS → MDS)",
+//     points: [
+//       "Oral health, dental surgery, orthodontics, prosthetics",
+//       "Strong private practice opportunities",
+//       "Best for: precision work + clinical practice",
+//     ],
+//   },
+//   {
+//     title: "AYUSH (BAMS / BHMS / BUMS etc.)",
+//     points: [
+//       "Traditional & integrative systems of medicine",
+//       "Govt + private sector opportunities",
+//       "Best for: interest in alternative medicine pathways",
+//     ],
+//   },
+//   {
+//     title: "Nursing & Allied Health",
+//     points: [
+//       "B.Sc Nursing, paramedical, diagnostics, therapy roles",
+//       "High demand in hospitals + global opportunities",
+//       "Best for: patient care + practical healthcare careers",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Paramedical / Allied Health diploma options (entry-level healthcare)",
-      "ANM / support roles (where applicable)",
-      "Build basics before higher medical pathways",
-    ],
-  },
-  {
-    title: "After Class 12 (Science)",
-    steps: [
-      "MBBS / BDS / AYUSH / Nursing / Allied Health routes",
-      "Entrance + counselling decides college & seat type",
-      "Internship + practical training shapes your career",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "MD / MS / PG Diploma / M.Sc Nursing (specialization track)",
-      "Research, teaching, hospital leadership roles",
-      "Better roles with deep domain expertise",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Paramedical / Allied Health diploma options (entry-level healthcare)",
+//       "ANM / support roles (where applicable)",
+//       "Build basics before higher medical pathways",
+//     ],
+//   },
+//   {
+//     title: "After Class 12 (Science)",
+//     steps: [
+//       "MBBS / BDS / AYUSH / Nursing / Allied Health routes",
+//       "Entrance + counselling decides college & seat type",
+//       "Internship + practical training shapes your career",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "MD / MS / PG Diploma / M.Sc Nursing (specialization track)",
+//       "Research, teaching, hospital leadership roles",
+//       "Better roles with deep domain expertise",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "MBBS (Doctor Path)",
-    text:
-      "The primary route to become a medical doctor. Includes academic study, clinical postings, and compulsory internship.",
-    url: '/courses/medical/mbbs',
-    cta: "Explore MBBS",
-  },
-  {
-    title: "BDS / AYUSH / Nursing",
-    text:
-      "Alternative & allied medical routes with strong demand: dental, traditional medicine and nursing pathways.",
-    url: '/courses/medical/allied-health',
-    cta: "Explore Allied Routes",
-  },
-  {
-    title: "Postgraduate Medical Studies",
-    text:
-      "MD, MS, PG Diploma and related programs help you specialize and access higher clinical roles.",
-    url: '/courses/medical/pg',
-    cta: "Explore PG Medical",
-  },
-  {
-    title: "Research / PhD / Public Health",
-    text:
-      "For students interested in research, teaching, public health, policy and long-term academic careers.",
-    url: '/careers/research-phd',
-    cta: "Explore Research Paths",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "MBBS (Doctor Path)",
+//     text:
+//       "The primary route to become a medical doctor. Includes academic study, clinical postings, and compulsory internship.",
+//     url: '/courses/medical/mbbs',
+//     cta: "Explore MBBS",
+//   },
+//   {
+//     title: "BDS / AYUSH / Nursing",
+//     text:
+//       "Alternative & allied medical routes with strong demand: dental, traditional medicine and nursing pathways.",
+//     url: '/courses/medical/allied-health',
+//     cta: "Explore Allied Routes",
+//   },
+//   {
+//     title: "Postgraduate Medical Studies",
+//     text:
+//       "MD, MS, PG Diploma and related programs help you specialize and access higher clinical roles.",
+//     url: '/courses/medical/pg',
+//     cta: "Explore PG Medical",
+//   },
+//   {
+//     title: "Research / PhD / Public Health",
+//     text:
+//       "For students interested in research, teaching, public health, policy and long-term academic careers.",
+//     url: '/careers/research-phd',
+//     cta: "Explore Research Paths",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Entrance Exams",
-    text:
-      "Primary gateways for medical admissions across India (UG/PG pathways through national-level exams & counselling).",
-     url: '/exams/pg',
-  },
-  {
-    title: "State-level Counselling",
-    text:
-      "State quota counselling for government and private medical colleges. Rules vary by state.",
-     url: '/exams/pg',
-  },
-  {
-    title: "University-level Processes",
-    text:
-      "Some universities have additional screening / counselling steps depending on the program.",
-    url: '/exams/pg',
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Entrance Exams",
+//     text:
+//       "Primary gateways for medical admissions across India (UG/PG pathways through national-level exams & counselling).",
+//      url: '/exams/pg',
+//   },
+//   {
+//     title: "State-level Counselling",
+//     text:
+//       "State quota counselling for government and private medical colleges. Rules vary by state.",
+//      url: '/exams/pg',
+//   },
+//   {
+//     title: "University-level Processes",
+//     text:
+//       "Some universities have additional screening / counselling steps depending on the program.",
+//     url: '/exams/pg',
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "AIIMS & National Institutes", url: '/colleges/aiims-medical-institutes' },
-  { title: "Central Universities", url: '/colleges/central-universities' },
-  { title: "State Medical Colleges", url: '/colleges/state-universities' },
-  { title: "Private Medical Colleges", url: '#' },
-  { title: "Nursing & Allied Institutes", url: '/colleges/nursing-colleges' },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "AIIMS & National Institutes", url: '/colleges/aiims-medical-institutes' },
+//   { title: "Central Universities", url: '/colleges/central-universities' },
+//   { title: "State Medical Colleges", url: '/colleges/state-universities' },
+//   { title: "Private Medical Colleges", url: '#' },
+//   { title: "Nursing & Allied Institutes", url: '/colleges/nursing-colleges' },
+// ];
 
-const INDUSTRIES = [
-  "Hospitals & Clinics",
-  "Government Health Services",
-  "Medical Colleges & Teaching Hospitals",
-  "Research Labs & Institutes",
-  "Public Health & NGOs",
-  "Healthcare Startups & Services",
-];
+// const INDUSTRIES = [
+//   "Hospitals & Clinics",
+//   "Government Health Services",
+//   "Medical Colleges & Teaching Hospitals",
+//   "Research Labs & Institutes",
+//   "Public Health & NGOs",
+//   "Healthcare Startups & Services",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Doctor / Resident / Medical Officer",
-  "Specialist Consultant (after PG)",
-  "Surgeon / Physician (domain-based)",
-  "Public Health Professional",
-  "Medical Researcher / Academic",
-  "Hospital Administrator (with experience)",
-];
+// const ROLE_EXAMPLES = [
+//   "Doctor / Resident / Medical Officer",
+//   "Specialist Consultant (after PG)",
+//   "Surgeon / Physician (domain-based)",
+//   "Public Health Professional",
+//   "Medical Researcher / Academic",
+//   "Hospital Administrator (with experience)",
+// ];
 
 /* =========================
    SECTION WRAPPER (same as Engineering)
@@ -204,7 +204,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function MedicalByProfessionPage() {
+export default function MedicalByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
       <main>

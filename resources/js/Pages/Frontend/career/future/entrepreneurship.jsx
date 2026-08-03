@@ -33,145 +33,145 @@ export const metadata = {
    DATA (Career-book style)
 ========================= */
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Build basics: communication, math, digital literacy and curiosity",
-      "Start small projects: selling, freelancing, small services, community solutions",
-      "Learn by doing: teamwork, budgeting, simple product creation",
-    ],
-  },
-  {
-    title: "After Class 12",
-    steps: [
-      "Choose a strong UG base (any stream) + build skill stack",
-      "Do internships / freelancing and build real-world exposure",
-      "Start: small business, side project, content/agency, product prototype",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "Pick a problem + validate market + build MVP (minimum viable product)",
-      "Build team, iterate product, acquire customers",
-      "Explore funding: bootstrapping, incubators, angel/VC (if needed)",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Build basics: communication, math, digital literacy and curiosity",
+//       "Start small projects: selling, freelancing, small services, community solutions",
+//       "Learn by doing: teamwork, budgeting, simple product creation",
+//     ],
+//   },
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "Choose a strong UG base (any stream) + build skill stack",
+//       "Do internships / freelancing and build real-world exposure",
+//       "Start: small business, side project, content/agency, product prototype",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "Pick a problem + validate market + build MVP (minimum viable product)",
+//       "Build team, iterate product, acquire customers",
+//       "Explore funding: bootstrapping, incubators, angel/VC (if needed)",
+//     ],
+//   },
+// ];
 
-const DOMAINS = [
-  {
-    title: "Tech Startups",
-    points: [
-      "Apps, platforms, SaaS, AI tools, automation, fintech, edtech",
-      "Best for: product thinking + coding/tech + problem-solving",
-      "Success depends on: user value + execution speed",
-    ],
-  },
-  {
-    title: "Service & Agency Businesses",
-    points: [
-      "Digital marketing, design, development, consulting, events, content",
-      "Best for: skill-first earning + client handling + delivery",
-      "Strong for: starting with low capital (often)",
-    ],
-  },
-  {
-    title: "Commerce, Retail & D2C",
-    points: [
-      "Online selling, brands, food, lifestyle, local products",
-      "Best for: operations + branding + customer focus",
-      "Scale through: distribution + repeat buyers",
-    ],
-  },
-  {
-    title: "Social Entrepreneurship",
-    points: [
-      "Solutions in education, health, environment, community, inclusion",
-      "Best for: mission-driven founders + impact + sustainability",
-      "Mix of: NGO + business models (depending on approach)",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Tech Startups",
+//     points: [
+//       "Apps, platforms, SaaS, AI tools, automation, fintech, edtech",
+//       "Best for: product thinking + coding/tech + problem-solving",
+//       "Success depends on: user value + execution speed",
+//     ],
+//   },
+//   {
+//     title: "Service & Agency Businesses",
+//     points: [
+//       "Digital marketing, design, development, consulting, events, content",
+//       "Best for: skill-first earning + client handling + delivery",
+//       "Strong for: starting with low capital (often)",
+//     ],
+//   },
+//   {
+//     title: "Commerce, Retail & D2C",
+//     points: [
+//       "Online selling, brands, food, lifestyle, local products",
+//       "Best for: operations + branding + customer focus",
+//       "Scale through: distribution + repeat buyers",
+//     ],
+//   },
+//   {
+//     title: "Social Entrepreneurship",
+//     points: [
+//       "Solutions in education, health, environment, community, inclusion",
+//       "Best for: mission-driven founders + impact + sustainability",
+//       "Mix of: NGO + business models (depending on approach)",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "Skill Stack (Core Founder Skills)",
-    text:
-      "Communication, sales, marketing, finance basics, negotiation, digital tools—these are the real foundation for entrepreneurship.",
-    url: "/courses/entrepreneurship/skills",
-    cta: "Explore Skill Stack",
-  },
-  {
-    title: "Business & Management Basics",
-    text:
-      "Learn business models, pricing, accounting, customer development, operations and team building—useful across all startup types.",
-    url: "/courses/entrepreneurship/business-basics",
-    cta: "Explore Business Basics",
-  },
-  {
-    title: "Startup / Product Building (MVP Track)",
-    text:
-      "Learn how to validate problems, build MVP, test market fit, and iterate quickly—especially for tech startups.",
-    url: "/courses/entrepreneurship/mvp",
-    cta: "Explore MVP Track",
-  },
-  {
-    title: "Funding & Growth (Advanced Track)",
-    text:
-      "Fundraising, incubators, pitching, scaling, legal basics and compliance—use when your business is ready to grow.",
-    url: "/courses/entrepreneurship/funding-growth",
-    cta: "Explore Funding & Growth",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "Skill Stack (Core Founder Skills)",
+//     text:
+//       "Communication, sales, marketing, finance basics, negotiation, digital tools—these are the real foundation for entrepreneurship.",
+//     url: "/courses/entrepreneurship/skills",
+//     cta: "Explore Skill Stack",
+//   },
+//   {
+//     title: "Business & Management Basics",
+//     text:
+//       "Learn business models, pricing, accounting, customer development, operations and team building—useful across all startup types.",
+//     url: "/courses/entrepreneurship/business-basics",
+//     cta: "Explore Business Basics",
+//   },
+//   {
+//     title: "Startup / Product Building (MVP Track)",
+//     text:
+//       "Learn how to validate problems, build MVP, test market fit, and iterate quickly—especially for tech startups.",
+//     url: "/courses/entrepreneurship/mvp",
+//     cta: "Explore MVP Track",
+//   },
+//   {
+//     title: "Funding & Growth (Advanced Track)",
+//     text:
+//       "Fundraising, incubators, pitching, scaling, legal basics and compliance—use when your business is ready to grow.",
+//     url: "/courses/entrepreneurship/funding-growth",
+//     cta: "Explore Funding & Growth",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "No single entrance exam",
-    text:
-      "Entrepreneurship is not exam-driven. Growth depends on skills, execution, market understanding and consistency.",
-    url: "/exams/entrepreneurship/overview",
-  },
-  {
-    title: "Incubator / Program selection",
-    text:
-      "Many incubators and startup programs select teams based on idea, traction, pitch and founder capability.",
-    url: "/exams/entrepreneurship/incubators",
-  },
-  {
-    title: "Business school routes (optional)",
-    text:
-      "Some students build entrepreneurship through BBA/MBA programs and competitions—but it’s optional, not mandatory.",
-    url: "/exams/entrepreneurship/education",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "No single entrance exam",
+//     text:
+//       "Entrepreneurship is not exam-driven. Growth depends on skills, execution, market understanding and consistency.",
+//     url: "/exams/entrepreneurship/overview",
+//   },
+//   {
+//     title: "Incubator / Program selection",
+//     text:
+//       "Many incubators and startup programs select teams based on idea, traction, pitch and founder capability.",
+//     url: "/exams/entrepreneurship/incubators",
+//   },
+//   {
+//     title: "Business school routes (optional)",
+//     text:
+//       "Some students build entrepreneurship through BBA/MBA programs and competitions—but it’s optional, not mandatory.",
+//     url: "/exams/entrepreneurship/education",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "Incubators & Startup Cells", url: "/colleges/entrepreneurship/incubators" },
-  { title: "Business Schools (BBA/MBA)", url: "/colleges/entrepreneurship/business-schools" },
-  { title: "Skill / Startup Bootcamps", url: "/colleges/entrepreneurship/bootcamps" },
-  { title: "Government Startup Programs", url: "/colleges/entrepreneurship/government" },
-  { title: "Online Learning Platforms", url: "/colleges/entrepreneurship/online" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "Incubators & Startup Cells", url: "/colleges/entrepreneurship/incubators" },
+//   { title: "Business Schools (BBA/MBA)", url: "/colleges/entrepreneurship/business-schools" },
+//   { title: "Skill / Startup Bootcamps", url: "/colleges/entrepreneurship/bootcamps" },
+//   { title: "Government Startup Programs", url: "/colleges/entrepreneurship/government" },
+//   { title: "Online Learning Platforms", url: "/colleges/entrepreneurship/online" },
+// ];
 
-const INDUSTRIES = [
-  "Technology & SaaS",
-  "Services & Agencies",
-  "Retail / D2C / Commerce",
-  "Food & Hospitality businesses",
-  "Education & Skill startups",
-  "Social impact ventures",
-];
+// const INDUSTRIES = [
+//   "Technology & SaaS",
+//   "Services & Agencies",
+//   "Retail / D2C / Commerce",
+//   "Food & Hospitality businesses",
+//   "Education & Skill startups",
+//   "Social impact ventures",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Founder / Co-founder",
-  "Product / Business Owner",
-  "Startup Operator / Growth role",
-  "Sales & Marketing lead (early-stage)",
-  "Product Manager / Business Development (startup ecosystem)",
-  "Freelancer → Agency owner (path-based)",
-];
+// const ROLE_EXAMPLES = [
+//   "Founder / Co-founder",
+//   "Product / Business Owner",
+//   "Startup Operator / Growth role",
+//   "Sales & Marketing lead (early-stage)",
+//   "Product Manager / Business Development (startup ecosystem)",
+//   "Freelancer → Agency owner (path-based)",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -210,7 +210,27 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function EntrepreneurshipStartupsFuturePathPage() {
+export default function EntrepreneurshipStartupsFuturePathPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
   return (
     <FrontendLayout>
     <main>

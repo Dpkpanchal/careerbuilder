@@ -28,145 +28,145 @@ export const metadata = {
    DATA
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Community / Retail Pharmacy",
-    points: [
-      "Dispensing medicines, patient counselling, basic health support",
-      "Work in retail pharmacies, hospital pharmacies",
-      "Best for: strong responsibility + communication",
-    ],
-  },
-  {
-    title: "Hospital & Clinical Pharmacy",
-    points: [
-      "Medication management, coordination with doctors/nurses",
-      "Hospital pharmacy operations & safety protocols",
-      "Best for: clinical environment + precision",
-    ],
-  },
-  {
-    title: "Pharma Industry (Production / QA / QC)",
-    points: [
-      "Manufacturing, quality control, quality assurance, compliance",
-      "Strong scope in pharma companies and plants",
-      "Best for: process mindset + documentation discipline",
-    ],
-  },
-  {
-    title: "Research, Regulatory & New-Age Roles",
-    points: [
-      "Drug research, trials support, regulatory affairs, pharmacovigilance",
-      "Growing roles in compliance and global pharma operations",
-      "Best for: detail-oriented + learning mindset",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Community / Retail Pharmacy",
+//     points: [
+//       "Dispensing medicines, patient counselling, basic health support",
+//       "Work in retail pharmacies, hospital pharmacies",
+//       "Best for: strong responsibility + communication",
+//     ],
+//   },
+//   {
+//     title: "Hospital & Clinical Pharmacy",
+//     points: [
+//       "Medication management, coordination with doctors/nurses",
+//       "Hospital pharmacy operations & safety protocols",
+//       "Best for: clinical environment + precision",
+//     ],
+//   },
+//   {
+//     title: "Pharma Industry (Production / QA / QC)",
+//     points: [
+//       "Manufacturing, quality control, quality assurance, compliance",
+//       "Strong scope in pharma companies and plants",
+//       "Best for: process mindset + documentation discipline",
+//     ],
+//   },
+//   {
+//     title: "Research, Regulatory & New-Age Roles",
+//     points: [
+//       "Drug research, trials support, regulatory affairs, pharmacovigilance",
+//       "Growing roles in compliance and global pharma operations",
+//       "Best for: detail-oriented + learning mindset",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "D.Pharm eligibility often starts after Class 12, but some skill routes exist after 10",
-      "Choose Science stream (PCB/PCM as required) for pharmacy pathways",
-      "Build strong basics in chemistry & biology",
-    ],
-  },
-  {
-    title: "After Class 12 (Science)",
-    steps: [
-      "D.Pharm / B.Pharm are primary entry routes",
-      "Admission via state/national processes (varies)",
-      "Internships + practical training build job readiness",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "M.Pharm / specialization track",
-      "Research, industry leadership, regulatory pathways",
-      "Better roles with domain depth",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "D.Pharm eligibility often starts after Class 12, but some skill routes exist after 10",
+//       "Choose Science stream (PCB/PCM as required) for pharmacy pathways",
+//       "Build strong basics in chemistry & biology",
+//     ],
+//   },
+//   {
+//     title: "After Class 12 (Science)",
+//     steps: [
+//       "D.Pharm / B.Pharm are primary entry routes",
+//       "Admission via state/national processes (varies)",
+//       "Internships + practical training build job readiness",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "M.Pharm / specialization track",
+//       "Research, industry leadership, regulatory pathways",
+//       "Better roles with domain depth",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "D.Pharm (Diploma in Pharmacy)",
-    text:
-      "A practical pharmacy diploma route leading to entry-level pharmacy roles and eligibility for registration (as per norms).",
-    url: '/courses/diploma-in-pharmacy-dpharm',
-    cta: "Explore D.Pharm",
-  },
-  {
-    title: "B.Pharm (Bachelor of Pharmacy)",
-    text:
-      "The standard undergraduate pharmacy degree with stronger scope in industry, hospital and advanced pathways.",
-      url: '/courses/pharmacy-dpharm-bpharm-mpharm-pharmd',
-      cta: "Explore B.Pharm",
-  },
-  {
-    title: "M.Pharm (Postgraduate)",
-    text:
-      "Advanced specialization in pharmacy domains, enabling higher roles in industry, research and academics.",
-    url: '/courses/pharmacy-dpharm-bpharm-mpharm-pharmd',
-    cta: "Explore M.Pharm",
-  },
-  {
-    title: "Research / PhD / Regulatory",
-    text:
-      "For research-oriented careers, academic roles, regulatory affairs and global pharma operations.",
-    url: '/careers/research-phd',
-    cta: "Explore Research Paths",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "D.Pharm (Diploma in Pharmacy)",
+//     text:
+//       "A practical pharmacy diploma route leading to entry-level pharmacy roles and eligibility for registration (as per norms).",
+//     url: '/courses/diploma-in-pharmacy-dpharm',
+//     cta: "Explore D.Pharm",
+//   },
+//   {
+//     title: "B.Pharm (Bachelor of Pharmacy)",
+//     text:
+//       "The standard undergraduate pharmacy degree with stronger scope in industry, hospital and advanced pathways.",
+//       url: '/courses/pharmacy-dpharm-bpharm-mpharm-pharmd',
+//       cta: "Explore B.Pharm",
+//   },
+//   {
+//     title: "M.Pharm (Postgraduate)",
+//     text:
+//       "Advanced specialization in pharmacy domains, enabling higher roles in industry, research and academics.",
+//     url: '/courses/pharmacy-dpharm-bpharm-mpharm-pharmd',
+//     cta: "Explore M.Pharm",
+//   },
+//   {
+//     title: "Research / PhD / Regulatory",
+//     text:
+//       "For research-oriented careers, academic roles, regulatory affairs and global pharma operations.",
+//     url: '/careers/research-phd',
+//     cta: "Explore Research Paths",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Entrance / Screening",
-    text:
-      "Some pharmacy admissions use national-level entrance tests or centralized counselling depending on institute/state.",
-    url: '/exams/pharmacy',
-  },
-  {
-    title: "State-level Entrance / Counselling",
-    text:
-      "Many pharmacy admissions happen through state entrance exams or counselling processes (varies by state).",
-    url: '/exams/pharmacy',
-  },
-  {
-    title: "University / Institute-level Admissions",
-    text:
-      "Certain universities conduct their own admission tests or merit-based selection for pharmacy programs.",
-    url: '/exams/pharmacy',
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Entrance / Screening",
+//     text:
+//       "Some pharmacy admissions use national-level entrance tests or centralized counselling depending on institute/state.",
+//     url: '/exams/pharmacy',
+//   },
+//   {
+//     title: "State-level Entrance / Counselling",
+//     text:
+//       "Many pharmacy admissions happen through state entrance exams or counselling processes (varies by state).",
+//     url: '/exams/pharmacy',
+//   },
+//   {
+//     title: "University / Institute-level Admissions",
+//     text:
+//       "Certain universities conduct their own admission tests or merit-based selection for pharmacy programs.",
+//     url: '/exams/pharmacy',
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "Government Pharmacy Colleges", url: '/colleges/pharmacy-colleges' },
-  { title: "State Universities", url: '/colleges/pharmacy-colleges' },
-  { title: "Private Pharmacy Colleges", url: '/colleges/pharmacy-colleges' },
-  // { title: "Deemed / University Schools", url: "/colleges/pharmacy/university" },
-  // { title: "Open & Distance (Selected Options)", url: "/colleges/pharmacy/open" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "Government Pharmacy Colleges", url: '/colleges/pharmacy-colleges' },
+//   { title: "State Universities", url: '/colleges/pharmacy-colleges' },
+//   { title: "Private Pharmacy Colleges", url: '/colleges/pharmacy-colleges' },
+//   // { title: "Deemed / University Schools", url: "/colleges/pharmacy/university" },
+//   // { title: "Open & Distance (Selected Options)", url: "/colleges/pharmacy/open" },
+// ];
 
-const INDUSTRIES = [
-  "Retail & Community Pharmacies",
-  "Hospitals & Clinical Settings",
-  "Pharmaceutical Manufacturing",
-  "Quality Assurance & Control",
-  "Regulatory Affairs & Compliance",
-  "Research, Trials & Pharmacovigilance",
-];
+// const INDUSTRIES = [
+//   "Retail & Community Pharmacies",
+//   "Hospitals & Clinical Settings",
+//   "Pharmaceutical Manufacturing",
+//   "Quality Assurance & Control",
+//   "Regulatory Affairs & Compliance",
+//   "Research, Trials & Pharmacovigilance",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Pharmacist (Retail / Hospital)",
-  "Production / Manufacturing Executive",
-  "QA / QC Associate",
-  "Regulatory Affairs Associate",
-  "Clinical Research / Trial Support",
-  "Medical Coding / Pharmacovigilance (role-based)",
-];
+// const ROLE_EXAMPLES = [
+//   "Pharmacist (Retail / Hospital)",
+//   "Production / Manufacturing Executive",
+//   "QA / QC Associate",
+//   "Regulatory Affairs Associate",
+//   "Clinical Research / Trial Support",
+//   "Medical Coding / Pharmacovigilance (role-based)",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -204,7 +204,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function PharmacyByProfessionPage() {
+export default function PharmacyByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
       <main>

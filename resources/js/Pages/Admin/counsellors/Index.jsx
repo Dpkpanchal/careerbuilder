@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { Head, Link, useForm, router } from "@inertiajs/react";
+import { Head, Link, useForm, router, usePage } from "@inertiajs/react";
 
 export default function CounsellorsIndex({ counsellors, filters }) {
 
+    const { flash } = usePage().props;
+    const [bannerMessage, setBannerMessage] = useState(null);
+
+    useEffect(() => {
+        if (flash?.success) {
+            setBannerMessage({ type: "success", text: flash.success });
+        } else if (flash?.error) {
+            setBannerMessage({ type: "error", text: flash.error });
+        }
+    }, [flash]);
+
     const { data, setData } = useForm({
         search: filters.search || "",
+        subject: filters.subject || "",           // ✅ NEW
+        qualification: filters.qualification || "", // ✅ NEW
         sort_field: filters.sort_field || "created_at",
         sort_direction: filters.sort_direction || "desc",
-        status: filters.status || "", // ✅ NEW
+        status: filters.status || "",
     });
 
     const [showFilters, setShowFilters] = useState(false);
@@ -23,8 +36,11 @@ export default function CounsellorsIndex({ counsellors, filters }) {
     const handleReset = () => {
         setData({
             search: "",
+            subject: "",           // ✅ NEW
+            qualification: "",     // ✅ NEW
             sort_field: "created_at",
             sort_direction: "desc",
+            status: "",
         });
 
         router.get("/admin/counsellors", {}, {
@@ -60,11 +76,55 @@ export default function CounsellorsIndex({ counsellors, filters }) {
         return (counsellors.current_page - 1) * counsellors.per_page + index + 1;
     };
 
+    // ✅ Active / Inactive toggle
+    const toggleActive = (id) => {
+        router.post(`/admin/counsellors/${id}/toggle-active`, {}, {
+            preserveScroll: true,
+        });
+    };
+
+    // ✅ Soft delete
+    const softDeleteCounsellor = (id) => {
+        router.delete(`/admin/counsellors/${id}`, {
+            preserveScroll: true,
+        });
+    };
+
+    // ✅ Hard delete
+    const hardDeleteCounsellor = (id) => {
+        if (!confirm("This will PERMANENTLY delete this counsellor and cannot be undone. Continue?")) return;
+
+        router.delete(route("admin.counsellors.force-delete", id), {
+            preserveScroll: true,
+            onError: (errors) => {
+                console.error("Force delete failed:", errors);
+                alert("Failed to permanently delete counsellor. Check console / network tab for details.");
+            },
+        });
+    };
+
     return (
         <AdminLayout header="Counsellor Management">
             <Head title="Counsellors" />
 
             <div className="container-fluid">
+
+                {/* ✅ Flash message banner */}
+                {/* {bannerMessage && (
+                    <div
+                        className={`alert ${bannerMessage.type === "success" ? "alert-success" : "alert-danger"} alert-dismissible fade show`}
+                        role="alert"
+                    >
+                        {bannerMessage.text}
+                        <button
+                            type="button"
+                            className="close"
+                            onClick={() => setBannerMessage(null)}
+                        >
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                )} */}
 
                 {/* Filters */}
                 <div className="card">
@@ -86,7 +146,7 @@ export default function CounsellorsIndex({ counsellors, filters }) {
                             <div className="row">
 
                                 {/* Search */}
-                                <div className="col-md-4">
+                                <div className="col-md-3">
                                     <label>Search</label>
                                     <input
                                         type="text"
@@ -100,24 +160,39 @@ export default function CounsellorsIndex({ counsellors, filters }) {
                                     />
                                 </div>
 
-                                {/* Sort */}
+                                {/* ✅ NEW: Subject filter */}
                                 <div className="col-md-3">
-                                    <label>Sort By</label>
-                                    <select
+                                    <label>Subject</label>
+                                    <input
+                                        type="text"
                                         className="form-control"
-                                        value={data.sort_field}
-                                        onChange={(e) =>
-                                            setData("sort_field", e.target.value)
+                                        placeholder="Search by subject"
+                                        value={data.subject}
+                                        onChange={(e) => setData("subject", e.target.value)}
+                                        onKeyPress={(e) =>
+                                            e.key === "Enter" && handleFilter()
                                         }
-                                    >
-                                        <option value="created_at">Created At</option>
-                                        <option value="name">Name</option>
-                                        <option value="email">Email</option>
-                                    </select>
+                                    />
                                 </div>
 
-
+                                {/* ✅ NEW: Qualification filter */}
                                 <div className="col-md-3">
+                                    <label>Qualification</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Search by qualification"
+                                        value={data.qualification}
+                                        onChange={(e) => setData("qualification", e.target.value)}
+                                        onKeyPress={(e) =>
+                                            e.key === "Enter" && handleFilter()
+                                        }
+                                    />
+                                </div>
+
+                                {/* Sort */}
+
+                                  <div className="col-md-3">
                                     <label>Status</label>
                                     <select
                                         className="form-control"
@@ -126,11 +201,16 @@ export default function CounsellorsIndex({ counsellors, filters }) {
                                     >
                                         <option value="">All Counsellors</option>
                                         <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
                                         <option value="deleted">Deleted</option>
                                     </select>
                                 </div>
+                              
 
+                            </div>
 
+                            <div className="row mt-3">
+                              
                             </div>
 
                             <div className="mt-3">
@@ -168,8 +248,16 @@ export default function CounsellorsIndex({ counsellors, filters }) {
 
                     <div className="card-body">
                         <div className="table-responsive">
-                            <table className="table table-bordered table-hover">
-                                <thead>
+                            <style>{`
+                                .counsellors-table thead th,
+                                .counsellors-table thead tr:hover th,
+                                .counsellors-table thead th:hover {
+                                    background-color: #0d6efd !important;
+                                    color: #fff !important;
+                                }
+                            `}</style>
+                            <table className="table table-bordered table-hover counsellors-table">
+                                <thead style={{ backgroundColor: "#0d6efd", color: "#fff" }}>
                                     <tr>
                                         <th style={{ width: "60px" }}>S.No</th>
 
@@ -188,9 +276,14 @@ export default function CounsellorsIndex({ counsellors, filters }) {
                                         </th>
 
                                         <th>Mobile</th>
+
+                                        {/* ✅ NEW columns */}
+                                        <th>Subject</th>
+                                        <th>Qualification</th>
+
                                         <th>Status</th>
 
-                                        <th style={{ width: "120px" }}>Actions</th>
+                                        <th style={{ width: "200px" }}>Actions</th>
                                     </tr>
                                 </thead>
 
@@ -199,69 +292,122 @@ export default function CounsellorsIndex({ counsellors, filters }) {
                                         counsellors.data.map((person, index) => (
                                             <tr key={person.id}>
                                                 <td>{getSerialNumber(index)}</td>
-                                                <td>{person.name}</td>
+                                                <td>
+                                                     <div className="d-flex align-items-center">
+                                                        <img
+                                                            src={person.avatar_url}
+                                                            onError={(e) => {
+                                                                e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=007bff&color=fff`;
+                                                            }}
+                                                            alt={person.name}
+                                                            className="img-circle elevation-2 mr-2"
+                                                            width="32"
+                                                            height="32"
+                                                        />
+                                                        {person.name}
+                                                    </div>
+                                                </td>
                                                 <td>{person.email}</td>
                                                 <td>{person.mobile || "-"}</td>
-                                               
+
+                                                {/* ✅ NEW cells - from CounselorDetail relation (can be multiple rows) */}
+                                                <td>
+                                                    {person.counselor_details?.length
+                                                        ? person.counselor_details.map(d => d.subject).filter(Boolean).join(", ")
+                                                        : "-"}
+                                                </td>
+                                                <td>
+                                                    {person.counselor_details?.length
+                                                        ? person.counselor_details.map(d => d.qualification).filter(Boolean).join(", ")
+                                                        : "-"}
+                                                </td>
 
                                                 <td>
                                                     {person.deleted_at ? (
                                                         <span className="badge badge-secondary">Deleted</span>
+                                                    ) : !person.is_active ? (
+                                                        <span className="badge badge-warning">Inactive</span>
                                                     ) : (
                                                         <span className="badge badge-success">Active</span>
                                                     )}
                                                 </td>
 
-
                                                <td>
                                                     <div className="btn-group">
 
-                                                        {/* ✅ If NOT deleted → show Edit + Delete */}
                                                         {!person.deleted_at ? (
                                                             <>
+                                                                {/* ✅ Active / Inactive toggle */}
+                                                                <button
+                                                                    onClick={() => toggleActive(person.id)}
+                                                                    className={`btn btn-sm ${person.is_active ? "btn-warning" : "btn-success"}`}
+                                                                    title={person.is_active ? "Deactivate" : "Activate"}
+                                                                >
+                                                                    <i className={`fas ${person.is_active ? "fa-toggle-off" : "fa-toggle-on"}`}></i>
+                                                                </button>
+
                                                                 <Link
                                                                     href={`/admin/counsellors/${person.id}/edit`}
                                                                     className="btn btn-info btn-sm"
+                                                                    title="Edit"
                                                                 >
                                                                     <i className="fas fa-edit"></i>
                                                                 </Link>
 
-                                                                <Link
-                                                                    href={`/admin/counsellors/${person.id}`}
-                                                                    method="delete"
-                                                                    as="button"
-                                                                    className="btn btn-danger btn-sm"
-                                                                    onClick={(e) => {
-                                                                        if (!confirm("Delete this counsellor?")) {
-                                                                            e.preventDefault();
+                                                                {/* ✅ Soft Delete */}
+                                                                <button
+                                                                    onClick={() => {
+                                                                        if (confirm("Move this counsellor to trash (soft delete)? You can restore it later.")) {
+                                                                            softDeleteCounsellor(person.id);
                                                                         }
                                                                     }}
+                                                                    className="btn btn-danger btn-sm"
+                                                                    title="Soft Delete (can be restored)"
                                                                 >
                                                                     <i className="fas fa-trash"></i>
-                                                                </Link>
+                                                                </button>
+
+                                                                {/* ✅ Hard Delete */}
+                                                                <button
+                                                                    onClick={() => hardDeleteCounsellor(person.id)}
+                                                                    className="btn btn-dark btn-sm"
+                                                                    title="Delete Permanently"
+                                                                >
+                                                                    <i className="fas fa-trash-alt"></i>
+                                                                </button>
                                                             </>
                                                         ) : (
-                                                            /* ✅ If deleted → show Restore */
-                                                            <button
-                                                                onClick={() =>
-                                                                    router.post(`/admin/counsellors/${person.id}/restore`)
-                                                                }
-                                                                className="btn btn-success btn-sm"
-                                                                title="Restore Counsellor"
-                                                            >
-                                                                <i className="fas fa-undo"></i>
-                                                            </button>
+                                                            <>
+                                                                {/* Restore */}
+                                                                <button
+                                                                    onClick={() =>
+                                                                        router.post(`/admin/counsellors/${person.id}/restore`)
+                                                                    }
+                                                                    className="btn btn-success btn-sm"
+                                                                    title="Restore Counsellor"
+                                                                >
+                                                                    <i className="fas fa-undo"></i>
+                                                                </button>
+
+                                                                {/* ✅ Hard Delete (also available on trashed rows) */}
+                                                                <button
+                                                                    onClick={() => hardDeleteCounsellor(person.id)}
+                                                                    className="btn btn-dark btn-sm"
+                                                                    title="Delete Permanently"
+                                                                >
+                                                                    <i className="fas fa-trash-alt"></i>
+                                                                </button>
+                                                            </>
                                                         )}
 
                                                     </div>
                                                 </td>
 
-
                                             </tr>
                                         ))
                                     ) : (
                                         <tr>
-                                            <td colSpan="6" className="text-center py-4">
+                                            <td colSpan="8" className="text-center py-4">
                                                 No counsellors found.
                                             </td>
                                         </tr>
@@ -304,3 +450,4 @@ export default function CounsellorsIndex({ counsellors, filters }) {
         </AdminLayout>
     );
 }
+

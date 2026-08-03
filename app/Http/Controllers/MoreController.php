@@ -26,6 +26,7 @@ public function counsellorsDirectory()
 {
     $counsellors = User::with('counselorDetails')
         ->where('role', 'counselor')
+        ->where('is_active', true)
         ->get();
 
     /*

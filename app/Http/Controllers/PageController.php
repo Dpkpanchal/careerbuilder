@@ -9,6 +9,14 @@ use App\Models\PageContent;
 use Inertia\Inertia;
 use App\Models\ExamContent;
 use App\Models\CollegeContent;
+use App\Models\CareerContent;
+use App\Models\User;
+use App\Models\ScholarshipOverviewTable;
+use App\Models\ScholarshipRate;
+use App\Models\StudentSupport;
+use App\Models\EduFundSection;
+use App\Models\CourseContent;
+use App\Models\ScholarshipOverview;
 
 class PageController extends Controller
 {
@@ -17,6 +25,17 @@ class PageController extends Controller
      * When no DB content is published the legacy component is rendered directly,
      * restoring the original rich content without touching 166+ JSX files.
      */
+
+    private const STAGE_TWO_SLUGS = [
+        'careers/after-class-12-arts',
+        'careers/after-class-12-commerce',
+        'careers/after-class-12-science',
+        'careers/after-graduation',
+        'careers/after-class-12-engineering',
+        'careers/after-class-12-medical',
+    ];
+
+
     private const LEGACY_PAGES = [
         // ── Careers: By Stage ──────────────────────────────────────────
         'careers/after-class-8'            => 'Frontend/career/after-class-8',
@@ -91,7 +110,8 @@ class PageController extends Controller
         'courses/mcom'                      => 'Frontend/Courses/businessManagement/mcom',
         'courses/bba'                       => 'Frontend/Courses/businessManagement/bba',
         'courses/mba-pgdm'                  => 'Frontend/Courses/businessManagement/mba',
-        'courses/finance-taxation-accounting' => 'Frontend/Courses/businessManagement/finance',
+        'courses/finance-taxation-accounting' => 'Frontend/Courses/businessManagement/professional-commerce',
+        'courses/finance' => 'Frontend/Courses/businessManagement/finance',
 
         // ── Colleges: National Institutes ──────────────────────────────
         'colleges/iits-indian-institutes-of-technology'  => 'Frontend/Colleges/iits',
@@ -160,20 +180,17 @@ class PageController extends Controller
         'exams/agri/school'      => 'Frontend/Exams/Agri/school',
     ];
 
+
+
     public function show(string $slug)
     {
-
         $menuItem = Menu::where('slug', $slug)
             ->where('is_active', true)
             ->firstOrFail();
 
-
         $content = PageContent::where('menu_id', $menuItem->id)->first();
 
-        // If admin has published DB content, render the generic Page component.
         if ($content?->is_published && $content->html_content) {
-            // CKEditor visual-mode escapes HTML tags (&lt;div&gt; etc.).
-            // Decode once so dangerouslySetInnerHTML on the frontend renders real HTML.
             $html = html_entity_decode($content->html_content, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
             return Inertia::render('Frontend/Page', [
@@ -185,80 +202,663 @@ class PageController extends Controller
             ]);
         }
 
-        // Fall back to the legacy JSX page (original rich content).
         if (isset(self::LEGACY_PAGES[$slug])) {
             $props = match ($slug) {
                 'careers/after-class-8',
+                'careers/after-class-10',
                 'colleges/iti-centres-govt-private' => [
                     'itis' => ItiCollege::with('trades')->orderBy('name')->get(),
+                    'counsellors' => $this->getCounsellors(),
+                    'scholarshipSchemes' => $this->getScholarshipSchemes(),
+                    'scholarshipRates' => $this->getScholarshipRates(),
+                    'key_instructions_eligibility' => CareerContent::where('url', $slug)
+                        ->where('is_active', true)
+                        ->first()
+                        ?->key_instructions_eligibility['instructions'] ?? [],
+
                 ],
                 'colleges/central-universities' => [
                     'universities' => CentralUniversity::where('is_active', true)->orderBy('name')->get(),
                 ],
-
-
                 default => [],
             };
 
-
-           if (str_starts_with($slug, 'colleges/')) {
-
-                $fields = config("content_fields.{$menuItem->key}", []);
-                $columns = config('content_columns');
-
-                $props['collegeContents'] = CollegeContent::where('url', $slug)
-                    ->where('is_active', true)
-                    ->orderBy('id')
-                    ->get()
-                    ->map(function ($college) use ($fields, $columns) {
-
-                        $item = [];
-
-                        foreach ($fields as $field) {
-                            $item[$field] = $college->{$columns[$field] ?? $field};
-                        }
-
-                        return $item;
-                    });
+            if (str_starts_with($slug, 'careers/')) {
+                $props['careerData'] = $this->getCareerData($slug);
             }
 
-           if (str_starts_with($slug, 'exams/')) {
-
-
-            $fields = config("content_fields.{$menuItem->key}", []);
-
-            $columns = config('content_columns');
-
-            $props['examContents'] = ExamContent::where('url', $slug)
-                ->where('is_active', true)
-                ->orderBy('id')
-                ->get()
-                ->map(function ($exam) use ($fields, $columns) {
-
-                    $item = [];
-
-                    foreach ($fields as $field) {
-
-                        $column = $columns[$field] ?? $field;
-
-                        $item[$field] = $exam->{$column};
-                    }
-
-                    return $item;
-                });
-
-                //dd($props['examContents']);
-
+            // ── Get Course Content for courses pages ──────────────────
+            if (str_starts_with($slug, 'courses/')) {
+                $props['courseContent'] = $this->getCourseContent($slug);
             }
+
+            if (str_starts_with($slug, 'colleges/')) {
+                $props['collegeContents'] = $this->getCollegeContents($slug, $menuItem);
+            }
+
+            if (str_starts_with($slug, 'exams/')) {
+                $props['examContents'] = $this->getExamContents($slug, $menuItem);
+            }
+
+            // ── Stage 2 (After Class 12 / After Graduation) pages: attach
+            //    Student Support + Scholarships & Loans data ─────────────────
+            if (in_array($slug, self::STAGE_TWO_SLUGS, true)) {
+                $props['studentSupportItems'] = $this->getStudentSupportItems();
+                $props['eduFundSections']     = $this->getEduFundSections();
+            }
+
+            //dd($props);
 
             return Inertia::render(self::LEGACY_PAGES[$slug], $props);
         }
 
-        // No legacy page either — show "Coming Soon".
         return Inertia::render('Frontend/Page', [
             'title'     => $menuItem->label,
             'menuLabel' => $menuItem->label,
             'slug'      => $slug,
         ]);
     }
+
+
+    /**
+     * Get career data for a given slug
+     */
+    private function getCareerData(string $slug): ?array
+    {
+        $careerContent = CareerContent::where('url', $slug)
+            ->where('is_active', true)
+            ->first();
+
+        if (!$careerContent) {
+            return null;
+        }
+
+        $careerData = [
+            'id' => $careerContent->id,
+            'slug' => $careerContent->url,
+        ];
+
+        // Define which fields to return based on the URL
+        $fieldMapping = [
+            'careers/after-class-8' => [
+                'education_pathways',
+                'vocational_courses'
+            ],
+            'careers/after-class-10' => [
+                'overview',
+                'stream_selection',
+                'vocational_courses'
+            ],
+            'careers/after-class-12-arts' => [
+                'overview_tree',
+                'related_exams',
+                'top_colleges_and_universities'
+            ],
+            'careers/after-class-12-commerce' => [
+                'overview_tree',
+                'related_exams',
+                'top_colleges_and_universities'
+            ],
+            'careers/after-class-12-science' => [
+                'overview_tree',
+                'related_exams',
+                'top_colleges_and_universities'
+            ],
+            'careers/after-class-12-engineering' => [
+                'overview_tree',
+                'related_exams',
+                'top_colleges_and_universities'
+            ],
+            'careers/after-class-12-medical' => [
+                'overview_tree',
+                'related_exams',
+                'top_colleges_and_universities'
+            ],
+            'careers/after-graduation' => [
+                'overview_tree',
+                'related_exams',
+                'top_colleges_and_universities'
+            ],
+        ];
+
+        $fields = $fieldMapping[$slug] ?? null;
+
+        if ($fields) {
+            foreach ($fields as $field) {
+                $careerData[$field] = $careerContent->$field;
+            }
+        } else {
+            // Default fields for other career pages
+            $careerData['branch_groups'] = $careerContent->branch_groups;
+            $careerData['pathways'] = $careerContent->pathways;
+            $careerData['courses'] = $careerContent->courses;
+            $careerData['exams'] = $careerContent->exams;
+            $careerData['institute_links'] = $careerContent->institute_links;
+            $careerData['industries'] = $careerContent->industries;
+            $careerData['role_examples'] = $careerContent->role_examples;
+
+        }
+
+        return $careerData;
+    }
+
+    private function getCourseContent(string $slug): ?array
+    {
+        $courseContent = CourseContent::where('url', $slug)
+            ->where('is_active', true)
+            ->first();
+
+        if (!$courseContent) {
+            return null;
+        }
+
+        // Get the link key to determine which fields to return
+        $linkKey = $courseContent->link ? $courseContent->link->key : null;
+
+        // Base response with common fields
+        $response = [
+            'id' => $courseContent->id,
+            'menu_id' => $courseContent->menu_id,
+            'tab_id' => $courseContent->tab_id,
+            'section_id' => $courseContent->section_id,
+            'link_id' => $courseContent->link_id,
+            'url' => $courseContent->url,
+            'intro_heading' => $courseContent->intro_heading,
+            'intro_description' => $courseContent->intro_description,
+            'intro_description_secondary' => $courseContent->intro_description_secondary,
+            'snapshot' => $this->parseJson($courseContent->snapshot),
+            'is_active' => $courseContent->is_active,
+            'sort_order' => $courseContent->sort_order,
+            'created_at' => $courseContent->created_at,
+            'updated_at' => $courseContent->updated_at,
+        ];
+
+        // Add specific fields based on link key
+        switch ($linkKey) {
+            // ==================== MSME ====================
+            case 'msme-tool-room':
+                $response['long_term_programs'] = $this->parseJson($courseContent->long_term_programs);
+                $response['short_term_courses'] = $this->parseJson($courseContent->short_term_courses);
+                $response['cta_button'] = $this->parseJson($courseContent->cta_button);
+                $response['admission_heading'] = $courseContent->admission_heading;
+                $response['admission_description'] = $courseContent->admission_description;
+                $response['admission_info'] = $this->parseJson($courseContent->admission_info);
+                $response['next_steps'] = $this->parseJson($courseContent->next_steps);
+                $response['skill_agencies'] = $this->parseJson($courseContent->skill_agencies);
+                break;
+
+            // ==================== Diploma Engineering ====================
+            case 'diploma-engineering':
+            case 'diploma-paramedical':
+            case 'diploma-pharmacy':
+            case 'diploma-computer-it':
+                $response['branch_groups'] = $this->parseJson($courseContent->branch_groups);
+                $response['post_diploma'] = $this->parseJson($courseContent->post_diploma);
+                $response['polytechnic_links'] = $this->parseJson($courseContent->polytechnic_links);
+                $response['admission_heading'] = $courseContent->admission_heading;
+                $response['admission_description'] = $courseContent->admission_description;
+                $response['admission_info'] = $this->parseJson($courseContent->admission_info);
+                break;
+
+            // ==================== Degree Pages ====================
+            case 'arts-graduation':
+            case 'commerce-graduation':
+            case 'science-graduation':
+            case 'arts-pg':
+            case 'commerce-pg':
+            case 'science-pg':
+                $response['subject_families'] = $this->parseJson($courseContent->subject_families);
+                $response['degree_options'] = $this->parseJson($courseContent->degree_options);
+                $response['course_groups'] = $this->parseJson($courseContent->course_groups);
+                $response['after_degree'] = $this->parseJson($courseContent->after_degree);
+                $response['admission_points'] = $this->parseJson($courseContent->admission_points);
+                $response['documents'] = $this->parseJson($courseContent->documents);
+                $response['careers_snapshot'] = $this->parseJson($courseContent->careers_snapshot);
+                break;
+
+            // ==================== Nursing ====================
+            case 'courses-nursing':
+                $response['nursing_ladder'] = $this->parseJson($courseContent->nursing_ladder);
+                $response['specialisations'] = $this->parseJson($courseContent->specialisations);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            // ==================== Medical Pages ====================
+            case 'courses-mbbs':
+                $response['course_ladder'] = $this->parseJson($courseContent->course_ladder);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['core_subjects'] = $this->parseJson($courseContent->core_subjects);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'courses-pharmacy':
+                $response['pharmacy_ladder'] = $this->parseJson($courseContent->pharmacy_ladder);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['core_subjects'] = $this->parseJson($courseContent->core_subjects);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['specialisations'] = $this->parseJson($courseContent->specialisations);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'paramedical-diploma':
+                $response['diploma_ladder'] = $this->parseJson($courseContent->diploma_ladder);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['common_diploma_options'] = $this->parseJson($courseContent->common_diploma_options);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'paramedical-ug':
+                $response['paramedical_ladder'] = $this->parseJson($courseContent->paramedical_ladder);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['ug_course_options'] = $this->parseJson($courseContent->ug_course_options);
+                $response['specialisations'] = $this->parseJson($courseContent->specialisations);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'medical-pg':
+                $response['pg_ladder'] = $this->parseJson($courseContent->pg_ladder);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['pg_course_options'] = $this->parseJson($courseContent->pg_course_options);
+                $response['specialisations'] = $this->parseJson($courseContent->specialisations);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'allied-health':
+                $response['allied_ladder'] = $this->parseJson($courseContent->allied_ladder);
+                $response['allied_domains'] = $this->parseJson($courseContent->allied_domains);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            // ==================== AYUSH ====================
+            case 'courses-ayush':
+                $response['ayush_ladder'] = $this->parseJson($courseContent->ayush_ladder);
+                $response['ayush_systems'] = $this->parseJson($courseContent->ayush_systems);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            // ==================== Naturopathy & Yoga ====================
+            case 'naturopathy-yoga':
+                $response['naturopathy_ladder'] = $this->parseJson($courseContent->naturopathy_ladder);
+                $response['what_you_do'] = $this->parseJson($courseContent->what_you_do);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['where_you_work'] = $this->parseJson($courseContent->where_you_work);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            // ==================== Tech Pages ====================
+            case 'courses-btech':
+                $response['btech_ladder'] = $this->parseJson($courseContent->btech_ladder);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'courses-barch':
+                $response['barch_ladder'] = $this->parseJson($courseContent->barch_ladder);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'courses-mtech':
+                $response['mtech_ladder'] = $this->parseJson($courseContent->mtech_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                $response['specialisation_tracks'] = $this->parseJson($courseContent->specialisation_tracks);
+                break;
+
+            case 'courses-bca':
+                $response['bca_ladder'] = $this->parseJson($courseContent->bca_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                $response['specialisation_tracks'] = $this->parseJson($courseContent->specialisation_tracks);
+                break;
+
+            case 'courses-bsc-it':
+                $response['bsc_it_ladder'] = $this->parseJson($courseContent->bsc_it_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                $response['specialisation_tracks'] = $this->parseJson($courseContent->specialisation_tracks);
+                break;
+
+            case 'courses-mca':
+                $response['mca_ladder'] = $this->parseJson($courseContent->mca_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                $response['specialisation_tracks'] = $this->parseJson($courseContent->specialisation_tracks);
+                break;
+
+            case 'courses-msc-it':
+                $response['msc_it_ladder'] = $this->parseJson($courseContent->msc_it_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['admission_notes'] = $this->parseJson($courseContent->admission_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                $response['specialisation_tracks'] = $this->parseJson($courseContent->specialisation_tracks);
+                break;
+
+            // ==================== Business Pages ====================
+            case 'courses-bcom':
+                $response['bcom_ladder'] = $this->parseJson($courseContent->bcom_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['typical_roles'] = $this->parseJson($courseContent->typical_roles);
+                $response['next_step_options'] = $this->parseJson($courseContent->next_step_options);
+                $response['business_types'] = $this->parseJson($courseContent->business_types);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'courses-mcom':
+                $response['mcom_ladder'] = $this->parseJson($courseContent->mcom_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['next_step_options'] = $this->parseJson($courseContent->next_step_options);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'courses-bba':
+                $response['bba_ladder'] = $this->parseJson($courseContent->bba_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['core_areas'] = $this->parseJson($courseContent->core_areas);
+                $response['typical_roles'] = $this->parseJson($courseContent->typical_roles);
+                $response['specialisation_tracks'] = $this->parseJson($courseContent->specialisation_tracks);
+                $response['next_step_options'] = $this->parseJson($courseContent->next_step_options);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            case 'courses-mba':
+                $response['mba_ladder'] = $this->parseJson($courseContent->mba_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['typical_roles'] = $this->parseJson($courseContent->typical_roles);
+                $response['specialisation_tracks'] = $this->parseJson($courseContent->specialisation_tracks);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            // ==================== Finance ====================
+            case 'course-finance':
+                $response['finance_ladder'] = $this->parseJson($courseContent->finance_ladder);
+                $response['course_options'] = $this->parseJson($courseContent->course_options);
+                $response['typical_roles'] = $this->parseJson($courseContent->typical_roles);
+                $response['work_settings'] = $this->parseJson($courseContent->work_settings);
+                $response['eligibility_notes'] = $this->parseJson($courseContent->eligibility_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                $response['build_profile'] = $this->parseJson($courseContent->build_profile);
+                break;
+
+            // ==================== Professional Commerce ====================
+            case 'courses-professional-commerce':
+                $response['professional_commerce_ladder'] = $this->parseJson($courseContent->professional_commerce_ladder);
+                $response['who_should_do'] = $this->parseJson($courseContent->who_should_do);
+                $response['choose_right'] = $this->parseJson($courseContent->choose_right);
+                $response['common_prep'] = $this->parseJson($courseContent->common_prep);
+                $response['important_notes'] = $this->parseJson($courseContent->important_notes);
+                $response['common_docs'] = $this->parseJson($courseContent->common_docs);
+                break;
+
+            // ==================== Default ====================
+            default:
+                $response['sectors'] = $this->parseJson($courseContent->sectors);
+                $response['admission_heading'] = $courseContent->admission_heading;
+                $response['admission_description'] = $courseContent->admission_description;
+                $response['admission_info'] = $this->parseJson($courseContent->admission_info);
+                $response['next_steps'] = $this->parseJson($courseContent->next_steps);
+                $response['skill_agencies'] = $this->parseJson($courseContent->skill_agencies);
+                break;
+        }
+
+        return $response;
+    }
+
+    private function parseJson($data)
+    {
+        if (is_null($data)) {
+            return null;
+        }
+
+        if (is_array($data)) {
+            return $data;
+        }
+
+        if (is_string($data)) {
+            $decoded = json_decode($data, true);
+            return json_last_error() === JSON_ERROR_NONE ? $decoded : $data;
+        }
+
+        return $data;
+    }
+
+
+    /**
+     * Get college contents for a given slug
+     */
+    private function getCollegeContents(string $slug, Menu $menuItem): array
+    {
+        $fields = config("content_fields.{$menuItem->key}", []);
+        $columns = config('content_columns');
+
+        return CollegeContent::where('url', $slug)
+            ->where('is_active', true)
+            ->orderBy('id')
+            ->get()
+            ->map(function ($college) use ($fields, $columns) {
+                $item = [];
+                foreach ($fields as $field) {
+                    $item[$field] = $college->{$columns[$field] ?? $field};
+                }
+                return $item;
+            })
+            ->toArray();
+    }
+
+    /**
+     * Get exam contents for a given slug
+     */
+    private function getExamContents(string $slug, Menu $menuItem): array
+    {
+        $fields = config("content_fields.{$menuItem->key}", []);
+        $columns = config('content_columns');
+
+        return ExamContent::where('url', $slug)
+            ->where('is_active', true)
+            ->orderBy('id')
+            ->get()
+            ->map(function ($exam) use ($fields, $columns) {
+                $item = [];
+                foreach ($fields as $field) {
+                    $column = $columns[$field] ?? $field;
+                    $item[$field] = $exam->{$column};
+                }
+                return $item;
+            })
+            ->toArray();
+    }
+
+
+
+    private function getCounsellors(): array
+    {
+        return User::with('counselorDetail')
+            ->where('role', 'counselor')
+            ->where('is_active', true)
+            ->get()
+            ->map(function ($user) {
+                return [
+                    'id'            => $user->id,
+                    'name'          => $user->name,
+                    'email'         => $user->email,
+                    'qualification' => $user->counselorDetail->qualification ?? '',
+                    'subject'       => $user->counselorDetail->subject ?? '',
+                ];
+            })
+            ->values()
+            ->toArray();
+    }
+
+
+    private function getScholarshipSchemes(): array
+    {
+        $scholarship = ScholarshipOverview::where('is_active', true)->first();
+        
+        if (!$scholarship) {
+            return [];
+        }
+        
+        // The schemes are stored in the 'schemes' JSON column
+        $schemes = $scholarship->schemes ?? [];
+        
+        $result = [];
+        
+        foreach ($schemes as $scheme) {
+            $result[] = [
+                'no' => $scheme['no'] ?? null,
+                'scheme' => $scheme['name'] ?? '',
+                'class_of_study' => $scheme['class_of_study'] ?? '',
+                'website' => $scheme['website'] ?? '',
+                'minimum_marks' => $scheme['min_marks'] ?? '', // Note: field name is 'min_marks' in JSON
+                'annual_family_income' => $scheme['income'] ?? '', // Note: field name is 'income' in JSON
+            ];
+        }
+        
+        return $result;
+    }
+
+    
+
+    private function getScholarshipRates(): array
+    {
+        $rates = ScholarshipRate::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        $result = [];
+
+        foreach ($rates as $rate) {
+            $result[] = [
+                'type' => $rate->type,
+                'class_range' => $rate->class_of_study,
+                'day_scholar' => [
+                    'admission_tuition_fee' => (float) $rate->day_admission_fee,
+                    'maintenance_allowance' => (float) $rate->day_maintenance_allowance,
+                    'total' => (float) $rate->day_total,
+                ],
+                'hosteller' => [
+                    'admission_tuition_fee' => (float) $rate->hosteller_admission_fee,
+                    'maintenance_allowance' => (float) $rate->hosteller_maintenance_allowance,
+                    'total' => (float) $rate->hosteller_total,
+                ],
+                'remarks' => $this->getRemarksForType($rate->type),
+            ];
+        }
+
+        return $result;
+    }
+
+    /**
+     * Get remarks based on scholarship type
+     */
+    private function getRemarksForType(string $type): string
+    {
+        $remarks = [
+            'PRE MATRIC' => 'As per actual tuition & admission fees, subject to approval by State Authority',
+            'POST MATRIC' => 'Includes reader charges, study tours, thesis, printing etc.',
+            'MERIT CUM MEANS' => 'Reimbursement of course fee, maintenance allowance as admissible',
+            'TALENT SUPPORT STIPEND (TSP)' => 'Special stipend for talented students',
+        ];
+
+        return $remarks[$type] ?? '';
+    }
+
+
+    private function getStudentSupportItems() 
+    {
+        return \App\Models\StudentSupport::where('status', true)
+            ->orderBy('sort_order')
+            ->get(['id', 'title', 'description as desc', 'link as href', 'icon', 'tone', 'level']);
+    }
+
+    /**
+     * Get Scholarships & Education Loans sections with their cards and schemes.
+     */
+    private function getEduFundSections()
+    {
+        return \App\Models\EduFundSection::with([
+                'cards' => fn ($q) => $q->where('status', true)->orderBy('sort_order'),
+                'schemes' => fn ($q) => $q->where('status', true)->orderBy('sort_order'),
+            ])
+            ->orderBy('sort_order')
+            ->get();
+    }
+
+
+
+
+
+
+
+    
+
 }

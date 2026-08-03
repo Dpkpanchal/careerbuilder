@@ -10,139 +10,139 @@ import { MapPin, ExternalLink, ArrowUpRight } from "lucide-react";
  * Includes official regulatory reference links
  */
 
-const SECTIONS = [
-  {
-    key: "medical-national",
-    title: "National Medical Institutions",
-    description:
-      "Institutes of National Importance and central institutions offering MBBS, postgraduate medical and allied health programmes.",
-    items: [
-      {
-        name: "All India Institute of Medical Sciences (AIIMS), New Delhi",
-        city: "New Delhi",
-        state: "Delhi",
-        website: "https://www.aiims.edu",
-      },
-      {
-        name: "Postgraduate Institute of Medical Education & Research (PGIMER)",
-        city: "Chandigarh",
-        state: "Chandigarh",
-        website: "https://pgimer.edu.in",
-      },
-      {
-        name: "Jawaharlal Institute of Postgraduate Medical Education & Research (JIPMER)",
-        city: "Puducherry",
-        state: "Puducherry",
-        website: "https://jipmer.edu.in",
-      },
-      {
-        name: "Armed Forces Medical College (AFMC)",
-        city: "Pune",
-        state: "Maharashtra",
-        website: "https://www.afmc.nic.in",
-      },
-    ],
-  },
+// const SECTIONS = [
+//   {
+//     key: "medical-national",
+//     title: "National Medical Institutions",
+//     description:
+//       "Institutes of National Importance and central institutions offering MBBS, postgraduate medical and allied health programmes.",
+//     items: [
+//       {
+//         name: "All India Institute of Medical Sciences (AIIMS), New Delhi",
+//         city: "New Delhi",
+//         state: "Delhi",
+//         website: "https://www.aiims.edu",
+//       },
+//       {
+//         name: "Postgraduate Institute of Medical Education & Research (PGIMER)",
+//         city: "Chandigarh",
+//         state: "Chandigarh",
+//         website: "https://pgimer.edu.in",
+//       },
+//       {
+//         name: "Jawaharlal Institute of Postgraduate Medical Education & Research (JIPMER)",
+//         city: "Puducherry",
+//         state: "Puducherry",
+//         website: "https://jipmer.edu.in",
+//       },
+//       {
+//         name: "Armed Forces Medical College (AFMC)",
+//         city: "Pune",
+//         state: "Maharashtra",
+//         website: "https://www.afmc.nic.in",
+//       },
+//     ],
+//   },
 
-  {
-    key: "state-wb-medical",
-    title: "Medical Colleges – West Bengal",
-    description:
-      "Government medical colleges in West Bengal offering MBBS and postgraduate medical education.",
-    items: [
-      {
-        name: "Medical College & Hospital, Kolkata",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.mckolkata.org",
-      },
-      {
-        name: "Nil Ratan Sircar Medical College (NRS)",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.nrsmc.edu.in",
-      },
-      {
-        name: "RG Kar Medical College & Hospital",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.rgkarmedicalcollege.org",
-      },
-      {
-        name: "Burdwan Medical College",
-        city: "Purba Bardhaman",
-        state: "West Bengal",
-        website: "https://bmcwb.in",
-      },
-      {
-        name: "North Bengal Medical College",
-        city: "Darjeeling",
-        state: "West Bengal",
-        website: "https://www.nbmch.org",
-      },
-    ],
-  },
+//   {
+//     key: "state-wb-medical",
+//     title: "Medical Colleges – West Bengal",
+//     description:
+//       "Government medical colleges in West Bengal offering MBBS and postgraduate medical education.",
+//     items: [
+//       {
+//         name: "Medical College & Hospital, Kolkata",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.mckolkata.org",
+//       },
+//       {
+//         name: "Nil Ratan Sircar Medical College (NRS)",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.nrsmc.edu.in",
+//       },
+//       {
+//         name: "RG Kar Medical College & Hospital",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.rgkarmedicalcollege.org",
+//       },
+//       {
+//         name: "Burdwan Medical College",
+//         city: "Purba Bardhaman",
+//         state: "West Bengal",
+//         website: "https://bmcwb.in",
+//       },
+//       {
+//         name: "North Bengal Medical College",
+//         city: "Darjeeling",
+//         state: "West Bengal",
+//         website: "https://www.nbmch.org",
+//       },
+//     ],
+//   },
 
-  {
-    key: "paramedical",
-    title: "Paramedical & Allied Health Institutions",
-    description:
-      "Institutions offering nursing, physiotherapy, laboratory technology, radiology and other allied health programmes.",
-    items: [
-      {
-        name: "College of Nursing, Medical College Kolkata",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://www.mckolkata.org",
-      },
-      {
-        name: "West Bengal University of Health Sciences (WBUHS)",
-        city: "Kolkata",
-        state: "West Bengal",
-        website: "https://wbuhs.ac.in",
-      },
-      {
-        name: "Christian Medical College (CMC)",
-        city: "Vellore",
-        state: "Tamil Nadu",
-        website: "https://www.cmch-vellore.edu",
-      },
-      {
-        name: "Manipal College of Health Professions",
-        city: "Manipal",
-        state: "Karnataka",
-        website: "https://manipal.edu/mu/mchp.html",
-      },
-    ],
-  },
+//   {
+//     key: "paramedical",
+//     title: "Paramedical & Allied Health Institutions",
+//     description:
+//       "Institutions offering nursing, physiotherapy, laboratory technology, radiology and other allied health programmes.",
+//     items: [
+//       {
+//         name: "College of Nursing, Medical College Kolkata",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://www.mckolkata.org",
+//       },
+//       {
+//         name: "West Bengal University of Health Sciences (WBUHS)",
+//         city: "Kolkata",
+//         state: "West Bengal",
+//         website: "https://wbuhs.ac.in",
+//       },
+//       {
+//         name: "Christian Medical College (CMC)",
+//         city: "Vellore",
+//         state: "Tamil Nadu",
+//         website: "https://www.cmch-vellore.edu",
+//       },
+//       {
+//         name: "Manipal College of Health Professions",
+//         city: "Manipal",
+//         state: "Karnataka",
+//         website: "https://manipal.edu/mu/mchp.html",
+//       },
+//     ],
+//   },
 
-  {
-    key: "deemed",
-    title: "Deemed & Autonomous Medical Universities",
-    description:
-      "UGC-recognised deemed universities offering medical and allied health science programmes.",
-    items: [
-      {
-        name: "Sri Ramachandra Institute of Higher Education & Research",
-        city: "Chennai",
-        state: "Tamil Nadu",
-        website: "https://www.sriramachandra.edu.in",
-      },
-      {
-        name: "Kasturba Medical College (KMC), Manipal",
-        city: "Manipal",
-        state: "Karnataka",
-        website: "https://manipal.edu/kmc-manipal.html",
-      },
-      {
-        name: "Amrita Institute of Medical Sciences",
-        city: "Kochi",
-        state: "Kerala",
-        website: "https://www.amrita.edu/school/medicine",
-      },
-    ],
-  },
-];
+//   {
+//     key: "deemed",
+//     title: "Deemed & Autonomous Medical Universities",
+//     description:
+//       "UGC-recognised deemed universities offering medical and allied health science programmes.",
+//     items: [
+//       {
+//         name: "Sri Ramachandra Institute of Higher Education & Research",
+//         city: "Chennai",
+//         state: "Tamil Nadu",
+//         website: "https://www.sriramachandra.edu.in",
+//       },
+//       {
+//         name: "Kasturba Medical College (KMC), Manipal",
+//         city: "Manipal",
+//         state: "Karnataka",
+//         website: "https://manipal.edu/kmc-manipal.html",
+//       },
+//       {
+//         name: "Amrita Institute of Medical Sciences",
+//         city: "Kochi",
+//         state: "Kerala",
+//         website: "https://www.amrita.edu/school/medicine",
+//       },
+//     ],
+//   },
+// ];
 
 function CollegeCard({ inst }) {
   return (
@@ -213,7 +213,9 @@ function RegulatoryReferenceBlock() {
   );
 }
 
-export default function TopCollegesUniversitiesMedicalParamedicalTab() {
+export default function TopCollegesUniversitiesMedicalParamedicalTab({top_colleges_and_universities}) {
+
+  const SECTIONS = top_colleges_and_universities;
   return (
     <section className="py-4 py-md-5">
       <div className="container">

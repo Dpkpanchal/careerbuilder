@@ -32,145 +32,145 @@ export const metadata = {
    DATA (Career-book style)
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Journalism & Reporting",
-    points: [
-      "News reporting, ground stories, interviews, fact-checking",
-      "Print + digital journalism roles",
-      "Best for: curiosity + ethics + strong writing",
-    ],
-  },
-  {
-    title: "Digital Media & Content",
-    points: [
-      "Content writing, SEO content, social media content, creator economy",
-      "Work with brands, startups, agencies, news platforms",
-      "Best for: storytelling + consistency + creativity",
-    ],
-  },
-  {
-    title: "Broadcast, Video & Production",
-    points: [
-      "TV/news production, video editing, camera work (role-based)",
-      "YouTube, OTT, studio production teams",
-      "Best for: communication + technical media skills",
-    ],
-  },
-  {
-    title: "PR, Advertising & Corporate Communication",
-    points: [
-      "Public relations, brand communication, campaigns, media relations",
-      "Strong scope in corporates and agencies",
-      "Best for: communication + strategy + people skills",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Journalism & Reporting",
+//     points: [
+//       "News reporting, ground stories, interviews, fact-checking",
+//       "Print + digital journalism roles",
+//       "Best for: curiosity + ethics + strong writing",
+//     ],
+//   },
+//   {
+//     title: "Digital Media & Content",
+//     points: [
+//       "Content writing, SEO content, social media content, creator economy",
+//       "Work with brands, startups, agencies, news platforms",
+//       "Best for: storytelling + consistency + creativity",
+//     ],
+//   },
+//   {
+//     title: "Broadcast, Video & Production",
+//     points: [
+//       "TV/news production, video editing, camera work (role-based)",
+//       "YouTube, OTT, studio production teams",
+//       "Best for: communication + technical media skills",
+//     ],
+//   },
+//   {
+//     title: "PR, Advertising & Corporate Communication",
+//     points: [
+//       "Public relations, brand communication, campaigns, media relations",
+//       "Strong scope in corporates and agencies",
+//       "Best for: communication + strategy + people skills",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Build basics: writing, reading, communication, speaking confidence",
-      "Start small: school newsletter, blogging, video storytelling, photography",
-      "Choose Class 11–12 stream based on interest (any stream works for many media courses)",
-    ],
-  },
-  {
-    title: "After Class 12",
-    steps: [
-      "UG programs: BA Journalism/Mass Comm, BJMC, BA Media Studies (course-wise)",
-      "Portfolio matters: writing samples, reels, projects, internships",
-      "Choose a track: journalism, digital content, PR, production, etc.",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "PG: MA Journalism/Mass Comm, PG Diploma in Journalism/Media (institute-wise)",
-      "Specialize: data journalism, broadcast, documentary, PR, digital strategy",
-      "Better roles with strong portfolio + experience",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Build basics: writing, reading, communication, speaking confidence",
+//       "Start small: school newsletter, blogging, video storytelling, photography",
+//       "Choose Class 11–12 stream based on interest (any stream works for many media courses)",
+//     ],
+//   },
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "UG programs: BA Journalism/Mass Comm, BJMC, BA Media Studies (course-wise)",
+//       "Portfolio matters: writing samples, reels, projects, internships",
+//       "Choose a track: journalism, digital content, PR, production, etc.",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "PG: MA Journalism/Mass Comm, PG Diploma in Journalism/Media (institute-wise)",
+//       "Specialize: data journalism, broadcast, documentary, PR, digital strategy",
+//       "Better roles with strong portfolio + experience",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "Skill Courses (Content, Video, Communication)",
-    text:
-      "Short practical courses in writing, anchoring basics, photography, video editing, social media and content strategy—useful for portfolio building.",
-    url: "/courses/media/skill",
-    cta: "Explore Skill Courses",
-  },
-  {
-    title: "UG Degree (Journalism / Mass Communication)",
-    text:
-      "Undergraduate programs that cover reporting, media studies, communication, ethics and production basics—along with projects.",
-    url: "/courses/media/ug",
-    cta: "Explore UG Programs",
-  },
-  {
-    title: "Diploma / Certificate in Journalism",
-    text:
-      "Focused programs for faster entry into media roles—often oriented around practical reporting, editing and production.",
-    url: "/courses/media/diploma",
-    cta: "Explore Diplomas",
-  },
-  {
-    title: "PG & Specialization",
-    text:
-      "Postgraduate study for advanced roles and specialization in broadcast, digital media, PR, research, documentary and more.",
-    url: "/courses/media/pg",
-    cta: "Explore Higher Studies",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "Skill Courses (Content, Video, Communication)",
+//     text:
+//       "Short practical courses in writing, anchoring basics, photography, video editing, social media and content strategy—useful for portfolio building.",
+//     url: "/courses/media/skill",
+//     cta: "Explore Skill Courses",
+//   },
+//   {
+//     title: "UG Degree (Journalism / Mass Communication)",
+//     text:
+//       "Undergraduate programs that cover reporting, media studies, communication, ethics and production basics—along with projects.",
+//     url: "/courses/media/ug",
+//     cta: "Explore UG Programs",
+//   },
+//   {
+//     title: "Diploma / Certificate in Journalism",
+//     text:
+//       "Focused programs for faster entry into media roles—often oriented around practical reporting, editing and production.",
+//     url: "/courses/media/diploma",
+//     cta: "Explore Diplomas",
+//   },
+//   {
+//     title: "PG & Specialization",
+//     text:
+//       "Postgraduate study for advanced roles and specialization in broadcast, digital media, PR, research, documentary and more.",
+//     url: "/courses/media/pg",
+//     cta: "Explore Higher Studies",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Admissions",
-    text:
-      "Some media schools use national-level tests/interviews/portfolio assessment depending on the institute.",
-    url: "/exams/media/national",
-  },
-  {
-    title: "State-level / Regional Admissions",
-    text:
-      "State universities and colleges may have their own admission processes (varies by state).",
-    url: "/exams/media/state",
-  },
-  {
-    title: "University / Institute-level Selection",
-    text:
-      "Many institutes use interviews, writing tests, aptitude tests and portfolio for selection.",
-    url: "/exams/media/university",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Admissions",
+//     text:
+//       "Some media schools use national-level tests/interviews/portfolio assessment depending on the institute.",
+//     url: "/exams/media/national",
+//   },
+//   {
+//     title: "State-level / Regional Admissions",
+//     text:
+//       "State universities and colleges may have their own admission processes (varies by state).",
+//     url: "/exams/media/state",
+//   },
+//   {
+//     title: "University / Institute-level Selection",
+//     text:
+//       "Many institutes use interviews, writing tests, aptitude tests and portfolio for selection.",
+//     url: "/exams/media/university",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "Central Universities", url: "/colleges/media/central" },
-  { title: "State Universities", url: "/colleges/media/state" },
-  { title: "Private & Deemed Universities", url: "/colleges/media/private" },
-  { title: "Media & Journalism Institutes", url: "/colleges/media/institutes" },
-  { title: "Open & Distance (Selected Options)", url: "/colleges/media/open" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "Central Universities", url: "/colleges/media/central" },
+//   { title: "State Universities", url: "/colleges/media/state" },
+//   { title: "Private & Deemed Universities", url: "/colleges/media/private" },
+//   { title: "Media & Journalism Institutes", url: "/colleges/media/institutes" },
+//   { title: "Open & Distance (Selected Options)", url: "/colleges/media/open" },
+// ];
 
-const INDUSTRIES = [
-  "News & Journalism (Print/Digital)",
-  "Broadcast TV / Video Platforms",
-  "Digital Content & Social Media",
-  "PR & Corporate Communication",
-  "Advertising & Creative Agencies",
-  "Production Houses / Podcasts",
-];
+// const INDUSTRIES = [
+//   "News & Journalism (Print/Digital)",
+//   "Broadcast TV / Video Platforms",
+//   "Digital Content & Social Media",
+//   "PR & Corporate Communication",
+//   "Advertising & Creative Agencies",
+//   "Production Houses / Podcasts",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Reporter / Journalist",
-  "Copywriter / Content Writer",
-  "Video Editor / Producer (role-based)",
-  "Anchor / Presenter (skill-based)",
-  "PR Executive / Corporate Communication",
-  "Social Media Manager / Content Strategist",
-];
+// const ROLE_EXAMPLES = [
+//   "Reporter / Journalist",
+//   "Copywriter / Content Writer",
+//   "Video Editor / Producer (role-based)",
+//   "Anchor / Presenter (skill-based)",
+//   "PR Executive / Corporate Communication",
+//   "Social Media Manager / Content Strategist",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -208,7 +208,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function MediaJournalismByProfessionPage() {
+export default function MediaJournalismByProfessionPage({careerData}) {
+
+  const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
     <main>

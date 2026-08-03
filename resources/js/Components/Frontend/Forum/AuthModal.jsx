@@ -10,11 +10,13 @@ import {
   Lock,
   User,
   ChevronDown,
+  CheckCircle,
+  AlertCircle,
+  Eye, EyeOff
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm, usePage } from "@inertiajs/react";
-
-
+import axios from 'axios';
 
 const MODES = {
   LOGIN: "login",
@@ -24,6 +26,7 @@ const MODES = {
 
 const FORGOT_STEPS = {
   EMAIL: "email",
+  VERIFY: "verify",
   RESET: "reset",
 };
 
@@ -33,33 +36,16 @@ export default function AuthModal({
   initialMode = MODES.LOGIN,
 }) {
   const [mode, setMode] = useState(initialMode);
+  const { flash } = usePage().props;
 
   // Login form
-  // const [loginEmail, setLoginEmail] = useState("");
-  // const [loginPassword, setLoginPassword] = useState("");
-
   const loginForm = useForm({
-  email: "",
-  password: "",
-  remember: false,
-});
-
-const { flash } = usePage().props;
-
-
-
-
+    email: "",
+    password: "",
+    remember: false,
+  });
 
   // Register form
-  // const [regFirstName, setRegFirstName] = useState("");
-  // const [regLastName, setRegLastName] = useState("");
-  // const [regType, setRegType] = useState("student");
-  // const [regEmail, setRegEmail] = useState("");
-  // const [regPassword, setRegPassword] = useState("");
-  // const [regConfirmPassword, setRegConfirmPassword] = useState("");
-  const [regError, setRegError] = useState("");
-
-
   const registerForm = useForm({
     first_name: "",
     last_name: "",
@@ -68,6 +54,21 @@ const { flash } = usePage().props;
     password: "",
     password_confirmation: "",
   });
+
+  // Forgot flow
+  const [forgotStep, setForgotStep] = useState(FORGOT_STEPS.EMAIL);
+  const [verificationCode, setVerificationCode] = useState(["", "", "", "", "", ""]);
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [verificationError, setVerificationError] = useState("");
+  const [resendCooldown, setResendCooldown] = useState(0);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [forgotInfo, setForgotInfo] = useState("");
+  
+  // ✅ NEW: Loading states for buttons
+  const [isSendingOtp, setIsSendingOtp] = useState(false);
+  const [isResendingOtp, setIsResendingOtp] = useState(false);
+
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const forgotEmailForm = useForm({
     email: "",
@@ -79,24 +80,10 @@ const { flash } = usePage().props;
     password_confirmation: "",
   });
 
-
-
-
-  // Forgot flow
-  const [forgotStep, setForgotStep] = useState(FORGOT_STEPS.EMAIL);
-  // const [forgotEmail, setForgotEmail] = useState("");
-  // const [resetPassword, setResetPassword] = useState("");
-  // const [resetConfirmPassword, setResetConfirmPassword] = useState("");
-  // const [forgotError, setForgotError] = useState("");
-  const [forgotInfo, setForgotInfo] = useState("");
-
-  const [showSuccess, setShowSuccess] = useState(true);
-
   // Reset mode when opened
   useEffect(() => {
     if (isOpen) {
       setMode(initialMode);
-      setRegError("");
       resetForgotFlow();
     }
   }, [isOpen, initialMode]);
@@ -122,137 +109,202 @@ const { flash } = usePage().props;
     return () => document.removeEventListener("keydown", handleKey);
   }, [isOpen, onClose]);
 
-
+  // Flash success
   useEffect(() => {
-  if (flash.success) {
-    setShowSuccess(true);
+    if (flash.success) {
+      setShowSuccess(true);
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
+    }
+  }, [flash.success]);
 
-    setTimeout(() => {
-      setShowSuccess(false);
-    }, 3000); // 3 sec
-  }
-}, [flash.success]);
+  // Resend cooldown timer
+  useEffect(() => {
+    let timer;
+    if (resendCooldown > 0) {
+      timer = setInterval(() => {
+        setResendCooldown(prev => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [resendCooldown]);
 
   if (!isOpen) return null;
 
-const resetForgotFlow = () => {
-  setForgotStep(FORGOT_STEPS.EMAIL);
-  setForgotInfo("");
-  forgotEmailForm.reset();
-  forgotResetForm.reset();
-};
+  const resetForgotFlow = () => {
+    setForgotStep(FORGOT_STEPS.EMAIL);
+    setVerificationCode(["", "", "", "", "", ""]);
+    setVerificationError("");
+    setForgotInfo("");
+    forgotEmailForm.reset();
+    forgotResetForm.reset();
+    setIsVerifying(false);
+    setIsSendingOtp(false);
+    setIsResendingOtp(false);
+  };
 
-
-const handleLoginSubmit = (e) => {
-  e.preventDefault();
-
-  loginForm.post(route("login"), {
-    onSuccess: () => {
-      // close only if no errors
-      if (Object.keys(loginForm.errors).length === 0) {
-        onClose();
-      }
-    },
-  });
-};
-
-  const handleRegisterSubmit = (e) => {
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
-    registerForm.post(route("register"), {
-     onSuccess: () => {
-        registerForm.reset();   // ✅ reset all fields
+    loginForm.post(route("login"), {
+      onSuccess: () => {
+        // Close modal immediately on successful login
+        onClose();
+      },
+      onError: () => {
+        // Keep modal open on error, errors will be displayed
       },
     });
   };
 
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    registerForm.post(route("register"), {
+      onSuccess: () => {
+        registerForm.reset();
+      },
+    });
+  };
 
+  const handleForgotEmailSubmit = (e) => {
+    e.preventDefault();
+    
+    // ✅ Prevent multiple clicks
+    if (isSendingOtp) return;
+    
+    setIsSendingOtp(true);
+    setVerificationError("");
+    setForgotInfo("");
 
+    axios.post('/otp/send', {
+      email: forgotEmailForm.data.email,
+    })
+    .then(response => {
+      setIsSendingOtp(false);
+      if (response.data.success) {
+        setForgotStep(FORGOT_STEPS.VERIFY);
+        setForgotInfo("A verification code has been sent to your email.");
+        setResendCooldown(60);
+        forgotEmailForm.clearErrors();
+      }
+    })
+    .catch(error => {
+      setIsSendingOtp(false);
+      if (error.response?.data?.errors?.email) {
+        forgotEmailForm.setError('email', error.response.data.errors.email[0]);
+      } else {
+        setForgotInfo(error.response?.data?.message || "Failed to send OTP.");
+      }
+    });
+  };
 
-  // Step 1: verify email (mock)
-  // const handleForgotEmailSubmit = (e) => {
-  //   e.preventDefault();
-  //   setForgotError("");
-  //   setForgotInfo("");
+  const handleVerificationSubmit = (e) => {
+    e.preventDefault();
+    const code = verificationCode.join('');
+    
+    if (code.length !== 6) {
+      setVerificationError("Please enter all 6 digits.");
+      return;
+    }
 
-  //   if (!forgotEmail.trim()) {
-  //     setForgotError("Please enter your registered email address.");
-  //     return;
-  //   }
+    // ✅ Prevent multiple clicks
+    if (isVerifying) return;
 
-  //   // Here you would call your API to verify email.
-  //   // For now we assume it's valid.
-  //   setForgotInfo("Email verified. Please enter your new password.");
-  //   setForgotStep(FORGOT_STEPS.RESET);
-  // };
+    setIsVerifying(true);
+    setVerificationError("");
 
+    axios.post('/otp/verify', {
+      email: forgotEmailForm.data.email,
+      code: code,
+    })
+    .then(response => {
+      setIsVerifying(false);
+      if (response.data.success) {
+        forgotResetForm.setData("email", forgotEmailForm.data.email);
+        setForgotStep(FORGOT_STEPS.RESET);
+        setForgotInfo("Email verified! Please set your new password.");
+      }
+    })
+    .catch(error => {
+      setIsVerifying(false);
+      setVerificationError(error.response?.data?.message || "Invalid verification code. Please try again.");
+    });
+  };
 
-const handleForgotEmailSubmit = (e) => {
-  e.preventDefault();
+  const handleVerificationCodeChange = (index, value) => {
+    if (value.length > 1) return;
+    
+    const newCode = [...verificationCode];
+    newCode[index] = value;
+    setVerificationCode(newCode);
+    setVerificationError("");
 
-  forgotEmailForm.post(route("verify.email"), {
-    preserveScroll: true,
-    onSuccess: () => {
-      // pass verified email to reset form
-      forgotResetForm.setData("email", forgotEmailForm.data.email);
-      setForgotStep(FORGOT_STEPS.RESET);
-    },
-  });
-};
+    // Auto-focus next input
+    if (value && index < 5) {
+      const nextInput = document.getElementById(`code-${index + 1}`);
+      if (nextInput) nextInput.focus();
+    }
+  };
 
+  const handleResendCode = () => {
+    // ✅ Prevent multiple clicks
+    if (resendCooldown > 0 || isResendingOtp) return;
+    
+    setIsResendingOtp(true);
+    setVerificationError("");
 
+    axios.post('/otp/send', {
+      email: forgotEmailForm.data.email,
+    })
+    .then(response => {
+      setIsResendingOtp(false);
+      if (response.data.success) {
+        setResendCooldown(60);
+        setForgotInfo("A new verification code has been sent to your email.");
+        setVerificationError("");
+      }
+    })
+    .catch(error => {
+      setIsResendingOtp(false);
+      setVerificationError(error.response?.data?.message || "Failed to resend code.");
+    });
+  };
 
+  const handleForgotResetSubmit = (e) => {
+    e.preventDefault();
+    
+    // ✅ Prevent multiple clicks
+    if (forgotResetForm.processing) return;
 
-
-  // Step 2: set new password
-  // const handleForgotResetSubmit = (e) => {
-  //   e.preventDefault();
-  //   setForgotError("");
-  //   setForgotInfo("");
-
-  //   if (resetPassword.length < 6) {
-  //     setForgotError("Password should be at least 6 characters.");
-  //     return;
-  //   }
-
-  //   if (resetPassword !== resetConfirmPassword) {
-  //     setForgotError("Passwords do not match.");
-  //     return;
-  //   }
-
-  //   // TODO: call API to actually reset password
-  //   console.log("Reset password:", {
-  //     email: forgotEmail,
-  //     newPassword: resetPassword,
-  //   });
-
-  //   setForgotInfo("Your password has been updated. You can now sign in.");
-  //   // Optionally auto-switch back to login after a short delay
-  //   setTimeout(() => {
-  //     setMode(MODES.LOGIN);
-  //     resetForgotFlow();
-  //   }, 1500);
-  // };
-
-
- const handleForgotResetSubmit = (e) => {
-  e.preventDefault();
-
-  forgotResetForm.post(route("password.reset.direct"), {
-    preserveScroll: true,
-    onSuccess: () => {
-      setForgotInfo("Password updated successfully");
-
-      setTimeout(() => {
-        setMode(MODES.LOGIN);
-        resetForgotFlow();
-        forgotResetForm.reset();
-      }, 1500);
-    },
-  });
-};
-
-
-
+    axios.post('/password/reset-direct', {
+      email: forgotResetForm.data.email,
+      password: forgotResetForm.data.password,
+      password_confirmation: forgotResetForm.data.password_confirmation,
+    })
+    .then(response => {
+      if (response.data.success) {
+        setForgotInfo("Password updated successfully!");
+        setTimeout(() => {
+          setMode(MODES.LOGIN);
+          resetForgotFlow();
+          forgotResetForm.reset();
+        }, 1500);
+      }
+    })
+    .catch(error => {
+      const errors = error.response?.data?.errors;
+      if (errors) {
+        if (errors.password) {
+          forgotResetForm.setError('password', errors.password[0]);
+        }
+        if (errors.password_confirmation) {
+          forgotResetForm.setError('password_confirmation', errors.password_confirmation[0]);
+        }
+      } else {
+        setForgotInfo(error.response?.data?.message || "Failed to reset password.");
+      }
+    });
+  };
 
   const headerTitle =
     mode === MODES.LOGIN
@@ -261,6 +313,8 @@ const handleForgotEmailSubmit = (e) => {
       ? "Create your account"
       : forgotStep === FORGOT_STEPS.EMAIL
       ? "Reset your password"
+      : forgotStep === FORGOT_STEPS.VERIFY
+      ? "Verify your email"
       : "Set a new password";
 
   const headerSubtitle =
@@ -270,14 +324,16 @@ const handleForgotEmailSubmit = (e) => {
       ? "It takes less than a minute. Join as a student, parent, or teacher."
       : forgotStep === FORGOT_STEPS.EMAIL
       ? "Enter your registered email address to verify your account."
+      : forgotStep === FORGOT_STEPS.VERIFY
+      ? "Enter the 6-digit code sent to your email address."
       : "Choose a strong password that you haven't used before.";
 
   const showTabs = mode === MODES.LOGIN || mode === MODES.REGISTER;
 
-  // --- Forms ---
-
+  // --- Render Login Form ---
   const renderLoginForm = () => (
-    <form onSubmit={handleLoginSubmit} className="auth-form">
+  
+        <form onSubmit={handleLoginSubmit} className="auth-form">
       <div className="mb-3">
         <label className="auth-label">Email</label>
         <div className="auth-input-group">
@@ -365,16 +421,11 @@ const handleForgotEmailSubmit = (e) => {
         </div>
       )}
 
-
-      
-
-
-        
-
-
     </form>
+
   );
 
+  // --- Render Register Form ---
   const renderRegisterForm = () => (
     <form onSubmit={handleRegisterSubmit} className="auth-form">
       <div className="row g-2 mb-2">
@@ -389,14 +440,11 @@ const handleForgotEmailSubmit = (e) => {
               className="form-control auth-input"
               placeholder="First name"
               value={registerForm.data.first_name}
-              onChange={(e) =>
-                registerForm.setData("first_name", e.target.value)
-              }
+              onChange={(e) => registerForm.setData("first_name", e.target.value)}
               required
             />
           </div>
         </div>
-
         <div className="col-12 col-sm-6">
           <label className="auth-label">Last name</label>
           <div className="auth-input-group">
@@ -405,9 +453,7 @@ const handleForgotEmailSubmit = (e) => {
               className="form-control auth-input"
               placeholder="Last name"
               value={registerForm.data.last_name}
-              onChange={(e) =>
-                registerForm.setData("last_name", e.target.value)
-              }
+              onChange={(e) => registerForm.setData("last_name", e.target.value)}
             />
           </div>
         </div>
@@ -422,9 +468,7 @@ const handleForgotEmailSubmit = (e) => {
           <select
             className="form-select auth-input auth-select"
             value={registerForm.data.role}
-            onChange={(e) =>
-              registerForm.setData("role", e.target.value)
-            }
+            onChange={(e) => registerForm.setData("role", e.target.value)}
             required
           >
             <option value="student">Student</option>
@@ -448,94 +492,90 @@ const handleForgotEmailSubmit = (e) => {
             className="form-control auth-input"
             placeholder="you@example.com"
             value={registerForm.data.email}
-            onChange={(e) =>
-              registerForm.setData("email", e.target.value)
-            }
+            onChange={(e) => registerForm.setData("email", e.target.value)}
             required
           />
         </div>
+        {registerForm.errors.email && (
+          <div className="alert alert-danger py-1 px-2 mt-1">{registerForm.errors.email}</div>
+        )}
       </div>
 
-    <div className="row g-2 mb-2">
-  <div className="col-12 col-sm-6">
-    <label className="auth-label">Password</label>
-    <div className="auth-input-group">
-      <span className="auth-input-icon">
-        <Lock size={16} />
-      </span>
-      <input
-        type="password"
-        className="form-control auth-input"
-        placeholder="Create password"
-        value={registerForm.data.password}
-        onChange={(e) =>
-          registerForm.setData("password", e.target.value)
-        }
-        required
-      />
-    </div>
-  </div>
-
-  <div className="col-12 col-sm-6">
-    <label className="auth-label">Confirm password</label>
-    <div className="auth-input-group">
-      <input
-        type="password"
-        className="form-control auth-input"
-        placeholder="Confirm password"
-        value={registerForm.data.password_confirmation}
-        onChange={(e) =>
-          registerForm.setData(
-            "password_confirmation",
-            e.target.value
-          )
-        }
-        required
-      />
-    </div>
-  </div>
-</div>
-
-
-      
-
-      {/* {forgotResetForm.errors.password && (
-        <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
-          {forgotResetForm.errors.password}
+      <div className="row g-2 mb-2">
+        <div className="col-12 col-sm-6">
+          <label className="auth-label">Password</label>
+          <div className="auth-input-group">
+            <span className="auth-input-icon">
+              <Lock size={16} />
+            </span>
+            <input
+              type="password"
+              className="form-control auth-input"
+              placeholder="Create password"
+              value={registerForm.data.password}
+              onChange={(e) => registerForm.setData("password", e.target.value)}
+              required
+            />
+          </div>
         </div>
-      )}
 
-      {forgotResetForm.errors.password_confirmation && (
-        <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
-          {forgotResetForm.errors.password_confirmation}
-        </div>
-      )} */}
 
-      {/* {forgotResetForm.errors.password && (
-        <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
-          {forgotResetForm.errors.password}
-        </div>
-      )}
+        {/* <div className="col-12 col-sm-6">
+          <label className="auth-label">Confirm password</label>
+          <div className="auth-input-group">
+            <input
+              type="password"
+              className="form-control auth-input"
+              placeholder="Confirm password"
+              value={registerForm.data.password_confirmation}
+              onChange={(e) => registerForm.setData("password_confirmation", e.target.value)}
+              required
+            />
+          </div>
+        </div> */}
 
-      {forgotResetForm.errors.password_confirmation && (
-        <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
-          {forgotResetForm.errors.password_confirmation}
+        <div className="col-12 col-sm-6">
+          <label className="auth-label">Confirm password</label>
+
+          <div className="auth-input-group position-relative">
+              <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  className="form-control auth-input pe-5"
+                  placeholder="Confirm password"
+                  value={registerForm.data.password_confirmation}
+                  onChange={(e) =>
+                      registerForm.setData("password_confirmation", e.target.value)
+                  }
+                  required
+              />
+
+              <button
+                  type="button"
+                  className="btn border-0 bg-transparent position-absolute top-50 end-0 translate-middle-y me-2 p-0"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              >
+                  {showConfirmPassword ? (
+                      <EyeOff size={18} />
+                  ) : (
+                      <Eye size={18} />
+                  )}
+              </button>
+          </div>
         </div>
-      )} */}
+
+
+      </div>
 
       {registerForm.errors.password && (
         <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
           {registerForm.errors.password}
         </div>
       )}
-
       {registerForm.errors.password_confirmation && (
         <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
           {registerForm.errors.password_confirmation}
         </div>
       )}
-
-
 
       <div className="mb-3 auth-terms text-muted">
         By creating an account, you agree to our{" "}
@@ -550,11 +590,47 @@ const handleForgotEmailSubmit = (e) => {
       >
         {registerForm.processing ? "Creating..." : "Create account"}
       </button>
+
+      {flash.success && (
+        <div className="alert alert-success mt-2">{flash.success}</div>
+      )}
     </form>
   );
 
+  // --- Render Verification Code Input ---
+  const renderVerificationCodeInput = () => (
+    <div className="verification-code-container mb-3">
+      <div className="d-flex justify-content-center gap-2">
+        {verificationCode.map((digit, index) => (
+          <input
+            key={index}
+            id={`code-${index}`}
+            type="text"
+            className="form-control verification-input"
+            maxLength="1"
+            value={digit}
+            onChange={(e) => handleVerificationCodeChange(index, e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Backspace' && !digit && index > 0) {
+                const prevInput = document.getElementById(`code-${index - 1}`);
+                if (prevInput) prevInput.focus();
+              }
+            }}
+            autoFocus={index === 0}
+            required
+          />
+        ))}
+      </div>
+      {verificationError && (
+        <div className="alert alert-danger py-1 px-2 mt-2 auth-error d-flex align-items-center gap-2">
+          <AlertCircle size={16} />
+          {verificationError}
+        </div>
+      )}
+    </div>
+  );
 
-
+  // --- Render Forgot Form ---
   const renderForgotForm = () => {
     if (forgotStep === FORGOT_STEPS.EMAIL) {
       return (
@@ -570,8 +646,6 @@ const handleForgotEmailSubmit = (e) => {
                 className="form-control auth-input"
                 value={forgotEmailForm.data.email}
                 placeholder="you@example.com"
-                // value={forgotEmail}
-                // onChange={(e) => setForgotEmail(e.target.value)}
                 onChange={(e) => {
                   forgotEmailForm.setData("email", e.target.value);
                   forgotEmailForm.clearErrors("email");
@@ -579,24 +653,31 @@ const handleForgotEmailSubmit = (e) => {
                 required
               />
             </div>
+            {forgotEmailForm.errors.email && (
+              <div className="alert alert-danger py-1 px-2 mt-1 auth-error">
+                {forgotEmailForm.errors.email}
+              </div>
+            )}
           </div>
-
-          {forgotEmailForm.errors.email && (
-            <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
-              {forgotEmailForm.errors.email}
-            </div>
-          )}
 
           <button
             type="submit"
-            className="btn btn-primary  auth-primary-btn"
+            className="btn btn-primary auth-primary-btn"
+            disabled={isSendingOtp} // ✅ Disabled when sending
           >
-            Verify email
+            {isSendingOtp ? (
+              <>
+                <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                Sending...
+              </>
+            ) : (
+              "Send Verification Code"
+            )}
           </button>
 
           <button
             type="button"
-            className="btn btn-link  mt-2 auth-link"
+            className="btn btn-link mt-2 auth-link"
             onClick={() => {
               setMode(MODES.LOGIN);
               resetForgotFlow();
@@ -608,9 +689,83 @@ const handleForgotEmailSubmit = (e) => {
       );
     }
 
+    if (forgotStep === FORGOT_STEPS.VERIFY) {
+      return (
+        <form onSubmit={handleVerificationSubmit} className="auth-form">
+          {forgotInfo && (
+            <div className="alert alert-success py-2 px-2 mb-3 d-flex align-items-center gap-2">
+              <CheckCircle size={16} />
+              {forgotInfo}
+            </div>
+          )}
+
+          <div className="text-center mb-2">
+            <p className="text-muted small">
+              Enter the 6-digit code sent to <strong>{forgotEmailForm.data.email}</strong>
+            </p>
+          </div>
+
+          {renderVerificationCodeInput()}
+
+          <button
+            type="submit"
+            className="btn btn-primary auth-primary-btn"
+            disabled={isVerifying}
+          >
+            {isVerifying ? (
+              <>
+                <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                Verifying...
+              </>
+            ) : (
+              "Verify Code"
+            )}
+          </button>
+
+          <div className="text-center mt-2">
+            <button
+              type="button"
+              className="btn btn-link btn-sm auth-link"
+              onClick={handleResendCode}
+              disabled={resendCooldown > 0 || isResendingOtp} // ✅ Disabled during cooldown or resending
+            >
+              {isResendingOtp ? (
+                <>
+                  <span className="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                  Sending...
+                </>
+              ) : resendCooldown > 0 ? (
+                `Resend in ${resendCooldown}s`
+              ) : (
+                "Resend Code"
+              )}
+            </button>
+          </div>
+
+          <button
+            type="button"
+            className="btn btn-link mt-1 auth-link"
+            onClick={() => {
+              setForgotStep(FORGOT_STEPS.EMAIL);
+              setForgotInfo("");
+            }}
+          >
+            Back to email entry
+          </button>
+        </form>
+      );
+    }
+
     // RESET STEP
     return (
       <form onSubmit={handleForgotResetSubmit} className="auth-form">
+        {forgotInfo && (
+          <div className="alert alert-success py-2 px-2 mb-3 d-flex align-items-center gap-2">
+            <CheckCircle size={16} />
+            {forgotInfo}
+          </div>
+        )}
+
         <div className="mb-2">
           <label className="auth-label">New password</label>
           <div className="auth-input-group">
@@ -648,12 +803,11 @@ const handleForgotEmailSubmit = (e) => {
           </div>
         </div>
 
-      {forgotResetForm.errors.password && (
+        {forgotResetForm.errors.password && (
           <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
             {forgotResetForm.errors.password}
           </div>
         )}
-
         {forgotResetForm.errors.password_confirmation && (
           <div className="alert alert-danger py-1 px-2 mb-2 auth-error">
             {forgotResetForm.errors.password_confirmation}
@@ -662,14 +816,22 @@ const handleForgotEmailSubmit = (e) => {
 
         <button
           type="submit"
-          className="btn btn-primary  auth-primary-btn"
+          className="btn btn-primary auth-primary-btn"
+          disabled={forgotResetForm.processing}
         >
-          Update password
+          {forgotResetForm.processing ? (
+            <>
+              <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Updating...
+            </>
+          ) : (
+            "Update password"
+          )}
         </button>
 
         <button
           type="button"
-          className="btn btn-link  mt-2 auth-link"
+          className="btn btn-link mt-2 auth-link"
           onClick={() => {
             setMode(MODES.LOGIN);
             resetForgotFlow();
@@ -734,47 +896,37 @@ const handleForgotEmailSubmit = (e) => {
                     </p>
                   </div>
 
-                  {mode === MODES.REGISTER && flash.success && (
-                    <div className="alert alert-success py-2 px-2 mb-2">
-                      {flash.success}
-                    </div>
-                  )}
-
-
-
-
-
                   {/* Tabs */}
                   {showTabs && (
                     <div className="d-flex justify-content-center">
-                    <div className="auth-tabs mb-3">
-                      <button
-                        type="button"
-                        className={
-                          "auth-tab-btn " +
-                          (mode === MODES.LOGIN ? "active" : "")
-                        }
-                        onClick={() => {
-                          setMode(MODES.LOGIN);
-                          resetForgotFlow();
-                        }}
-                      >
-                        Login
-                      </button>
-                      <button
-                        type="button"
-                        className={
-                          "auth-tab-btn " +
-                          (mode === MODES.REGISTER ? "active" : "")
-                        }
-                        onClick={() => {
-                          setMode(MODES.REGISTER);
-                          resetForgotFlow();
-                        }}
-                      >
-                        Register
-                      </button>
-                    </div>
+                      <div className="auth-tabs mb-3">
+                        <button
+                          type="button"
+                          className={
+                            "auth-tab-btn " +
+                            (mode === MODES.LOGIN ? "active" : "")
+                          }
+                          onClick={() => {
+                            setMode(MODES.LOGIN);
+                            resetForgotFlow();
+                          }}
+                        >
+                          Login
+                        </button>
+                        <button
+                          type="button"
+                          className={
+                            "auth-tab-btn " +
+                            (mode === MODES.REGISTER ? "active" : "")
+                          }
+                          onClick={() => {
+                            setMode(MODES.REGISTER);
+                            resetForgotFlow();
+                          }}
+                        >
+                          Register
+                        </button>
+                      </div>
                     </div>
                   )}
 
@@ -805,3 +957,4 @@ const handleForgotEmailSubmit = (e) => {
 }
 
 AuthModal.MODES = MODES;
+

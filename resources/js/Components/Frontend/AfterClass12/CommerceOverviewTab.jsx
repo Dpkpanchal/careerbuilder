@@ -9,161 +9,161 @@ import { X, Route, Map as MapIcon } from "lucide-react";
  * COMMERCE PATHWAY MAP
  * =========================
  */
-export const AFTER_12_COMMERCE_PATHWAY_MAP = {
-  key: "after-12-commerce",
-  title: "Graduate Level Courses After Class 12 (Commerce Students)",
-  type: "root",
-  entries: [
-    {
-      key: "bca-3yrs",
-      label: "BCA (3 Yrs)",
-      type: "course",
-      children: [{ key: "mca-2yrs", label: "MCA (2 Yrs)", type: "course", children: [] }],
-    },
-    {
-      key: "ba-llb-5yrs",
-      label: "BA LLB (5 Yrs)",
-      type: "course",
-      children: [
-        {
-          key: "llm-2yrs",
-          label: "LLM (2 Yrs)",
-          type: "course",
-          children: [
-            {
-              key: "phd-law",
-              label: "Ph.D",
-              type: "course",
-              children: [{ key: "judicial-exam-law", label: "Judicial Exam", type: "exam", children: [] }],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      key: "bba-3yrs",
-      label: "BBA (3 Yrs)",
-      type: "course",
-      children: [
-        {
-          key: "mba-3yrs",
-          label: "MBA (3 Yrs)",
-          type: "course",
-          children: [{ key: "phd-mba", label: "Ph.D", type: "course", children: [] }],
-        },
-      ],
-    },
-    {
-      key: "ca-entry",
-      label: "CA",
-      type: "course",
-      notes: ["Fundamental", "Intermediate"],
-      children: [
-        {
-          key: "ca-levels",
-          label: "CA (Levels)",
-          type: "course",
-          notes: ["Fundamental", "Intermediate", "Final"],
-          children: [],
-        },
-      ],
-    },
-    {
-      key: "costing-entry",
-      label: "Costing",
-      type: "course",
-      notes: ["Inter"],
-      children: [
-        { key: "costing-levels", label: "Costing (Levels)", type: "course", notes: ["Inter", "Final"], children: [] },
-      ],
-    },
-    {
-      key: "bcom-3yrs",
-      label: "B.Com (3 Yrs)",
-      type: "course",
-      children: [
-        {
-          key: "mcom",
-          label: "M.Com",
-          type: "course",
-          children: [
-            {
-              key: "net-set",
-              label: "NET / SET",
-              type: "exam",
-              children: [
-                { key: "asst-prof", label: "Asst. Prof", type: "outcome", children: [] },
-                {
-                  key: "phd-commerce",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [{ key: "post-doc", label: "Post Doc", type: "outcome", children: [] }],
-                },
-              ],
-            },
-          ],
-        },
-        { key: "costing-from-bcom", label: "Costing", type: "course", notes: ["Inter", "Final"], children: [] },
-        { key: "ca-from-bcom", label: "CA", type: "course", notes: ["Fundamental", "Intermediate", "Final"], children: [] },
-        {
-          key: "llb-3yrs",
-          label: "LLB (3 Yrs)",
-          type: "course",
-          children: [
-            {
-              key: "llm-2yrs-from-llb",
-              label: "LLM (2 Yrs)",
-              type: "course",
-              children: [
-                {
-                  key: "phd-from-llm",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [
-                    { key: "judicial-exam-from-phd", label: "Judicial Exam", type: "exam", children: [] },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-        {
-          key: "bed",
-          label: "B.Ed",
-          type: "course",
-          notes: ["50% in Graduation"],
-          children: [
-            {
-              key: "med",
-              label: "M.Ed",
-              type: "course",
-              children: [{ key: "phd-edu", label: "Ph.D", type: "course", children: [] }],
-            },
-            {
-              key: "secondary-teacher",
-              label: "Secondary Teacher",
-              type: "outcome",
-              notes: ["SSC", "MSC (as shown near B.Ed branch)"],
-              children: [],
-            },
-          ],
-        },
-      ],
-    },
-    { key: "company-secretariat", label: "Company Secretariat (CS)", type: "course", children: [] },
-    {
-      key: "cfa",
-      label: "Chartered Financial Analyst (CFA)",
-      type: "course",
-      children: [{ key: "cag-exam", label: "Comptroller & Auditor General of India Exam", type: "exam", children: [] }],
-    },
-    { key: "tax-practitioner", label: "Tax Practitioner (1 Yr)", type: "course", notes: ["Bengal Tax Council"], children: [] },
-    { key: "irpm", label: "Industrial Relation & Personal Management", type: "course", notes: ["PG Course"], children: [] },
-    { key: "pgdip-islamic-banking", label: "PG Dip Islamic Banking and Finance", type: "course", children: [] },
-    { key: "wbaa-exam", label: "West Bengal Audits & Accounts Service Exam (WBAA)", type: "exam", children: [] },
-    { key: "upsc-exam", label: "UPSC Exam", type: "exam", children: [] },
-  ],
-};
+// export const AFTER_12_COMMERCE_PATHWAY_MAP = {
+//   key: "after-12-commerce",
+//   title: "Graduate Level Courses After Class 12 (Commerce Students)",
+//   type: "root",
+//   entries: [
+//     {
+//       key: "bca-3yrs",
+//       label: "BCA (3 Yrs)",
+//       type: "course",
+//       children: [{ key: "mca-2yrs", label: "MCA (2 Yrs)", type: "course", children: [] }],
+//     },
+//     {
+//       key: "ba-llb-5yrs",
+//       label: "BA LLB (5 Yrs)",
+//       type: "course",
+//       children: [
+//         {
+//           key: "llm-2yrs",
+//           label: "LLM (2 Yrs)",
+//           type: "course",
+//           children: [
+//             {
+//               key: "phd-law",
+//               label: "Ph.D",
+//               type: "course",
+//               children: [{ key: "judicial-exam-law", label: "Judicial Exam", type: "exam", children: [] }],
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//     {
+//       key: "bba-3yrs",
+//       label: "BBA (3 Yrs)",
+//       type: "course",
+//       children: [
+//         {
+//           key: "mba-3yrs",
+//           label: "MBA (3 Yrs)",
+//           type: "course",
+//           children: [{ key: "phd-mba", label: "Ph.D", type: "course", children: [] }],
+//         },
+//       ],
+//     },
+//     {
+//       key: "ca-entry",
+//       label: "CA",
+//       type: "course",
+//       notes: ["Fundamental", "Intermediate"],
+//       children: [
+//         {
+//           key: "ca-levels",
+//           label: "CA (Levels)",
+//           type: "course",
+//           notes: ["Fundamental", "Intermediate", "Final"],
+//           children: [],
+//         },
+//       ],
+//     },
+//     {
+//       key: "costing-entry",
+//       label: "Costing",
+//       type: "course",
+//       notes: ["Inter"],
+//       children: [
+//         { key: "costing-levels", label: "Costing (Levels)", type: "course", notes: ["Inter", "Final"], children: [] },
+//       ],
+//     },
+//     {
+//       key: "bcom-3yrs",
+//       label: "B.Com (3 Yrs)",
+//       type: "course",
+//       children: [
+//         {
+//           key: "mcom",
+//           label: "M.Com",
+//           type: "course",
+//           children: [
+//             {
+//               key: "net-set",
+//               label: "NET / SET",
+//               type: "exam",
+//               children: [
+//                 { key: "asst-prof", label: "Asst. Prof", type: "outcome", children: [] },
+//                 {
+//                   key: "phd-commerce",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [{ key: "post-doc", label: "Post Doc", type: "outcome", children: [] }],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//         { key: "costing-from-bcom", label: "Costing", type: "course", notes: ["Inter", "Final"], children: [] },
+//         { key: "ca-from-bcom", label: "CA", type: "course", notes: ["Fundamental", "Intermediate", "Final"], children: [] },
+//         {
+//           key: "llb-3yrs",
+//           label: "LLB (3 Yrs)",
+//           type: "course",
+//           children: [
+//             {
+//               key: "llm-2yrs-from-llb",
+//               label: "LLM (2 Yrs)",
+//               type: "course",
+//               children: [
+//                 {
+//                   key: "phd-from-llm",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [
+//                     { key: "judicial-exam-from-phd", label: "Judicial Exam", type: "exam", children: [] },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//         {
+//           key: "bed",
+//           label: "B.Ed",
+//           type: "course",
+//           notes: ["50% in Graduation"],
+//           children: [
+//             {
+//               key: "med",
+//               label: "M.Ed",
+//               type: "course",
+//               children: [{ key: "phd-edu", label: "Ph.D", type: "course", children: [] }],
+//             },
+//             {
+//               key: "secondary-teacher",
+//               label: "Secondary Teacher",
+//               type: "outcome",
+//               notes: ["SSC", "MSC (as shown near B.Ed branch)"],
+//               children: [],
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//     { key: "company-secretariat", label: "Company Secretariat (CS)", type: "course", children: [] },
+//     {
+//       key: "cfa",
+//       label: "Chartered Financial Analyst (CFA)",
+//       type: "course",
+//       children: [{ key: "cag-exam", label: "Comptroller & Auditor General of India Exam", type: "exam", children: [] }],
+//     },
+//     { key: "tax-practitioner", label: "Tax Practitioner (1 Yr)", type: "course", notes: ["Bengal Tax Council"], children: [] },
+//     { key: "irpm", label: "Industrial Relation & Personal Management", type: "course", notes: ["PG Course"], children: [] },
+//     { key: "pgdip-islamic-banking", label: "PG Dip Islamic Banking and Finance", type: "course", children: [] },
+//     { key: "wbaa-exam", label: "West Bengal Audits & Accounts Service Exam (WBAA)", type: "exam", children: [] },
+//     { key: "upsc-exam", label: "UPSC Exam", type: "exam", children: [] },
+//   ],
+// };
 
 function DiagramSection() {
   const [open, setOpen] = useState(false);
@@ -315,9 +315,10 @@ const getShortPreview = (entry) => {
   return MAP[key] || "Explore the next steps and outcomes in this pathway.";
 };
 
-export default function CommerceOverviewTab() {
+export default function CommerceOverviewTab({overview_tree}) {
+
   const reduceMotion = useReducedMotion();
-  const entries = AFTER_12_COMMERCE_PATHWAY_MAP.entries;
+  const entries = overview_tree.entries;
 
   const [activeEntry, setActiveEntry] = useState(null);
 

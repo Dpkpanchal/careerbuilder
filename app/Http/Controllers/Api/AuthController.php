@@ -97,7 +97,7 @@ class AuthController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name'  => ['nullable', 'string', 'max:255'],
             'email'      => ['required', 'email', 'unique:users,email'],
-            'password'   => ['required', Password::min(6), 'confirmed'],
+            'password' => [ 'required', PasswordRule::min(6), 'confirmed', ],
             'role'       => ['required', 'in:student,parent,teacher'],
         ]);
 
@@ -149,14 +149,18 @@ class AuthController extends Controller
     }
 
 
+   
+
     public function updateProfile(Request $request)
     {
         $user = $request->user();
 
         $validator = Validator::make($request->all(), [
-            'name'   => 'required|string|max:255',
-            'mobile' => 'nullable|string|max:20',
-            'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'first_name' => 'required|string|max:255',
+            'last_name'  => 'required|string|max:255',
+             'email'      => 'nullable|email|max:255',
+            // 'avatar'     => 'nullable|image|mimes:jpg,jpeg,png,gif,bmp,svg,webp,heic,ico|max:5120',
+            'avatar' => 'nullable|file|max:2048|mimetypes:image/jpeg,image/png,image/gif,image/bmp,image/svg+xml,image/webp,image/heic,image/heif,image/x-icon',
         ]);
 
         if ($validator->fails()) {
@@ -166,17 +170,40 @@ class AuthController extends Controller
             ], 422);
         }
 
-        $user->name = $request->name;
-        $user->mobile = $request->mobile;
+        // Concatenate first_name and last_name and save as name
+        $user->name = $request->first_name . ' ' . $request->last_name;
+        $user->email = $request->email;
+
+        // if ($request->hasFile('avatar')) {
+        //     if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
+        //         Storage::disk('public')->delete($user->avatar);
+        //     }
+        //     $user->avatar = $request->file('avatar')->store('avatars', 'public');
+        // }
 
         if ($request->hasFile('avatar')) {
-
+        // Delete old avatar if exists
             if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
                 Storage::disk('public')->delete($user->avatar);
             }
-
-            $user->avatar = $request->file('avatar')->store('avatars', 'public');
+            
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension();
+            
+            // Handle HEIC files
+            if (in_array(strtolower($extension), ['heic', 'heif'])) {
+                // You might want to convert HEIC to JPEG using external library
+                // Or just store as is
+                $filename = time() . '_' . uniqid() . '.' . $extension;
+                $avatarPath = $file->storeAs('avatars', $filename, 'public');
+            } else {
+                $filename = time() . '_' . uniqid() . '.' . $extension;
+                $avatarPath = $file->storeAs('avatars', $filename, 'public');
+            }
+            
+            $user->avatar = $avatarPath;
         }
+
 
         $user->save();
 
@@ -184,12 +211,13 @@ class AuthController extends Controller
             'success' => true,
             'message' => 'Profile updated successfully.',
             'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'mobile' => $user->mobile,
-                'role' => $user->role,
-                'avatar' => $user->avatar_url,
+                'id'         => $user->id,
+                'name'       => $user->name,
+                'email'      => $user->email,
+                'avatar'     => $user->avatar_url,
+                // Also return first_name and last_name for frontend use
+                'first_name' => $request->first_name,
+                'last_name'  => $request->last_name,
             ]
         ]);
     }
@@ -230,63 +258,48 @@ class AuthController extends Controller
             'email' => 'required|email',
         ]);
 
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+        $user = User::where('email', $request->email)->first();
 
-        if ($status === Password::RESET_LINK_SENT) {
+        if (!$user) {
             return response()->json([
-                'success' => true,
-                'message' => __($status),
-            ]);
+                'success' => false,
+                'message' => 'Email not found.',
+            ], 404);
         }
 
         return response()->json([
-            'success' => false,
-            'message' => __($status),
-        ], 400);
+            'success' => true,
+            'message' => 'Email verified.',
+        ]);
     }
+
 
     public function resetPassword(Request $request)
     {
         $request->validate([
-            'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|min:6|confirmed',
         ]);
 
-        $status = Password::reset(
-            $request->only(
-                'email',
-                'password',
-                'password_confirmation',
-                'token'
-            ),
-            function ($user, $password) {
+        $user = User::where('email', $request->email)->first();
 
-                $user->forceFill([
-                    'password' => Hash::make($password),
-                    'remember_token' => Str::random(60),
-                ])->save();
-
-                // Optional
-                $user->tokens()->delete();
-            }
-        );
-
-        if ($status === Password::PASSWORD_RESET) {
-
+        if (!$user) {
             return response()->json([
-                'success' => true,
-                'message' => __($status),
-            ]);
+                'success' => false,
+                'message' => 'Email not found.',
+            ], 404);
         }
 
+        $user->password = Hash::make($request->password);
+        $user->save();
+
         return response()->json([
-            'success' => false,
-            'message' => __($status),
-        ], 400);
+            'success' => true,
+            'message' => 'Password updated successfully.',
+        ]);
     }
+
+
 
 
 

@@ -28,108 +28,8 @@ const TABS = [
   { id: "mcom", label: "M.Com", href: '/courses/mcom' },
   { id: "bba", label: "BBA", href: '/courses/bba' },
   { id: "mba", label: "MBA / PGDM", href: '/courses/mba-pgdm' },
-  { id: "finance", label: "Finance / Taxation / Accounting", href: '/courses/finance-taxation-accounting' },
-  { id: "pro", label: "CA / CS / CMA", href: '#' },
-];
-
-/* -------------------------------------------------------------
-   DATA – Finance / Taxation / Accounting (Career Book aligned)
-------------------------------------------------------------- */
-
-const FINANCE_PATHS = [
-  {
-    title: "Accounting Path",
-    focus:
-      "Core accounting, bookkeeping, compliance support, financial statements and reporting.",
-    examples: "Accountant, Accounts Executive, Audit Assistant",
-    icon: Calculator,
-  },
-  {
-    title: "Taxation Path",
-    focus:
-      "Income Tax, GST basics, filings, documentation, compliance and advisory support.",
-    examples: "Tax Assistant, GST Executive, Compliance Executive",
-    icon: FileText,
-  },
-  {
-    title: "Finance Path",
-    focus:
-      "Corporate finance basics, banking operations, analysis support, MIS and reporting.",
-    examples: "Finance Executive, Banking Ops, MIS Analyst (entry level)",
-    icon: LineChart,
-  },
-];
-
-const COURSE_OPTIONS = [
-  {
-    title: "Academic Degrees",
-    desc: "B.Com / M.Com / MBA (Finance) provide theoretical and structural base.",
-  },
-  {
-    title: "Professional Courses",
-    desc: "CA / CMA / CS for high-value professional commerce roles.",
-  },
-  {
-    title: "Skill-Based Certifications",
-    desc: "Tally/ERP, GST basics, Income Tax, Excel, Power BI, basic analytics.",
-  },
-  {
-    title: "Short-term Diplomas",
-    desc: "Accounting & taxation diplomas for job-oriented entry roles.",
-  },
-];
-
-const TYPICAL_ROLES = [
-  "Accounts Executive / Junior Accountant",
-  "Billing & MIS Executive",
-  "GST / Tax Filing Assistant",
-  "Audit Support / Article Assistant",
-  "Banking Operations Executive",
-  "Finance / Accounts Analyst (entry level)",
-];
-
-const WORK_SETTINGS = [
-  {
-    title: "Corporate Accounts & Finance",
-    desc: "Accounting, billing, reconciliation, reporting, MIS roles.",
-    icon: Calculator,
-  },
-  {
-    title: "CA / Tax Consultant Offices",
-    desc: "Tax filings, audits, compliance and documentation work.",
-    icon: FileText,
-  },
-  {
-    title: "Banks & Financial Institutions",
-    desc: "Operations, documentation, relationship and finance support roles.",
-    icon: Landmark,
-  },
-  {
-    title: "SMEs & Startups",
-    desc: "Multi-role exposure: accounts + compliance + operations.",
-    icon: Briefcase,
-  },
-];
-
-const ELIGIBILITY_NOTES = [
-  "Open to commerce graduates and management graduates; some roles accept other streams with skills.",
-  "Accounting/tax roles strongly prefer commerce background or relevant certifications.",
-  "Professional courses have separate eligibility and exam structures.",
-];
-
-const COMMON_DOCS = [
-  "Academic marksheets & degree certificates",
-  "ID proof (Aadhaar etc.)",
-  "Resume with skills/certifications",
-  "Internship / experience certificates (if any)",
-];
-
-const BUILD_PROFILE = [
-  "Excel (advanced): formulas, pivot tables, reporting",
-  "Practical accounting entries & real statements understanding",
-  "Basic GST + Income Tax filing exposure",
-  "Tally / ERP hands-on practice",
-  "Accuracy, compliance mindset & documentation discipline",
+  { id: "finance", label: "Finance / Taxation / Accounting", href: '/courses/finance' },
+  { id: "pro", label: "CA / CS / CMA", href: '/courses/finance-taxation-accounting' },
 ];
 
 /* -------------------------------------------------------------
@@ -169,23 +69,57 @@ function MiniDL({ items }) {
 
 /* -------------------------------------------------------------
    PAGE
-   Route: /courses/finance
 ------------------------------------------------------------- */
 
-export default function FinanceAccountingPage() {
-  const snapshot = useMemo(
-    () => [
-      { k: "Career domain", v: "Finance • Taxation • Accounting" },
-      { k: "Entry routes", v: "B.Com / M.Com / BBA / MBA + skills" },
-      { k: "Best for", v: "Accounts • Tax • Banking • Finance roles" },
-      { k: "Growth drivers", v: "Skills + accuracy + certifications" },
-      { k: "Reality check", v: "Practical exposure > degree name" },
-    ],
-    []
-  );
+export default function FinanceAccountingPage({ courseContent }) {
+  // Debug log
+  console.log('=== FinanceAccountingPage Data ===');
+  console.log('Course Content:', courseContent);
+
+  // Extract data from courseContent
+  const financeLadder = courseContent?.finance_ladder || [];
+  const courseOptions = courseContent?.course_options || [];
+  const typicalRoles = courseContent?.typical_roles || [];
+  const workSettings = courseContent?.work_settings || [];
+  const eligibilityNotes = courseContent?.eligibility_notes || [];
+  const commonDocs = courseContent?.common_docs || [];
+  const buildProfile = courseContent?.build_profile || [];
+  const snapshot = courseContent?.snapshot || [];
+  const introHeading = courseContent?.intro_heading || "About this career domain";
+  const introDescription = courseContent?.intro_description || "Finance, Taxation and Accounting form the backbone of every business. These roles focus on managing money, compliance, reporting, analysis and statutory responsibilities.";
+  const introDescriptionSecondary = courseContent?.intro_description_secondary || "Career growth in this domain depends more on practical skills, accuracy and certifications than just academic degrees.";
+
+  // Create snapshot items
+  const snapshotItems = snapshot.length > 0 
+    ? snapshot.map(item => ({ k: item.key, v: item.value }))
+    : [
+        { k: "Career domain", v: "Finance • Taxation • Accounting" },
+        { k: "Entry routes", v: "B.Com / M.Com / BBA / MBA + skills" },
+        { k: "Best for", v: "Accounts • Tax • Banking • Finance roles" },
+        { k: "Growth drivers", v: "Skills + accuracy + certifications" },
+        { k: "Reality check", v: "Practical exposure > degree name" },
+      ];
+
+  // If no data found, show message
+  if (financeLadder.length === 0 && courseOptions.length === 0 && typicalRoles.length === 0) {
+    return (
+      <FrontendLayout>
+        <HeroInner
+          title="Finance / Taxation / Accounting"
+          breadcrumb="Business & Management → Finance / Taxation / Accounting"
+        />
+        <CoursesTabsBar tabs={TABS} activeId="finance" />
+        <div className="container py-5">
+          <div className="alert alert-warning">
+            <h4>No courses available</h4>
+            <p>We're currently updating our course listings. Please check back later.</p>
+          </div>
+        </div>
+      </FrontendLayout>
+    );
+  }
 
   return (
-    <>
     <FrontendLayout>
       <HeroInner
         title="Finance / Taxation / Accounting"
@@ -200,18 +134,14 @@ export default function FinanceAccountingPage() {
             <div className="col-12 col-lg-7">
               <h2 className="sectionHeading mb-3 d-flex align-items-center gap-2">
                 <Calculator size={18} className="text-primary" />
-                <span>About this career domain</span>
+                <span>{introHeading}</span>
               </h2>
 
-              <p className="sectionSub">
-                Finance, Taxation and Accounting form the backbone of every business. These roles focus on managing
-                money, compliance, reporting, analysis and statutory responsibilities.
-              </p>
+              <p className="sectionSub">{introDescription}</p>
 
-              <p className="sectionSub mb-0">
-                Career growth in this domain depends more on practical skills, accuracy and certifications than just
-                academic degrees.
-              </p>
+              {introDescriptionSecondary && (
+                <p className="sectionSub mb-0">{introDescriptionSecondary}</p>
+              )}
             </div>
 
             <div className="col-12 col-lg-5">
@@ -220,7 +150,7 @@ export default function FinanceAccountingPage() {
                   <Layers3 size={18} className="text-primary" />
                   <span>Quick Snapshot</span>
                 </h3>
-                <MiniDL items={snapshot} />
+                <MiniDL items={snapshotItems} />
               </div>
 
               <div className="sectionCard bg-light border mt-3">
@@ -237,107 +167,136 @@ export default function FinanceAccountingPage() {
         </div>
       </section>
 
-      {/* 2) CAREER PATHS */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="Major career paths"
-            subtitle="Most roles fall into one of these three practical tracks."
-          />
+      {/* 2) CAREER PATHS (FINANCE LADDER) */}
+      {financeLadder.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={GraduationCap}
+              title="Major career paths"
+              subtitle="Most roles fall into one of these practical tracks."
+            />
 
-          <div className="row g-3">
-            {FINANCE_PATHS.map((p) => {
-              const Icon = p.icon;
-              return (
-                <div key={p.title} className="col-12 col-md-4">
-                  <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{p.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-1">{p.focus}</p>
-                    <p className="small text-muted mb-0">
-                      <strong>Examples:</strong> {p.examples}
-                    </p>
+            <div className="row g-3">
+              {financeLadder.map((path, index) => {
+                // Get icon based on title
+                const getIcon = (title) => {
+                  if (title.includes("Accounting")) return Calculator;
+                  if (title.includes("Taxation")) return FileText;
+                  if (title.includes("Finance")) return LineChart;
+                  return Calculator;
+                };
+                const Icon = path.icon || getIcon(path.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-4">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{path.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-1">{path.focus}</p>
+                      {path.examples && (
+                        <p className="small text-muted mb-0">
+                          <strong>Examples:</strong> {path.examples}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 3) COURSES & ROUTES */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={ShieldCheck}
-            title="Courses & entry routes"
-            subtitle="Different learning routes lead to finance/accounting roles."
-          />
+      {courseOptions.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={ShieldCheck}
+              title="Courses & entry routes"
+              subtitle="Different learning routes lead to finance/accounting roles."
+            />
 
-          <div className="row g-3">
-            {COURSE_OPTIONS.map((c) => (
-              <div key={c.title} className="col-12 col-md-6">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{c.title}</h3>
-                  <p className="small text-muted mb-0">{c.desc}</p>
+            <div className="row g-3">
+              {courseOptions.map((course, index) => (
+                <div key={index} className="col-12 col-md-6">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">{course.title}</h3>
+                    <p className="small text-muted mb-0">{course.desc || course.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 4) ROLES & WORK SETTINGS */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={Briefcase}
-            title="Roles & work environments"
-            subtitle="Work settings vary by organisation size and role type."
-          />
+      {(typicalRoles.length > 0 || workSettings.length > 0) && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={Briefcase}
+              title="Roles & work environments"
+              subtitle="Work settings vary by organisation size and role type."
+            />
 
-          <div className="row g-4 align-items-stretch">
-            <div className="col-12 col-lg-6 d-flex">
-              <div className="sectionCard h-100">
-                <h3 className="h6 mb-3">Typical roles</h3>
-                <ul className="list-unstyled small mb-0">
-                  {TYPICAL_ROLES.map((r) => (
-                    <li key={r} className="mb-2 d-flex">
-                      <span className="me-2">•</span>
-                      <span>{r}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-12 col-lg-6 d-flex">
-              <div className="sectionCard h-100">
-                <h3 className="h6 mb-3">Where you work</h3>
-                <div className="row g-3">
-                  {WORK_SETTINGS.map((w) => {
-                    const Icon = w.icon;
-                    return (
-                      <div key={w.title} className="col-12">
-                        <div className="sectionCard bg-light border">
-                          <h4 className="h6 mb-1 d-flex align-items-center gap-2">
-                            <Icon size={16} className="text-primary" />
-                            <span>{w.title}</span>
-                          </h4>
-                          <p className="small text-muted mb-0">{w.desc}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
+            <div className="row g-4 align-items-stretch">
+              {typicalRoles.length > 0 && (
+                <div className="col-12 col-lg-6 d-flex">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-3">Typical roles</h3>
+                    <ul className="list-unstyled small mb-0">
+                      {typicalRoles.map((role, index) => (
+                        <li key={index} className="mb-2 d-flex">
+                          <span className="me-2">•</span>
+                          <span>{role}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {workSettings.length > 0 && (
+                <div className="col-12 col-lg-6 d-flex">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-3">Where you work</h3>
+                    <div className="row g-3">
+                      {workSettings.map((work, index) => {
+                        // Get icon based on title
+                        const getIcon = (title) => {
+                          if (title.includes("Accounts") || title.includes("Finance")) return Calculator;
+                          if (title.includes("CA") || title.includes("Tax")) return FileText;
+                          if (title.includes("Bank") || title.includes("Financial Institutions")) return Landmark;
+                          if (title.includes("SME") || title.includes("Startups")) return Briefcase;
+                          return Briefcase;
+                        };
+                        const Icon = work.icon || getIcon(work.title);
+
+                        return (
+                          <div key={index} className="col-12">
+                            <div className="sectionCard bg-light border">
+                              <h4 className="h6 mb-1 d-flex align-items-center gap-2">
+                                <Icon size={16} className="text-primary" />
+                                <span>{work.title}</span>
+                              </h4>
+                              <p className="small text-muted mb-0">{work.desc || work.description}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 5) ADMISSION & PROFILE */}
       <section className="py-4 py-md-5">
@@ -352,8 +311,12 @@ export default function FinanceAccountingPage() {
             <div className="col-12 col-lg-7 d-flex">
               <div className="nitDarkGlassBox w-100">
                 <ul className="nitDarkList mb-0">
-                  {ELIGIBILITY_NOTES.map((x) => (
-                    <li key={x}>{x}</li>
+                  {(eligibilityNotes.length > 0 ? eligibilityNotes : [
+                    "Open to commerce graduates and management graduates; some roles accept other streams with skills.",
+                    "Accounting/tax roles strongly prefer commerce background or relevant certifications.",
+                    "Professional courses have separate eligibility and exam structures."
+                  ]).map((note, index) => (
+                    <li key={index}>{note}</li>
                   ))}
                 </ul>
               </div>
@@ -367,43 +330,49 @@ export default function FinanceAccountingPage() {
                 </h3>
 
                 <ul className="list-unstyled small mb-0">
-                  {COMMON_DOCS.map((d) => (
-                    <li key={d} className="mb-2 d-flex">
+                  {(commonDocs.length > 0 ? commonDocs : [
+                    "Academic marksheets & degree certificates",
+                    "ID proof (Aadhaar etc.)",
+                    "Resume with skills/certifications",
+                    "Internship / experience certificates (if any)"
+                  ]).map((doc, index) => (
+                    <li key={index} className="mb-2 d-flex">
                       <span className="me-2">•</span>
-                      <span>{d}</span>
+                      <span>{doc}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="col-12">
-              <div className="sectionCard">
-                <h3 className="h6 mb-3 d-flex align-items-center gap-2">
-                  <Users size={18} className="text-primary" />
-                  <span>Build your profile</span>
-                </h3>
+            {buildProfile.length > 0 && (
+              <div className="col-12">
+                <div className="sectionCard">
+                  <h3 className="h6 mb-3 d-flex align-items-center gap-2">
+                    <Users size={18} className="text-primary" />
+                    <span>Build your profile</span>
+                  </h3>
 
-                <div className="row g-3">
-                  {BUILD_PROFILE.map((t) => (
-                    <div key={t} className="col-12 col-md-6 col-lg-4">
-                      <div className="sectionCard bg-light border h-100">
-                        <h4 className="h6 mb-1">Key focus</h4>
-                        <p className="small text-muted mb-0">{t}</p>
+                  <div className="row g-3">
+                    {buildProfile.map((item, index) => (
+                      <div key={index} className="col-12 col-md-6 col-lg-4">
+                        <div className="sectionCard bg-light border h-100">
+                          <h4 className="h6 mb-1">Key focus</h4>
+                          <p className="small text-muted mb-0">{item}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                <div className="text-muted small mt-3" style={{ maxWidth: "95ch" }}>
-                  Sensible shortcut: Excel + Tally + GST basics + internship = fastest entry into accounts/tax roles.
+                  <div className="text-muted small mt-3" style={{ maxWidth: "95ch" }}>
+                    Sensible shortcut: Excel + Tally + GST basics + internship = fastest entry into accounts/tax roles.
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
-      </FrontendLayout>
-    </>
+    </FrontendLayout>
   );
 }

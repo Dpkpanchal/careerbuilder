@@ -19,130 +19,6 @@ import {
 } from "lucide-react";
 
 /* -------------------------------------------------------------
-   DATA (Career Book aligned – UG Paramedical after 10+2)
-   - No links (portal pattern)
-------------------------------------------------------------- */
-
-const UG_LADDER = [
-  {
-    title: "UG Paramedical Degree (After 10+2)",
-    duration: "Typically 3–4 Years (varies by course)",
-    focus:
-      "Degree-level training for allied health roles: diagnostics, therapy, imaging, emergency and clinical support.",
-  },
-  {
-    title: "Internship / Clinical Training",
-    duration: "As per course norms",
-    focus:
-      "Hands-on hospital/clinic exposure in labs, wards, diagnostic centres, rehabilitation units, OT, imaging etc.",
-  },
-  {
-    title: "Work + Specialised Certifications",
-    duration: "On-the-job (continuous)",
-    focus:
-      "Skill upgrades in specialised tools, protocols and clinical systems to strengthen employability.",
-  },
-  {
-    title: "PG Paramedical / Specialisation",
-    duration: "1–2 Years (varies)",
-    focus:
-      "Advanced learning in chosen domain for senior roles, teaching, research and specialised departments.",
-  },
-];
-
-const ELIGIBILITY_NOTES = [
-  "Class 12 passed (Science is commonly preferred; exact subject rules vary by course).",
-  "Some courses may require PCB/PCM; others accept any stream — verify institute norms.",
-  "Admissions can be merit-based or entrance-based depending on university/state rules.",
-  "Medical fitness requirements may apply (course/institute-wise).",
-];
-
-const UG_COURSE_OPTIONS = [
-  {
-    name: "B.Sc Medical Laboratory Technology (BMLT / B.Sc MLT)",
-    notes: "Advanced lab diagnostics, pathology workflow, quality control, reporting systems.",
-  },
-  {
-    name: "B.Sc Radiology & Imaging Technology",
-    notes: "Imaging systems support (X-ray/CT/MRI workflow basics as per training), patient safety protocols.",
-  },
-  {
-    name: "B.Sc Operation Theatre & Anaesthesia Technology",
-    notes: "OT systems, sterilisation, instrument management, anaesthesia support workflow (as per course scope).",
-  },
-  {
-    name: "Bachelor of Physiotherapy (BPT) / B.Sc Physiotherapy",
-    notes: "Rehabilitation, therapy techniques, sports/ortho support; physiotherapy is a major allied health career.",
-  },
-  {
-    name: "B.Sc Dialysis Technology",
-    notes: "Dialysis unit operations support, patient monitoring, infection control and safety protocols.",
-  },
-  {
-    name: "B.Sc Optometry",
-    notes: "Eye testing, vision care support, optical systems; works with eye hospitals/clinics.",
-  },
-  {
-    name: "B.Sc Emergency & Trauma Care / Critical Care (course names vary)",
-    notes: "Emergency response basics, trauma support, ICU workflow understanding (varies by institute).",
-  },
-  {
-    name: "B.Sc Cardiac Care / Respiratory Care (course names vary)",
-    notes: "Support roles in cardiac/respiratory units; eligibility and scope vary by institute norms.",
-  },
-];
-
-const SPECIALISATION_AREAS = [
-  "Advanced Lab Diagnostics & Quality",
-  "CT / MRI workflow specialisation (as per role rules)",
-  "ICU / Critical Care support systems",
-  "Rehabilitation focus (Neuro/Ortho/Sports)",
-  "Hospital infection control & patient safety",
-];
-
-const WORK_SETTINGS = [
-  {
-    title: "Hospitals & Multi-speciality Centres",
-    desc: "Allied health departments: lab, imaging, OT support, physiotherapy, dialysis, emergency support.",
-  },
-  {
-    title: "Diagnostic Labs & Pathology Centres",
-    desc: "Testing, reporting systems, quality control, sample processing (lab routes).",
-  },
-  {
-    title: "Imaging & Radiology Centres",
-    desc: "Imaging support departments (radiology routes) under centre protocols.",
-  },
-  {
-    title: "Rehab & Physiotherapy Clinics",
-    desc: "Therapy and rehabilitation services, sports injury support, home-care rehab setups.",
-  },
-];
-
-const ADMISSION_NOTES = [
-  "Prefer recognised institutions with hospital tie-ups and strong practical training.",
-  "Check curriculum, internship/clinical exposure, and lab/equipment availability before joining.",
-  "Be careful of ‘shortcuts’ or unverified course titles — confirm recognition and scope.",
-];
-
-const COMMON_DOCS = [
-  "Class 10 & 12 marksheets",
-  "ID proof (Aadhaar etc.)",
-  "Photo + signature",
-  "Category/EWS/Income certificate (if applicable)",
-  "Domicile (if required)",
-  "Medical fitness certificate (if asked by institute)",
-];
-
-const BUILD_PROFILE = [
-  "Strong basics in biology + healthcare communication",
-  "Comfort with practical work, instruments, protocols and hygiene",
-  "Basic computer skills (reports, EMR, billing/records)",
-  "Teamwork mindset (you work alongside doctors & nurses)",
-  "Long-term plan: PG/specialisation for senior roles and growth",
-];
-
-/* -------------------------------------------------------------
    UI Helpers (match Nursing/MBBS pages)
 ------------------------------------------------------------- */
 
@@ -179,20 +55,55 @@ function MiniDL({ items }) {
    PAGE
 ------------------------------------------------------------- */
 
-export default function UGParamedicalPage() {
-  const snapshot = useMemo(
-    () => [
-      { k: "Who it’s for", v: "Students after Class 12 (10+2)" },
-      { k: "Degree duration", v: "Typically 3–4 Years (varies)" },
-      { k: "Core areas", v: "Lab • Imaging • OT • Physio • Dialysis" },
-      { k: "Work settings", v: "Hospitals • Labs • Rehab • Imaging centres" },
-      { k: "Reality check", v: "Internship + skills decide placement quality" },
-    ],
-    []
-  );
+export default function UGParamedicalPage({ courseContent }) {
+  // Debug log
+  console.log('=== UGParamedicalPage Data ===');
+  console.log('Course Content:', courseContent);
+
+  // Extract data from courseContent
+  const ugLadder = courseContent?.ug_ladder || [];
+  const eligibilityNotes = courseContent?.eligibility_notes || [];
+  const ugCourseOptions = courseContent?.ug_course_options || [];
+  const specialisationAreas = courseContent?.specialisation_areas || [];
+  const workSettings = courseContent?.work_settings || [];
+  const admissionNotes = courseContent?.admission_notes || [];
+  const commonDocs = courseContent?.common_docs || [];
+  const buildProfile = courseContent?.build_profile || [];
+  const snapshot = courseContent?.snapshot || [];
+  const introHeading = courseContent?.intro_heading || "About UG Paramedical Degrees";
+  const introDescription = courseContent?.intro_description || "UG paramedical degrees (after Class 12) prepare students for professional allied health roles that support diagnosis, treatment, rehabilitation and clinical services. These careers work closely with doctors, nurses, laboratories, imaging departments, OT and therapy units.";
+  const introDescriptionSecondary = courseContent?.intro_description_secondary || "Compared to short diplomas, UG degrees offer broader training and stronger long-term growth—especially if you build practical skills and plan a PG/specialisation later.";
+
+  // Create snapshot items
+  const snapshotItems = snapshot.length > 0 
+    ? snapshot.map(item => ({ k: item.key, v: item.value }))
+    : [
+        { k: "Who it's for", v: "Students after Class 12 (10+2)" },
+        { k: "Degree duration", v: "Typically 3–4 Years (varies)" },
+        { k: "Core areas", v: "Lab • Imaging • OT • Physio • Dialysis" },
+        { k: "Work settings", v: "Hospitals • Labs • Rehab • Imaging centres" },
+        { k: "Reality check", v: "Internship + skills decide placement quality" },
+      ];
+
+  // If no data found, show message
+  if (ugLadder.length === 0 && ugCourseOptions.length === 0) {
+    return (
+      <FrontendLayout>
+        <HeroInner
+          title="UG Paramedical Degrees (After 10+2)"
+          breadcrumb="Medical & Paramedical → UG Paramedical"
+        />
+        <div className="container py-5">
+          <div className="alert alert-warning">
+            <h4>No courses available</h4>
+            <p>We're currently updating our course listings. Please check back later.</p>
+          </div>
+        </div>
+      </FrontendLayout>
+    );
+  }
 
   return (
-    <>
     <FrontendLayout>
       <HeroInner
         title="UG Paramedical Degrees (After 10+2)"
@@ -206,19 +117,14 @@ export default function UGParamedicalPage() {
             <div className="col-12 col-lg-7">
               <h2 className="sectionHeading mb-3 d-flex align-items-center gap-2">
                 <HeartPulse size={18} className="text-primary" />
-                <span>About UG Paramedical Degrees</span>
+                <span>{introHeading}</span>
               </h2>
 
-              <p className="sectionSub">
-                UG paramedical degrees (after Class 12) prepare students for professional allied health roles that support
-                diagnosis, treatment, rehabilitation and clinical services. These careers work closely with doctors,
-                nurses, laboratories, imaging departments, OT and therapy units.
-              </p>
+              <p className="sectionSub">{introDescription}</p>
 
-              <p className="sectionSub mb-0">
-                Compared to short diplomas, UG degrees offer broader training and stronger long-term growth—especially if
-                you build practical skills and plan a PG/specialisation later.
-              </p>
+              {introDescriptionSecondary && (
+                <p className="sectionSub mb-0">{introDescriptionSecondary}</p>
+              )}
             </div>
 
             <div className="col-12 col-lg-5">
@@ -227,7 +133,7 @@ export default function UGParamedicalPage() {
                   <Layers3 size={18} className="text-primary" />
                   <span>Quick Snapshot</span>
                 </h3>
-                <MiniDL items={snapshot} />
+                <MiniDL items={snapshotItems} />
               </div>
 
               <div className="sectionCard bg-light border mt-3">
@@ -246,221 +152,242 @@ export default function UGParamedicalPage() {
       </section>
 
       {/* 2) UG LADDER */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="UG paramedical ladder"
-            subtitle="Start with a degree route, take internships seriously, then specialise for senior roles."
-          />
+      {ugLadder.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={GraduationCap}
+              title="UG paramedical ladder"
+              subtitle="Start with a degree route, take internships seriously, then specialise for senior roles."
+            />
 
-          <div className="row g-3">
-            {UG_LADDER.map((c) => (
-              <div key={c.title} className="col-12 col-md-6">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{c.title}</h3>
-                  <p className="small text-muted mb-1">{c.duration}</p>
-                  <p className="small text-muted mb-0">{c.focus}</p>
+            <div className="row g-3">
+              {ugLadder.map((course, index) => (
+                <div key={index} className="col-12 col-md-6">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">{course.title}</h3>
+                    {course.duration && (
+                      <p className="small text-muted mb-1">{course.duration}</p>
+                    )}
+                    {course.focus && (
+                      <p className="small text-muted mb-0">{course.focus}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Tip: Choose a domain (Lab/Imaging/Physio/OT/Dialysis) early and build deep practical skill in it.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Tip: Choose a domain (Lab/Imaging/Physio/OT/Dialysis) early and build deep practical skill in it.
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 3) ELIGIBILITY */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={ShieldCheck}
-            title="Eligibility (common patterns)"
-            subtitle="Confirm exact criteria from your target institution before you apply."
-          />
+      {eligibilityNotes.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={ShieldCheck}
+              title="Eligibility (common patterns)"
+              subtitle="Confirm exact criteria from your target institution before you apply."
+            />
 
-          <div className="row g-4 align-items-stretch">
-            <div className="col-12 col-lg-7 d-flex">
-              <div className="nitDarkGlassBox w-100">
-                <span className="nitDarkChip mb-3 d-inline-flex align-items-center gap-2">
-                  <BookOpen size={16} />
-                  <span>Eligibility notes</span>
-                </span>
+            <div className="row g-4 align-items-stretch">
+              <div className="col-12 col-lg-7 d-flex">
+                <div className="nitDarkGlassBox w-100">
+                  <span className="nitDarkChip mb-3 d-inline-flex align-items-center gap-2">
+                    <BookOpen size={16} />
+                    <span>Eligibility notes</span>
+                  </span>
 
-                <ul className="nitDarkList mb-0">
-                  {ELIGIBILITY_NOTES.map((x) => (
-                    <li key={x}>{x}</li>
-                  ))}
-                </ul>
+                  <ul className="nitDarkList mb-0">
+                    {eligibilityNotes.map((note, index) => (
+                      <li key={index}>{note}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <div className="col-12 col-lg-5 d-flex">
-              <div className="sectionCard bg-light border w-100">
-                <h3 className="h6 mb-3">Best suited for</h3>
-                <p className="small text-muted mb-0">
-                  Students who like practical healthcare work, can handle instruments/protocols, and want a stable allied
-                  health career with scope to grow through specialisation.
-                </p>
+              <div className="col-12 col-lg-5 d-flex">
+                <div className="sectionCard bg-light border w-100">
+                  <h3 className="h6 mb-3">Best suited for</h3>
+                  <p className="small text-muted mb-0">
+                    Students who like practical healthcare work, can handle instruments/protocols, and want a stable allied
+                    health career with scope to grow through specialisation.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 4) COMMON UG OPTIONS */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={Activity}
-            title="Popular UG paramedical degree options"
-            subtitle="These are commonly found across universities. Availability differs by state and institution."
-          />
+      {ugCourseOptions.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={Activity}
+              title="Popular UG paramedical degree options"
+              subtitle="These are commonly found across universities. Availability differs by state and institution."
+            />
 
-          <div className="row g-3">
-            {UG_COURSE_OPTIONS.map((x) => (
-              <div key={x.name} className="col-12 col-md-6 col-lg-4">
-                <div className="sectionCard h-100">
-                  <div className="d-flex align-items-start gap-2">
-                    <Activity size={18} className="text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="h6 mb-1">{x.name}</h3>
-                      <p className="small text-muted mb-0">{x.notes}</p>
+            <div className="row g-3">
+              {ugCourseOptions.map((option, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-4">
+                  <div className="sectionCard h-100">
+                    <div className="d-flex align-items-start gap-2">
+                      <Activity size={18} className="text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h3 className="h6 mb-1">{option.name}</h3>
+                        <p className="small text-muted mb-0">{option.notes}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Note: Course titles differ (B.Sc / Bachelor). Focus on curriculum + internship + practical exposure.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Note: Course titles differ (B.Sc / Bachelor). Focus on curriculum + internship + practical exposure.
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 5) SPECIALISATION AREAS */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={ShieldCheck}
-            title="Specialisation directions (for growth)"
-            subtitle="These are growth directions you can aim for with experience + certifications/PG."
-          />
+      {specialisationAreas.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={ShieldCheck}
+              title="Specialisation directions (for growth)"
+              subtitle="These are growth directions you can aim for with experience + certifications/PG."
+            />
 
-          <div className="row g-3">
-            {SPECIALISATION_AREAS.map((s) => (
-              <div key={s} className="col-12 col-md-6 col-lg-4">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">Growth focus</h3>
-                  <p className="small text-muted mb-0">{s}</p>
+            <div className="row g-3">
+              {specialisationAreas.map((area, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-4">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">Growth focus</h3>
+                    <p className="small text-muted mb-0">{area}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 6) WORK SETTINGS */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={Hospital}
-            title="Where you can work"
-            subtitle="Your role scope depends on your degree, internship quality and employer policy."
-          />
+      {workSettings.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={Hospital}
+              title="Where you can work"
+              subtitle="Your role scope depends on your degree, internship quality and employer policy."
+            />
 
-          <div className="row g-3">
-            {WORK_SETTINGS.map((w) => (
-              <div key={w.title} className="col-12 col-md-6 col-lg-3">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{w.title}</h3>
-                  <p className="small text-muted mb-0">{w.desc}</p>
+            <div className="row g-3">
+              {workSettings.map((work, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-3">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">{work.title}</h3>
+                    <p className="small text-muted mb-0">{work.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 7) ADMISSION & DOCUMENTS */}
-      <section className="py-4 py-md-5">
-        <div className="container">
-          <SectionHeader
-            icon={ClipboardList}
-            title="Admission & Documents"
-            subtitle="Keep this practical checklist ready."
-          />
+      {(admissionNotes.length > 0 || commonDocs.length > 0) && (
+        <section className="py-4 py-md-5">
+          <div className="container">
+            <SectionHeader
+              icon={ClipboardList}
+              title="Admission & Documents"
+              subtitle="Keep this practical checklist ready."
+            />
 
-          <div className="row g-4 align-items-stretch">
-            <div className="col-12 col-lg-7 d-flex">
-              <div className="nitDarkGlassBox w-100">
-                <span className="nitDarkChip mb-3 d-inline-flex align-items-center gap-2">
-                  <Building2 size={16} />
-                  <span>Admission basics</span>
-                </span>
+            <div className="row g-4 align-items-stretch">
+              {admissionNotes.length > 0 && (
+                <div className="col-12 col-lg-7 d-flex">
+                  <div className="nitDarkGlassBox w-100">
+                    <span className="nitDarkChip mb-3 d-inline-flex align-items-center gap-2">
+                      <Building2 size={16} />
+                      <span>Admission basics</span>
+                    </span>
 
-                <ul className="nitDarkList mb-0">
-                  {ADMISSION_NOTES.map((x) => (
-                    <li key={x}>{x}</li>
-                  ))}
-                </ul>
-              </div>
+                    <ul className="nitDarkList mb-0">
+                      {admissionNotes.map((note, index) => (
+                        <li key={index}>{note}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {commonDocs.length > 0 && (
+                <div className="col-12 col-lg-5 d-flex">
+                  <div className="sectionCard bg-light border w-100">
+                    <h3 className="h6 mb-3 d-flex align-items-center gap-2">
+                      <Layers3 size={18} className="text-primary" />
+                      <span>Common documents checklist</span>
+                    </h3>
+
+                    <ul className="list-unstyled small mb-0">
+                      {commonDocs.map((doc, index) => (
+                        <li key={index} className="mb-2 d-flex">
+                          <span className="me-2">•</span>
+                          <span>{doc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
             </div>
 
-            <div className="col-12 col-lg-5 d-flex">
-              <div className="sectionCard bg-light border w-100">
-                <h3 className="h6 mb-3 d-flex align-items-center gap-2">
-                  <Layers3 size={18} className="text-primary" />
-                  <span>Common documents checklist</span>
-                </h3>
-
-                <ul className="list-unstyled small mb-0">
-                  {COMMON_DOCS.map((d) => (
-                    <li key={d} className="mb-2 d-flex">
-                      <span className="me-2">•</span>
-                      <span>{d}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Tip: Before paying fees, check labs/equipment, internship tie-ups, and real student outcomes.
             </div>
           </div>
-
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Tip: Before paying fees, check labs/equipment, internship tie-ups, and real student outcomes.
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 8) BUILD YOUR PROFILE */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={Users}
-            title="Build your profile during UG"
-            subtitle="Degree-level skills + discipline make you employable and growth-ready."
-          />
+      {buildProfile.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={Users}
+              title="Build your profile during UG"
+              subtitle="Degree-level skills + discipline make you employable and growth-ready."
+            />
 
-          <div className="row g-3">
-            {BUILD_PROFILE.map((t) => (
-              <div key={t} className="col-12 col-md-6 col-lg-4">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">Key focus</h3>
-                  <p className="small text-muted mb-0">{t}</p>
+            <div className="row g-3">
+              {buildProfile.map((item, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-4">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">Key focus</h3>
+                    <p className="small text-muted mb-0">{item}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Sensible shortcut: pick a domain early, become excellent at practical work, then plan PG/specialisation for senior roles.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Sensible shortcut: pick a domain early, become excellent at practical work, then plan PG/specialisation for senior roles.
+            </div>
           </div>
-        </div>
-      </section>
-      </FrontendLayout>
-    </>
+        </section>
+      )}
+    </FrontendLayout>
   );
 }

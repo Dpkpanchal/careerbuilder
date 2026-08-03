@@ -177,13 +177,13 @@ export default function Index({ jobGroups, sectors = [], filters = {} }) {
                                                 <i className="fas fa-edit"></i>
                                             </Link>
 
-                                            <button
+                                            {/* <button
                                                 className="btn btn-outline-danger btn-sm"
                                                 onClick={() => deleteGroup(item.id)}
                                                 title="Delete"
                                             >
                                                 <i className="fas fa-trash"></i>
-                                            </button>
+                                            </button> */}
 
                                         </td>
 

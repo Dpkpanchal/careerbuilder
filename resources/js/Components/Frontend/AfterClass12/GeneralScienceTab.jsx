@@ -20,218 +20,218 @@ import { X, Route, Map as MapIcon } from "lucide-react";
  * BCA → MCA → NET → PhD/Asst Prof/PostDoc
  * BBA → MBA → NET → PhD
  */
-export const AFTER_12_GENERAL_SCIENCE_PATHWAY_MAP = {
-  key: "after-12-general-science",
-  title: "Graduate Level Courses After Class 12 (Science Students) — General Science",
-  type: "root",
-  entries: [
-    {
-      key: "bsc",
-      label: "B.Sc",
-      type: "course",
-      children: [
-        {
-          key: "msc",
-          label: "M.Sc",
-          type: "course",
-          children: [{ key: "phd-bsc", label: "Ph.D", type: "course", children: [] }],
-        },
-      ],
-    },
+// export const AFTER_12_GENERAL_SCIENCE_PATHWAY_MAP = {
+//   key: "after-12-general-science",
+//   title: "Graduate Level Courses After Class 12 (Science Students) — General Science",
+//   type: "root",
+//   entries: [
+//     {
+//       key: "bsc",
+//       label: "B.Sc",
+//       type: "course",
+//       children: [
+//         {
+//           key: "msc",
+//           label: "M.Sc",
+//           type: "course",
+//           children: [{ key: "phd-bsc", label: "Ph.D", type: "course", children: [] }],
+//         },
+//       ],
+//     },
 
-    {
-      key: "bs-ms-iiser",
-      label: "BS-MS Dual Degree (IISER)",
-      type: "course",
-      notes: ["Science at IISER (Education & Research)"],
-      children: [],
-    },
+//     {
+//       key: "bs-ms-iiser",
+//       label: "BS-MS Dual Degree (IISER)",
+//       type: "course",
+//       notes: ["Science at IISER (Education & Research)"],
+//       children: [],
+//     },
 
-    {
-      key: "bfsc",
-      label: "Bachelor of Fishery Sc. (B.F.Sc) (4 Yrs)",
-      type: "course",
-      notes: ["University Selection Test"],
-      children: [
-        { key: "mfsc", label: "Master of Fishery Sc. (M.F.Sc) (2 Yrs)", type: "course", children: [] },
-      ],
-    },
+//     {
+//       key: "bfsc",
+//       label: "Bachelor of Fishery Sc. (B.F.Sc) (4 Yrs)",
+//       type: "course",
+//       notes: ["University Selection Test"],
+//       children: [
+//         { key: "mfsc", label: "Master of Fishery Sc. (M.F.Sc) (2 Yrs)", type: "course", children: [] },
+//       ],
+//     },
 
-    {
-      key: "bsc-nutrition",
-      label: "B.Sc in Nutrition",
-      type: "course",
-      children: [{ key: "msc-nutrition", label: "M.Sc in Nutrition", type: "course", children: [] }],
-    },
+//     {
+//       key: "bsc-nutrition",
+//       label: "B.Sc in Nutrition",
+//       type: "course",
+//       children: [{ key: "msc-nutrition", label: "M.Sc in Nutrition", type: "course", children: [] }],
+//     },
 
-    {
-      key: "bstat-bmath",
-      label: "B.Stat (H) / B.Math (H) (3 Yrs)",
-      type: "course",
-      notes: ["ISI Exam"],
-      children: [
-        {
-          key: "mstat-mmath",
-          label: "M.Stat (H) / M.Math (H) (2 Yrs)",
-          type: "course",
-          children: [
-            {
-              key: "net-stat-math",
-              label: "NET",
-              type: "exam",
-              children: [
-                {
-                  key: "phd-stat-math",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [{ key: "postdoc-stat-math", label: "Post Doc", type: "outcome", children: [] }],
-                },
-                { key: "mtech", label: "M.Tech (2 Yrs)", type: "course", children: [] },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     {
+//       key: "bstat-bmath",
+//       label: "B.Stat (H) / B.Math (H) (3 Yrs)",
+//       type: "course",
+//       notes: ["ISI Exam"],
+//       children: [
+//         {
+//           key: "mstat-mmath",
+//           label: "M.Stat (H) / M.Math (H) (2 Yrs)",
+//           type: "course",
+//           children: [
+//             {
+//               key: "net-stat-math",
+//               label: "NET",
+//               type: "exam",
+//               children: [
+//                 {
+//                   key: "phd-stat-math",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [{ key: "postdoc-stat-math", label: "Post Doc", type: "outcome", children: [] }],
+//                 },
+//                 { key: "mtech", label: "M.Tech (2 Yrs)", type: "course", children: [] },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    {
-      key: "bsc-agri-hort",
-      label: "B.Sc (Agri) / B.Sc (Hort) (4 Yrs)",
-      type: "course",
-      notes: ["Exam"],
-      children: [
-        {
-          key: "msc-agri-hort",
-          label: "M.Sc (Agri) / M.Sc (Hort) (2 Yrs)",
-          type: "course",
-          children: [
-            {
-              key: "net-agri",
-              label: "NET",
-              type: "exam",
-              children: [
-                {
-                  key: "phd-agri",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [{ key: "postdoc-agri", label: "Post Doc", type: "outcome", children: [] }],
-                },
-                {
-                  key: "ado-exam",
-                  label: "A.D.O. Exam",
-                  type: "exam",
-                  children: [
-                    {
-                      key: "scientist-asstprof",
-                      label: "Asst. Prof / Scientist (ICAR, BDT, DST, CSIR, IISC, DRDO, DAE etc.)",
-                      type: "outcome",
-                      children: [],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     {
+//       key: "bsc-agri-hort",
+//       label: "B.Sc (Agri) / B.Sc (Hort) (4 Yrs)",
+//       type: "course",
+//       notes: ["Exam"],
+//       children: [
+//         {
+//           key: "msc-agri-hort",
+//           label: "M.Sc (Agri) / M.Sc (Hort) (2 Yrs)",
+//           type: "course",
+//           children: [
+//             {
+//               key: "net-agri",
+//               label: "NET",
+//               type: "exam",
+//               children: [
+//                 {
+//                   key: "phd-agri",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [{ key: "postdoc-agri", label: "Post Doc", type: "outcome", children: [] }],
+//                 },
+//                 {
+//                   key: "ado-exam",
+//                   label: "A.D.O. Exam",
+//                   type: "exam",
+//                   children: [
+//                     {
+//                       key: "scientist-asstprof",
+//                       label: "Asst. Prof / Scientist (ICAR, BDT, DST, CSIR, IISC, DRDO, DAE etc.)",
+//                       type: "outcome",
+//                       children: [],
+//                     },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    {
-      key: "ba-llb",
-      label: "BA LLB (5 Yrs)",
-      type: "course",
-      notes: ["Admission Tests by Institute (CLAT / ILET / ILT etc.)"],
-      children: [
-        {
-          key: "llm-2yrs",
-          label: "LLM (2 Yrs)",
-          type: "course",
-          children: [
-            { key: "judicial-service", label: "Judicial Service", type: "exam", notes: ["50% in LLB / CLAT (as shown)"], children: [] },
-            {
-              key: "net-law",
-              label: "NET",
-              type: "exam",
-              children: [
-                {
-                  key: "phd-law",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [
-                    { key: "asstprof-or-judicial", label: "Asst. Prof. or Judicial Service", type: "outcome", children: [] },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     {
+//       key: "ba-llb",
+//       label: "BA LLB (5 Yrs)",
+//       type: "course",
+//       notes: ["Admission Tests by Institute (CLAT / ILET / ILT etc.)"],
+//       children: [
+//         {
+//           key: "llm-2yrs",
+//           label: "LLM (2 Yrs)",
+//           type: "course",
+//           children: [
+//             { key: "judicial-service", label: "Judicial Service", type: "exam", notes: ["50% in LLB / CLAT (as shown)"], children: [] },
+//             {
+//               key: "net-law",
+//               label: "NET",
+//               type: "exam",
+//               children: [
+//                 {
+//                   key: "phd-law",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [
+//                     { key: "asstprof-or-judicial", label: "Asst. Prof. or Judicial Service", type: "outcome", children: [] },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    {
-      key: "hotel-mgmt",
-      label: "Bachelor in Hotel Management (4 Yrs)",
-      type: "course",
-      notes: ["Science / Arts / Commerce Students"],
-      children: [
-        {
-          key: "master-hm",
-          label: "Master in Hotel Management (2 Yrs)",
-          type: "course",
-          children: [{ key: "mba-hm", label: "MBA (HM) (2 Yrs)", type: "course", children: [] }],
-        },
-      ],
-    },
+//     {
+//       key: "hotel-mgmt",
+//       label: "Bachelor in Hotel Management (4 Yrs)",
+//       type: "course",
+//       notes: ["Science / Arts / Commerce Students"],
+//       children: [
+//         {
+//           key: "master-hm",
+//           label: "Master in Hotel Management (2 Yrs)",
+//           type: "course",
+//           children: [{ key: "mba-hm", label: "MBA (HM) (2 Yrs)", type: "course", children: [] }],
+//         },
+//       ],
+//     },
 
-    {
-      key: "bca",
-      label: "BCA (3 Yrs)",
-      type: "course",
-      notes: ["Science / Arts students only (as shown)"],
-      children: [
-        {
-          key: "mca",
-          label: "MCA (2 Yrs)",
-          type: "course",
-          notes: ["IECA Exam / UPMCACT (as shown)"],
-          children: [
-            {
-              key: "net-it",
-              label: "NET",
-              type: "exam",
-              children: [
-                {
-                  key: "phd-it",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [{ key: "postdoc-it", label: "Post Doc", type: "outcome", children: [] }],
-                },
-                { key: "asstprof-it", label: "Asst. Prof.", type: "outcome", children: [] },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     {
+//       key: "bca",
+//       label: "BCA (3 Yrs)",
+//       type: "course",
+//       notes: ["Science / Arts students only (as shown)"],
+//       children: [
+//         {
+//           key: "mca",
+//           label: "MCA (2 Yrs)",
+//           type: "course",
+//           notes: ["IECA Exam / UPMCACT (as shown)"],
+//           children: [
+//             {
+//               key: "net-it",
+//               label: "NET",
+//               type: "exam",
+//               children: [
+//                 {
+//                   key: "phd-it",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [{ key: "postdoc-it", label: "Post Doc", type: "outcome", children: [] }],
+//                 },
+//                 { key: "asstprof-it", label: "Asst. Prof.", type: "outcome", children: [] },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    {
-      key: "bba",
-      label: "BBA (3 Yrs)",
-      type: "course",
-      children: [
-        {
-          key: "mba-2yrs",
-          label: "MBA (2 Yrs)",
-          type: "course",
-          children: [
-            { key: "net-mba", label: "NET", type: "exam", children: [{ key: "phd-mba", label: "Ph.D", type: "course", children: [] }] },
-            { key: "asstprof-mba", label: "Asst. Prof.", type: "outcome", children: [] },
-          ],
-        },
-      ],
-    },
-  ],
-};
+//     {
+//       key: "bba",
+//       label: "BBA (3 Yrs)",
+//       type: "course",
+//       children: [
+//         {
+//           key: "mba-2yrs",
+//           label: "MBA (2 Yrs)",
+//           type: "course",
+//           children: [
+//             { key: "net-mba", label: "NET", type: "exam", children: [{ key: "phd-mba", label: "Ph.D", type: "course", children: [] }] },
+//             { key: "asstprof-mba", label: "Asst. Prof.", type: "outcome", children: [] },
+//           ],
+//         },
+//       ],
+//     },
+//   ],
+// };
 
 function DiagramSection() {
   const [open, setOpen] = useState(false);
@@ -384,9 +384,11 @@ const getShortPreview = (entry) => {
   return MAP[key] || "Explore the next steps and outcomes in this pathway.";
 };
 
-export default function GeneralScienceOverviewTab() {
+export default function GeneralScienceOverviewTab({overview_tree}) {
+
+
   const reduceMotion = useReducedMotion();
-  const entries = AFTER_12_GENERAL_SCIENCE_PATHWAY_MAP.entries;
+  const entries = overview_tree.entries;
 
   const [activeEntry, setActiveEntry] = useState(null);
   const paths = useMemo(() => (activeEntry ? buildPaths(activeEntry) : []), [activeEntry]);

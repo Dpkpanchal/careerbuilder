@@ -10,34 +10,46 @@ use App\Models\NationalFellowship;
 use App\Models\Scholarship;
 use App\Models\ScholarshipRate;
 use App\Models\ScholarshipOverviewTable;
-
+  use App\Models\ScholarshipOverview;
 
 class ScholarshipsController extends Controller
 {
-    public function overview()
-    {
+    // public function overview()
+    // {
     
-        $overview = ScholarshipOverviewTable::where('is_active', true)
-        ->orderBy('sort_order')
-        ->get();
+    //     $overview = ScholarshipOverviewTable::where('is_active', true)
+    //     ->orderBy('sort_order')
+    //     ->get();
 
-        $data = $overview->map(function ($item,$i) {
-            return [
-                'no' => $i + 1,
-                'name' => $item->name ?? '',
-                'classOfStudy' => $item->class_of_study ?? '',
-                'website' => $item->website ?? '',
-                'minMarks' => $item->minimum_marks ?? '',
-                'income' => $item->annual_family_income ?? '',
-            ];
-        });
+    //     $data = $overview->map(function ($item,$i) {
+    //         return [
+    //             'no' => $i + 1,
+    //             'name' => $item->name ?? '',
+    //             'classOfStudy' => $item->class_of_study ?? '',
+    //             'website' => $item->website ?? '',
+    //             'minMarks' => $item->minimum_marks ?? '',
+    //             'income' => $item->annual_family_income ?? '',
+    //         ];
+    //     });
 
-        return Inertia::render('Frontend/Scholarship/overview', [
-            'title' => 'Scholarship Overview',
-            'description' => 'Overview of scholarships available for students.',
-            'data' => $data,
-        ]);
-    }
+    //     return Inertia::render('Frontend/Scholarship/overview', [
+    //         'title' => 'Scholarship Overview',
+    //         'description' => 'Overview of scholarships available for students.',
+    //         'data' => $data,
+    //     ]);
+    // }
+
+  
+
+public function overview()
+{
+    return Inertia::render('Frontend/Scholarship/overview', [
+        'title' => 'Scholarship Overview',
+        'description' => 'Overview of scholarships available for students.',
+        'overview' => ScholarshipOverview::singleton(),
+    ]);
+}
+
 
     public function rateOfScholarship()
     {

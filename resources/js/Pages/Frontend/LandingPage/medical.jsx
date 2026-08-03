@@ -202,7 +202,7 @@ export default function MedicalLandingPage() {
             icon={<GraduationCap size={18} className="text-primary" />}
             title="After Class 12 • Medical"
             desc="Exact step-by-step pathway after 12 for medical."
-            href={route('career.medical')}
+            href="/careers/after-class-12-medical"
           />
         </div>
         <div className="col-12 col-md-6 col-xl-3">
@@ -210,7 +210,7 @@ export default function MedicalLandingPage() {
             icon={<Activity size={18} className="text-success" />}
             title="Nursing"
             desc="ANM/GNM/B.Sc/M.Sc Nursing pathway."
-            href={route('courses.nursing')}
+            href="/courses/nursing-anm-gnm-bsc-nursing"
           />
         </div>
         <div className="col-12 col-md-6 col-xl-3">
@@ -218,7 +218,7 @@ export default function MedicalLandingPage() {
             icon={<Syringe size={18} className="text-danger" />}
             title="Paramedical"
             desc="Diploma after 10 + UG after 12 options."
-            href={route('courses.paramedical.ug')}
+            href="/courses/ug-paramedical-degrees" 
           />
         </div>
         <div className="col-12 col-md-6 col-xl-3">
@@ -226,7 +226,7 @@ export default function MedicalLandingPage() {
             icon={<Pill size={18} className="text-warning" />}
             title="Pharmacy"
             desc="D.Pharm/B.Pharm/ M.Pharm/Pharm.D."
-            href={route('courses.pharmacy')}
+            href="/courses/pharmacy-dpharm-bpharm-mpharm-pharmd"
           />
         </div>
       </div>
@@ -495,9 +495,9 @@ export default function MedicalLandingPage() {
         </ul>
 
         <div className="d-flex gap-3 flex-wrap">
-          <LinkRow label="Diploma in Paramedical" meta="Entry route" href={route('courses.paramedical.diploma')} />
-          <LinkRow label="Diploma in Pharmacy (D.Pharm)" meta="Entry route" href={route('courses.pharmacy')} />
-          <LinkRow label="After Class 10 Career Guidance" meta="Stage" href={route('After.Class.Tenth')} />
+          <LinkRow label="Diploma in Paramedical" meta="Entry route" href="courses/diploma-in-paramedical" />
+          <LinkRow label="Diploma in Pharmacy (D.Pharm)" meta="Entry route" href="courses/diploma-in-pharmacy-dpharm" />
+          <LinkRow label="After Class 10 Career Guidance" meta="Stage" href="careers/after-class-10" />
         </div>
       </div>
 
@@ -518,10 +518,10 @@ export default function MedicalLandingPage() {
         </ul>
 
         <div className="d-flex gap-3 flex-wrap">
-          <LinkRow label="After Class 12 • Medical/Paramedical" meta="Stage" href={route('After.Class.Twelve.Medical')} />
+          {/* <LinkRow label="After Class 12 • Medical/Paramedical" meta="Stage" href={route('After.Class.Twelve.Medical')} />
           <LinkRow label="MBBS & Core Medical Degrees" meta="UG" href={route('courses.medical.mbbs')} />
           <LinkRow label="UG Paramedical Degrees" meta="UG" href={route('courses.paramedical.ug')} />
-          <LinkRow label="Allied Health Sciences" meta="UG/PG" href={route('courses.medical.alliedHealth')} />
+          <LinkRow label="Allied Health Sciences" meta="UG/PG" href={route('courses.medical.alliedHealth')} /> */}
         </div>
       </div>
     </div>
@@ -562,7 +562,7 @@ export default function MedicalLandingPage() {
           <li><strong>Outcome:</strong> Doctor, specialist (after PG), hospital practice</li>
         </ul>
         <div className="d-flex flex-wrap gap-3 mt-3">
-          <LinkRow label="MBBS & Core Medical Degrees" href={route('courses.medical.mbbs')} />
+          {/* <LinkRow label="MBBS & Core Medical Degrees" href={route('courses.medical.mbbs')} /> */}
           {/* <LinkRow label="PG Medical Courses" href="/courses/medical/pg" meta="PG" /> */}
         </div>
       </div>
@@ -584,8 +584,8 @@ export default function MedicalLandingPage() {
           <li><strong>Good for:</strong> Faster employability vs MBBS</li>
         </ul>
         <div className="d-flex flex-wrap gap-3 mt-3">
-          <LinkRow label="Nursing (ANM / GNM / B.Sc / M.Sc)" href={route('courses.nursing')} />
-          <LinkRow label="Allied Health Sciences" href={route('courses.medical.alliedHealth')} />
+          {/* <LinkRow label="Nursing (ANM / GNM / B.Sc / M.Sc)" href={route('courses.nursing')} />
+          <LinkRow label="Allied Health Sciences" href={route('courses.medical.alliedHealth')} /> */}
         </div>
       </div>
     </div>
@@ -601,8 +601,8 @@ export default function MedicalLandingPage() {
           physiotherapy support and more. Many routes offer quicker entry into the workforce.
         </div>
         <div className="d-flex flex-wrap gap-3 mt-3">
-          <LinkRow label="Diploma Paramedical (Early entry)" href={route('courses.paramedical.diploma')} meta="After 10" />
-          <LinkRow label="UG Paramedical (Degree track)" href={route('courses.paramedical.ug')} meta="After 12" />
+          {/* <LinkRow label="Diploma Paramedical (Early entry)" href={route('courses.paramedical.diploma')} meta="After 10" />
+          <LinkRow label="UG Paramedical (Degree track)" href={route('courses.paramedical.ug')} meta="After 12" /> */}
         </div>
       </div>
     </div>
@@ -618,9 +618,9 @@ export default function MedicalLandingPage() {
           AYUSH is for those aligned with alternative systems and related healthcare careers.
         </div>
         <div className="d-flex flex-wrap gap-3 mt-3">
-          <LinkRow label="Pharmacy Programs" href={route('courses.pharmacy')} />
+          {/* <LinkRow label="Pharmacy Programs" href={route('courses.pharmacy')} />
           <LinkRow label="AYUSH (Ayurveda, Homoeopathy, Unani, Siddha)" href={route('courses.ayush')} />
-          <LinkRow label="Naturopathy & Yoga" href={route('courses.naturopathy.yoga')} />
+          <LinkRow label="Naturopathy & Yoga" href={route('courses.naturopathy.yoga')} /> */}
         </div>
       </div>
     </div>
@@ -646,10 +646,10 @@ export default function MedicalLandingPage() {
       <div className="col-md-6">
         <div className="fw-semibold mb-2">Browse listings</div>
         <div className="d-grid gap-2">
-          <LinkRow label="AIIMS — Medical Institutes" href={route('colleges.aiims')} meta="National" />
+          {/* <LinkRow label="AIIMS — Medical Institutes" href={route('colleges.aiims')} meta="National" />
           <LinkRow label="Medical & Paramedical Colleges" href={route('colleges.medical')} meta="By Field" />
           <LinkRow label="Nursing Colleges" href={route('colleges.nursing')} meta="By Field" />
-          <LinkRow label="Pharmacy Colleges" href={route('colleges.pharmacy')} meta="By Field" />
+          <LinkRow label="Pharmacy Colleges" href={route('colleges.pharmacy')} meta="By Field" /> */}
         </div>
       </div>
 

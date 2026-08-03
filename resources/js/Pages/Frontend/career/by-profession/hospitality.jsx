@@ -32,145 +32,145 @@ export const metadata = {
    DATA
 ========================= */
 
-const DOMAINS = [
-  {
-    title: "Hotel Operations",
-    points: [
-      "Front office, housekeeping, guest relations, hotel administration",
-      "Work in hotels, resorts, boutique properties",
-      "Best for: people skills + discipline + service mindset",
-    ],
-  },
-  {
-    title: "Food & Beverage (F&B)",
-    points: [
-      "Restaurant service, kitchen operations (role-based), catering, banquets",
-      "Strong career scope in hotels, restaurants, events",
-      "Best for: teamwork + stamina + service excellence",
-    ],
-  },
-  {
-    title: "Travel & Tourism Services",
-    points: [
-      "Travel agencies, tour operations, itinerary planning, ticketing (role-based)",
-      "Work with domestic/international travel ecosystem",
-      "Best for: planning + communication + geography awareness",
-    ],
-  },
-  {
-    title: "Aviation / Cruise / Events (Path-specific)",
-    points: [
-      "Cabin crew support pathways, ground ops (role-based), cruise hospitality, events",
-      "Fast-paced, customer-facing environments",
-      "Best for: confidence + grooming + communication",
-    ],
-  },
-];
+// const DOMAINS = [
+//   {
+//     title: "Hotel Operations",
+//     points: [
+//       "Front office, housekeeping, guest relations, hotel administration",
+//       "Work in hotels, resorts, boutique properties",
+//       "Best for: people skills + discipline + service mindset",
+//     ],
+//   },
+//   {
+//     title: "Food & Beverage (F&B)",
+//     points: [
+//       "Restaurant service, kitchen operations (role-based), catering, banquets",
+//       "Strong career scope in hotels, restaurants, events",
+//       "Best for: teamwork + stamina + service excellence",
+//     ],
+//   },
+//   {
+//     title: "Travel & Tourism Services",
+//     points: [
+//       "Travel agencies, tour operations, itinerary planning, ticketing (role-based)",
+//       "Work with domestic/international travel ecosystem",
+//       "Best for: planning + communication + geography awareness",
+//     ],
+//   },
+//   {
+//     title: "Aviation / Cruise / Events (Path-specific)",
+//     points: [
+//       "Cabin crew support pathways, ground ops (role-based), cruise hospitality, events",
+//       "Fast-paced, customer-facing environments",
+//       "Best for: confidence + grooming + communication",
+//     ],
+//   },
+// ];
 
-const PATHWAYS = [
-  {
-    title: "After Class 10",
-    steps: [
-      "Skill-first certificates (hotel ops basics, culinary basics, service training)",
-      "Choose Class 11–12 based on your plan (any stream works for many hospitality courses)",
-      "Start building soft skills: communication, English, grooming, teamwork",
-    ],
-  },
-  {
-    title: "After Class 12",
-    steps: [
-      "UG degree/diploma: Hotel Management, Tourism, Travel, Culinary (course-wise)",
-      "Admissions can be institute-based or via entrance/counselling (varies)",
-      "Internships are a core part of hospitality learning",
-    ],
-  },
-  {
-    title: "After Graduation",
-    steps: [
-      "PG in Hotel/Tourism/Management (MBA in Hospitality/Travel – institute-wise)",
-      "Specialize in operations, revenue, marketing, events, international hospitality",
-      "Better roles with domain depth + experience",
-    ],
-  },
-];
+// const PATHWAYS = [
+//   {
+//     title: "After Class 10",
+//     steps: [
+//       "Skill-first certificates (hotel ops basics, culinary basics, service training)",
+//       "Choose Class 11–12 based on your plan (any stream works for many hospitality courses)",
+//       "Start building soft skills: communication, English, grooming, teamwork",
+//     ],
+//   },
+//   {
+//     title: "After Class 12",
+//     steps: [
+//       "UG degree/diploma: Hotel Management, Tourism, Travel, Culinary (course-wise)",
+//       "Admissions can be institute-based or via entrance/counselling (varies)",
+//       "Internships are a core part of hospitality learning",
+//     ],
+//   },
+//   {
+//     title: "After Graduation",
+//     steps: [
+//       "PG in Hotel/Tourism/Management (MBA in Hospitality/Travel – institute-wise)",
+//       "Specialize in operations, revenue, marketing, events, international hospitality",
+//       "Better roles with domain depth + experience",
+//     ],
+//   },
+// ];
 
-const COURSES = [
-  {
-    title: "Certificates & Skill Courses",
-    text:
-      "Short practical programs in hospitality service, front office basics, bakery/cookery basics, and travel services—good for early entry and confidence building.",
-    url: "/courses/hospitality/skill",
-    cta: "Explore Skill Courses",
-  },
-  {
-    title: "Diploma in Hotel / Tourism",
-    text:
-      "Diploma routes focused on hands-on hospitality or tourism operations, often with internship exposure and faster job entry.",
-    url: "/courses/hospitality/diploma",
-    cta: "Explore Diplomas",
-  },
-  {
-    title: "UG Degree (Hotel Management / Tourism)",
-    text:
-      "Undergraduate programs that build strong foundation in hotel operations, F&B, housekeeping, travel & tourism management and internships.",
-    url: "/courses/hospitality/ug",
-    cta: "Explore UG Programs",
-  },
-  {
-    title: "PG & Specialization",
-    text:
-      "Postgraduate options for leadership roles—operations management, revenue, marketing, events, and hospitality business strategy.",
-    url: "/courses/hospitality/pg",
-    cta: "Explore Higher Studies",
-  },
-];
+// const COURSES = [
+//   {
+//     title: "Certificates & Skill Courses",
+//     text:
+//       "Short practical programs in hospitality service, front office basics, bakery/cookery basics, and travel services—good for early entry and confidence building.",
+//     url: "/courses/hospitality/skill",
+//     cta: "Explore Skill Courses",
+//   },
+//   {
+//     title: "Diploma in Hotel / Tourism",
+//     text:
+//       "Diploma routes focused on hands-on hospitality or tourism operations, often with internship exposure and faster job entry.",
+//     url: "/courses/hospitality/diploma",
+//     cta: "Explore Diplomas",
+//   },
+//   {
+//     title: "UG Degree (Hotel Management / Tourism)",
+//     text:
+//       "Undergraduate programs that build strong foundation in hotel operations, F&B, housekeeping, travel & tourism management and internships.",
+//     url: "/courses/hospitality/ug",
+//     cta: "Explore UG Programs",
+//   },
+//   {
+//     title: "PG & Specialization",
+//     text:
+//       "Postgraduate options for leadership roles—operations management, revenue, marketing, events, and hospitality business strategy.",
+//     url: "/courses/hospitality/pg",
+//     cta: "Explore Higher Studies",
+//   },
+// ];
 
-const EXAMS = [
-  {
-    title: "National-level Admissions / Tests",
-    text:
-      "Some top institutes use national-level tests or centralized counselling for hotel management/tourism (varies by institute).",
-    url: "/exams/hospitality/national",
-  },
-  {
-    title: "State-level Admissions / Counselling",
-    text:
-      "Many admissions happen through state-level counselling or institute processes (state-wise variation).",
-    url: "/exams/hospitality/state",
-  },
-  {
-    title: "University / Institute-level Selection",
-    text:
-      "Many universities and private institutes use merit + interviews/aptitude tests for hospitality and tourism programs.",
-    url: "/exams/hospitality/university",
-  },
-];
+// const EXAMS = [
+//   {
+//     title: "National-level Admissions / Tests",
+//     text:
+//       "Some top institutes use national-level tests or centralized counselling for hotel management/tourism (varies by institute).",
+//     url: "/exams/hospitality/national",
+//   },
+//   {
+//     title: "State-level Admissions / Counselling",
+//     text:
+//       "Many admissions happen through state-level counselling or institute processes (state-wise variation).",
+//     url: "/exams/hospitality/state",
+//   },
+//   {
+//     title: "University / Institute-level Selection",
+//     text:
+//       "Many universities and private institutes use merit + interviews/aptitude tests for hospitality and tourism programs.",
+//     url: "/exams/hospitality/university",
+//   },
+// ];
 
-const INSTITUTE_LINKS = [
-  { title: "IHM / Hotel Management Institutes", url: "/colleges/hospitality/ihm" },
-  { title: "Tourism & Travel Institutes", url: "/colleges/hospitality/tourism" },
-  { title: "Central / State Universities", url: "/colleges/hospitality/universities" },
-  { title: "Private & Deemed Universities", url: "/colleges/hospitality/private" },
-  { title: "Open & Distance (Selected Options)", url: "/colleges/hospitality/open" },
-];
+// const INSTITUTE_LINKS = [
+//   { title: "IHM / Hotel Management Institutes", url: "/colleges/hospitality/ihm" },
+//   { title: "Tourism & Travel Institutes", url: "/colleges/hospitality/tourism" },
+//   { title: "Central / State Universities", url: "/colleges/hospitality/universities" },
+//   { title: "Private & Deemed Universities", url: "/colleges/hospitality/private" },
+//   { title: "Open & Distance (Selected Options)", url: "/colleges/hospitality/open" },
+// ];
 
-const INDUSTRIES = [
-  "Hotels & Resorts",
-  "Restaurants, Cafés & Catering",
-  "Travel Agencies & Tour Operators",
-  "Airlines / Airports (role-based)",
-  "Cruise / Event Hospitality (path-based)",
-  "Online Travel & Hospitality Platforms",
-];
+// const INDUSTRIES = [
+//   "Hotels & Resorts",
+//   "Restaurants, Cafés & Catering",
+//   "Travel Agencies & Tour Operators",
+//   "Airlines / Airports (role-based)",
+//   "Cruise / Event Hospitality (path-based)",
+//   "Online Travel & Hospitality Platforms",
+// ];
 
-const ROLE_EXAMPLES = [
-  "Front Office Executive / Guest Relations",
-  "F&B Service Executive / Banquet Executive",
-  "Housekeeping Executive",
-  "Travel Consultant / Tour Coordinator",
-  "Event Coordinator (hospitality/events)",
-  "Operations Supervisor (with experience)",
-];
+// const ROLE_EXAMPLES = [
+//   "Front Office Executive / Guest Relations",
+//   "F&B Service Executive / Banquet Executive",
+//   "Housekeeping Executive",
+//   "Travel Consultant / Tour Coordinator",
+//   "Event Coordinator (hospitality/events)",
+//   "Operations Supervisor (with experience)",
+// ];
 
 /* =========================
    SECTION WRAPPER
@@ -209,7 +209,28 @@ function Section({ id, title, subtitle, children }) {
    PAGE
 ========================= */
 
-export default function HospitalityTourismByProfessionPage() {
+export default function HospitalityTourismByProfessionPage({careerData}) {
+
+const getCareerData = () => {
+    if (!careerData) return null;
+    if (Array.isArray(careerData)) {
+      return careerData.length > 0 ? careerData[0] : null;
+    }
+    return careerData;
+  };
+
+  const career = getCareerData();
+
+  // Get overview_tree data
+  const DOMAINS = career?.branch_groups || [];
+  const PATHWAYS = career?.pathways || [];
+  const COURSES = career?.courses || [];
+  const EXAMS = career?.exams || [];
+  const INSTITUTE_LINKS = career?.institute_links || [];
+  const INDUSTRIES = career?.industries || [];
+  const ROLE_EXAMPLES = career?.role_examples || [];
+
+
   return (
     <FrontendLayout>
     <main>

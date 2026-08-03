@@ -8,164 +8,164 @@ import { ArrowUpRight } from "lucide-react";
  * Same structure as Arts / Commerce / Science / Engineering / Medical
  */
 
-const CATEGORIES = [
-  {
-    key: "msc-admission",
-    title: "Postgraduate Science Admission Exams",
-    description:
-      "Entrance examinations for admission into M.Sc and integrated postgraduate science programmes.",
-    items: [
-      {
-        title: "IIT JAM",
-        authority: "IITs / IISc",
-        eligibility: "After B.Sc (or final year)",
-        usedFor: "M.Sc admission in IITs, IISc, NITs & CFTIs",
-        outcomes: "Research, Ph.D, academic & industry roles",
-        website: "https://jam.iisc.ac.in",
-      },
-      {
-        title: "CUET-PG (Science Subjects)",
-        authority: "National Testing Agency (NTA)",
-        eligibility: "After B.Sc",
-        usedFor: "M.Sc admission in Central & State Universities",
-        outcomes: "Postgraduate science education",
-        website: "https://cuet.nta.nic.in",
-      },
-      {
-        title: "University PG Entrance Tests",
-        authority: "Central / State Universities",
-        eligibility: "After B.Sc",
-        usedFor: "M.Sc / Applied science PG programmes",
-        outcomes: "Higher studies & specialization",
-        website: "",
-        websiteLabel: "University portals",
-      },
-    ],
-  },
+// const CATEGORIES = [
+//   {
+//     key: "msc-admission",
+//     title: "Postgraduate Science Admission Exams",
+//     description:
+//       "Entrance examinations for admission into M.Sc and integrated postgraduate science programmes.",
+//     items: [
+//       {
+//         title: "IIT JAM",
+//         authority: "IITs / IISc",
+//         eligibility: "After B.Sc (or final year)",
+//         usedFor: "M.Sc admission in IITs, IISc, NITs & CFTIs",
+//         outcomes: "Research, Ph.D, academic & industry roles",
+//         website: "https://jam.iisc.ac.in",
+//       },
+//       {
+//         title: "CUET-PG (Science Subjects)",
+//         authority: "National Testing Agency (NTA)",
+//         eligibility: "After B.Sc",
+//         usedFor: "M.Sc admission in Central & State Universities",
+//         outcomes: "Postgraduate science education",
+//         website: "https://cuet.nta.nic.in",
+//       },
+//       {
+//         title: "University PG Entrance Tests",
+//         authority: "Central / State Universities",
+//         eligibility: "After B.Sc",
+//         usedFor: "M.Sc / Applied science PG programmes",
+//         outcomes: "Higher studies & specialization",
+//         website: "",
+//         websiteLabel: "University portals",
+//       },
+//     ],
+//   },
 
-  {
-    key: "teaching",
-    title: "Teaching & Education Entrance Exams",
-    description:
-      "For B.Sc graduates planning careers in school or college teaching.",
-    items: [
-      {
-        title: "B.Ed Entrance Exams",
-        authority: "State Governments / Universities",
-        eligibility: "After B.Sc",
-        usedFor: "Bachelor of Education",
-        outcomes: "Secondary & higher secondary teaching",
-        website: "",
-        websiteLabel: "State / University portals",
-      },
-      {
-        title: "UGC NET",
-        authority: "National Testing Agency (NTA)",
-        eligibility: "After Master’s Degree",
-        usedFor: "Assistant Professor & Ph.D eligibility",
-        outcomes: "College teaching & research",
-        website: "https://ugcnet.nta.nic.in",
-      },
-      {
-        title: "SET / SLET",
-        authority: "State SET Bodies",
-        eligibility: "After Master’s Degree",
-        usedFor: "State-level Assistant Professor eligibility",
-        outcomes: "Teaching in state universities/colleges",
-        website: "",
-        websiteLabel: "State SET portals",
-      },
-    ],
-  },
+//   {
+//     key: "teaching",
+//     title: "Teaching & Education Entrance Exams",
+//     description:
+//       "For B.Sc graduates planning careers in school or college teaching.",
+//     items: [
+//       {
+//         title: "B.Ed Entrance Exams",
+//         authority: "State Governments / Universities",
+//         eligibility: "After B.Sc",
+//         usedFor: "Bachelor of Education",
+//         outcomes: "Secondary & higher secondary teaching",
+//         website: "",
+//         websiteLabel: "State / University portals",
+//       },
+//       {
+//         title: "UGC NET",
+//         authority: "National Testing Agency (NTA)",
+//         eligibility: "After Master’s Degree",
+//         usedFor: "Assistant Professor & Ph.D eligibility",
+//         outcomes: "College teaching & research",
+//         website: "https://ugcnet.nta.nic.in",
+//       },
+//       {
+//         title: "SET / SLET",
+//         authority: "State SET Bodies",
+//         eligibility: "After Master’s Degree",
+//         usedFor: "State-level Assistant Professor eligibility",
+//         outcomes: "Teaching in state universities/colleges",
+//         website: "",
+//         websiteLabel: "State SET portals",
+//       },
+//     ],
+//   },
 
-  {
-    key: "research",
-    title: "Research & Ph.D Entrance Exams",
-    description:
-      "Exams required for doctoral research and advanced scientific careers.",
-    items: [
-      {
-        title: "CSIR UGC NET (JRF)",
-        authority: "CSIR / NTA",
-        eligibility: "After M.Sc",
-        usedFor: "Junior Research Fellowship & Ph.D admission",
-        outcomes: "Research scientist, Ph.D scholar",
-        website: "https://csirnet.nta.nic.in",
-      },
-      {
-        title: "Institute Ph.D Entrance Tests",
-        authority: "Universities / Research Institutes",
-        eligibility: "After M.Sc",
-        usedFor: "Ph.D programmes",
-        outcomes: "Academic & R&D careers",
-        website: "",
-        websiteLabel: "Institute portals",
-      },
-    ],
-  },
+//   {
+//     key: "research",
+//     title: "Research & Ph.D Entrance Exams",
+//     description:
+//       "Exams required for doctoral research and advanced scientific careers.",
+//     items: [
+//       {
+//         title: "CSIR UGC NET (JRF)",
+//         authority: "CSIR / NTA",
+//         eligibility: "After M.Sc",
+//         usedFor: "Junior Research Fellowship & Ph.D admission",
+//         outcomes: "Research scientist, Ph.D scholar",
+//         website: "https://csirnet.nta.nic.in",
+//       },
+//       {
+//         title: "Institute Ph.D Entrance Tests",
+//         authority: "Universities / Research Institutes",
+//         eligibility: "After M.Sc",
+//         usedFor: "Ph.D programmes",
+//         outcomes: "Academic & R&D careers",
+//         website: "",
+//         websiteLabel: "Institute portals",
+//       },
+//     ],
+//   },
 
-  {
-    key: "govt",
-    title: "Government & Competitive Exams",
-    description:
-      "Science graduates are eligible for a wide range of government and public-sector exams.",
-    items: [
-      {
-        title: "UPSC Civil Services Examination",
-        authority: "UPSC",
-        eligibility: "After Graduation",
-        usedFor: "IAS, IPS, IFS, IRS",
-        outcomes: "Administrative & civil services careers",
-        website: "https://upsc.gov.in",
-      },
-      {
-        title: "WBCS / State PSC Exams",
-        authority: "State Public Service Commissions",
-        eligibility: "After Graduation",
-        usedFor: "State administrative services",
-        outcomes: "SDM, DSP, BDO, administrative roles",
-        website: "https://psc.wb.gov.in",
-        websiteLabel: "WBPSC",
-      },
-      {
-        title: "SSC / Banking / Railways Exams",
-        authority: "SSC / IBPS / RRB",
-        eligibility: "After Graduation (post-specific)",
-        usedFor: "Central government & PSU jobs",
-        outcomes: "Clerk, officer, technical posts",
-        website: "https://ssc.gov.in",
-        websiteLabel: "SSC (example)",
-      },
-    ],
-  },
+//   {
+//     key: "govt",
+//     title: "Government & Competitive Exams",
+//     description:
+//       "Science graduates are eligible for a wide range of government and public-sector exams.",
+//     items: [
+//       {
+//         title: "UPSC Civil Services Examination",
+//         authority: "UPSC",
+//         eligibility: "After Graduation",
+//         usedFor: "IAS, IPS, IFS, IRS",
+//         outcomes: "Administrative & civil services careers",
+//         website: "https://upsc.gov.in",
+//       },
+//       {
+//         title: "WBCS / State PSC Exams",
+//         authority: "State Public Service Commissions",
+//         eligibility: "After Graduation",
+//         usedFor: "State administrative services",
+//         outcomes: "SDM, DSP, BDO, administrative roles",
+//         website: "https://psc.wb.gov.in",
+//         websiteLabel: "WBPSC",
+//       },
+//       {
+//         title: "SSC / Banking / Railways Exams",
+//         authority: "SSC / IBPS / RRB",
+//         eligibility: "After Graduation (post-specific)",
+//         usedFor: "Central government & PSU jobs",
+//         outcomes: "Clerk, officer, technical posts",
+//         website: "https://ssc.gov.in",
+//         websiteLabel: "SSC (example)",
+//       },
+//     ],
+//   },
 
-  {
-    key: "applied",
-    title: "Applied Science & Professional Exams",
-    description:
-      "For B.Sc graduates moving into applied, analytical and industry-oriented roles.",
-    items: [
-      {
-        title: "GATE (for science streams)",
-        authority: "IITs / IISc",
-        eligibility: "After B.Sc / M.Sc (as per paper rules)",
-        usedFor: "M.Tech, PSU jobs, research roles",
-        outcomes: "Technical, research & PSU careers",
-        website: "https://gate2025.iitr.ac.in",
-        websiteLabel: "GATE (official – year-wise)",
-      },
-      {
-        title: "Statistical / Analytical Service Exams",
-        authority: "Govt Departments / Institutes",
-        eligibility: "After B.Sc / M.Sc (Statistics / Maths)",
-        usedFor: "Statistical & analytical roles",
-        outcomes: "Data, analytics, govt research roles",
-        website: "",
-        websiteLabel: "Respective portals",
-      },
-    ],
-  },
-];
+//   {
+//     key: "applied",
+//     title: "Applied Science & Professional Exams",
+//     description:
+//       "For B.Sc graduates moving into applied, analytical and industry-oriented roles.",
+//     items: [
+//       {
+//         title: "GATE (for science streams)",
+//         authority: "IITs / IISc",
+//         eligibility: "After B.Sc / M.Sc (as per paper rules)",
+//         usedFor: "M.Tech, PSU jobs, research roles",
+//         outcomes: "Technical, research & PSU careers",
+//         website: "https://gate2025.iitr.ac.in",
+//         websiteLabel: "GATE (official – year-wise)",
+//       },
+//       {
+//         title: "Statistical / Analytical Service Exams",
+//         authority: "Govt Departments / Institutes",
+//         eligibility: "After B.Sc / M.Sc (Statistics / Maths)",
+//         usedFor: "Statistical & analytical roles",
+//         outcomes: "Data, analytics, govt research roles",
+//         website: "",
+//         websiteLabel: "Respective portals",
+//       },
+//     ],
+//   },
+// ];
 
 function ExternalLink({ href, label }) {
   if (!href) return <span className="text-muted">{label}</span>;
@@ -217,7 +217,9 @@ function ExamCard({ exam }) {
   );
 }
 
-export default function AfterBScRelatedExamsTab() {
+export default function AfterBScRelatedExamsTab({related_exams}) {
+
+   const CATEGORIES = related_exams;
   return (
     <section className="py-4 py-md-5">
       <div className="container">

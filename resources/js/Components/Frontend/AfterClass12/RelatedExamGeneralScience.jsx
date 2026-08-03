@@ -11,147 +11,147 @@ import { ArrowUpRight } from "lucide-react";
  * - Category-based sections
  */
 
-const CATEGORIES = [
-  {
-    key: "science-ug",
-    title: "Science & University Entrance Exams (After Class 12)",
-    description:
-      "These exams allow entry into general science, pure science and interdisciplinary undergraduate programmes.",
-    items: [
-      {
-        title: "CUET-UG (Science Stream)",
-        authority: "National Testing Agency (NTA)",
-        eligibility: "After Class 12 (Science)",
-        usedFor: "B.Sc (Physics, Chemistry, Maths, Biology, Statistics, etc.)",
-        outcomes: "Pure science graduation, higher studies, govt exams",
-        website: "https://cuet.nta.nic.in/",
-      },
-      {
-        title: "University / State Entrance Tests",
-        authority: "Central & State Universities",
-        eligibility: "After Class 12",
-        usedFor: "B.Sc (Hons) / Integrated Science programmes",
-        outcomes: "Research foundation, teaching, MSc pathways",
-        website: "",
-        websiteLabel: "University portals",
-      },
-    ],
-  },
+// const CATEGORIES = [
+//   {
+//     key: "science-ug",
+//     title: "Science & University Entrance Exams (After Class 12)",
+//     description:
+//       "These exams allow entry into general science, pure science and interdisciplinary undergraduate programmes.",
+//     items: [
+//       {
+//         title: "CUET-UG (Science Stream)",
+//         authority: "National Testing Agency (NTA)",
+//         eligibility: "After Class 12 (Science)",
+//         usedFor: "B.Sc (Physics, Chemistry, Maths, Biology, Statistics, etc.)",
+//         outcomes: "Pure science graduation, higher studies, govt exams",
+//         website: "https://cuet.nta.nic.in/",
+//       },
+//       {
+//         title: "University / State Entrance Tests",
+//         authority: "Central & State Universities",
+//         eligibility: "After Class 12",
+//         usedFor: "B.Sc (Hons) / Integrated Science programmes",
+//         outcomes: "Research foundation, teaching, MSc pathways",
+//         website: "",
+//         websiteLabel: "University portals",
+//       },
+//     ],
+//   },
 
-  {
-    key: "paramedical",
-    title: "Paramedical & Allied Health Entrance Exams",
-    description:
-      "For science students interested in healthcare support, diagnostics and allied medical services.",
-    items: [
-      {
-        title: "State Paramedical Entrance Exams",
-        authority: "State Health / Education Boards",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "Paramedical & allied health courses",
-        outcomes: "Lab technician, radiology, OT, healthcare roles",
-        website: "",
-        websiteLabel: "State portals",
-      },
-      {
-        title: "Institute-Specific Paramedical Tests",
-        authority: "Medical Institutes",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "Allied health & diagnostic programmes",
-        outcomes: "Hospital & clinical support careers",
-        website: "",
-        websiteLabel: "Institute websites",
-      },
-    ],
-  },
+//   {
+//     key: "paramedical",
+//     title: "Paramedical & Allied Health Entrance Exams",
+//     description:
+//       "For science students interested in healthcare support, diagnostics and allied medical services.",
+//     items: [
+//       {
+//         title: "State Paramedical Entrance Exams",
+//         authority: "State Health / Education Boards",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "Paramedical & allied health courses",
+//         outcomes: "Lab technician, radiology, OT, healthcare roles",
+//         website: "",
+//         websiteLabel: "State portals",
+//       },
+//       {
+//         title: "Institute-Specific Paramedical Tests",
+//         authority: "Medical Institutes",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "Allied health & diagnostic programmes",
+//         outcomes: "Hospital & clinical support careers",
+//         website: "",
+//         websiteLabel: "Institute websites",
+//       },
+//     ],
+//   },
 
-  {
-    key: "teaching",
-    title: "Teaching & Education Entrance Exams",
-    description:
-      "For science students planning a teaching career through education degrees.",
-    items: [
-      {
-        title: "B.Ed Entrance Exams",
-        authority: "State / Universities",
-        eligibility: "After Graduation (B.Sc)",
-        usedFor: "Bachelor of Education",
-        outcomes: "Secondary & higher secondary teaching",
-        website: "",
-        websiteLabel: "State / University portals",
-      },
-    ],
-  },
+//   {
+//     key: "teaching",
+//     title: "Teaching & Education Entrance Exams",
+//     description:
+//       "For science students planning a teaching career through education degrees.",
+//     items: [
+//       {
+//         title: "B.Ed Entrance Exams",
+//         authority: "State / Universities",
+//         eligibility: "After Graduation (B.Sc)",
+//         usedFor: "Bachelor of Education",
+//         outcomes: "Secondary & higher secondary teaching",
+//         website: "",
+//         websiteLabel: "State / University portals",
+//       },
+//     ],
+//   },
 
-  {
-    key: "govt",
-    title: "Government & Competitive Exams",
-    description:
-      "Science graduates are eligible for a wide range of government and public sector examinations.",
-    items: [
-      {
-        title: "UPSC Civil Services Examination",
-        authority: "Union Public Service Commission",
-        eligibility: "After Graduation",
-        usedFor: "IAS, IPS, IFS, IRS",
-        outcomes: "Top civil services careers",
-        website: "https://upsc.gov.in",
-      },
-      {
-        title: "WBCS / State PSC Exams",
-        authority: "State Public Service Commissions",
-        eligibility: "After Graduation",
-        usedFor: "State administrative services",
-        outcomes: "SDM, DSP, BDO, Admin roles",
-        website: "https://psc.wb.gov.in",
-        websiteLabel: "WBPSC",
-      },
-      {
-        title: "SSC / Banking / Railways Exams",
-        authority: "SSC / IBPS / RRB",
-        eligibility: "After 12 / Graduation (post-specific)",
-        usedFor: "Central govt & PSU jobs",
-        outcomes: "Clerk, Officer, Technical & admin roles",
-        website: "https://ssc.gov.in/",
-        websiteLabel: "SSC (example)",
-      },
-    ],
-  },
+//   {
+//     key: "govt",
+//     title: "Government & Competitive Exams",
+//     description:
+//       "Science graduates are eligible for a wide range of government and public sector examinations.",
+//     items: [
+//       {
+//         title: "UPSC Civil Services Examination",
+//         authority: "Union Public Service Commission",
+//         eligibility: "After Graduation",
+//         usedFor: "IAS, IPS, IFS, IRS",
+//         outcomes: "Top civil services careers",
+//         website: "https://upsc.gov.in",
+//       },
+//       {
+//         title: "WBCS / State PSC Exams",
+//         authority: "State Public Service Commissions",
+//         eligibility: "After Graduation",
+//         usedFor: "State administrative services",
+//         outcomes: "SDM, DSP, BDO, Admin roles",
+//         website: "https://psc.wb.gov.in",
+//         websiteLabel: "WBPSC",
+//       },
+//       {
+//         title: "SSC / Banking / Railways Exams",
+//         authority: "SSC / IBPS / RRB",
+//         eligibility: "After 12 / Graduation (post-specific)",
+//         usedFor: "Central govt & PSU jobs",
+//         outcomes: "Clerk, Officer, Technical & admin roles",
+//         website: "https://ssc.gov.in/",
+//         websiteLabel: "SSC (example)",
+//       },
+//     ],
+//   },
 
-  {
-    key: "research",
-    title: "Research, Teaching & Higher Studies Exams",
-    description:
-      "For students planning postgraduate studies, research or college-level teaching.",
-    items: [
-      {
-        title: "IIT-JAM",
-        authority: "Indian Institutes of Technology",
-        eligibility: "After B.Sc",
-        usedFor: "M.Sc admission in IITs & IISc",
-        outcomes: "Research, Ph.D, academic careers",
-        website: "https://jam.iisc.ac.in",
-      },
-      {
-        title: "UGC NET (Science Subjects)",
-        authority: "NTA",
-        eligibility: "After Master’s Degree",
-        usedFor: "Assistant Professor & Ph.D eligibility",
-        outcomes: "College teaching & research",
-        website: "https://ugcnet.nta.nic.in",
-      },
-      {
-        title: "SET / SLET",
-        authority: "State SET Bodies",
-        eligibility: "After Master’s Degree",
-        usedFor: "State-level teaching eligibility",
-        outcomes: "Assistant Professor (state universities)",
-        website: "",
-        websiteLabel: "State SET portals",
-      },
-    ],
-  },
-];
+//   {
+//     key: "research",
+//     title: "Research, Teaching & Higher Studies Exams",
+//     description:
+//       "For students planning postgraduate studies, research or college-level teaching.",
+//     items: [
+//       {
+//         title: "IIT-JAM",
+//         authority: "Indian Institutes of Technology",
+//         eligibility: "After B.Sc",
+//         usedFor: "M.Sc admission in IITs & IISc",
+//         outcomes: "Research, Ph.D, academic careers",
+//         website: "https://jam.iisc.ac.in",
+//       },
+//       {
+//         title: "UGC NET (Science Subjects)",
+//         authority: "NTA",
+//         eligibility: "After Master’s Degree",
+//         usedFor: "Assistant Professor & Ph.D eligibility",
+//         outcomes: "College teaching & research",
+//         website: "https://ugcnet.nta.nic.in",
+//       },
+//       {
+//         title: "SET / SLET",
+//         authority: "State SET Bodies",
+//         eligibility: "After Master’s Degree",
+//         usedFor: "State-level teaching eligibility",
+//         outcomes: "Assistant Professor (state universities)",
+//         website: "",
+//         websiteLabel: "State SET portals",
+//       },
+//     ],
+//   },
+// ];
 
 function ExternalLink({ href, label }) {
   if (!href) return <span className="text-muted">{label}</span>;
@@ -203,7 +203,10 @@ function ExamCard({ exam }) {
   );
 }
 
-export default function ScienceGeneralRelatedExamsTab() {
+export default function ScienceGeneralRelatedExamsTab({related_exams}) {
+
+const CATEGORIES = related_exams;
+
   return (
     <section className="py-4 py-md-5">
       <div className="container">

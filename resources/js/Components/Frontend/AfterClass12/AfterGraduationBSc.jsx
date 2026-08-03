@@ -12,205 +12,205 @@ import { X, Route, Map as MapIcon } from "lucide-react";
  * This is kept practical + readable for UI (not every tiny connector is duplicated),
  * but all major routes are covered.
  */
-export const AFTER_BSC_PATHWAY_MAP = {
-  key: "after-bsc",
-  title: "Graduation / Bachelor Degree (B.Sc) — Pathways",
-  type: "root",
-  entries: [
-    // 1) Competitive exams
-    {
-      key: "wbcs-upsc",
-      label: "WBCS / WBFC / IAS / IPS / IFS / IRS / IES etc.",
-      type: "exam_group",
-      children: [
-        {
-          key: "phd-via-competitive",
-          label: "Ph.D",
-          type: "course",
-          children: [
-            { key: "post-doc-competitive", label: "Post Doctoral", type: "outcome", children: [] },
-          ],
-        },
-      ],
-    },
+// export const AFTER_BSC_PATHWAY_MAP = {
+//   key: "after-bsc",
+//   title: "Graduation / Bachelor Degree (B.Sc) — Pathways",
+//   type: "root",
+//   entries: [
+//     // 1) Competitive exams
+//     {
+//       key: "wbcs-upsc",
+//       label: "WBCS / WBFC / IAS / IPS / IFS / IRS / IES etc.",
+//       type: "exam_group",
+//       children: [
+//         {
+//           key: "phd-via-competitive",
+//           label: "Ph.D",
+//           type: "course",
+//           children: [
+//             { key: "post-doc-competitive", label: "Post Doctoral", type: "outcome", children: [] },
+//           ],
+//         },
+//       ],
+//     },
 
-    // 2) MBA (through NET/SET)
-    {
-      key: "mba-netset",
-      label: "MBA",
-      type: "course",
-      notes: ["Through NET / SET (as shown in diagram)"],
-      children: [],
-    },
+//     // 2) MBA (through NET/SET)
+//     {
+//       key: "mba-netset",
+//       label: "MBA",
+//       type: "course",
+//       notes: ["Through NET / SET (as shown in diagram)"],
+//       children: [],
+//     },
 
-    // 3) Teaching route: B.Ed → M.Ed → Secondary Teacher
-    {
-      key: "bed",
-      label: "B.Ed (1 Yr)",
-      type: "course",
-      notes: ["From IGNOU (2 yrs duration shown in diagram)"],
-      children: [
-        {
-          key: "med",
-          label: "M.Ed (1 Yr)",
-          type: "course",
-          notes: ["From IGNOU"],
-          children: [
-            { key: "secondary-teacher", label: "Secondary Teacher", type: "outcome", children: [] },
-          ],
-        },
-      ],
-    },
+//     // 3) Teaching route: B.Ed → M.Ed → Secondary Teacher
+//     {
+//       key: "bed",
+//       label: "B.Ed (1 Yr)",
+//       type: "course",
+//       notes: ["From IGNOU (2 yrs duration shown in diagram)"],
+//       children: [
+//         {
+//           key: "med",
+//           label: "M.Ed (1 Yr)",
+//           type: "course",
+//           notes: ["From IGNOU"],
+//           children: [
+//             { key: "secondary-teacher", label: "Secondary Teacher", type: "outcome", children: [] },
+//           ],
+//         },
+//       ],
+//     },
 
-    // 4) Master degree → M.Phil → PhD → Post Doctoral
-    {
-      key: "msc",
-      label: "Master Degree (M.Sc)",
-      type: "course",
-      children: [
-        {
-          key: "mphil",
-          label: "M.Phil (2 yrs)",
-          type: "course",
-          children: [
-            {
-              key: "phd-after-mphil",
-              label: "Ph.D",
-              type: "course",
-              notes: ["NET / SET"],
-              children: [
-                { key: "post-doc-after-mphil", label: "Post Doctoral", type: "outcome", children: [] },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     // 4) Master degree → M.Phil → PhD → Post Doctoral
+//     {
+//       key: "msc",
+//       label: "Master Degree (M.Sc)",
+//       type: "course",
+//       children: [
+//         {
+//           key: "mphil",
+//           label: "M.Phil (2 yrs)",
+//           type: "course",
+//           children: [
+//             {
+//               key: "phd-after-mphil",
+//               label: "Ph.D",
+//               type: "course",
+//               notes: ["NET / SET"],
+//               children: [
+//                 { key: "post-doc-after-mphil", label: "Post Doctoral", type: "outcome", children: [] },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    // 5) Integrated PhD (M.Sc + PhD) via JEST
-    {
-      key: "integrated-phd",
-      label: "Integrated Ph.D (M.Sc + Ph.D)",
-      type: "course",
-      notes: ["JEST Exam"],
-      children: [{ key: "post-doctoral-integrated", label: "Post Doctoral", type: "outcome", children: [] }],
-    },
+//     // 5) Integrated PhD (M.Sc + PhD) via JEST
+//     {
+//       key: "integrated-phd",
+//       label: "Integrated Ph.D (M.Sc + Ph.D)",
+//       type: "course",
+//       notes: ["JEST Exam"],
+//       children: [{ key: "post-doctoral-integrated", label: "Post Doctoral", type: "outcome", children: [] }],
+//     },
 
-    // 6) PBIR (M.Sc + PhD)
-    {
-      key: "pbir",
-      label: "PBIR (M.Sc + Ph.D)",
-      type: "course",
-      notes: ["Post-bachelor Integrated Research", "S.N. Bose (Kolkata), IACS, IISc, IISER, DAE etc."],
-      children: [],
-    },
+//     // 6) PBIR (M.Sc + PhD)
+//     {
+//       key: "pbir",
+//       label: "PBIR (M.Sc + Ph.D)",
+//       type: "course",
+//       notes: ["Post-bachelor Integrated Research", "S.N. Bose (Kolkata), IACS, IISc, IISER, DAE etc."],
+//       children: [],
+//     },
 
-    // 7) B.Tech (core tech branches) → GATE → M.Tech → PhD → Post Doctoral / Asst Prof
-    {
-      key: "btech-chemical-petro-polymer",
-      label: "B.Tech (Chemical / Ceramic / Oil / Pharma & Fine Chemical / Petrochemical & Petroleum / Polymer Sci & Tech)",
-      type: "course",
-      notes: ["Entrance Test", "University Selection Test"],
-      children: [
-        {
-          key: "gate-mtech-1",
-          label: "GATE Exam",
-          type: "exam",
-          children: [
-            {
-              key: "mtech-1",
-              label: "M.Tech (2 Yrs)",
-              type: "course",
-              notes: ["Through NET / SET (as shown)"],
-              children: [
-                {
-                  key: "phd-1",
-                  label: "Ph.D",
-                  type: "course",
-                  notes: ["Through CSC/PSC"],
-                  children: [
-                    { key: "post-doc-1", label: "Post Doctoral", type: "outcome", children: [] },
-                    { key: "asst-prof-1", label: "Asst Prof", type: "outcome", children: [] },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     // 7) B.Tech (core tech branches) → GATE → M.Tech → PhD → Post Doctoral / Asst Prof
+//     {
+//       key: "btech-chemical-petro-polymer",
+//       label: "B.Tech (Chemical / Ceramic / Oil / Pharma & Fine Chemical / Petrochemical & Petroleum / Polymer Sci & Tech)",
+//       type: "course",
+//       notes: ["Entrance Test", "University Selection Test"],
+//       children: [
+//         {
+//           key: "gate-mtech-1",
+//           label: "GATE Exam",
+//           type: "exam",
+//           children: [
+//             {
+//               key: "mtech-1",
+//               label: "M.Tech (2 Yrs)",
+//               type: "course",
+//               notes: ["Through NET / SET (as shown)"],
+//               children: [
+//                 {
+//                   key: "phd-1",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   notes: ["Through CSC/PSC"],
+//                   children: [
+//                     { key: "post-doc-1", label: "Post Doctoral", type: "outcome", children: [] },
+//                     { key: "asst-prof-1", label: "Asst Prof", type: "outcome", children: [] },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    // 8) B.Tech (Radio Physics / Electronics / IT / Optics & Opto Electronics / Electrical Engg / Instrumentation) → GATE → M.Tech → PhD → Post Doctoral / Asst Prof
-    {
-      key: "btech-rpe-it",
-      label: "B.Tech (Radio Physics & Electronics / IT / Optics & Opto Electronics / Electrical / Instrumentation)",
-      type: "course",
-      notes: ["University Test / Entrance Test"],
-      children: [
-        {
-          key: "gate-mtech-2",
-          label: "GATE Exam",
-          type: "exam",
-          children: [
-            {
-              key: "mtech-2",
-              label: "M.Tech (2 Yrs)",
-              type: "course",
-              children: [
-                {
-                  key: "phd-2",
-                  label: "Ph.D",
-                  type: "course",
-                  notes: ["Through CSC/PSC"],
-                  children: [
-                    { key: "post-doc-2", label: "Post Doctoral", type: "outcome", children: [] },
-                    { key: "asst-prof-2", label: "Asst Prof", type: "outcome", children: [] },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     // 8) B.Tech (Radio Physics / Electronics / IT / Optics & Opto Electronics / Electrical Engg / Instrumentation) → GATE → M.Tech → PhD → Post Doctoral / Asst Prof
+//     {
+//       key: "btech-rpe-it",
+//       label: "B.Tech (Radio Physics & Electronics / IT / Optics & Opto Electronics / Electrical / Instrumentation)",
+//       type: "course",
+//       notes: ["University Test / Entrance Test"],
+//       children: [
+//         {
+//           key: "gate-mtech-2",
+//           label: "GATE Exam",
+//           type: "exam",
+//           children: [
+//             {
+//               key: "mtech-2",
+//               label: "M.Tech (2 Yrs)",
+//               type: "course",
+//               children: [
+//                 {
+//                   key: "phd-2",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   notes: ["Through CSC/PSC"],
+//                   children: [
+//                     { key: "post-doc-2", label: "Post Doctoral", type: "outcome", children: [] },
+//                     { key: "asst-prof-2", label: "Asst Prof", type: "outcome", children: [] },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    // 9) Packing Technology → CAT/XAT/MAT/SNAP/GMAT/JEMAT → MBA → PhD → Post Doctoral / Asst Prof
-    {
-      key: "packing-tech",
-      label: "Packing Technology",
-      type: "course",
-      children: [
-        {
-          key: "mba-entrance",
-          label: "MBA",
-          type: "course",
-          notes: ["CAT / XAT / MAT / SNAP / GMAT / JEMAT"],
-          children: [
-            {
-              key: "phd-mba-route",
-              label: "Ph.D",
-              type: "course",
-              notes: ["NET / SET"],
-              children: [
-                { key: "post-doc-mba", label: "Post Doctoral", type: "outcome", children: [] },
-                { key: "asst-prof-mba", label: "Asst Prof", type: "outcome", children: [] },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     // 9) Packing Technology → CAT/XAT/MAT/SNAP/GMAT/JEMAT → MBA → PhD → Post Doctoral / Asst Prof
+//     {
+//       key: "packing-tech",
+//       label: "Packing Technology",
+//       type: "course",
+//       children: [
+//         {
+//           key: "mba-entrance",
+//           label: "MBA",
+//           type: "course",
+//           notes: ["CAT / XAT / MAT / SNAP / GMAT / JEMAT"],
+//           children: [
+//             {
+//               key: "phd-mba-route",
+//               label: "Ph.D",
+//               type: "course",
+//               notes: ["NET / SET"],
+//               children: [
+//                 { key: "post-doc-mba", label: "Post Doctoral", type: "outcome", children: [] },
+//                 { key: "asst-prof-mba", label: "Asst Prof", type: "outcome", children: [] },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    // 10) JEELET → BE (Lateral)
-    {
-      key: "jeelet",
-      label: "JEELET (2nd Yr Entry)",
-      type: "exam",
-      notes: ["For B.Sc (H) with Math students only", "Reserved seats mentioned in diagram"],
-      children: [{ key: "be-lateral", label: "B.E. (Lateral)", type: "course", children: [] }],
-    },
-  ],
-};
+//     // 10) JEELET → BE (Lateral)
+//     {
+//       key: "jeelet",
+//       label: "JEELET (2nd Yr Entry)",
+//       type: "exam",
+//       notes: ["For B.Sc (H) with Math students only", "Reserved seats mentioned in diagram"],
+//       children: [{ key: "be-lateral", label: "B.E. (Lateral)", type: "course", children: [] }],
+//     },
+//   ],
+// };
 
 function DiagramSection() {
   const [open, setOpen] = useState(false);
@@ -362,9 +362,10 @@ const getShortDescription = (entry) => {
   );
 };
 
-export default function AfterBScOverviewTab() {
+export default function AfterBScOverviewTab({overview_tree}) {
+
   const reduceMotion = useReducedMotion();
-  const entries = AFTER_BSC_PATHWAY_MAP.entries;
+  const entries = overview_tree.entries;
 
   const [activeEntry, setActiveEntry] = useState(null);
 

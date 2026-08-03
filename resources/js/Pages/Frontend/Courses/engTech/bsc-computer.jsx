@@ -36,127 +36,6 @@ const TABS = [
 ];
 
 /* -------------------------------------------------------------
-   DATA – B.Sc Computer Science / IT (Career Book aligned)
-------------------------------------------------------------- */
-
-const BSC_CS_IT_LADDER = [
-  {
-    title: "B.Sc Computer Science / IT (UG Degree)",
-    duration: "3 Years",
-    focus:
-      "Science-based UG degree focused on computer fundamentals, programming, maths/logic and computing systems.",
-  },
-  {
-    title: "Entry-level IT / Tech Jobs",
-    duration: "After UG",
-    focus:
-      "Developer trainee, QA/testing, IT support, web development, data operations (depending on skills).",
-  },
-  {
-    title: "M.Sc Computer Science / IT (PG)",
-    duration: "2 Years (varies)",
-    focus:
-      "Deeper CS/IT knowledge, research orientation and stronger specialization options.",
-  },
-  {
-    title: "Specialisation + Growth",
-    duration: "Continuous",
-    focus:
-      "Choose a track (full-stack, data, cloud, cybersecurity) and build strong projects for higher roles.",
-  },
-];
-
-const BSC_VARIANTS = [
-  {
-    title: "B.Sc Computer Science",
-    desc: "More CS fundamentals focus: programming, algorithms, systems and core computing subjects.",
-    icon: Cpu,
-  },
-  {
-    title: "B.Sc Information Technology (IT)",
-    desc: "More application and IT systems focus: networks, databases, web systems and IT operations exposure.",
-    icon: Network,
-  },
-  {
-    title: "B.Sc (CS/IT) with Specialisation (where offered)",
-    desc: "Some colleges offer tracks like Data Science, AI, Cybersecurity; syllabus differs by institute.",
-    icon: FlaskConical,
-  },
-];
-
-const CORE_SUBJECTS = [
-  "Programming fundamentals (C/C++/Java/Python depending on university)",
-  "Data Structures & Algorithms (foundation level)",
-  "Database Management Systems (DBMS)",
-  "Operating Systems basics",
-  "Computer Networks basics",
-  "Web development fundamentals",
-  "Mathematics/Statistics (often stronger than BCA in many universities)",
-];
-
-const CAREER_ROLES = [
-  "Software Developer (Junior) / Developer trainee",
-  "Web Developer",
-  "QA / Testing",
-  "IT Support / System Support",
-  "Database / Backend trainee roles",
-  "Data operations / analytics support (with skills)",
-];
-
-const WORK_SETTINGS = [
-  {
-    title: "IT Services & Software",
-    desc: "Development, testing, support and IT services roles.",
-    icon: Cpu,
-  },
-  {
-    title: "Startups / Product Teams",
-    desc: "Developer roles if you have strong projects + interview readiness.",
-    icon: Briefcase,
-  },
-  {
-    title: "Data / Database Teams",
-    desc: "DB support, data ops, reporting and analytics support roles.",
-    icon: Database,
-  },
-  {
-    title: "IT Operations / Networking",
-    desc: "Network/support roles, basic system administration tracks (with skills).",
-    icon: Network,
-  },
-];
-
-const ELIGIBILITY_NOTES = [
-  "Usually after Class 12 — eligibility may vary by university (science preference in some colleges).",
-  "Some colleges may prefer Mathematics/Computer at Class 12 level; many accept other streams too.",
-  "Admission may be merit-based or entrance-based depending on institute.",
-  "For jobs, you must build real projects and practical skills beyond the syllabus.",
-];
-
-const ADMISSION_NOTES = [
-  "Choose colleges with strong labs, updated syllabus and practical training.",
-  "Check if they include modern development and internship support.",
-  "Ask about placement support and alumni outcomes for CS/IT roles.",
-];
-
-const COMMON_DOCS = [
-  "Class 10 & 12 marksheets",
-  "ID proof (Aadhaar etc.)",
-  "Photo + signature",
-  "Category/EWS/Income certificate (if applicable)",
-  "Domicile (if required)",
-];
-
-const BUILD_PROFILE = [
-  "Pick one main language (Python/Java/JS) and get strong",
-  "Build 3–5 solid projects (portfolio/GitHub)",
-  "Practice DSA + logic (basic to intermediate)",
-  "Internship / freelance / real work exposure",
-  "Basic SQL + database skills (mandatory for most roles)",
-  "Communication + interview practice",
-];
-
-/* -------------------------------------------------------------
    UI Helpers
 ------------------------------------------------------------- */
 
@@ -193,23 +72,59 @@ function MiniDL({ items }) {
 
 /* -------------------------------------------------------------
    PAGE
-   Route: /courses/eng-tech/bsc-computer
 ------------------------------------------------------------- */
 
-export default function BScComputerPage() {
-  const snapshot = useMemo(
-    () => [
-      { k: "Degree type", v: "UG Science Degree (CS/IT)" },
-      { k: "Duration", v: "3 Years" },
-      { k: "Eligibility", v: "Class 12 (criteria varies)" },
-      { k: "Best for", v: "CS fundamentals + tech careers" },
-      { k: "Strong ladder", v: "B.Sc → M.Sc / MCA → specialisation" },
-    ],
-    []
-  );
+export default function BScComputerPage({ courseContent }) {
+  // Debug log
+  console.log('=== BScComputerPage Data ===');
+  console.log('Course Content:', courseContent);
+
+  // Extract data from courseContent
+  const bscLadder = courseContent?.bsc_it_ladder || [];
+  const bscVariants = courseContent?.bsc_variants || [];
+  const coreSubjects = courseContent?.core_areas || [];
+  const careerRoles = courseContent?.typical_roles || [];
+  const workSettings = courseContent?.work_settings || [];
+  const eligibilityNotes = courseContent?.eligibility_notes || [];
+  const admissionNotes = courseContent?.admission_notes || [];
+  const commonDocs = courseContent?.common_docs || [];
+  const buildProfile = courseContent?.build_profile || [];
+  const snapshot = courseContent?.snapshot || [];
+  const introHeading = courseContent?.intro_heading || "About B.Sc Computer Science / IT";
+  const introDescription = courseContent?.intro_description || "B.Sc Computer Science and B.Sc IT are undergraduate science degrees that build strong foundations in programming, computing fundamentals and IT systems. Many universities keep a stronger maths/logic base in B.Sc compared to purely application-focused programmes.";
+  const introDescriptionSecondary = courseContent?.intro_description_secondary || "Like all tech careers, your outcome depends on skills: projects, internships and interview readiness matter more than marks alone.";
+
+  // Create snapshot items
+  const snapshotItems = snapshot.length > 0 
+    ? snapshot.map(item => ({ k: item.key, v: item.value }))
+    : [
+        { k: "Degree type", v: "UG Science Degree (CS/IT)" },
+        { k: "Duration", v: "3 Years" },
+        { k: "Eligibility", v: "Class 12 (criteria varies)" },
+        { k: "Best for", v: "CS fundamentals + tech careers" },
+        { k: "Strong ladder", v: "B.Sc → M.Sc / MCA → specialisation" },
+      ];
+
+  // If no data found, show message
+  if (bscLadder.length === 0 && coreSubjects.length === 0 && bscVariants.length === 0) {
+    return (
+      <FrontendLayout>
+        <HeroInner
+          title="B.Sc Computer Science / IT"
+          breadcrumb="Engineering, Technology & IT → B.Sc Computer Science / IT"
+        />
+        <CoursesTabsBar tabs={TABS} activeId="bscc" />
+        <div className="container py-5">
+          <div className="alert alert-warning">
+            <h4>No courses available</h4>
+            <p>We're currently updating our course listings. Please check back later.</p>
+          </div>
+        </div>
+      </FrontendLayout>
+    );
+  }
 
   return (
-    <>
     <FrontendLayout>
       <HeroInner
         title="B.Sc Computer Science / IT"
@@ -226,19 +141,14 @@ export default function BScComputerPage() {
             <div className="col-12 col-lg-7">
               <h2 className="sectionHeading mb-3 d-flex align-items-center gap-2">
                 <Cpu size={18} className="text-primary" />
-                <span>About B.Sc Computer Science / IT</span>
+                <span>{introHeading}</span>
               </h2>
 
-              <p className="sectionSub">
-                B.Sc Computer Science and B.Sc IT are undergraduate science degrees that build strong foundations in
-                programming, computing fundamentals and IT systems. Many universities keep a stronger maths/logic base in
-                B.Sc compared to purely application-focused programmes.
-              </p>
+              <p className="sectionSub">{introDescription}</p>
 
-              <p className="sectionSub mb-0">
-                Like all tech careers, your outcome depends on skills: projects, internships and interview readiness
-                matter more than marks alone.
-              </p>
+              {introDescriptionSecondary && (
+                <p className="sectionSub mb-0">{introDescriptionSecondary}</p>
+              )}
             </div>
 
             <div className="col-12 col-lg-5">
@@ -247,7 +157,7 @@ export default function BScComputerPage() {
                   <Layers3 size={18} className="text-primary" />
                   <span>Quick Snapshot</span>
                 </h3>
-                <MiniDL items={snapshot} />
+                <MiniDL items={snapshotItems} />
               </div>
 
               <div className="sectionCard bg-light border mt-3">
@@ -265,128 +175,161 @@ export default function BScComputerPage() {
       </section>
 
       {/* 2) LADDER */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={GraduationCap}
-            title="Career ladder (B.Sc CS/IT)"
-            subtitle="B.Sc builds fundamentals. After that, specialisation creates growth."
-          />
+      {bscLadder.length > 0 && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={GraduationCap}
+              title="Career ladder (B.Sc CS/IT)"
+              subtitle="B.Sc builds fundamentals. After that, specialisation creates growth."
+            />
 
-          <div className="row g-3">
-            {BSC_CS_IT_LADDER.map((c) => (
-              <div key={c.title} className="col-12 col-md-6">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">{c.title}</h3>
-                  <p className="small text-muted mb-1">{c.duration}</p>
-                  <p className="small text-muted mb-0">{c.focus}</p>
+            <div className="row g-3">
+              {bscLadder.map((step, index) => (
+                <div key={index} className="col-12 col-md-6">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">{step.title}</h3>
+                    {step.duration && (
+                      <p className="small text-muted mb-1">{step.duration}</p>
+                    )}
+                    {step.focus && (
+                      <p className="small text-muted mb-0">{step.focus}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Tip: If you want long-term growth, plan for M.Sc/MCA or a strong specialization (data/cloud/security) with projects.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Tip: If you want long-term growth, plan for M.Sc/MCA or a strong specialization (data/cloud/security) with projects.
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 3) B.Sc CS vs B.Sc IT */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={ShieldCheck}
-            title="B.Sc Computer Science vs B.Sc IT"
-            subtitle="Difference is often in focus; exact syllabus varies by university."
-          />
+      {bscVariants.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={ShieldCheck}
+              title="B.Sc Computer Science vs B.Sc IT"
+              subtitle="Difference is often in focus; exact syllabus varies by university."
+            />
 
-          <div className="row g-3">
-            {BSC_VARIANTS.map((x) => {
-              const Icon = x.icon;
-              return (
-                <div key={x.title} className="col-12 col-md-4">
-                  <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{x.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-0">{x.desc}</p>
+            <div className="row g-3">
+              {bscVariants.map((variant, index) => {
+                // Get icon based on title
+                const getIcon = (title) => {
+                  if (title.includes("Computer Science")) return Cpu;
+                  if (title.includes("Information Technology") || title.includes("IT")) return Network;
+                  if (title.includes("Specialisation")) return FlaskConical;
+                  return Cpu;
+                };
+                const Icon = variant.icon || getIcon(variant.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-4">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{variant.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-0">{variant.desc || variant.description}</p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 4) CORE SUBJECTS + ROLES */}
-      <section className="py-5 nitLightGradient">
-        <div className="container">
-          <SectionHeader
-            icon={Code2}
-            title="Core subjects & typical roles"
-            subtitle="These are common foundation topics and entry-level roles."
-          />
+      {(coreSubjects.length > 0 || careerRoles.length > 0) && (
+        <section className="py-5 nitLightGradient">
+          <div className="container">
+            <SectionHeader
+              icon={Code2}
+              title="Core subjects & typical roles"
+              subtitle="These are common foundation topics and entry-level roles."
+            />
 
-          <div className="row g-4 align-items-stretch">
-            <div className="col-12 col-lg-6 d-flex">
-              <div className="sectionCard h-100">
-                <h3 className="h6 mb-3">Core subjects (common)</h3>
-                <ul className="list-unstyled small mb-0">
-                  {CORE_SUBJECTS.map((s) => (
-                    <li key={s} className="mb-2 d-flex">
-                      <span className="me-2">•</span>
-                      <span>{s}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-12 col-lg-6 d-flex">
-              <div className="sectionCard h-100">
-                <h3 className="h6 mb-3">Typical entry roles</h3>
-                <ul className="list-unstyled small mb-0">
-                  {CAREER_ROLES.map((r) => (
-                    <li key={r} className="mb-2 d-flex">
-                      <span className="me-2">•</span>
-                      <span>{r}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5) WHERE YOU WORK */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={Briefcase}
-            title="Where B.Sc CS/IT graduates work"
-            subtitle="Work depends on your skill track: development, data, ops or support."
-          />
-
-          <div className="row g-3">
-            {WORK_SETTINGS.map((w) => {
-              const Icon = w.icon;
-              return (
-                <div key={w.title} className="col-12 col-md-6 col-lg-3">
+            <div className="row g-4 align-items-stretch">
+              {coreSubjects.length > 0 && (
+                <div className="col-12 col-lg-6 d-flex">
                   <div className="sectionCard h-100">
-                    <h3 className="h6 mb-1 d-flex align-items-center gap-2">
-                      <Icon size={16} className="text-primary" />
-                      <span>{w.title}</span>
-                    </h3>
-                    <p className="small text-muted mb-0">{w.desc}</p>
+                    <h3 className="h6 mb-3">Core subjects (common)</h3>
+                    <ul className="list-unstyled small mb-0">
+                      {coreSubjects.map((subject, index) => (
+                        <li key={index} className="mb-2 d-flex">
+                          <span className="me-2">•</span>
+                          <span>{subject}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              );
-            })}
+              )}
+
+              {careerRoles.length > 0 && (
+                <div className="col-12 col-lg-6 d-flex">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-3">Typical entry roles</h3>
+                    <ul className="list-unstyled small mb-0">
+                      {careerRoles.map((role, index) => (
+                        <li key={index} className="mb-2 d-flex">
+                          <span className="me-2">•</span>
+                          <span>{role}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* 5) WHERE YOU WORK */}
+      {workSettings.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={Briefcase}
+              title="Where B.Sc CS/IT graduates work"
+              subtitle="Work depends on your skill track: development, data, ops or support."
+            />
+
+            <div className="row g-3">
+              {workSettings.map((work, index) => {
+                // Get icon based on title
+                const getIcon = (title) => {
+                  if (title.includes("IT") || title.includes("Software") || title.includes("Services")) return Cpu;
+                  if (title.includes("Product") || title.includes("Startups")) return Briefcase;
+                  if (title.includes("Data") || title.includes("Database")) return Database;
+                  if (title.includes("Network") || title.includes("Networking") || title.includes("Ops")) return Network;
+                  return Cpu;
+                };
+                const Icon = work.icon || getIcon(work.title);
+
+                return (
+                  <div key={index} className="col-12 col-md-6 col-lg-3">
+                    <div className="sectionCard h-100">
+                      <h3 className="h6 mb-1 d-flex align-items-center gap-2">
+                        <Icon size={16} className="text-primary" />
+                        <span>{work.title}</span>
+                      </h3>
+                      <p className="small text-muted mb-0">{work.desc || work.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 6) ADMISSION & DOCUMENTS */}
       <section className="py-4 py-md-5 nitLightGradient">
@@ -401,8 +344,13 @@ export default function BScComputerPage() {
             <div className="col-12 col-lg-7 d-flex">
               <div className="nitDarkGlassBox w-100">
                 <ul className="nitDarkList mb-0">
-                  {ELIGIBILITY_NOTES.map((x) => (
-                    <li key={x}>{x}</li>
+                  {(eligibilityNotes.length > 0 ? eligibilityNotes : [
+                    "Usually after Class 12 — eligibility may vary by university (science preference in some colleges).",
+                    "Some colleges may prefer Mathematics/Computer at Class 12 level; many accept other streams too.",
+                    "Admission may be merit-based or entrance-based depending on institute.",
+                    "For jobs, you must build real projects and practical skills beyond the syllabus."
+                  ]).map((note, index) => (
+                    <li key={index}>{note}</li>
                   ))}
                 </ul>
 
@@ -420,10 +368,16 @@ export default function BScComputerPage() {
                 </h3>
 
                 <ul className="list-unstyled small mb-0">
-                  {COMMON_DOCS.map((d) => (
-                    <li key={d} className="mb-2 d-flex">
+                  {(commonDocs.length > 0 ? commonDocs : [
+                    "Class 10 & 12 marksheets",
+                    "ID proof (Aadhaar etc.)",
+                    "Photo + signature",
+                    "Category/EWS/Income certificate (if applicable)",
+                    "Domicile (if required)"
+                  ]).map((doc, index) => (
+                    <li key={index} className="mb-2 d-flex">
                       <span className="me-2">•</span>
-                      <span>{d}</span>
+                      <span>{doc}</span>
                     </li>
                   ))}
                 </ul>
@@ -438,31 +392,32 @@ export default function BScComputerPage() {
       </section>
 
       {/* 7) BUILD YOUR PROFILE */}
-      <section className="py-5">
-        <div className="container">
-          <SectionHeader
-            icon={Users}
-            title="Build your profile during B.Sc CS/IT"
-            subtitle="Skills + projects decide your job, not only the degree title."
-          />
+      {buildProfile.length > 0 && (
+        <section className="py-5">
+          <div className="container">
+            <SectionHeader
+              icon={Users}
+              title="Build your profile during B.Sc CS/IT"
+              subtitle="Skills + projects decide your job, not only the degree title."
+            />
 
-          <div className="row g-3">
-            {BUILD_PROFILE.map((t) => (
-              <div key={t} className="col-12 col-md-6 col-lg-4">
-                <div className="sectionCard h-100">
-                  <h3 className="h6 mb-1">Key focus</h3>
-                  <p className="small text-muted mb-0">{t}</p>
+            <div className="row g-3">
+              {buildProfile.map((item, index) => (
+                <div key={index} className="col-12 col-md-6 col-lg-4">
+                  <div className="sectionCard h-100">
+                    <h3 className="h6 mb-1">Key focus</h3>
+                    <p className="small text-muted mb-0">{item}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
-            Sensible shortcut: build projects every semester + learn SQL + do one internship — this unlocks strong CS/IT roles.
+            <div className="text-muted small mt-4" style={{ maxWidth: "95ch" }}>
+              Sensible shortcut: build projects every semester + learn SQL + do one internship — this unlocks strong CS/IT roles.
+            </div>
           </div>
-        </div>
-      </section>
-      </FrontendLayout>
-    </>
+        </section>
+      )}
+    </FrontendLayout>
   );
 }

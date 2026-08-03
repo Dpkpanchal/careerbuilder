@@ -11,167 +11,167 @@ import { ArrowUpRight } from "lucide-react";
  * - Govt & Career Book aligned
  */
 
-const CATEGORIES = [
-  {
-    key: "medical-ug",
-    title: "Medical Entrance Exams (After Class 12)",
-    description:
-      "Primary entrance examinations for admission into MBBS, BDS and other undergraduate medical courses.",
-    items: [
-      {
-        title: "NEET-UG (National Eligibility cum Entrance Test)",
-        authority: "National Testing Agency (NTA)",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "MBBS, BDS, BAMS, BHMS, BUMS and other medical courses",
-        outcomes: "Doctor, medical practitioner, healthcare professional",
-        website: "https://neet.nta.nic.in/",
-      },
-      {
-        title: "AIIMS / JIPMER Admission (via NEET-UG)",
-        authority: "AIIMS / JIPMER",
-        eligibility: "After Class 12 (PCB) through NEET-UG",
-        usedFor: "MBBS admission in AIIMS & JIPMER institutes",
-        outcomes: "Medical education at premier institutions",
-        website: "https://neet.nta.nic.in/",
-        websiteLabel: "NEET (Official)",
-      },
-    ],
-  },
+// const CATEGORIES = [
+//   {
+//     key: "medical-ug",
+//     title: "Medical Entrance Exams (After Class 12)",
+//     description:
+//       "Primary entrance examinations for admission into MBBS, BDS and other undergraduate medical courses.",
+//     items: [
+//       {
+//         title: "NEET-UG (National Eligibility cum Entrance Test)",
+//         authority: "National Testing Agency (NTA)",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "MBBS, BDS, BAMS, BHMS, BUMS and other medical courses",
+//         outcomes: "Doctor, medical practitioner, healthcare professional",
+//         website: "https://neet.nta.nic.in/",
+//       },
+//       {
+//         title: "AIIMS / JIPMER Admission (via NEET-UG)",
+//         authority: "AIIMS / JIPMER",
+//         eligibility: "After Class 12 (PCB) through NEET-UG",
+//         usedFor: "MBBS admission in AIIMS & JIPMER institutes",
+//         outcomes: "Medical education at premier institutions",
+//         website: "https://neet.nta.nic.in/",
+//         websiteLabel: "NEET (Official)",
+//       },
+//     ],
+//   },
 
-  {
-    key: "ayush",
-    title: "AYUSH & Alternative Medicine Entrance Exams",
-    description:
-      "For students interested in traditional Indian systems of medicine such as Ayurveda, Homeopathy and Unani.",
-    items: [
-      {
-        title: "NEET-UG (AYUSH Courses)",
-        authority: "NTA / AYUSH Authorities",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "BAMS, BHMS, BUMS, BSMS admissions",
-        outcomes: "Ayurvedic doctor, homeopathic physician",
-        website: "https://neet.nta.nic.in/",
-      },
-      {
-        title: "State AYUSH Counselling",
-        authority: "State AYUSH Departments",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "AYUSH course admissions in state colleges",
-        outcomes: "AYUSH medical practice",
-        website: "",
-        websiteLabel: "State AYUSH portals",
-      },
-    ],
-  },
+//   {
+//     key: "ayush",
+//     title: "AYUSH & Alternative Medicine Entrance Exams",
+//     description:
+//       "For students interested in traditional Indian systems of medicine such as Ayurveda, Homeopathy and Unani.",
+//     items: [
+//       {
+//         title: "NEET-UG (AYUSH Courses)",
+//         authority: "NTA / AYUSH Authorities",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "BAMS, BHMS, BUMS, BSMS admissions",
+//         outcomes: "Ayurvedic doctor, homeopathic physician",
+//         website: "https://neet.nta.nic.in/",
+//       },
+//       {
+//         title: "State AYUSH Counselling",
+//         authority: "State AYUSH Departments",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "AYUSH course admissions in state colleges",
+//         outcomes: "AYUSH medical practice",
+//         website: "",
+//         websiteLabel: "State AYUSH portals",
+//       },
+//     ],
+//   },
 
-  {
-    key: "paramedical",
-    title: "Paramedical & Allied Health Entrance Exams",
-    description:
-      "Entrance routes for paramedical and allied health science courses supporting the healthcare system.",
-    items: [
-      {
-        title: "State Paramedical Entrance Exams",
-        authority: "State Medical / Health Education Boards",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "Paramedical & allied health courses",
-        outcomes: "Lab technician, radiology, OT, healthcare support roles",
-        website: "",
-        websiteLabel: "State portals",
-      },
-      {
-        title: "Institute-Level Paramedical Tests",
-        authority: "Medical Colleges / Institutes",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "Allied health science programmes",
-        outcomes: "Hospital & diagnostic centre careers",
-        website: "",
-        websiteLabel: "Institute websites",
-      },
-    ],
-  },
+//   {
+//     key: "paramedical",
+//     title: "Paramedical & Allied Health Entrance Exams",
+//     description:
+//       "Entrance routes for paramedical and allied health science courses supporting the healthcare system.",
+//     items: [
+//       {
+//         title: "State Paramedical Entrance Exams",
+//         authority: "State Medical / Health Education Boards",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "Paramedical & allied health courses",
+//         outcomes: "Lab technician, radiology, OT, healthcare support roles",
+//         website: "",
+//         websiteLabel: "State portals",
+//       },
+//       {
+//         title: "Institute-Level Paramedical Tests",
+//         authority: "Medical Colleges / Institutes",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "Allied health science programmes",
+//         outcomes: "Hospital & diagnostic centre careers",
+//         website: "",
+//         websiteLabel: "Institute websites",
+//       },
+//     ],
+//   },
 
-  {
-    key: "nursing",
-    title: "Nursing Entrance Exams",
-    description:
-      "For students aiming for professional nursing education and hospital-based careers.",
-    items: [
-      {
-        title: "B.Sc Nursing Entrance Exams",
-        authority: "State Nursing Councils / Universities",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "B.Sc Nursing admission",
-        outcomes: "Registered nurse, hospital & clinical roles",
-        website: "",
-        websiteLabel: "State nursing portals",
-      },
-      {
-        title: "GNM Entrance Exams",
-        authority: "State Nursing Boards",
-        eligibility: "After Class 12 (PCB)",
-        usedFor: "General Nursing & Midwifery (GNM)",
-        outcomes: "Staff nurse, community healthcare roles",
-        website: "",
-        websiteLabel: "State portals",
-      },
-    ],
-  },
+//   {
+//     key: "nursing",
+//     title: "Nursing Entrance Exams",
+//     description:
+//       "For students aiming for professional nursing education and hospital-based careers.",
+//     items: [
+//       {
+//         title: "B.Sc Nursing Entrance Exams",
+//         authority: "State Nursing Councils / Universities",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "B.Sc Nursing admission",
+//         outcomes: "Registered nurse, hospital & clinical roles",
+//         website: "",
+//         websiteLabel: "State nursing portals",
+//       },
+//       {
+//         title: "GNM Entrance Exams",
+//         authority: "State Nursing Boards",
+//         eligibility: "After Class 12 (PCB)",
+//         usedFor: "General Nursing & Midwifery (GNM)",
+//         outcomes: "Staff nurse, community healthcare roles",
+//         website: "",
+//         websiteLabel: "State portals",
+//       },
+//     ],
+//   },
 
-  {
-    key: "pg-medical",
-    title: "Postgraduate Medical Entrance Exams (Plan After MBBS)",
-    description:
-      "For medical graduates planning specialisation, higher studies and advanced clinical careers.",
-    items: [
-      {
-        title: "NEET-PG",
-        authority: "National Board of Examinations (NBE)",
-        eligibility: "After MBBS",
-        usedFor: "MD / MS / PG Diploma admissions",
-        outcomes: "Medical specialisation & consultant roles",
-        website: "https://nbe.edu.in/",
-        websiteLabel: "NBE",
-      },
-      {
-        title: "INI-CET",
-        authority: "AIIMS / NIMHANS / JIPMER / PGI",
-        eligibility: "After MBBS",
-        usedFor: "PG medical courses in INI institutes",
-        outcomes: "Advanced medical training",
-        website: "https://www.aiimsexams.ac.in/",
-        websiteLabel: "AIIMS Exams",
-      },
-    ],
-  },
+//   {
+//     key: "pg-medical",
+//     title: "Postgraduate Medical Entrance Exams (Plan After MBBS)",
+//     description:
+//       "For medical graduates planning specialisation, higher studies and advanced clinical careers.",
+//     items: [
+//       {
+//         title: "NEET-PG",
+//         authority: "National Board of Examinations (NBE)",
+//         eligibility: "After MBBS",
+//         usedFor: "MD / MS / PG Diploma admissions",
+//         outcomes: "Medical specialisation & consultant roles",
+//         website: "https://nbe.edu.in/",
+//         websiteLabel: "NBE",
+//       },
+//       {
+//         title: "INI-CET",
+//         authority: "AIIMS / NIMHANS / JIPMER / PGI",
+//         eligibility: "After MBBS",
+//         usedFor: "PG medical courses in INI institutes",
+//         outcomes: "Advanced medical training",
+//         website: "https://www.aiimsexams.ac.in/",
+//         websiteLabel: "AIIMS Exams",
+//       },
+//     ],
+//   },
 
-  {
-    key: "govt-medical",
-    title: "Government & Public Health Exams",
-    description:
-      "Examinations and recruitment routes for doctors and health professionals in government services.",
-    items: [
-      {
-        title: "UPSC CMS (Combined Medical Services)",
-        authority: "UPSC",
-        eligibility: "After MBBS",
-        usedFor: "Central government medical officer posts",
-        outcomes: "Govt doctor, health services roles",
-        website: "https://upsc.gov.in/",
-        websiteLabel: "UPSC",
-      },
-      {
-        title: "State Medical Officer Recruitment",
-        authority: "State Health Departments / PSC",
-        eligibility: "After MBBS",
-        usedFor: "State government doctor posts",
-        outcomes: "Public healthcare service",
-        website: "",
-        websiteLabel: "State PSC portals",
-      },
-    ],
-  },
-];
+//   {
+//     key: "govt-medical",
+//     title: "Government & Public Health Exams",
+//     description:
+//       "Examinations and recruitment routes for doctors and health professionals in government services.",
+//     items: [
+//       {
+//         title: "UPSC CMS (Combined Medical Services)",
+//         authority: "UPSC",
+//         eligibility: "After MBBS",
+//         usedFor: "Central government medical officer posts",
+//         outcomes: "Govt doctor, health services roles",
+//         website: "https://upsc.gov.in/",
+//         websiteLabel: "UPSC",
+//       },
+//       {
+//         title: "State Medical Officer Recruitment",
+//         authority: "State Health Departments / PSC",
+//         eligibility: "After MBBS",
+//         usedFor: "State government doctor posts",
+//         outcomes: "Public healthcare service",
+//         website: "",
+//         websiteLabel: "State PSC portals",
+//       },
+//     ],
+//   },
+// ];
 
 function ExternalLink({ href, label }) {
   if (!href) return <span className="text-muted">{label}</span>;
@@ -223,7 +223,9 @@ function ExamCard({ exam }) {
   );
 }
 
-export default function MedicalParamedicalRelatedExamsTab() {
+export default function MedicalParamedicalRelatedExamsTab({related_exams}) {
+
+  const CATEGORIES = related_exams;
   return (
     <section className="py-4 py-md-5">
       <div className="container">

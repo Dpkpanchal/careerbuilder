@@ -17,202 +17,202 @@ import { X, Route, Map as MapIcon } from "lucide-react";
  * - IIT JAM → Integrated M.Sc → NET/SET → PhD → Asst. Prof (CSC/PSC)
  */
 
-export const AFTER_12_SCI_ENGINEERING_PATHWAY_MAP = {
-  key: "after-12-sci-engineering",
-  title: "Graduate Level Courses After Class 12 (Science Students) — Engineering",
-  type: "root",
-  entries: [
-    // -------------------------
-    // Polytechnic Route
-    // -------------------------
-    {
-      key: "polytechnic-diploma",
-      label: "Polytechnic Diploma (3 Yrs)",
-      type: "course",
-      notes: ["JEXPO Exam"],
-      children: [
-        {
-          key: "jelet",
-          label: "JELET (2nd Yr Lateral Entry)",
-          type: "exam",
-          notes: ["For BE/B.Tech only"],
-          children: [
-            {
-              key: "lateral-btech",
-              label: "AMIE / B.Tech / B.E (Lateral)",
-              type: "course",
-              children: [],
-            },
-            {
-              key: "post-diploma",
-              label: "Post Diploma",
-              type: "course",
-              children: [],
-            },
-          ],
-        },
-      ],
-    },
+// export const AFTER_12_SCI_ENGINEERING_PATHWAY_MAP = {
+//   key: "after-12-sci-engineering",
+//   title: "Graduate Level Courses After Class 12 (Science Students) — Engineering",
+//   type: "root",
+//   entries: [
+//     // -------------------------
+//     // Polytechnic Route
+//     // -------------------------
+//     {
+//       key: "polytechnic-diploma",
+//       label: "Polytechnic Diploma (3 Yrs)",
+//       type: "course",
+//       notes: ["JEXPO Exam"],
+//       children: [
+//         {
+//           key: "jelet",
+//           label: "JELET (2nd Yr Lateral Entry)",
+//           type: "exam",
+//           notes: ["For BE/B.Tech only"],
+//           children: [
+//             {
+//               key: "lateral-btech",
+//               label: "AMIE / B.Tech / B.E (Lateral)",
+//               type: "course",
+//               children: [],
+//             },
+//             {
+//               key: "post-diploma",
+//               label: "Post Diploma",
+//               type: "course",
+//               children: [],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    // -------------------------
-    // Regular Engineering Bachelor Route
-    // -------------------------
-    {
-      key: "engineering-bachelor",
-      label: "Engineering (Bachelor)",
-      type: "course",
-      notes: ["Entrance Exams: JEE(Main), WBJEE, JEM, BITS, TATA etc."],
-      children: [
-        {
-          key: "be-btech-barch-bpharm",
-          label: "B.E / B.Tech / B.Arch / B.Pharm (4 Yrs)",
-          type: "course",
-          children: [
-            {
-              key: "post-graduate",
-              label: "Post Graduate",
-              type: "course",
-              children: [
-                {
-                  key: "gate",
-                  label: "GATE Exam",
-                  type: "exam",
-                  children: [
-                    {
-                      key: "mtech",
-                      label: "M.Tech",
-                      type: "course",
-                      children: [
-                        {
-                          key: "net-set-mtech",
-                          label: "NET / SET",
-                          type: "exam",
-                          notes: ["Through CSC/PSC"],
-                          children: [
-                            {
-                              key: "phd-mtech",
-                              label: "Ph.D",
-                              type: "course",
-                              children: [
-                                {
-                                  key: "post-doctoral-mtech",
-                                  label: "Post Doctoral",
-                                  type: "outcome",
-                                  children: [
-                                    { key: "asst-prof-mtech", label: "Asst. Prof.", type: "outcome", children: [] },
-                                  ],
-                                },
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//     // -------------------------
+//     // Regular Engineering Bachelor Route
+//     // -------------------------
+//     {
+//       key: "engineering-bachelor",
+//       label: "Engineering (Bachelor)",
+//       type: "course",
+//       notes: ["Entrance Exams: JEE(Main), WBJEE, JEM, BITS, TATA etc."],
+//       children: [
+//         {
+//           key: "be-btech-barch-bpharm",
+//           label: "B.E / B.Tech / B.Arch / B.Pharm (4 Yrs)",
+//           type: "course",
+//           children: [
+//             {
+//               key: "post-graduate",
+//               label: "Post Graduate",
+//               type: "course",
+//               children: [
+//                 {
+//                   key: "gate",
+//                   label: "GATE Exam",
+//                   type: "exam",
+//                   children: [
+//                     {
+//                       key: "mtech",
+//                       label: "M.Tech",
+//                       type: "course",
+//                       children: [
+//                         {
+//                           key: "net-set-mtech",
+//                           label: "NET / SET",
+//                           type: "exam",
+//                           notes: ["Through CSC/PSC"],
+//                           children: [
+//                             {
+//                               key: "phd-mtech",
+//                               label: "Ph.D",
+//                               type: "course",
+//                               children: [
+//                                 {
+//                                   key: "post-doctoral-mtech",
+//                                   label: "Post Doctoral",
+//                                   type: "outcome",
+//                                   children: [
+//                                     { key: "asst-prof-mtech", label: "Asst. Prof.", type: "outcome", children: [] },
+//                                   ],
+//                                 },
+//                               ],
+//                             },
+//                           ],
+//                         },
+//                       ],
+//                     },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    // -------------------------
-    // IIT B.Tech Route
-    // -------------------------
-    {
-      key: "iit-btech",
-      label: "IIT Engg. B.Tech (4 Yrs)",
-      type: "course",
-      notes: ["JEE (Advance) / Previously IIT-JEE"],
-      children: [
-        {
-          key: "mba",
-          label: "MBA",
-          type: "course",
-          notes: ["CAT, MAT, XAT, SNAP, GMAT, JEMAT"],
-          children: [
-            {
-              key: "net-set-mba",
-              label: "NET / SET",
-              type: "exam",
-              notes: ["Through CSC/PSC"],
-              children: [
-                {
-                  key: "phd-mba",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [
-                    {
-                      key: "post-doctoral-mba",
-                      label: "Post Doctoral",
-                      type: "outcome",
-                      children: [{ key: "asst-prof-mba", label: "Asst. Prof.", type: "outcome", children: [] }],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
+//     // -------------------------
+//     // IIT B.Tech Route
+//     // -------------------------
+//     {
+//       key: "iit-btech",
+//       label: "IIT Engg. B.Tech (4 Yrs)",
+//       type: "course",
+//       notes: ["JEE (Advance) / Previously IIT-JEE"],
+//       children: [
+//         {
+//           key: "mba",
+//           label: "MBA",
+//           type: "course",
+//           notes: ["CAT, MAT, XAT, SNAP, GMAT, JEMAT"],
+//           children: [
+//             {
+//               key: "net-set-mba",
+//               label: "NET / SET",
+//               type: "exam",
+//               notes: ["Through CSC/PSC"],
+//               children: [
+//                 {
+//                   key: "phd-mba",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [
+//                     {
+//                       key: "post-doctoral-mba",
+//                       label: "Post Doctoral",
+//                       type: "outcome",
+//                       children: [{ key: "asst-prof-mba", label: "Asst. Prof.", type: "outcome", children: [] }],
+//                     },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
 
-        {
-          key: "gate-to-ms",
-          label: "GATE Exam",
-          type: "exam",
-          children: [
-            {
-              key: "ms",
-              label: "Master of Sc (MS)",
-              type: "course",
-              children: [
-                {
-                  key: "phd-ms",
-                  label: "Ph.D",
-                  type: "course",
-                  children: [
-                    {
-                      key: "post-doctoral-ms",
-                      label: "Post Doctoral",
-                      type: "outcome",
-                      children: [],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+//         {
+//           key: "gate-to-ms",
+//           label: "GATE Exam",
+//           type: "exam",
+//           children: [
+//             {
+//               key: "ms",
+//               label: "Master of Sc (MS)",
+//               type: "course",
+//               children: [
+//                 {
+//                   key: "phd-ms",
+//                   label: "Ph.D",
+//                   type: "course",
+//                   children: [
+//                     {
+//                       key: "post-doctoral-ms",
+//                       label: "Post Doctoral",
+//                       type: "outcome",
+//                       children: [],
+//                     },
+//                   ],
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
 
-    // -------------------------
-    // Integrated M.Sc Route (IIT JAM)
-    // -------------------------
-    {
-      key: "integrated-msc",
-      label: "Integrated M.Sc",
-      type: "course",
-      notes: ["IIT JAM Exam", "Math/Statistics/Physics/Metrology/Chemistry/Geography/Geophysics"],
-      children: [
-        {
-          key: "net-set-msc",
-          label: "NET / SET",
-          type: "exam",
-          children: [
-            {
-              key: "phd-integrated",
-              label: "Ph.D",
-              type: "course",
-              notes: ["Through CSC/PSC"],
-              children: [{ key: "asst-prof-integrated", label: "Asst. Prof.", type: "outcome", children: [] }],
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
+//     // -------------------------
+//     // Integrated M.Sc Route (IIT JAM)
+//     // -------------------------
+//     {
+//       key: "integrated-msc",
+//       label: "Integrated M.Sc",
+//       type: "course",
+//       notes: ["IIT JAM Exam", "Math/Statistics/Physics/Metrology/Chemistry/Geography/Geophysics"],
+//       children: [
+//         {
+//           key: "net-set-msc",
+//           label: "NET / SET",
+//           type: "exam",
+//           children: [
+//             {
+//               key: "phd-integrated",
+//               label: "Ph.D",
+//               type: "course",
+//               notes: ["Through CSC/PSC"],
+//               children: [{ key: "asst-prof-integrated", label: "Asst. Prof.", type: "outcome", children: [] }],
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   ],
+// };
 
 function DiagramSection() {
   const [open, setOpen] = useState(false);
@@ -363,9 +363,9 @@ const getShortPreview = (entry) => {
   return MAP[key] || "Explore the next steps and outcomes in this pathway.";
 };
 
-export default function EngineeringOverviewTab() {
+export default function EngineeringOverviewTab({overview_tree}) {
   const reduceMotion = useReducedMotion();
-  const entries = AFTER_12_SCI_ENGINEERING_PATHWAY_MAP.entries;
+  const entries = overview_tree.entries;
 
   const [activeEntry, setActiveEntry] = useState(null);
   const paths = useMemo(() => (activeEntry ? buildPaths(activeEntry) : []), [activeEntry]);
