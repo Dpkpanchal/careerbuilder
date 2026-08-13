@@ -106,10 +106,10 @@ export default function Index({ records, filters }) {
                         href={route("admin.studentSupport.edit", r.id)}
                         className="btn btn-sm btn-info"
                       >
-                        Edit
+                         <i className="fas fa-edit"></i>
                       </Link>
 
-                      <Link
+                      {/* <Link
                         as="button"
                         method="delete"
                         href={route("admin.studentSupport.destroy", r.id)}
@@ -120,7 +120,7 @@ export default function Index({ records, filters }) {
                         }
                       >
                         Delete
-                      </Link>
+                      </Link> */}
                     </td>
                   </tr>
                 ))

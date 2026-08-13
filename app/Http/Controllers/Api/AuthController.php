@@ -43,7 +43,7 @@ class AuthController extends Controller
 
             return response()->json([
                 'success' => false,
-                'message' => 'Your account has been blocked. Please contact admin.',
+                'message' => 'Your account has been blocked. Please contact the admin at admin@wbmdfc.org.',
             ], 403);
         }
 

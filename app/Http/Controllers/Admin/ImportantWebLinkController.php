@@ -12,22 +12,33 @@ class ImportantWebLinkController extends Controller
     {
         $query = ImportantWebLink::query();
 
-        if ($request->search) {
-            $query->where('subject', 'ILIKE', '%' . $request->search . '%');
+        // Search filter
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('subject', 'LIKE', '%' . $search . '%')
+                ->orWhere('web_link', 'LIKE', '%' . $search . '%');
+            });
         }
 
-        if ($request->category) {
+        // Category filter
+        if ($request->filled('category')) {
             $query->where('category', $request->category);
         }
 
-        $links = $query
-            ->orderBy('id', 'desc')
-            ->paginate(10)
-            ->withQueryString();
+        // Status filter - ONLY apply if status has a value
+        if ($request->filled('status')) {
+            $query->where('is_active', $request->status);
+        }
+
+        // Always order by id DESC (newest first)
+        $query->orderBy('id', 'desc');
+
+        $links = $query->paginate(10)->withQueryString();
 
         return inertia('Admin/ImportantWebLinks/Index', [
             'links'   => $links,
-            'filters' => $request->only(['search', 'category']),
+            'filters' => $request->only(['search', 'category', 'status']),
         ]);
     }
 
@@ -78,4 +89,17 @@ class ImportantWebLinkController extends Controller
 
         return back()->with('success', 'Link deleted successfully');
     }
+
+    public function toggleStatus(Request $request, $id)
+    {
+        $link = ImportantWebLink::findOrFail($id);
+        $link->is_active = $request->input('is_active');
+        $link->save();
+
+        // Set flash message
+        return redirect()->back()->with('success', 'Status updated successfully!');
+    }
+
+
+
 }

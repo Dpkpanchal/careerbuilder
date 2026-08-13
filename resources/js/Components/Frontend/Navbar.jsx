@@ -11,6 +11,7 @@ import {
   MoreHorizontal,
    ChevronLeft,
   ChevronRight,
+  Download
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -382,7 +383,7 @@ const user = auth?.user;
 
               {/* Center: Search (desktop/tablet) */}
               {/* Center: Search (desktop/tablet) */}
-              <div ref={searchWrapRef} className="position-relative d-md-block d-none" style={{ zIndex: 4010, minWidth: 600,  }}>
+              <div ref={searchWrapRef} className="position-relative d-md-block d-none" style={{ zIndex: 4010, minWidth: 500,  }}>
                 {/* Backdrop */}
                 {searchActive && (
                   <div
@@ -402,6 +403,8 @@ const user = auth?.user;
                     aria-hidden="true"
                     focusable="false"
                   />
+
+
 
                  <input
                     className="form-control input"
@@ -461,6 +464,9 @@ const user = auth?.user;
 
                 </form>
 
+
+                
+
                 {/* Dropdown */}
                 {searchActive && (landingOnly || query.trim()) && (
                   <div
@@ -512,7 +518,25 @@ const user = auth?.user;
 
               {/* Right: Controls */}
               <div className="d-flex align-items-center gap-2 justify-content-end">
+
+ <div className="d-none d-md-block">
+
+                 <a
+                      href="/career-builder.apk"
+                      download="career_builder.apk"
+                      className="btn btn-forum me-3 ms-3"
+                      style={{  backgroundColor: "#008234", }}
+                    >
+                      Download Career App <Download className="cta-icon" />
+                    </a>
+                    </div>
+
+
                 <div className="d-none d-md-block">
+
+                  
+
+
                   <AccessibilityControls />
                 </div>
                 <a href="/forum"
@@ -611,7 +635,7 @@ const user = auth?.user;
             </div>
 
             {/* Mobile search row (Level 1 bottom) */}
-              <div ref={searchWrapRef} className="position-relative pb-1 d-md-none" style={{ zIndex: 4010, width: "100%" }}>
+              <div ref={searchWrapRef} className="position-relative pb-1 d-md-none d-flex gap-3" style={{ zIndex: 4010, width: "100%" }}>
                 {/* Backdrop */}
                 {searchActive && (
                   <div
@@ -733,8 +757,27 @@ const user = auth?.user;
                     )}
                   </div>
                 )}
+
+                  <a
+                    href="/career-builder.apk"
+                    download="career_builder.apk"
+                    className="btn btn-forum d-flex align-item-center"
+                    style={{ width: "230px", backgroundColor: "#008234", justifyContent: "center" }}
+                  >
+                    Download Career App
+                  </a>
+
+
+
+
+                
               </div>
+
           </div>
+
+          
+
+
         </div>
 
         {/* ✅ Separator line between levels (full width) */}

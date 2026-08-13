@@ -18,46 +18,7 @@ export default function Home({ title, cmMessage,heroSlides , leaders, factCards 
         // <FrontendLayout title={title}>
        
         <FrontendLayout title={title}>
-             <HeroSlider heroSlides={heroSlides}/>
-            {/*<HeroSection />*/}
-            {/* === Chief Minister Message Section (after Hero) === */}
-                {/* <section
-                className="py-4 py-md-5 "
-                aria-labelledby="cm-message-heading"
-                >
-                <div className="container">
-                    <div className="row g-0 justify-content-between">
-                       
-                        <div className="col-12 col-md-5">
-                        <div className="h-100 d-flex flex-column justify-content-center align-items-center  cm-message-visual">
-                        
-
-                            <div className="cm-message-logo-wrap" aria-hidden="true">
-
-                            {cmMessage?.image && (
-                                <img
-                                    src={`/storage/${cmMessage.image}`}
-                                    className="img-fluid cm-message-logo"
-                                    alt="Government of West Bengal logo"
-                                    width="540"
-                                    height="528"
-                                />
-                             )}
-
-
-                            </div>
-                        </div>
-                        </div>
-
-                        
-                         <div className="col-12 col-md-7 ps-lg-5 mt-4 mt-md-0">
-                            <div dangerouslySetInnerHTML={{ __html: cleanContent }} />
-                         </div>
-                         
-                    </div>
-                </div>
-                </section> */}
-
+            <HeroSlider heroSlides={heroSlides}/>
             <DesksSection leaders={leaders}/>
 
             <PathfinderWizard />

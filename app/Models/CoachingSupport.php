@@ -14,6 +14,7 @@ class CoachingSupport extends Model
         'subject',
         'institution_name',
         'web_contact',
-        'note'
+        'note',
+        'is_active'
     ];
 }

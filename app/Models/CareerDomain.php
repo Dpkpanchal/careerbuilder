@@ -13,5 +13,6 @@ class CareerDomain extends Model
         'image',
         'link',
         'details',
+        'is_active'
     ];
 }

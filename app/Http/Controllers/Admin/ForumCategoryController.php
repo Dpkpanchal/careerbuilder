@@ -13,23 +13,28 @@ class ForumCategoryController extends Controller
     {
         $query = ForumCategory::query();
 
-        // Search
-        if ($request->search) {
-            $query->where('name', 'like', "%{$request->search}%");
+        // Search filter
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('slug', 'LIKE', "%{$search}%");
+            });
         }
 
-        // Sorting
-        $sortField = $request->sort_field ?? 'created_at';
-        $sortDirection = $request->sort_direction ?? 'desc';
+        // Status filter
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
 
-        $categories = $query
-            ->orderBy($sortField, $sortDirection)
-            ->paginate(10)
-            ->withQueryString();
+        // Always order by id descending (newest first)
+        $query->orderBy('id', 'desc');
+
+        $categories = $query->paginate(10)->withQueryString();
 
         return $this->adminRender('Admin/ForumCategory/Index', [
             'categories' => $categories,
-            'filters'    => $request->all(),
+            'filters'    => $request->only(['search', 'status']),
         ]);
     }
 
@@ -91,5 +96,14 @@ class ForumCategoryController extends Controller
 
         return redirect()->route('admin.forum-categories.index')
             ->with('success', 'Forum Category deleted successfully.');
+    }
+
+    public function toggleStatus(Request $request, $id)
+    {
+        $category = ForumCategory::findOrFail($id);
+        $category->status = $request->input('status');
+        $category->save();
+
+        return redirect()->back()->with('success', 'Status updated successfully!');
     }
 }

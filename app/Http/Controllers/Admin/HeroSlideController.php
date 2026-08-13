@@ -13,11 +13,12 @@ class HeroSlideController extends Controller
 {
     public function index()
     {
-             $records = HeroSlide::orderBy('order')->paginate(10);
+        $records = HeroSlide::orderBy('id', 'desc')
+            ->paginate(10);
 
-            return Inertia::render('Admin/HeroSlides/Index', [
-                'records' => $records
-            ]);
+        return Inertia::render('Admin/HeroSlides/Index', [
+            'records' => $records
+        ]);
     }
 
     public function create()
@@ -91,5 +92,11 @@ class HeroSlideController extends Controller
         $heroSlide->delete();
 
         return redirect()->back();
+    }
+
+    public function toggleStatus(HeroSlide $heroSlide)
+    {
+        $heroSlide->update(['is_active' => !$heroSlide->is_active]);
+        return back()->with('success', 'Status updated successfully.');
     }
 }

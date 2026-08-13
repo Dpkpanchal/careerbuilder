@@ -109,7 +109,10 @@ export default function ThreadCard({
     ? JSON.parse(thread.category_id) 
     : [];
   const categoryLabel = categories.length > 0 ? categories.join(', ') : null;
-  const hasCounselorReply = answers?.length > 0;
+  //const hasCounselorReply = answers?.length > 0;
+  const hasCounselorReply = answers?.some(answer => 
+    answer.user?.role === "counselor" || answer.is_verified_by_counselor
+  );
 
   const clearError = () => {
     setBookmarkError(null);

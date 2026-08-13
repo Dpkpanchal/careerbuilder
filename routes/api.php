@@ -5,8 +5,6 @@ use App\Http\Controllers\Api\APIController;
 use App\Http\Controllers\Api\ExamController;
 use App\Http\Controllers\Api\CollegeController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\ForumApiController;
-
 
 use App\Http\Controllers\Api\ForumController;
 use App\Http\Controllers\Api\QuestionsController;

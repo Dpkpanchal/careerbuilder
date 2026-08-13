@@ -66,7 +66,7 @@ export default function ForumTopBar() {
 
           <div className="d-flex align-items-center gap-2">
           {user ? (
-            <h1 className="forum-hero-title gradient-text">
+            <h1 className="forum-hero-title">
               Welcome back, {formatName(user?.name)}
             </h1>
           ) : (

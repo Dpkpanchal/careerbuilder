@@ -187,7 +187,7 @@ public function counsellorsDirectory()
     
     public function coachingSupport()
     {
-       $supports = CoachingSupport::where('is_active', 1)
+       $supports = CoachingSupport::where('is_active', true)
         ->orderBy('sort_order')
         ->get();
 
@@ -210,7 +210,7 @@ public function counsellorsDirectory()
     public function waqfRunHostel()
     {
 
-       $hostels = WaqfRunHostel::orderBy('id')->get();
+       $hostels = WaqfRunHostel::where('is_active', true)->orderBy('id')->get();
 
         $data = $hostels->map(function ($item, $index) {
             return [
@@ -229,7 +229,7 @@ public function counsellorsDirectory()
 
     public function importantWebLinks()
     {
-        $links = ImportantWebLink::orderBy('subject')->get();
+        $links = ImportantWebLink::where('is_active', true)->orderBy('subject')->get();
 
         return inertia('Frontend/More/important-web-links', [
             'schoolLinks'   => $links->where('category', 'School')->values(),
@@ -243,7 +243,7 @@ public function counsellorsDirectory()
 
     public function minoritySchemes()
     {
-        $schemes = MinorityScheme::orderBy('id')->get();
+        $schemes = MinorityScheme::where('is_active', true)->orderBy('id')->get();
 
         $data = $schemes->map(function ($item, $index) {
             return [

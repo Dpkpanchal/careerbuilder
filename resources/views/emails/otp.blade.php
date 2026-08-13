@@ -119,6 +119,18 @@
             font-size: 13px;
             line-height: 1.5;
         }
+
+        .logo-container {
+                text-align: center;
+                padding: 25px 20px 10px;
+            }
+
+            .logo {
+                max-width: 180px;
+                height: auto;
+                display: inline-block;
+            }
+
         @media (max-width: 600px) {
             .otp-code {
                 font-size: 28px;
@@ -139,11 +151,21 @@
 <body>
     <div class="container">
         <!-- Header -->
-        <div class="header">
+        <!-- <div class="header">
             <div class="logo">🚀 Career Builder</div>
             <div class="logo-sub">Empowering Your Career Journey</div>
             <div class="badge">🔐 Secure Verification</div>
+        </div> -->
+
+        <div class="logo-container">
+           <img
+    src="{{ url('/images/wb-wbmdfc-logo-6985ea3b0f2a9.webp') }}"
+    alt="WB-MDFC Logo"
+    width="180"
+    style="display:block; margin:0 auto; border:0;"
+>
         </div>
+
 
         <!-- Content -->
         <div class="content">

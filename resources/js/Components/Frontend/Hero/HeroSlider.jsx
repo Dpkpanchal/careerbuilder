@@ -1,54 +1,10 @@
-
-
 import { useState, useRef, useEffect, useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight,Download } from "lucide-react";
 import GetStartedGuideModal from "./GetStartedGuideModal";
 
-// const heroSlides = [
-//   {
-//     id: 1,
-//     title: "Find The Right ",
-//     titleGredient: " Career For Life",
-//     subtitle:
-//       "An initiative by the West Bengal Minorities’ Development & Finance Corporation (WBMDFC) — guiding students toward the right careers, scholarships, and brighter opportunities.",
-//     ctaText: "Explore the Platform",
-//     ctaLink: "/about",
-//     imgBase: "/hero-slides/2mpBI25rwppJeUkJsH8G68SCIKJtdCQCD5MctSvY",
-//   },
-//   {
-//     id: 2,
-//     title: "Discover the Path",
-//     titleGredient: "Meant for You.",
-//     subtitle:
-//       "Take a guided career quiz to explore opportunities that match your interests, skills, and aspirations — and get your personalized roadmap to success.",
-//     ctaText: "Start Career Quiz",
-//     ctaLink: "/pathfinder",
-//     imgBase: "/hero-slides/2v3eYLHSWJ2vvJydKidGGJdZT2Yer6VYnJsuZKhD",
-//   },
-//   {
-//     id: 3,
-//     title: "Learn Smart. ",
-//     titleGredient: "Plan Ahead.",
-//     subtitle:
-//       "Find verified details on courses, colleges, entrance exams, and scholarships — all in one trusted platform.",
-//     ctaText: "Explore Courses & Scholarships",
-//     ctaLink: "/search",
-//     imgBase: "/images/hero-bg3-6985ea39e55e2",
-//   },
-//   {
-//     id: 4,
-//     title: "Get Guidance ",
-//     titleGredient: "That Matters.",
-//     subtitle:
-//       "Speak to certified career counselors or join our student community to learn and grow together.",
-//     ctaText: "Find a Counselor",
-//     ctaLink: "/counselors",
-//     imgBase: "/images/hero-bg2-6985ea39b28a2",
-//   },
-// ];
 
 function buildSrcSet(base) {
   return `${base}.webp 1024w`;
@@ -231,7 +187,7 @@ const handleAutoplayTimeLeft = (_swiper, _time, progressVal) => {
                     }}
                   >
                     <h1 className="hero-heading">
-                      {slide.title} <span className="gradient-text">{slide.titleGredient}</span>
+                      {slide.title} <span className="gradient-text d-flex">{slide.titleGredient}</span>
                     </h1>
 
                     <p
@@ -251,6 +207,16 @@ const handleAutoplayTimeLeft = (_swiper, _time, progressVal) => {
                     >
                       Get Started <ArrowRight className="cta-icon" />
                     </button>
+
+                    
+
+
+
+
+
+                 
+
+
                   </motion.div>
                 </div>
               ) : (
@@ -314,7 +280,7 @@ const handleAutoplayTimeLeft = (_swiper, _time, progressVal) => {
                       }}
                     >
                       <h1 className="hero-heading">
-                        {slide.title} <span className="gradient-text">{slide.titleGredient}</span>
+                        {slide.title} <span className="gradient-text d-flex">{slide.titleGredient}</span>
                       </h1>
 
                       <p
@@ -327,13 +293,28 @@ const handleAutoplayTimeLeft = (_swiper, _time, progressVal) => {
                         {slide.subtitle}
                       </p>
 
+                    <div className="cta-buttons">
                       <button
                         type="button"
                         className="btn btn-primary filled btn-lg primary-cta"
                         onClick={() => setGuideOpen(true)}
                       >
-                        Get Started <ArrowRight className="cta-icon" />
+                        Get Started
                       </button>
+
+                  
+
+                        {/* <a
+                          href="/career-builder.apk"
+                          download="career_builder.apk"
+                          className="btn btn-primary filled btn-lg primary-cta"
+                        >
+                          Download App <Download className="cta-icon" />
+                        </a> */}
+
+
+                    </div>
+
                     </motion.div>
                   </div>
                 </div>

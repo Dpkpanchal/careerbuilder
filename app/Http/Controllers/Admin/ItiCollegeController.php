@@ -5,19 +5,43 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ItiCollege;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ItiCollegeController extends Controller
 {
+   
     public function index(Request $request)
     {
-        $colleges = ItiCollege::withCount('trades')
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
+        $query = ItiCollege::withCount('trades');
 
-        return inertia('Admin/ItiCollege/Index', [
-            'colleges' => $colleges
+        // Search filter - using ILIKE for case-insensitive search
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'ILIKE', "%{$search}%")
+                ->orWhere('type', 'ILIKE', "%{$search}%")
+                ->orWhere('address', 'ILIKE', "%{$search}%")
+                ->orWhere('phone', 'ILIKE', "%{$search}%");
+            });
+        }
+
+        // Status filter
+        if ($request->filled('status')) {
+            $query->where('is_active', $request->status);
+        }
+
+        // Always order by id descending (newest first)
+        $query->orderBy('id', 'desc');
+
+        $colleges = $query->paginate(10)->withQueryString();
+
+        return Inertia::render('Admin/ItiCollege/Index', [
+            'colleges' => $colleges,
+            'filters' => $request->only(['search', 'status'])
         ]);
     }
+
+
 
     public function create()
     {
@@ -100,12 +124,31 @@ class ItiCollegeController extends Controller
             ->with('success', 'ITI College updated successfully.');
     }
 
-    public function destroy(ItiCollege $iti_college)
-    {
-        $iti_college->delete();
+    // public function destroy(ItiCollege $iti_college)
+    // {
+    //     $iti_college->delete();
 
-        return redirect()
-            ->route('admin.iti-colleges.index')
-            ->with('success', 'College removed successfully.');
+    //     return redirect()
+    //         ->route('admin.iti-colleges.index')
+    //         ->with('success', 'College removed successfully.');
+    // }
+
+    public function toggleStatus(Request $request, $id)
+    {
+        $college = ItiCollege::findOrFail($id);
+        $college->is_active = $request->input('is_active');
+        $college->save();
+
+        return redirect()->back()->with('success', 'Status updated successfully!');
     }
+
+    public function destroy($id)
+    {
+        $college = ItiCollege::findOrFail($id);
+        $college->forceDelete(); // Permanent delete
+        
+        return redirect()->back()->with('success', 'ITI permanently deleted!');
+    }
+
+
 }

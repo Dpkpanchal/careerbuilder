@@ -6,6 +6,7 @@ export default function Index({ schemes, filters }) {
 
     const { data, setData } = useForm({
         search: filters?.search || "",
+        status: filters?.status || "",
         sort_field: filters?.sort_field || "created_at",
         sort_direction: filters?.sort_direction || "desc",
     });
@@ -22,6 +23,7 @@ export default function Index({ schemes, filters }) {
     const resetFilters = () => {
         setData({
             search: "",
+            status: "",
             sort_field: "created_at",
             sort_direction: "desc",
         });
@@ -52,6 +54,35 @@ export default function Index({ schemes, filters }) {
         return data.sort_direction === "asc"
             ? "fas fa-sort-up"
             : "fas fa-sort-down";
+    };
+
+    /* ---------------- TOGGLE STATUS ---------------- */
+    const toggleStatus = (item) => {
+        if (!confirm(`Are you sure you want to ${item.is_active ? 'deactivate' : 'activate'} this scheme?`)) {
+            return;
+        }
+
+        router.put(
+            `/admin/minority-schemes/${item.id}/toggle-status`,
+            { is_active: !item.is_active },
+            {
+                preserveState: true,
+                preserveScroll: true,
+                onSuccess: () => {
+                    console.log('Status updated successfully');
+                },
+                onError: (errors) => {
+                    console.error('Error updating status:', errors);
+                }
+            }
+        );
+    };
+
+    /* ---------------- CALCULATE S.NO ---------------- */
+    const getSerialNumber = (index) => {
+        const currentPage = schemes.current_page || 1;
+        const perPage = schemes.per_page || 10;
+        return (currentPage - 1) * perPage + index + 1;
     };
 
     return (
@@ -93,18 +124,19 @@ export default function Index({ schemes, filters }) {
                                 </div>
 
                                 <div className="col-md-3">
-                                    <label>Sort By</label>
+                                    <label>Status</label>
                                     <select
                                         className="form-control"
-                                        value={data.sort_field}
-                                        onChange={(e) =>
-                                            setData("sort_field", e.target.value)
-                                        }
+                                        value={data.status}
+                                        onChange={(e) => setData("status", e.target.value)}
                                     >
-                                        <option value="created_at">Created Date</option>
-                                        <option value="subject">Subject</option>
+                                        <option value="">All Status</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
                                     </select>
                                 </div>
+
+                              
                             </div>
 
                             <div className="mt-3 d-flex justify-content-between">
@@ -146,7 +178,7 @@ export default function Index({ schemes, filters }) {
                         <table className="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>S.No</th>
+                                    <th style={{ width: "70px" }}>S.No</th>
                                     <th
                                         style={{ cursor: "pointer" }}
                                         onClick={() => handleSort("subject")}
@@ -154,6 +186,7 @@ export default function Index({ schemes, filters }) {
                                         Subject <i className={getSortIcon("subject")}></i>
                                     </th>
                                     <th>Web Link</th>
+                                    <th style={{ width: "120px", textAlign: "center" }}>Status</th>
                                     <th width="120">Actions</th>
                                 </tr>
                             </thead>
@@ -162,12 +195,35 @@ export default function Index({ schemes, filters }) {
                                 {schemes.data.length ? (
                                     schemes.data.map((item, index) => (
                                         <tr key={item.id}>
-                                            <td>{schemes.from + index}</td>
+                                            <td>{getSerialNumber(index)}</td>
                                             <td>{item.subject}</td>
                                             <td>
-                                                <a href={item.web_link} target="_blank">
-                                                    {item.web_link}
-                                                </a>
+                                                {item.web_link ? (
+                                                    <a href={item.web_link} target="_blank" rel="noreferrer">
+                                                        {item.web_link}
+                                                    </a>
+                                                ) : (
+                                                    "-"
+                                                )}
+                                            </td>
+                                            <td style={{ textAlign: "center" }}>
+                                                <div className="custom-control custom-switch">
+                                                    <input
+                                                        type="checkbox"
+                                                        className="custom-control-input"
+                                                        id={`status-switch-${item.id}`}
+                                                        checked={item.is_active}
+                                                        onChange={() => toggleStatus(item)}
+                                                    />
+                                                    <label
+                                                        className="custom-control-label"
+                                                        htmlFor={`status-switch-${item.id}`}
+                                                    >
+                                                        <span className={`badge ${item.is_active ? 'badge-success' : 'badge-secondary'}`}>
+                                                            {item.is_active ? 'Active' : 'Inactive'}
+                                                        </span>
+                                                    </label>
+                                                </div>
                                             </td>
                                             <td>
                                                 <div className="btn-group">
@@ -182,7 +238,8 @@ export default function Index({ schemes, filters }) {
                                                         as="button"
                                                         href={`/admin/minority-schemes/${item.id}`}
                                                         method="delete"
-                                                        className="btn btn-danger btn-sm"
+                                                        className="btn btn-dark btn-sm"
+                                                        title="Delete Permanently"
                                                         onClick={(e) =>
                                                             !confirm("Delete this scheme?")
                                                                 ? e.preventDefault()
@@ -197,7 +254,7 @@ export default function Index({ schemes, filters }) {
                                     ))
                                 ) : (
                                     <tr>
-                                        <td colSpan="4" className="text-center text-muted py-3">
+                                        <td colSpan="5" className="text-center text-muted py-3">
                                             No schemes found.
                                         </td>
                                     </tr>

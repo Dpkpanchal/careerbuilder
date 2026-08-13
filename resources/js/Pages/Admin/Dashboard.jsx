@@ -28,7 +28,7 @@ const KPI_ITEMS = [
   { key: "total_student", label: "Students", icon: "fa-user-graduate", color: "#06b6d4" },
   { key: "total_teacher", label: "Teachers", icon: "fa-chalkboard-teacher", color: "#22c55e" },
   { key: "total_parent", label: "Parents", icon: "fa-users", color: "#f59e0b" },
-  { key: "total_counselor", label: "Counsellors", icon: "fa-user-tie", color: "#f43f5e" },
+  { key: "total_counselor", label: "Verified Counsellors", icon: "fa-user-tie", color: "#f43f5e" },
   { key: "unsolved_reports", label: "Unsolved Reports", icon: "fa-times-circle", color: "#ef4444" },
   { key: "total_iti_colleges", label: "ITI Colleges", icon: "fa-university", color: "#3b82f6" },
   { key: "total_central_universities", label: "Central Universities", icon: "fa-school", color: "#475569" },
@@ -272,6 +272,13 @@ const Dashboard = ({
           padding: 4px 10px;
           border-radius: 999px;
         }
+
+       .pd-corner-btn {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+        }
+
       `}</style>
 
       <div className="container-fluid">
@@ -350,7 +357,7 @@ const Dashboard = ({
                   <h3 className="card-title">Recent Users</h3>
                   <div className="pd-card-subtitle">Latest people who joined the platform</div>
                 </div>
-                <Link href="/admin/users" className="btn btn-sm btn-outline-primary">
+                <Link href="/admin/users" className="btn btn-sm btn-outline-primary pd-corner-btn">
                   View All <i className="fas fa-arrow-right ml-1"></i>
                 </Link>
               </div>

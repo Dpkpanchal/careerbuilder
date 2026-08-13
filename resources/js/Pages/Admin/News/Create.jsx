@@ -1,27 +1,39 @@
-import React from "react";
+
+import React, { useState } from "react";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { Head, useForm } from "@inertiajs/react";
+import { Head, useForm, router ,Link} from "@inertiajs/react";
 
-const CATEGORY_OPTIONS = [
-  "government",
-  "scholarships",
-  "exams",
-  "career",
-];
-
-export default function Create() {
+export default function Create({ categories = [] }) {
 
   const { data, setData, post, processing, errors } = useForm({
     title: "",
-    category: "",
+    category_id: "",
     date: "",
     description: ""
-   
   });
+
+  // Quick add-category modal state
+  const [showCategoryModal, setShowCategoryModal] = useState(false);
+  const categoryForm = useForm({ name: "" });
 
   const submit = (e) => {
     e.preventDefault();
     post(route("admin.news.store"));
+  };
+
+  const submitCategory = (e) => {
+    e.preventDefault();
+    categoryForm.post(route("admin.news-categories.store"), {
+      preserveScroll: true,
+      onSuccess: () => {
+        setShowCategoryModal(false);
+        categoryForm.reset();
+        // Naya category list se turant refresh ho jayega,
+        // kyunki controller back() return karta hai aur ye page
+        // reload ke saath naya 'categories' prop le aayega.
+        router.reload({ only: ["categories"] });
+      },
+    });
   };
 
   return (
@@ -34,7 +46,6 @@ export default function Create() {
           <form onSubmit={submit}>
             <div className="row">
 
-              {/* TITLE */}
               <div className="col-md-6 mb-3">
                 <label>Title</label>
                 <input
@@ -45,24 +56,32 @@ export default function Create() {
                 {errors.title && <small className="text-danger">{errors.title}</small>}
               </div>
 
-              {/* CATEGORY */}
               <div className="col-md-6 mb-3">
-                <label>Category</label>
+                <label className="d-flex justify-content-between align-items-center">
+                  Category
+                  <button
+                    type="button"
+                    className="btn btn-sm btn-link p-0"
+                    onClick={() => setShowCategoryModal(true)}
+                  >
+                    + Add new
+                  </button>
+                </label>
                 <select
                   className="form-control"
-                  value={data.category}
-                  onChange={(e) => setData("category", e.target.value)}
+                  value={data.category_id}
+                  onChange={(e) => setData("category_id", e.target.value)}
                 >
                   <option value="">Select Category</option>
-                  {CATEGORY_OPTIONS.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
+                  {categories.map((cat) => (
+                    <option key={cat.id} value={cat.id}>
+                      {cat.name}
                     </option>
                   ))}
                 </select>
+                {errors.category_id && <small className="text-danger">{errors.category_id}</small>}
               </div>
 
-              {/* DATE */}
               <div className="col-md-6 mb-3">
                 <label>Date</label>
                 <input
@@ -73,9 +92,6 @@ export default function Create() {
                 />
               </div>
 
-            
-
-              {/* DESCRIPTION */}
               <div className="col-12 mb-3">
                 <label>Description</label>
                 <textarea
@@ -88,14 +104,83 @@ export default function Create() {
 
             </div>
 
-            <button className="btn btn-primary">
+              <Link
+                  href={route("admin.news.index")}
+                  className="btn btn-light mr-2"
+                >
+                  Cancel
+                </Link>
+
+
+
+            <button className="btn btn-primary" disabled={processing}>
               {processing ? "Saving..." : "Save"}
             </button>
+
+
+
 
           </form>
 
         </div>
       </div>
+
+      {/* QUICK ADD CATEGORY MODAL */}
+      {showCategoryModal && (
+        <div
+          className="modal d-block"
+          style={{ background: "rgba(0,0,0,0.5)" }}
+          onClick={() => setShowCategoryModal(false)}
+        >
+          <div
+            className="modal-dialog modal-dialog-centered"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Add New Category</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setShowCategoryModal(false)}
+                ></button>
+              </div>
+              <form onSubmit={submitCategory}>
+                <div className="modal-body">
+                  <label>Category Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={categoryForm.data.name}
+                    onChange={(e) => categoryForm.setData("name", e.target.value)}
+                    autoFocus
+                  />
+                  {categoryForm.errors.name && (
+                    <small className="text-danger">{categoryForm.errors.name}</small>
+                  )}
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => setShowCategoryModal(false)}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    disabled={categoryForm.processing}
+                  >
+                    {categoryForm.processing ? "Adding..." : "Add Category"}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
     </AdminLayout>
   );
 }

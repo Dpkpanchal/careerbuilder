@@ -12,21 +12,27 @@ class WaqfRunHostelController extends Controller
     {
         $query = WaqfRunHostel::query();
 
-        if ($request->search) {
-            $query->where('name', 'ILIKE', "%{$request->search}%")
-                ->orWhere('address', 'ILIKE', "%{$request->search}%");
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('address', 'LIKE', "%{$search}%");
+            });
         }
 
-        $query->orderBy(
-            $request->sort_field ?? 'created_at',
-            $request->sort_direction ?? 'desc'
-        );
+        if ($request->filled('status')) {
+            $query->where('is_active', $request->status);
+        }
 
-        $hostels = $query->paginate(10)->withQueryString();
+        $sortField = $request->sort_field ?? 'created_at';
+        $sortDirection = $request->sort_direction ?? 'desc';
+        $query->orderBy($sortField, $sortDirection);
+
+        $hostels = $query->paginate(10);
 
         return inertia('Admin/WaqfRunHostels/Index', [
             'hostels' => $hostels,
-            'filters' => $request->only(['search', 'sort_field', 'sort_direction']),
+            'filters' => $request->only(['search', 'status', 'sort_field', 'sort_direction'])
         ]);
     }
 
@@ -82,4 +88,16 @@ class WaqfRunHostelController extends Controller
 
         return back()->with('success', 'Hostel deleted.');
     }
+
+    public function toggleStatus(Request $request, $id)
+    {
+        $item = WaqfRunHostel::findOrFail($id);
+        $item->is_active = $request->input('is_active');
+        $item->save();
+
+        return redirect()->back()->with('success', 'Status updated successfully!');
+    }
+
+
+
 }

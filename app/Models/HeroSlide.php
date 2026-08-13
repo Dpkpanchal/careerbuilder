@@ -15,5 +15,6 @@ class HeroSlide extends Model
         'cta_link',
         'img_base',
         'order',
+        'is_active', 
     ];
 }

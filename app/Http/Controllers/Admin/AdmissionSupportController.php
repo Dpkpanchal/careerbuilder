@@ -10,17 +10,21 @@ class AdmissionSupportController extends Controller
 {
     public function index(Request $request)
     {
-        $records = AdmissionSupport::query()
-            ->when($request->category, fn($q) =>
-                $q->where('category', $request->category)
-            )
-            ->orderBy('sort_order')
-            ->paginate(20)
-            ->withQueryString();
+        $query = AdmissionSupport::query();
+
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->filled('status')) {
+            $query->where('is_active', $request->status);
+        }
+
+        $records = $query->orderBy('id')->paginate(10);
 
         return inertia('Admin/AdmissionSupport/Index', [
             'records' => $records,
-            'filters' => $request->only('category'),
+            'filters' => $request->only(['category', 'status'])
         ]);
     }
 
@@ -83,6 +87,15 @@ class AdmissionSupportController extends Controller
             'indian'     => AdmissionSupport::where('category','Indian University')->get(),
             'foreign'    => AdmissionSupport::where('category','Foreign University')->get(),
         ]);
+    }
+
+    public function toggleStatus(Request $request, $id)
+    {
+        $record = AdmissionSupport::findOrFail($id);
+        $record->is_active = $request->input('is_active');
+        $record->save();
+
+        return redirect()->back()->with('success', 'Status updated successfully!');
     }
 }
 

@@ -8,12 +8,27 @@ use Illuminate\Http\Request;
 
 class MinoritySchemeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $items = MinorityScheme::latest()->paginate(10);
+        $query = MinorityScheme::query();
+
+        if ($request->filled('search')) {
+            $query->where('subject', 'LIKE', "%{$request->search}%");
+        }
+
+        if ($request->filled('status')) {
+            $query->where('is_active', $request->status);
+        }
+
+        $sortField = $request->sort_field ?? 'created_at';
+        $sortDirection = $request->sort_direction ?? 'desc';
+        $query->orderBy($sortField, $sortDirection);
+
+        $schemes = $query->orderBy('id')->paginate(10);
 
         return inertia('Admin/MinoritySchemes/Index', [
-            'schemes' => $items,
+            'schemes' => $schemes,
+            'filters' => $request->only(['search', 'status', 'sort_field', 'sort_direction'])
         ]);
     }
 
@@ -67,5 +82,14 @@ class MinoritySchemeController extends Controller
         $minorityScheme->delete();
 
         return back()->with('success', 'Scheme deleted.');
+    }
+
+    public function toggleStatus(Request $request, $id)
+    {
+        $item = MinorityScheme::findOrFail($id);
+        $item->is_active = $request->input('is_active');
+        $item->save();
+
+        return redirect()->back()->with('success', 'Status updated successfully!');
     }
 }

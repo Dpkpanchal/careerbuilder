@@ -49,6 +49,8 @@ use App\Http\Controllers\Admin\EduFundSectionController;
 use App\Http\Controllers\Admin\LandingPageController;
 use App\Http\Controllers\Admin\ScholarshipOverviewController;
 
+use App\Http\Controllers\Admin\NewsCategoryController;
+
 
 
 Route::middleware('guest:admin')
@@ -105,25 +107,79 @@ Route::middleware(['admin.session', 'auth:admin'])
    
     
         Route::resource('forum-categories', ForumCategoryController::class);
+        Route::put('forum-categories/{id}/toggle-status', [ForumCategoryController::class, 'toggleStatus'])
+          ->name('admin.forum-categories.toggle-status');
+
+
+
         Route::resource('iti-colleges', ItiCollegeController::class);
+        Route::put('iti-colleges/{id}/toggle-status', [ItiCollegeController::class, 'toggleStatus'])
+        ->name('admin.iti-colleges.toggle-status');
+
+
 
         Route::resource('coaching-support', CoachingSupportController::class);
+        Route::put('coaching-support/{id}/toggle-status', [CoachingSupportController::class, 'toggleStatus'])
+            ->name('coaching-support.toggle-status');
+
         Route::resource('waqf-run-hostels', WaqfRunHostelController::class);
+        Route::put('waqf-run-hostels/{id}/toggle-status', [WaqfRunHostelController::class, 'toggleStatus'])
+            ->name('waqf-run-hostels.toggle-status');
+
         Route::resource('minority-schemes', MinoritySchemeController::class);
+        Route::put('minority-schemes/{id}/toggle-status', [MinoritySchemeController::class, 'toggleStatus'])
+            ->name('admin.minority-schemes.toggle-status');
+
         Route::resource('important-web-links', ImportantWebLinkController::class);
+        Route::put('important-web-links/{id}/toggle-status', [ImportantWebLinkController::class, 'toggleStatus'])
+        ->name('admin.important-web-links.toggle-status');
+        
         Route::resource('admission-support', AdmissionSupportController::class);
+
+        Route::put('admission-support/{id}/toggle-status', [AdmissionSupportController::class, 'toggleStatus'])
+        ->name('admin.admission-support.toggle-status');
+
 
 
         Route::resource('cm-message', CmMessageController::class);
         Route::resource('hero-slides', HeroSlideController::class);
+
+        Route::patch('/hero-slides/{heroSlide}/toggle-status', [HeroSlideController::class, 'toggleStatus'])
+         ->name('hero-slides.toggle-status');
+
+    
         Route::resource('leaders', LeaderMessageController::class);
         Route::post( '/leaders/{id}/toggle-block', [LeaderMessageController::class, 'toggleBlock'] )->name('leaders.toggle-block');
         Route::post( '/leaders/{id}/restore', [LeaderMessageController::class, 'restore'] )->name('leaders.restore');
     
         Route::resource('career-domains', CareerDomainController::class);
 
+        Route::put('career-domains/{id}/toggle-status', [CareerDomainController::class, 'toggleStatus'])
+        ->name('admin.career-domains.toggle-status');
+
+
         Route::resource('news', NewsController::class);
-        Route::resource('loan-sections', LoanSectionController::class);
+        Route::patch('news/{news}/toggle-status', [NewsController::class, 'toggleStatus'])
+        ->name('news.toggle-status');
+
+
+        Route::get('news-categories', [NewsCategoryController::class, 'index'])->name('news-categories.index');
+        Route::post('news-categories', [NewsCategoryController::class, 'store'])->name('news-categories.store');
+        Route::patch('news-categories/{newsCategory}', [NewsCategoryController::class, 'update'])->name('news-categories.update');
+        Route::delete('news-categories/{newsCategory}', [NewsCategoryController::class, 'destroy'])->name('news-categories.destroy');
+
+
+        //Route::resource('loan-sections', LoanSectionController::class);
+
+        Route::get('loan-sections', [LoanSectionController::class, 'edit'])->name('loan-sections.edit');
+        Route::patch('loan-sections/section-text/{section}', [LoanSectionController::class, 'updateSection'])->name('loan-sections.update-section');
+        Route::post('loan-sections', [LoanSectionController::class, 'store'])->name('loan-sections.store');
+        Route::patch('loan-sections/{loanSection}', [LoanSectionController::class, 'update'])->name('loan-sections.update');
+        Route::delete('loan-sections/{loanSection}', [LoanSectionController::class, 'destroy'])->name('loan-sections.destroy');
+        Route::post('loan-sections/reorder', [LoanSectionController::class, 'reorder'])->name('loan-sections.reorder');
+
+
+
         Route::resource('sections', SectionController::class);
        
         Route::resource('central-universities', CentralUniversityController::class);

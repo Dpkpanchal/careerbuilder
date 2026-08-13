@@ -293,6 +293,11 @@ body {
     min-height: 400px;
 }
 
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+}
+
 
 
 

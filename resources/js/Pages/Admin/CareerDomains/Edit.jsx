@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { Head, useForm , router} from "@inertiajs/react";
+import { Head, useForm , router, Link} from "@inertiajs/react";
 
 export default function Edit({ domain }) {
 
@@ -95,6 +95,15 @@ export default function Edit({ domain }) {
                 <button className="btn btn-primary">
                   {processing ? "Updating..." : "Update"}
                 </button>
+
+                 <Link
+                    href={route('admin.career-domains.index')}
+                    className="btn btn-secondary ml-2"
+                >
+                    <i className="fas fa-times mr-1"></i> Cancel
+                </Link>
+
+
 
               </div>
 

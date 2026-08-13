@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
@@ -13,17 +14,22 @@ class NewsController extends Controller
     // 🔹 List
     public function index(Request $request)
     {
-        $query = News::query();
+        $query = News::with('category');
 
-        // ✅ CATEGORY FILTER
+        // ✅ CATEGORY FILTER (ab category slug se filter hota hai)
         if ($request->filled('category')) {
-            $query->where('category', $request->category);
+            $query->whereHas('category', function ($q) use ($request) {
+                $q->where('slug', $request->category);
+            });
         }
 
-        $news = $query->latest()->get();
+        $news = $query->latest()->orderBy('id')->get();
+
+        $categories = NewsCategory::where('is_active', true)->orderBy('name')->get();
 
         return Inertia::render('Admin/News/Index', [
             'news' => $news,
+            'categories' => $categories,
             'filters' => $request->only('category'),
         ]);
     }
@@ -31,33 +37,29 @@ class NewsController extends Controller
     // 🔹 Create page
     public function create()
     {
-        return Inertia::render('Admin/News/Create');
+        $categories = NewsCategory::where('is_active', true)->orderBy('name')->get();
+
+        return Inertia::render('Admin/News/Create', [
+            'categories' => $categories,
+        ]);
     }
 
     // 🔹 Store
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'category' => 'required',
+            'title' => 'required|string|max:255',
+            'category_id' => 'required|exists:news_categories,id',
             'date' => 'nullable|date',
-            'description' => 'nullable'
-
+            'description' => 'nullable|string',
         ]);
 
         News::create([
-
             'title' => $request->title,
-
             'slug' => Str::slug($request->title),
-
-            'category' => $request->category,
-
+            'category_id' => $request->category_id,
             'date' => $request->date,
-
             'description' => $request->description,
-
-
         ]);
 
         return redirect()->route('admin.news.index')
@@ -67,34 +69,32 @@ class NewsController extends Controller
     // 🔹 Edit page
     public function edit(News $news)
     {
+        $categories = NewsCategory::where('is_active', true)->orderBy('name')->get();
+
         return Inertia::render('Admin/News/Edit', [
-            'news' => $news
+            'news' => $news->load('category'),
+            'categories' => $categories,
         ]);
     }
 
     // 🔹 Update
- public function update(Request $request, News $news)
-{
-    $request->validate([
-        'title' => 'required',
-        'category' => 'required',
-    ]);
+    public function update(Request $request, News $news)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'category_id' => 'required|exists:news_categories,id',
+        ]);
 
-    $news->update([
+        $news->update([
+            'title' => $request->title,
+            'category_id' => $request->category_id,
+            'date' => $request->date ?? $news->date,
+            'description' => $request->description,
+        ]);
 
-        'title' => $request->title,
-
-        'category' => $request->category,
-
-        'date' => $request->date ?? $news->date,
-
-        'description' => $request->description
-
-    ]);
-
-    return redirect()->route('admin.news.index')
-        ->with('success', 'News updated successfully');
-}
+        return redirect()->route('admin.news.index')
+            ->with('success', 'News updated successfully');
+    }
 
     // 🔹 Delete
     public function destroy(News $news)
@@ -103,4 +103,12 @@ class NewsController extends Controller
 
         return back()->with('success', 'Deleted successfully');
     }
+
+    public function toggleStatus(News $news)
+    {
+        $news->update(['is_active' => !$news->is_active]);
+
+        return back()->with('success', 'Status updated successfully.');
+    }
+
 }

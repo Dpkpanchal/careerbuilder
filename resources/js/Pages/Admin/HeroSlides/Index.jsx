@@ -1,21 +1,33 @@
 import React from "react";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 
 export default function Index({ records }) {
+  const handleToggleStatus = (slide) => {
+    router.patch(
+      route("admin.hero-slides.toggle-status", slide.id),
+      {},
+      { preserveScroll: true }
+    );
+  };
+
+  const handleDelete = (slideId) => {
+    if (confirm("Delete this slide?")) {
+      router.delete(route("admin.hero-slides.destroy", slideId), {
+        preserveScroll: true,
+      });
+    }
+  };
+
   return (
     <AdminLayout header="Hero Slides">
       <Head title="Hero Slides" />
 
-      {/* TOP BAR (NO FILTER, ONLY BUTTON) */}
+      {/* TOP BAR */}
       <div className="card">
         <div className="card-body">
           <div className="row align-items-center">
-
-            {/* LEFT (EMPTY / CAN ADD FILTER LATER) */}
             <div className="col-md-4"></div>
-
-            {/* RIGHT: ADD BUTTON */}
             <div className="col-md-8 d-flex justify-content-end">
               <Link
                 href={route("admin.hero-slides.create")}
@@ -24,7 +36,6 @@ export default function Index({ records }) {
                 <i className="fas fa-plus mr-1"></i> Add Hero Slide
               </Link>
             </div>
-
           </div>
         </div>
       </div>
@@ -39,7 +50,7 @@ export default function Index({ records }) {
                 <th>Image</th>
                 <th>Title</th>
                 <th>Sub Title</th>
-               
+                <th>Status</th>
                 <th width="160">Action</th>
               </tr>
             </thead>
@@ -77,35 +88,64 @@ export default function Index({ records }) {
                       </small>
                     </td>
 
-                    {/* CTA */}
+                    {/* Subtitle */}
                     <td>
-                  
                       <small>{slide.subtitle || ""}</small>
                     </td>
 
-                   
+                   <td>
+                    <span
+                      className={`badge ${
+                        slide.is_active ? "bg-success" : "bg-secondary"
+                      }`}
+                    >
+                      {slide.is_active ? "Active" : "Inactive"}
+                    </span>
+                  </td>
+
 
                     {/* ACTION */}
                     <td>
-                      <Link
-                        href={route("admin.hero-slides.edit", slide.id)}
-                        className="btn btn-sm btn-info"
-                      >
-                        Edit
-                      </Link>
+                      <div className="hs-action-group">
+                        {/* Edit */}
+                        <Link
+                          href={route("admin.hero-slides.edit", slide.id)}
+                          className="btn btn-primary btn-sm hs-action-btn"
+                          title="Edit"
+                        >
+                          <i className="fas fa-edit"></i>
+                        </Link>
 
-                      <Link
-                        as="button"
-                        method="delete"
-                        href={route("admin.hero-slides.destroy", slide.id)}
-                        className="btn btn-sm btn-danger ml-1"
-                        onClick={(e) =>
-                          !confirm("Delete this slide?") &&
-                          e.preventDefault()
-                        }
-                      >
-                        Delete
-                      </Link>
+                        {/* Active / Inactive — NOW FUNCTIONAL */}
+                        <button
+                          type="button"
+                          className={`btn btn-sm hs-action-btn ${
+                            slide.is_active ? "btn-success" : "btn-secondary"
+                          }`}
+                          title={
+                            slide.is_active
+                              ? "Active — click to deactivate"
+                              : "Inactive — click to activate"
+                          }
+                          onClick={() => handleToggleStatus(slide)}
+                        >
+                          <i
+                            className={`fas ${
+                              slide.is_active ? "fa-check-circle" : "fa-times-circle"
+                            }`}
+                          ></i>
+                        </button>
+
+                        {/* Delete */}
+                        <button
+                          type="button"
+                          className="btn btn-dark btn-sm hs-action-btn"
+                          title="Delete"
+                          onClick={() => handleDelete(slide.id)}
+                        >
+                          <i className="fas fa-trash"></i>
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))
@@ -140,6 +180,28 @@ export default function Index({ records }) {
           </ul>
         </div>
       </div>
+
+      <style>{`
+        .hs-action-group {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .hs-action-btn {
+          width: 34px;
+          height: 34px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          border-radius: 6px;
+          transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .hs-action-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+      `}</style>
     </AdminLayout>
   );
 }

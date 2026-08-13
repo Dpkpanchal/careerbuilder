@@ -35,6 +35,22 @@ use App\Http\Controllers\Auth\PasswordResetController;
 require __DIR__.'/admin.php';
 require __DIR__.'/ajax.php';
 
+
+
+
+// use Illuminate\Support\Facades\Mail;
+
+// Route::get('/test-mail', function () {
+//     Mail::raw('This is a test email from Laravel via Amazon WorkMail SMTP.', function ($message) {
+//         $message->to('YOUR_TEST_EMAIL@gmail.com')
+//                 ->subject('WorkMail SMTP Test');
+//     });
+
+//     return 'Mail sent successfully';
+// });
+
+
+
 // Route::get('/', function () {
 //     return Inertia::render('Frontend/Home', [
 //         'title' => 'Home',

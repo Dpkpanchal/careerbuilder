@@ -13,5 +13,6 @@ class ImportantWebLink extends Model
         'category',
         'subject',
         'web_link',
+        'is_active'
     ];
 }

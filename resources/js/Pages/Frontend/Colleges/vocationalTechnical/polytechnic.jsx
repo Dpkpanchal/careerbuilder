@@ -162,9 +162,9 @@ export default function PolytechnicPage() {
 
             <div className="row g-2 g-lg-3">
               {INSTITUTE_LINKS.map((item) => (
-                <div key={item.url} className="col-12 col-md-6">
+                <div key={item.url || item.website} className="col-12 col-md-6">
                   <a
-                    href={item.url}
+                    href={item.url || item.website}
                     target="_blank"
                     rel="noreferrer"
                     className="d-flex align-items-center justify-content-between gap-3 px-3 py-3 rounded-4 border bg-light text-decoration-none linkRowHover"
@@ -180,7 +180,7 @@ export default function PolytechnicPage() {
                           display: "inline-block",
                         }}
                       />
-                      <span className="fw-semibold text-dark">{item.title}</span>
+                      <span className="fw-semibold text-dark">{item.title || item.name}</span>
                     </div>
 
                     <ArrowRight size={18} className="text-primary" />

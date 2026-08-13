@@ -206,7 +206,7 @@ class APIController extends Controller
                 }),
 
                 'leaders' => LeaderMessage::where('is_blocked', false)
-                    ->orderBy('id', 'desc')
+                    ->orderBy('id', 'asc')
                     ->get()
                     ->map(function ($leader) {
                         $leader->image = asset('storage/' . $leader->image);
@@ -226,15 +226,6 @@ class APIController extends Controller
                 'loan_schemes' => LoanSection::orderBy('id', 'asc')
                     ->get(),
 
-                // 'loan_schemes' => [
-                // 'fact_cards' => LoanSection::where('type', 'fact_card')
-                //     ->orderBy('order')
-                //     ->get(['id', 'icon', 'title', 'description', 'order']),
-
-                // 'schemes' => LoanSection::where('type', 'scheme')
-                //     ->orderBy('order')
-                //     ->get(['id', 'short', 'link', 'order']),
-                //  ],
                         ]
                     ]);
 
@@ -586,46 +577,34 @@ class APIController extends Controller
         $url = $career->url;
         $fields = $fieldMapping[$url] ?? null;
 
+
         if ($fields) {
             foreach ($fields as $field) {
                 $data[$field] = $career->$field;
             }
-            
-            // Add these three fields ONLY for class 8 and class 10
-            // if ($url === 'careers/after-class-8' || $url === 'careers/after-class-10') {
-            //     $data['iti_itc_jrpolitecnic'] = ItiCollege::with('trades')->orderBy('name')->get();
-            //     $data['scholarship'] = [];
-            //     $data['career_counsellors'] = $this->getCounsellors();
-            // }
 
-        
-            $scholarshipOverview = ScholarshipOverview::where('is_active', true)->first();
-            
-            $scholarshipData = [];
-            
-            if ($scholarshipOverview) {
-                // Get schemes from the scholarship_overviews table
-                $schemes = $scholarshipOverview->schemes; // This is already JSON data
-                
-                // Get rates from another table (example: scholarship_rates)
-                // Assuming you have a ScholarshipRate model
-                $rates = ScholarshipRate::where('is_active', true)->get();
+            // ✅ Only attach ITI/scholarship/counsellors data for class 8 & 10
+            if (in_array($url, ['careers/after-class-8', 'careers/after-class-10'])) {
+                $scholarshipOverview = ScholarshipOverview::where('is_active', true)->first();
 
-                
-                $scholarshipData = [
-                    'key_instructions_eligibility' => $career->key_instructions_eligibility['instructions'] ?? [],
-                    'schemes' => $schemes,
-                    'rate_of_scholarship' => $rates, // Or format as needed
-                    
-                ];
+                $scholarshipData = [];
+
+                if ($scholarshipOverview) {
+                    $schemes = $scholarshipOverview->schemes;
+                    $rates = ScholarshipRate::where('is_active', true)->get();
+
+                    $scholarshipData = [
+                        'key_instructions_eligibility' => $career->key_instructions_eligibility['instructions'] ?? [],
+                        'schemes' => $schemes,
+                        'rate_of_scholarship' => $rates,
+                    ];
+                }
+
+                $data['iti_itc_jrpolitecnic'] = ItiCollege::with('trades')->orderBy('name')->get();
+                $data['scholarship'] = $scholarshipData;
+                $data['career_counsellors'] = $this->getCounsellors();
             }
 
-            $data['iti_itc_jrpolitecnic'] = ItiCollege::with('trades')->orderBy('name')->get();
-            $data['scholarship'] = $scholarshipData;
-            $data['career_counsellors'] = $this->getCounsellors();
-
-
-            
         } else {
             // Default fields for other content types
             $data['domains'] = $career->branch_groups;
@@ -636,6 +615,8 @@ class APIController extends Controller
             $data['industries'] = $career->industries;
             $data['roles'] = $career->role_examples;
         }
+
+
 
         return response()->json([
             'success' => true,
@@ -664,11 +645,8 @@ class APIController extends Controller
             'success' => true,
             'data' => EduFundSection::with([
                 'cards' => fn ($q) => $q->where('status', true)->orderBy('sort_order'),
-                'schemes' => fn ($q) => $q->where('status', true)->orderBy('sort_order'),
             ])->orderBy('sort_order')->get()
         ]);
-
-
         
     }
 

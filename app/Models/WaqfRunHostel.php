@@ -14,6 +14,7 @@ class WaqfRunHostel extends Model
         'name',
         'address',
         'seat_capacity',
-        'contact_no'
+        'contact_no',
+        'is_active'
     ];
 }

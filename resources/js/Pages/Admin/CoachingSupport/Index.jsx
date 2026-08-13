@@ -6,6 +6,9 @@ export default function CoachingSupportIndex({ items, filters }) {
 
     const { data, setData } = useForm({
         search: filters?.search || "",
+        subject: filters?.subject || "",
+        institution: filters?.institution || "",
+        status: filters?.status || "",
         sort_field: filters?.sort_field || "created_at",
         sort_direction: filters?.sort_direction || "desc",
     });
@@ -39,6 +42,9 @@ export default function CoachingSupportIndex({ items, filters }) {
     const resetFilters = () => {
         setData({
             search: "",
+            subject: "",
+            institution: "",
+            status: "",
             sort_field: "created_at",
             sort_direction: "desc",
         });
@@ -54,6 +60,35 @@ export default function CoachingSupportIndex({ items, filters }) {
         return data.sort_direction === "asc"
             ? "fas fa-sort-up"
             : "fas fa-sort-down";
+    };
+
+    /* ---------------- TOGGLE STATUS ---------------- */
+    const toggleStatus = (item) => {
+        if (!confirm(`Are you sure you want to ${item.is_active ? 'deactivate' : 'activate'} this record?`)) {
+            return;
+        }
+
+        router.put(
+            `/admin/coaching-support/${item.id}/toggle-status`,
+            { is_active: !item.is_active },
+            {
+                preserveState: true,
+                preserveScroll: true,
+                onSuccess: () => {
+                    console.log('Status updated successfully');
+                },
+                onError: (errors) => {
+                    console.error('Error updating status:', errors);
+                }
+            }
+        );
+    };
+
+    /* ---------------- CALCULATE S.NO ---------------- */
+    const getSerialNumber = (index) => {
+        const currentPage = items.current_page || 1;
+        const perPage = items.per_page || 10;
+        return (currentPage - 1) * perPage + index + 1;
     };
 
     return (
@@ -80,8 +115,8 @@ export default function CoachingSupportIndex({ items, filters }) {
                     {showFilters && (
                         <div className="card-body">
                             <div className="row">
-                                {/* Search */}
-                                <div className="col-md-4">
+                                {/* Search - General Search */}
+                                <div className="col-md-3">
                                     <label>Search</label>
                                     <input
                                         className="form-control"
@@ -94,19 +129,45 @@ export default function CoachingSupportIndex({ items, filters }) {
                                     />
                                 </div>
 
-                                {/* Sort */}
+                                {/* Subject Filter */}
                                 <div className="col-md-3">
-                                    <label>Sort By</label>
+                                    <label>Subject</label>
+                                    <input
+                                        className="form-control"
+                                        placeholder="Filter by subject..."
+                                        value={data.subject}
+                                        onChange={(e) => setData("subject", e.target.value)}
+                                        onKeyPress={(e) =>
+                                            e.key === "Enter" && handleFilter()
+                                        }
+                                    />
+                                </div>
+
+                                {/* Institution Filter */}
+                                <div className="col-md-3">
+                                    <label>Institution</label>
+                                    <input
+                                        className="form-control"
+                                        placeholder="Filter by institution..."
+                                        value={data.institution}
+                                        onChange={(e) => setData("institution", e.target.value)}
+                                        onKeyPress={(e) =>
+                                            e.key === "Enter" && handleFilter()
+                                        }
+                                    />
+                                </div>
+
+                                {/* Status Filter */}
+                                <div className="col-md-3">
+                                    <label>Status</label>
                                     <select
                                         className="form-control"
-                                        value={data.sort_field}
-                                        onChange={(e) =>
-                                            setData("sort_field", e.target.value)
-                                        }
+                                        value={data.status}
+                                        onChange={(e) => setData("status", e.target.value)}
                                     >
-                                        <option value="created_at">Created Date</option>
-                                        <option value="subject">Subject</option>
-                                        <option value="institution_name">Institution</option>
+                                        <option value="">All Status</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
                                     </select>
                                 </div>
                             </div>
@@ -117,19 +178,19 @@ export default function CoachingSupportIndex({ items, filters }) {
                                         className="btn btn-primary"
                                         onClick={handleFilter}
                                     >
-                                        <i className="fas fa-filter mr-1"></i> Apply
+                                        <i className="fas fa-filter mr-1"></i> Apply Filters
                                     </button>
 
                                     <button
                                         className="btn btn-default ml-2"
                                         onClick={resetFilters}
                                     >
-                                        <i className="fas fa-redo mr-1"></i> Reset
+                                        <i className="fas fa-redo mr-1"></i> Reset Filters
                                     </button>
                                 </div>
 
                                 <div className="text-muted">
-                                    Total: {items.total}
+                                    Total Records: <strong>{items.total}</strong>
                                 </div>
                             </div>
                         </div>
@@ -154,11 +215,8 @@ export default function CoachingSupportIndex({ items, filters }) {
                         <table className="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th
-                                        style={{ cursor: "pointer", width: "80px" }}
-                                        onClick={() => handleSort("id")}
-                                    >
-                                        ID <i className={getSortIcon("id")}></i>
+                                    <th style={{ width: "70px" }}>
+                                        S.NO
                                     </th>
 
                                     <th
@@ -177,15 +235,19 @@ export default function CoachingSupportIndex({ items, filters }) {
 
                                     <th>Web / Contact</th>
 
+                                    <th style={{ width: "120px", textAlign: "center" }}>
+                                        Status
+                                    </th>
+
                                     <th width="120px">Actions</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 {items.data.length ? (
-                                    items.data.map((item) => (
+                                    items.data.map((item, index) => (
                                         <tr key={item.id}>
-                                            <td>{item.id}</td>
+                                            <td>{getSerialNumber(index)}</td>
                                             <td>{item.subject}</td>
                                             <td>{item.institution_name}</td>
                                             <td>
@@ -202,6 +264,26 @@ export default function CoachingSupportIndex({ items, filters }) {
                                                 )}
                                             </td>
 
+                                            <td style={{ textAlign: "center" }}>
+                                                <div className="custom-control custom-switch">
+                                                    <input
+                                                        type="checkbox"
+                                                        className="custom-control-input"
+                                                        id={`status-switch-${item.id}`}
+                                                        checked={item.is_active}
+                                                        onChange={() => toggleStatus(item)}
+                                                    />
+                                                    <label
+                                                        className="custom-control-label"
+                                                        htmlFor={`status-switch-${item.id}`}
+                                                    >
+                                                        <span className={`badge ${item.is_active ? 'badge-success' : 'badge-secondary'}`}>
+                                                            {item.is_active ? 'Active' : 'Inactive'}
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </td>
+
                                             <td>
                                                 <div className="btn-group">
                                                     <Link
@@ -215,7 +297,8 @@ export default function CoachingSupportIndex({ items, filters }) {
                                                         as="button"
                                                         href={`/admin/coaching-support/${item.id}`}
                                                         method="delete"
-                                                        className="btn btn-danger btn-sm"
+                                                        className="btn btn-dark btn-sm"
+                                                        title="Delete Permanently"
                                                         onClick={(e) =>
                                                             !confirm("Delete this record?")
                                                                 && e.preventDefault()
@@ -230,7 +313,7 @@ export default function CoachingSupportIndex({ items, filters }) {
                                 ) : (
                                     <tr>
                                         <td
-                                            colSpan="5"
+                                            colSpan="6"
                                             className="text-center p-3 text-muted"
                                         >
                                             No records found

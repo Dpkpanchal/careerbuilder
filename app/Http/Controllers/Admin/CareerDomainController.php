@@ -89,4 +89,13 @@ class CareerDomainController extends Controller
             ->with('success', 'Deleted Successfully');
     }
 
+    public function toggleStatus(Request $request, $id)
+    {
+        $domain = CareerDomain::findOrFail($id);
+        $domain->is_active = $request->input('is_active');
+        $domain->save();
+
+        return redirect()->back()->with('success', 'Status updated successfully!');
+    }
+
 }

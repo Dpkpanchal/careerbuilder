@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AdminLayout from "@/Layouts/AdminLayout";
-import { Head, useForm } from "@inertiajs/react";
+import { Head, useForm,Link } from "@inertiajs/react";
 
 export default function Create() {
 
@@ -83,6 +83,15 @@ export default function Create() {
                   {processing ? "Saving..." : "Save"}
                 </button>
 
+                  <Link
+                    href={route('admin.career-domains.index')}
+                    className="btn btn-secondary ml-2"
+                >
+                    <i className="fas fa-times mr-1"></i> Cancel
+                </Link>
+
+
+
               </div>
 
               {/* RIGHT PREVIEW */}
@@ -90,12 +99,18 @@ export default function Create() {
 
                 <div className="card shadow-sm">
 
-                  <img
-                    src={preview || "/images/default.png"}
+                <img
+                    src={preview || "/images/preview.jpg"}
+                    alt="Preview"
                     className="card-img-top"
-                    style={{ height: 180, objectFit: "cover" }}
+                    style={{
+                      height: 180,
+                      width: "100%",
+                      objectFit: "contain",
+                      background: "#f8f9fa",
+                      padding: "10px",
+                    }}
                   />
-
                   <div className="card-body">
 
                     <h5>{data.title || "Title Preview"}</h5>

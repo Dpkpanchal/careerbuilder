@@ -111,6 +111,7 @@ class ForumController extends Controller
                     [json_encode([strtolower($categorySlug)])]
                 );
             })
+            ->latest()
             ->get();
 
         return response()->json([
@@ -252,16 +253,101 @@ class ForumController extends Controller
      * Body: { content }
      * Auth required.
      */
+    // public function storeQuestionReply(Request $request, $threadId): JsonResponse
+    // {
+    //     try {
+    //         $request->validate([
+    //             'content' => 'required|string|max:5000|min:3',
+    //         ]);
+
+    //         $user = $request->user();
+
+    //         $thread = Question::find($threadId);
+    //         if (!$thread) {
+    //             return response()->json([
+    //                 'success' => false,
+    //                 'error' => 'Thread not found',
+    //                 'message' => 'The question you are replying to does not exist.',
+    //             ], 404);
+    //         }
+
+    //         $existingAnswer = Answer::where('question_id', $threadId)
+    //             ->where('user_id', $user->id)
+    //             ->first();
+
+    //         if ($existingAnswer) {
+    //             return response()->json([
+    //                 'success' => false,
+    //                 'error' => 'Already replied',
+    //                 'message' => 'You have already posted a reply to this question.',
+    //                 'existing_answer_id' => $existingAnswer->id,
+    //             ], 409);
+    //         }
+
+    //         $answer = Answer::create([
+    //             'content' => $request->input('content'),
+    //             'question_id' => $threadId,
+    //             'user_id' => $user->id,
+    //             'is_verified_by_counselor' => $user->role === 'counselor' ? 1 : 0,
+    //         ]);
+
+    //         return response()->json([
+    //             'success' => true,
+    //             'message' => 'Reply posted successfully!',
+    //             'answer' => [
+    //                 'id' => $answer->id,
+    //                 'content' => $answer->content,
+    //                 'user' => [
+    //                     'name' => $user->name,
+    //                     'role' => $user->role === 'counselor' ? 'counselor' : $user->role,
+    //                 ],
+    //                 'author_name' => $user->name,
+    //                 'author_type' => $user->role === 'counselor' ? 'counselor' : $user->role,
+    //                 'avatar_url' => $user->avatar,
+    //                 'is_counselor_verified' => (bool) $answer->is_verified_by_counselor,
+    //                 'upvotes' => 0,
+    //                 'is_helpful' => false,
+    //                 'is_reported' => false,
+    //                 'replies' => [],
+    //                 'relativeTime' => 'Just now',
+    //                 'showAllReplies' => false,
+    //                 // 'isMine' => true,
+    //                 // 'canDelete' => true,
+    //             ],
+    //         ], 201);
+    //     } catch (ValidationException $e) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'error' => 'Validation failed',
+    //             'message' => 'Please check your input.',
+    //             'errors' => $e->errors(),
+    //         ], 422);
+    //     } catch (\Exception $e) {
+    //         Log::error('Forum reply error', [
+    //             'thread_id' => $threadId,
+    //             'user_id' => $request->user()?->id,
+    //             'error' => $e->getMessage(),
+    //         ]);
+
+    //         return response()->json([
+    //             'success' => false,
+    //             'error' => 'Server error',
+    //             'message' => 'Something went wrong. Please try again.',
+    //         ], 500);
+    //     }
+    // }
+
     public function storeQuestionReply(Request $request, $threadId): JsonResponse
     {
         try {
             $request->validate([
-                'content' => 'required|string|max:5000|min:3',
+                'content' => 'required|string|min:3|max:5000',
             ]);
 
             $user = $request->user();
 
             $thread = Question::find($threadId);
+
             if (!$thread) {
                 return response()->json([
                     'success' => false,
@@ -270,24 +356,12 @@ class ForumController extends Controller
                 ], 404);
             }
 
-            $existingAnswer = Answer::where('question_id', $threadId)
-                ->where('user_id', $user->id)
-                ->first();
-
-            if ($existingAnswer) {
-                return response()->json([
-                    'success' => false,
-                    'error' => 'Already replied',
-                    'message' => 'You have already posted a reply to this question.',
-                    'existing_answer_id' => $existingAnswer->id,
-                ], 409);
-            }
-
+            // User can reply multiple times
             $answer = Answer::create([
-                'content' => $request->input('content'),
+                'content' => $request->content,
                 'question_id' => $threadId,
                 'user_id' => $user->id,
-                'is_verified_by_counselor' => $user->role === 'counselor' ? 1 : 0,
+                'is_verified_by_counselor' => $user->role === 'counselor',
             ]);
 
             return response()->json([
@@ -297,11 +371,12 @@ class ForumController extends Controller
                     'id' => $answer->id,
                     'content' => $answer->content,
                     'user' => [
+                        'id' => $user->id,
                         'name' => $user->name,
-                        'role' => $user->role === 'counselor' ? 'counselor' : $user->role,
+                        'role' => $user->role,
                     ],
                     'author_name' => $user->name,
-                    'author_type' => $user->role === 'counselor' ? 'counselor' : $user->role,
+                    'author_type' => $user->role,
                     'avatar_url' => $user->avatar,
                     'is_counselor_verified' => (bool) $answer->is_verified_by_counselor,
                     'upvotes' => 0,
@@ -309,19 +384,22 @@ class ForumController extends Controller
                     'is_reported' => false,
                     'replies' => [],
                     'relativeTime' => 'Just now',
-                    'showAllReplies' => false,
                     // 'isMine' => true,
                     // 'canDelete' => true,
                 ],
             ], 201);
+
         } catch (ValidationException $e) {
+
             return response()->json([
                 'success' => false,
                 'error' => 'Validation failed',
                 'message' => 'Please check your input.',
                 'errors' => $e->errors(),
             ], 422);
+
         } catch (\Exception $e) {
+
             Log::error('Forum reply error', [
                 'thread_id' => $threadId,
                 'user_id' => $request->user()?->id,
@@ -335,6 +413,7 @@ class ForumController extends Controller
             ], 500);
         }
     }
+
 
     /**
      * DELETE /api/forum/answers/{answerId}
@@ -515,6 +594,29 @@ class ForumController extends Controller
      * Body: { content, answer_id }
      * Auth required.
      */
+    // public function storeNestedReply(Request $request, $threadId): JsonResponse
+    // {
+    //     $validated = $request->validate([
+    //         'content' => 'required|string|max:1000',
+    //         'answer_id' => 'required|integer|exists:answers,id',
+    //     ]);
+
+    //     $user = $request->user();
+
+    //     $reply = Reply::create([
+    //         'content' => $validated['content'],
+    //         'user_id' => $user->id,
+    //         'answer_id' => $validated['answer_id'],
+    //     ]);
+
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'Nested reply created successfully.',
+    //         'reply' => $reply->load('user'),
+    //     ], 201);
+    // }
+
+
     public function storeNestedReply(Request $request, $threadId): JsonResponse
     {
         $validated = $request->validate([
@@ -530,12 +632,36 @@ class ForumController extends Controller
             'answer_id' => $validated['answer_id'],
         ]);
 
+        $reply->load('user');
+
         return response()->json([
             'success' => true,
             'message' => 'Nested reply created successfully.',
-            'reply' => $reply->load('user'),
+            'reply' => [
+                'id' => $reply->id,
+                'content' => $reply->content,
+                'answer_id' => $reply->answer_id,
+                'created_at' => $reply->created_at,
+                'updated_at' => $reply->updated_at,
+
+                'user' => [
+                    'id' => $reply->user->id,
+                    'name' => $reply->user->name,
+                    'role' => $reply->user->role,
+                    'avatar_url' => $reply->user->avatar_url,
+                ],
+
+                'author_name' => $reply->user->name,
+                'author_type' => $reply->user->role,
+                'avatar_url' => $reply->user->avatar_url,
+
+                'is_helpful' => false,
+                'is_reported' => false,
+                'relativeTime' => 'Just now'
+            ]
         ], 201);
     }
+
 
     /**
      * DELETE /api/forum/replies/{id}

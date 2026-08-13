@@ -127,6 +127,8 @@ import AskQuestionBox from "@/Components/Frontend/Forum/AskQuestionBox";
 import FrontendLayout from '@/Layouts/FrontendLayout';
 
 export default function ForumHomePage({ forumCategory, questions, counsellorsData }) {
+
+  //console.log('baba',questions);
   const [threads, setThreads] = useState(questions);
   const [filteredThreads, setFilteredThreads] = useState(questions);
   const [selectedCategories, setSelectedCategories] = useState([]);

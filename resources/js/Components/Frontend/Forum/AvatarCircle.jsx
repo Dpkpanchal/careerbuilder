@@ -45,11 +45,21 @@ function getInitials(name = "") {
 }
 
 export default function AvatarCircle({ name, imageUrl, size = 32 }) {
+
+   const finalImageUrl = imageUrl
+    ? imageUrl.startsWith('http')
+      ? imageUrl
+      : `/storage/${imageUrl}`
+    : null;
+
+  //console.log('dee', finalImageUrl);
+
+
   const initials = getInitials(name);
   const dimension = `${size}px`;
 
   // If image exists → show image
-  if (imageUrl) {
+  if (finalImageUrl) {
     return (
       <div
         className="forum-avatar"
@@ -57,7 +67,7 @@ export default function AvatarCircle({ name, imageUrl, size = 32 }) {
         aria-hidden="true"
       >
         <img
-          src={imageUrl}
+          src={finalImageUrl}
           alt={name}
           className="forum-avatar-img"
           loading="lazy"

@@ -520,20 +520,6 @@ export default function AuthModal({
         </div>
 
 
-        {/* <div className="col-12 col-sm-6">
-          <label className="auth-label">Confirm password</label>
-          <div className="auth-input-group">
-            <input
-              type="password"
-              className="form-control auth-input"
-              placeholder="Confirm password"
-              value={registerForm.data.password_confirmation}
-              onChange={(e) => registerForm.setData("password_confirmation", e.target.value)}
-              required
-            />
-          </div>
-        </div> */}
-
         <div className="col-12 col-sm-6">
           <label className="auth-label">Confirm password</label>
 
@@ -597,38 +583,103 @@ export default function AuthModal({
     </form>
   );
 
+
+  const handleVerificationCodePaste = (e) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData('text').trim();
+
+    // Sirf digits nikalo, agar user ne extra spaces ya dashes paste kiye ho
+    const digitsOnly = pastedData.replace(/\D/g, '');
+
+    if (digitsOnly.length === 0) return;
+
+    const newCode = ["", "", "", "", "", ""];
+    for (let i = 0; i < 6 && i < digitsOnly.length; i++) {
+      newCode[i] = digitsOnly[i];
+    }
+    setVerificationCode(newCode);
+    setVerificationError("");
+
+    // Focus last filled input ya last input agar sab bhar gaye
+    const lastFilledIndex = Math.min(digitsOnly.length, 6) - 1;
+    const targetInput = document.getElementById(`code-${lastFilledIndex}`);
+    if (targetInput) targetInput.focus();
+  };
+
+
+
+
+
+
+
+
+
   // --- Render Verification Code Input ---
+  // const renderVerificationCodeInput = () => (
+  //   <div className="verification-code-container mb-3">
+  //     <div className="d-flex justify-content-center gap-2">
+  //       {verificationCode.map((digit, index) => (
+  //         <input
+  //           key={index}
+  //           id={`code-${index}`}
+  //           type="text"
+  //           className="form-control verification-input"
+  //           maxLength="1"
+  //           value={digit}
+  //           onChange={(e) => handleVerificationCodeChange(index, e.target.value)}
+  //           onKeyDown={(e) => {
+  //             if (e.key === 'Backspace' && !digit && index > 0) {
+  //               const prevInput = document.getElementById(`code-${index - 1}`);
+  //               if (prevInput) prevInput.focus();
+  //             }
+  //           }}
+  //           autoFocus={index === 0}
+  //           required
+  //         />
+  //       ))}
+  //     </div>
+  //     {verificationError && (
+  //       <div className="alert alert-danger py-1 px-2 mt-2 auth-error d-flex align-items-center gap-2">
+  //         <AlertCircle size={16} />
+  //         {verificationError}
+  //       </div>
+  //     )}
+  //   </div>
+  // );
+
+
   const renderVerificationCodeInput = () => (
-    <div className="verification-code-container mb-3">
-      <div className="d-flex justify-content-center gap-2">
-        {verificationCode.map((digit, index) => (
-          <input
-            key={index}
-            id={`code-${index}`}
-            type="text"
-            className="form-control verification-input"
-            maxLength="1"
-            value={digit}
-            onChange={(e) => handleVerificationCodeChange(index, e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Backspace' && !digit && index > 0) {
-                const prevInput = document.getElementById(`code-${index - 1}`);
-                if (prevInput) prevInput.focus();
-              }
-            }}
-            autoFocus={index === 0}
-            required
-          />
-        ))}
-      </div>
-      {verificationError && (
-        <div className="alert alert-danger py-1 px-2 mt-2 auth-error d-flex align-items-center gap-2">
-          <AlertCircle size={16} />
-          {verificationError}
-        </div>
-      )}
+  <div className="verification-code-container mb-3">
+    <div className="d-flex justify-content-center gap-2">
+      {verificationCode.map((digit, index) => (
+        <input
+          key={index}
+          id={`code-${index}`}
+          type="text"
+          className="form-control verification-input"
+          maxLength="1"
+          value={digit}
+          onChange={(e) => handleVerificationCodeChange(index, e.target.value)}
+          onPaste={handleVerificationCodePaste}   // ✅ Ye line add karo
+          onKeyDown={(e) => {
+            if (e.key === 'Backspace' && !digit && index > 0) {
+              const prevInput = document.getElementById(`code-${index - 1}`);
+              if (prevInput) prevInput.focus();
+            }
+          }}
+          autoFocus={index === 0}
+          required
+        />
+      ))}
     </div>
-  );
+    {verificationError && (
+      <div className="alert alert-danger py-1 px-2 mt-2 auth-error d-flex align-items-center gap-2">
+        <AlertCircle size={16} />
+        {verificationError}
+      </div>
+    )}
+  </div>
+);
 
   // --- Render Forgot Form ---
   const renderForgotForm = () => {

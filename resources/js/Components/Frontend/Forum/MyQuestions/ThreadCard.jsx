@@ -78,7 +78,11 @@ export default function ThreadCard({
     ? categories.join(', ') 
     : null;
 
-  const hasCounselorReply = answers?.length > 0;
+  //const hasCounselorReply = answers?.length > 0;
+
+    const hasCounselorReply = answers?.some(answer => 
+    answer.user?.role === "counselor" || answer.is_verified_by_counselor
+  );
 
   // ✅ SAME DELETE FUNCTIONALITY - INSTANT REMOVAL
   const handleDeleteClick = (e) => {

@@ -88,7 +88,7 @@ export default function ForumTabs({ counselorName }) {
     e.preventDefault();
     router.visit(href, {
       preserveScroll: true,
-      preserveState: true,
+      //preserveState: true,
     });
   };
 

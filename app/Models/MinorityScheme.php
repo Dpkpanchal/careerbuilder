@@ -12,5 +12,6 @@ class MinorityScheme extends Model
     protected $fillable = [
         'subject',
         'web_link',
+        'is_active'
     ];
 }

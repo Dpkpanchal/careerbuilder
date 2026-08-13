@@ -34,7 +34,7 @@ class AuthController extends Controller
                 Auth::logout();
 
                 return back()->withErrors([
-                    'email' => 'Your account has been blocked. Please contact admin.',
+                    'email' => 'Your account has been blocked. Please contact the admin at admin@wbmdfc.org.',
                 ]);
             }
 

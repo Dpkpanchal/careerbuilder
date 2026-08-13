@@ -206,10 +206,13 @@
 <body>
     <div class="container">
         <!-- Header with Gradient -->
-        <div class="header-gradient">
-            <div class="logo-text">
-                🚀 Career Builder
-            </div>
+      <div class="header-gradient">
+             <img
+                src="{{ url('/images/wb-wbmdfc-logo-6985ea3b0f2a9.webp') }}"
+                alt="WB-MDFC Logo"
+                width="180"
+                style="display:block; margin:0 auto; border:0;"
+            >
             <div class="logo-subtitle">Empowering Your Career Journey</div>
             <div class="badge">🔐 Secure Verification</div>
         </div>
