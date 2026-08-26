@@ -29,7 +29,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 use App\Http\Controllers\Auth\OTPController;
 use App\Http\Controllers\Auth\PasswordResetController;
-
+use App\Http\Controllers\EmailChangeController;
 
 
 require __DIR__.'/admin.php';
@@ -114,6 +114,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
             Route::post('/profile', [UserProfileController::class, 'update']);
             Route::put('/profile/password', [UserProfileController::class, 'updatePassword']);
+
+            // ✅ Email change OTP routes
+            Route::post('/profile/email/otp/send', [EmailChangeController::class, 'sendOtp']);
+            Route::post('/profile/email/otp/verify', [EmailChangeController::class, 'verifyOtp']);
+
+
         });
 
 Route::get('/news-updates', [HomeController::class, 'showNewsUpdates'])->name('news.updates');

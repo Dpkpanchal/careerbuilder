@@ -67,6 +67,8 @@ class ForumController extends Controller
 
         $counsellors = User::with('counselorDetail')
             ->where('role', 'counselor')
+            ->where('is_active', 1)
+            ->where('is_blocked', 0)
             ->get()
             ->map(function ($user) {
                 return [
@@ -378,6 +380,8 @@ class ForumController extends Controller
 
         $counsellors = User::with('counselorDetail')
             ->where('role', 'counselor')
+            ->where('is_active', 1)
+            ->where('is_blocked', 0)
             ->get()
             ->map(function ($user) {
                 return [
@@ -434,6 +438,8 @@ class ForumController extends Controller
 
          $counsellors = User::with('counselorDetail')
             ->where('role', 'counselor')
+            ->where('is_active', 1)
+            ->where('is_blocked', 0)
             ->get()
             ->map(function ($user) {
                 return [
@@ -482,6 +488,8 @@ class ForumController extends Controller
 
          $counsellors = User::with('counselorDetail')
             ->where('role', 'counselor')
+            ->where('is_active', 1)
+            ->where('is_blocked', 0)
             ->get()
             ->map(function ($user) {
                 return [
@@ -510,6 +518,8 @@ class ForumController extends Controller
 
         $counsellors = User::with('counselorDetail')
             ->where('role', 'counselor')
+            ->where('is_active', 1)
+            ->where('is_blocked', 0)
             ->get()
             ->map(function ($user) {
                 return [

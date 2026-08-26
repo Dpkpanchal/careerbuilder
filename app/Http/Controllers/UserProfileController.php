@@ -17,11 +17,11 @@ class UserProfileController extends Controller
 
         $data = $request->validate([
             'name'   => 'required|string|max:255',
-            'email'  => [
-                'required',
-                'email',
-                Rule::unique('users')->ignore($user->id),
-            ],
+            // 'email'  => [
+            //     'required',
+            //     'email',
+            //     Rule::unique('users')->ignore($user->id),
+            // ],
             'role'   => 'required|string|max:50',
             'avatar' => 'nullable|image|max:2048',
         ]);
@@ -46,8 +46,7 @@ class UserProfileController extends Controller
         return back()->with('success', 'Profile updated successfully.');
     }
 
-
-
+   
     public function updatePassword(Request $request)
     {
    //  dd($request->all());
